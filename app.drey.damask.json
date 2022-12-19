@@ -1,0 +1,73 @@
+{
+    "app-id": "app.drey.damask",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "43",
+    "sdk": "org.gnome.Sdk",
+    "sdk-extensions": [
+        "org.freedesktop.Sdk.Extension.vala"
+    ],
+    "command": "damask",
+    "finish-args": [
+        "--share=network",
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--device=dri",
+        "--socket=wayland"
+    ],
+    "build-options": {
+        "append-path": "/usr/lib/sdk/vala/bin",
+        "prepend-ld-library-path": "/usr/lib/sdk/vala/lib",
+        "env": {}
+    },
+    "cleanup": [
+        "/include",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/doc",
+        "/share/gtk-doc",
+        "/share/man",
+        "/share/pkgconfig",
+        "/share/vala",
+        "*.la",
+        "*.a"
+    ],
+    "modules": [
+        {
+            "name": "blueprint-compiler",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler",
+                    "branch": "main"
+                }
+            ]
+        },
+        {
+            "name": "libportal",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dbackends=gtk4",
+                "-Ddocs=false"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/flatpak/libportal",
+                    "tag": "0.6"
+                }
+            ]
+        },
+        {
+            "name": "damask",
+            "builddir": true,
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "path": "."
+                }
+            ]
+        }
+    ]
+}

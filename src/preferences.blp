@@ -1,0 +1,38 @@
+using Gtk 4.0;
+using Adw 1;
+
+template DamaskPreferencesWindow : Adw.PreferencesWindow {
+  Adw.PreferencesPage {
+    Adw.PreferencesGroup {
+      Adw.ComboRow refresh_interval {
+        title: "Refresh interval";
+
+        model: StringList {
+          strings [
+            "30 seconds",
+            "1 minute",
+            "5 minutes",
+            "15 minutes",
+            "30 minutes",
+            "1 hour",
+            "6 hours",
+            "12 hours",
+            "24 hours"
+          ]
+        };
+      }
+      Adw.ActionRow {
+        title: "Run in background";
+        Switch run_in_background {
+          valign: center;
+        }
+      }
+      Adw.ActionRow {
+        title: "Start automatically upon login";
+        Switch autostart {
+          valign: center;
+        }
+      }
+    }
+  }
+}

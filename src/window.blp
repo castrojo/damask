@@ -1,0 +1,70 @@
+using Gtk 4.0;
+using Adw 1;
+
+template DamaskWindow : Adw.ApplicationWindow {
+  default-width: 600;
+  default-height: 400;
+  title: "Damask";
+
+  Box {
+    orientation: vertical;
+
+    HeaderBar header_bar {
+      [start]
+      Button {
+        icon-name: "view-refresh-symbolic";
+        action-name: "app.refresh";
+      }
+
+      [end]
+      MenuButton {
+        icon-name: "open-menu-symbolic";
+        menu-model: primary_menu;
+      }
+
+      [end]
+      Button {
+        icon-name: "dialog-information-symbolic";
+        action-name: "app.info";
+      }
+    }
+
+    Gtk.CheckButton active_source {
+      visible: false;
+    }
+
+    Adw.Clamp {
+      child: Box {
+        orientation: vertical;
+        margin-top: 24;
+        margin-bottom: 24;
+        margin-start: 12;
+        margin-end: 12;
+        spacing: 24;
+        Gtk.ListBox sources {
+          selection-mode: none;
+          styles ["boxed-list" ]
+        }
+      };
+    }
+  }
+}
+
+menu primary_menu {
+  section {
+    item {
+      label: _("_Preferences");
+      action: "app.preferences";
+    }
+
+    item {
+      label: _("_Keyboard Shortcuts");
+      action: "win.show-help-overlay";
+    }
+
+    item {
+      label: _("_About Damask");
+      action: "app.about";
+    }
+  }
+}

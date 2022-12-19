@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Damask
+Exec=damask
+Icon=app.drey.damask
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="damask">
+  <schema id="app.drey.damask" path="/app/drey/damask/">
+		<key name="refresh-interval" type="u">
+			<default>60</default>
+		</key>
+
+		<key name="active-source" type="s">
+			<default>"Disabled"</default>
+		</key>
+
+		<key name="run-in-background" type="b">
+			<default>true</default>
+		</key>
+
+    <key name="autostart" type="b">
+      <default>false</default>
+    </key>
+	</schema>
+
+	<schema id="app.drey.damask.sources.wallhaven" path="/app/drey/damask/sources/wallhaven/">
+		<key name="username" type="s">
+			<default>""</default>
+		</key>
+
+		<key name="api-key" type="s">
+			<default>""</default>
+		</key>
+
+		<key name="search-mode" type="s">
+			<default>"query"</default>
+		</key>
+
+		<key name="query" type="s">
+			<default>""</default>
+		</key>
+
+		<key name="collection-id" type="u">
+			<default>0</default>
+		</key>
+
+		<key name="sort-by" type="s">
+			<default>"date_added"</default>
+		</key>
+
+		<key name="sort-order" type="i">
+			<default>1</default>
+		</key>
+
+		<key name="top-list-range" type="s">
+			<default>"1d"</default>
+		</key>
+
+		<key name="category-general" type="b">
+			<default>true</default>
+		</key>
+
+		<key name="category-anime" type="b">
+			<default>true</default>
+		</key>
+
+		<key name="category-people" type="b">
+			<default>true</default>
+		</key>
+
+		<key name="purity-sfw" type="b">
+			<default>true</default>
+		</key>
+
+		<key name="purity-sketchy" type="b">
+			<default>false</default>
+		</key>
+
+		<key name="purity-nsfw" type="b">
+			<default>false</default>
+		</key>
+
+		<key name="color-enabled" type="b">
+			<default>false</default>
+		</key>
+
+		<key name="color" type="s">
+			<default>"rgba(0,0,0)"</default>
+		</key>
+	</schema>
+
+	<schema id="app.drey.damask.sources.bing" path="/app/drey/damask/sources/bing/">
+		<key name="market" type="s">
+			<default>"en-US"</default>
+		</key>
+
+		<key name="resolution" type="s">
+			<default>"1920x1080"</default>
+		</key>
+	</schema>
+</schemalist>
