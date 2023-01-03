@@ -1,9 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
-	<id>app.drey.damask.desktop</id>
+	<id>app.drey.damask</id>
+  <name>Damask</name>
+  <content_rating type="oars-1.1">
+    <content_attribute id="violence-cartoon">moderate</content_attribute>
+    <content_attribute id="violence-fantasy">moderate</content_attribute>
+    <content_attribute id="violence-realistic">moderate</content_attribute>
+    <content_attribute id="violence-bloodshed">moderate</content_attribute>
+    <content_attribute id="violence-desecration">moderate</content_attribute>
+    <content_attribute id="violence-slavery">mild</content_attribute>
+    <content_attribute id="drugs-alcohol">moderate</content_attribute>
+    <content_attribute id="drugs-narcotics">moderate</content_attribute>
+    <content_attribute id="drugs-tobacco">moderate</content_attribute>
+    <content_attribute id="sex-nudity">intense</content_attribute>
+    <content_attribute id="sex-themes">moderate</content_attribute>
+    <content_attribute id="language-profanity">intense</content_attribute>
+    <content_attribute id="language-humor">intense</content_attribute>
+    <content_attribute id="language-discrimination">mild</content_attribute>
+    <content_attribute id="money-gambling">intense</content_attribute>
+  </content_rating>
 	<metadata_license>CC0-1.0</metadata_license>
 	<project_license>GPL-3.0-or-later</project_license>
+  <summary>Automatically set wallpaper images from Internet sources</summary>
 	<description>
-	  <p>No description</p>
+	  <p>Damask is an automatic wallpaper application. It currently supports setting the wallpaper image from the following sources:</p>
+	  <ul>
+	    <li>wallhaven.cc</li>
+      <li>Microsoft Bing Wallpaper of the dayNo description</li>
+	  </ul>
 	</description>
+  <url type="homepage">https://gitlab.gnome.org/subpop/damask</url>
+  <url type="bugtracker">https://gitlab.gnome.org/subpop/damask/-/issues</url>
+  <releases>
+    <release version="0.1.0" date="2023-01-03"/>
+  </releases>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://gitlab.gnome.org/subpop/damask/-/raw/main/data/damask.png</image>
+    </screenshot>
+  </screenshots>
 </component>

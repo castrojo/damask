@@ -6,4 +6,6 @@ wallpaper image from the following sources:
 * NASA Astronomy Picture of the Day[^1]
 * Unsplash[^1]
 
+![application screenshot](./data/damask.png)
+
 [^1]: Planned
