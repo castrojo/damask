@@ -1,11 +1,8 @@
 {
     "app-id": "app.drey.damask",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "43",
+    "runtime-version": "master",
     "sdk": "org.gnome.Sdk",
-    "sdk-extensions": [
-        "org.freedesktop.Sdk.Extension.vala"
-    ],
     "command": "damask",
     "finish-args": [
         "--share=network",
