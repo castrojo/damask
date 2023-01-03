@@ -11,7 +11,7 @@ blueprints = custom_target('blueprints',
   output: '.',
   command: [find_program('blueprint-compiler'),
               'batch-compile',
-              '@OUTPUT@',
+              '@OUTDIR@',
               '@CURRENT_SOURCE_DIR@',
               '@INPUT@']
 )
@@ -41,11 +41,12 @@ damask_deps = [
 damask_sources += gnome.compile_resources('damask-resources',
   'damask.gresource.xml',
   dependencies: blueprints,
-  c_name: 'damask'
+  c_name: 'damask',
+  source_dir: meson.current_build_dir()
 )
 
 executable('damask', damask_sources,
   dependencies: damask_deps,
        install: true,
-     vala_args: ['--gresourcesdir=' + blueprints.full_path(),]
+     vala_args: ['--gresourcesdir=' + meson.current_build_dir()]
 )
