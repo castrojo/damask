@@ -19,7 +19,7 @@
  */
 
 namespace Damask {
-    [GtkTemplate (ui = "/app/drey/damask/info-window.ui")]
+    [GtkTemplate (ui = "/app/drey/Damask/info-window.ui")]
     public class InfoWindow : Adw.ApplicationWindow {
         [GtkChild] private unowned Gtk.Picture preview_picture;
         [GtkChild] private unowned Gtk.Label resolution_label;

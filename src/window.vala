@@ -19,7 +19,7 @@
  */
 
 namespace Damask {
-    [GtkTemplate (ui = "/app/drey/damask/window.ui")]
+    [GtkTemplate (ui = "/app/drey/Damask/window.ui")]
     public class Window : Adw.ApplicationWindow {
         [GtkChild] private unowned Gtk.ListBox sources;
         [GtkChild] private unowned Gtk.CheckButton active_source;

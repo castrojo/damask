@@ -1,4 +1,4 @@
-application_id = 'app.drey.damask'
+application_id = 'app.drey.Damask'
 
 scalable_dir = join_paths('hicolor', 'scalable', 'apps')
 install_data(

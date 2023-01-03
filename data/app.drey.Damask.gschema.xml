@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="damask">
-  <schema id="app.drey.damask" path="/app/drey/damask/">
+	<schema id="app.drey.Damask" path="/app/drey/Damask/">
 		<key name="refresh-interval" type="u">
 			<default>60</default>
 		</key>
@@ -13,12 +13,12 @@
 			<default>true</default>
 		</key>
 
-    <key name="autostart" type="b">
-      <default>false</default>
-    </key>
+		<key name="autostart" type="b">
+			<default>false</default>
+		</key>
 	</schema>
 
-	<schema id="app.drey.damask.sources.wallhaven" path="/app/drey/damask/sources/wallhaven/">
+	<schema id="app.drey.Damask.sources.wallhaven" path="/app/drey/Damask/sources/wallhaven/">
 		<key name="username" type="s">
 			<default>""</default>
 		</key>
@@ -84,7 +84,7 @@
 		</key>
 	</schema>
 
-	<schema id="app.drey.damask.sources.bing" path="/app/drey/damask/sources/bing/">
+	<schema id="app.drey.Damask.sources.bing" path="/app/drey/Damask/sources/bing/">
 		<key name="market" type="s">
 			<default>"en-US"</default>
 		</key>

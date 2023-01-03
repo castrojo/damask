@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/app/drey/damask">
+  <gresource prefix="/app/drey/Damask">
     <file preprocess="xml-stripblanks">info-window.ui</file>
     <file preprocess="xml-stripblanks">preferences.ui</file>
     <file preprocess="xml-stripblanks">window.ui</file>

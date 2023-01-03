@@ -1,6 +1,6 @@
-data/app.drey.damask.desktop.in
-data/app.drey.damask.appdata.xml.in
-data/app.drey.damask.gschema.xml
+data/app.drey.Damask.desktop.in
+data/app.drey.Damask.appdata.xml.in
+data/app.drey.Damask.gschema.xml
 src/application.vala
 src/info-window.blp
 src/info-window.vala

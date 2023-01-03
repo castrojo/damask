@@ -19,7 +19,7 @@
  */
 
 namespace Damask {
-    [GtkTemplate (ui = "/app/drey/damask/preferences.ui")]
+    [GtkTemplate (ui = "/app/drey/Damask/preferences.ui")]
     public class PreferencesWindow : Adw.PreferencesWindow {
         private static Gee.ArrayList<uint> intervals = new Gee.ArrayList<uint>.wrap ({ 30, 60, 300, 900, 1800, 3600, 21600, 43200, 86400 });
         [GtkChild] private unowned Adw.ComboRow refresh_interval;

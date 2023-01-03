@@ -1,6 +1,6 @@
 desktop_file = i18n.merge_file(
-        input: 'app.drey.damask.desktop.in',
-       output: 'app.drey.damask.desktop',
+        input: 'app.drey.Damask.desktop.in',
+       output: 'app.drey.Damask.desktop',
          type: 'desktop',
        po_dir: '../po',
       install: true,
@@ -13,8 +13,8 @@ if desktop_utils.found()
 endif
 
 appstream_file = i18n.merge_file(
-        input: 'app.drey.damask.appdata.xml.in',
-       output: 'app.drey.damask.appdata.xml',
+        input: 'app.drey.Damask.appdata.xml.in',
+       output: 'app.drey.Damask.appdata.xml',
        po_dir: '../po',
       install: true,
   install_dir: join_paths(get_option('datadir'), 'appdata')
@@ -25,7 +25,7 @@ if appstream_util.found()
   test('Validate appstream file', appstream_util, args: ['validate', appstream_file])
 endif
 
-install_data('app.drey.damask.gschema.xml',
+install_data('app.drey.Damask.gschema.xml',
   install_dir: join_paths(get_option('datadir'), 'glib-2.0/schemas')
 )
 
