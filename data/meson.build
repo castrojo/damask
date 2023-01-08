@@ -22,7 +22,7 @@ appstream_file = i18n.merge_file(
               output: '@0@.appdata.xml.in'.format(app_id),
               configuration: config_data
           ),
-       output: 'app.drey.Damask.appdata.xml',
+       output: '@0@.appdata.xml'.format(app_id),
        po_dir: '../po',
       install: true,
   install_dir: join_paths(get_option('datadir'), 'appdata')
