@@ -14,6 +14,6 @@ flatpak:
     APP_ID: "app.drey.Damask"
 
 lint:commit:
-  stage: lint
+  stage: test
   script:
     - echo "${CI_COMMIT_MESSAGE}" | npx commitlint
