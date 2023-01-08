@@ -12,3 +12,8 @@ flatpak:
     FLATPAK_MODULE: "damask"
     RUNTIME_REPO: "https://nightly.gnome.org/gnome-nightly.flatpakrepo"
     APP_ID: "app.drey.Damask"
+
+lint:commit:
+  stage: lint
+  script:
+    - echo "${CI_COMMIT_MESSAGE}" | npx commitlint
