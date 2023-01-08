@@ -20,7 +20,7 @@
 
 namespace Damask {
     public class Application : Adw.Application {
-        public static Settings settings = new Settings ("app.drey.Damask");
+        public static Settings settings = new Settings (Constants.APP_ID);
 
         public ListStore sources = new ListStore (typeof(WallpaperSource));
 
@@ -30,7 +30,7 @@ namespace Damask {
         private bool skip_window = false;
 
         public Application () {
-            Object (application_id: "app.drey.Damask", flags: ApplicationFlags.FLAGS_NONE);
+            Object (application_id: Constants.APP_ID, flags: ApplicationFlags.FLAGS_NONE);
         }
 
         construct {
@@ -162,9 +162,9 @@ namespace Damask {
             var about = new Adw.AboutWindow () {
                 transient_for = this.active_window,
                 application_name = "Damask",
-                application_icon = "app.drey.Damask",
+                application_icon = Constants.APP_ID,
                 developer_name = "Link Dupont",
-                version = "0.1.0",
+                version = Constants.VERSION,
                 developers = developers,
                 copyright = "© 2022 Link Dupont",
             };

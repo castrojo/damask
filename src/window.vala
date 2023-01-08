@@ -28,6 +28,10 @@ namespace Damask {
             Object (application: app);
             Application bg_app = app as Application;
 
+            if (Constants.APP_ID.contains (".Devel")) {
+                this.add_css_class ("devel");
+            }
+
             this.sources.bind_model (bg_app.sources, (item) => {
                 WallpaperSource wp_source = item as WallpaperSource;
                 Adw.ActionRow row = new Adw.ActionRow ();

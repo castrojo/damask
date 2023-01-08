@@ -89,7 +89,7 @@ namespace Damask.Sources.Wallhaven {
     }
 
     public class Wallhaven : Object, WallpaperSource {
-        private Settings settings = new Settings("app.drey.Damask.sources.wallhaven");
+        private Settings settings = new Settings(@"$(Constants.APP_ID).sources.wallhaven");
         private static Gee.ArrayList<string> sort_by = new Gee.ArrayList<string>.wrap ({ "date_added", "relevance", "random", "views", "favorites", "top_list" });
         private static Gee.ArrayList<string> top_list_range = new Gee.ArrayList<string>.wrap ({ "1d", "3d", "1w", "1M", "3M", "6M", "1y" });
 
@@ -297,7 +297,7 @@ namespace Damask.Sources.Wallhaven {
         }
 
         public Adw.PreferencesPage? prefs () {
-            Gtk.Builder builder = new Gtk.Builder.from_resource ("/app/drey/Damask/sources/wallhaven.ui");
+            Gtk.Builder builder = new Gtk.Builder.from_resource (@"$(Constants.RESOURCE_PATH_PREFIX)/sources/wallhaven.ui");
             Adw.PreferencesPage prefs = builder.get_object("prefs") as Adw.PreferencesPage;
 
             Gtk.Entry username = builder.get_object("username") as Gtk.Entry;

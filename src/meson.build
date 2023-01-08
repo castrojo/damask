@@ -28,6 +28,12 @@ damask_sources = [
   'window.vala',
 ]
 
+damask_sources += configure_file(
+  input: 'constants.vala.in',
+  output: 'constants.vala',
+  configuration: config_data
+)
+
 damask_deps = [
   dependency('gtk4'),
   dependency('libadwaita-1'),
@@ -39,7 +45,11 @@ damask_deps = [
 ]
 
 damask_sources += gnome.compile_resources('damask-resources',
-  'damask.gresource.xml',
+  configure_file(
+    input: '@0@.gresource.xml.in'.format(meson.project_name()),
+    output: '@0@.gresource.xml'.format(meson.project_name()),
+    configuration: config_data
+  ),
   dependencies: blueprints,
   c_name: 'damask',
   source_dir: meson.current_build_dir()

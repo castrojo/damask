@@ -46,7 +46,7 @@ namespace Damask.Sources.Bing {
     }
 
     public class Bing : Object, WallpaperSource {
-        private Settings settings = new Settings("app.drey.Damask.sources.bing");
+        private Settings settings = new Settings(@"$(Constants.APP_ID).sources.bing");
         private static Gee.ArrayList<string> markets = new Gee.ArrayList<string>.wrap ({ "en-US", "zh-CN", "ja-JP", "en-AU", "en-GB", "de-DE", "en-NZ", "en-CA", "en-IN", "fr-FR", "fr-CA" });
         private static Gee.ArrayList<string> resolutions = new Gee.ArrayList<string>.wrap ({ "1920x1080", "1366x768", "UHD (3840x2160)" });
 
@@ -101,7 +101,7 @@ namespace Damask.Sources.Bing {
         }
 
         public Adw.PreferencesPage? prefs () {
-            Gtk.Builder builder = new Gtk.Builder.from_resource ("/app/drey/Damask/sources/bing.ui");
+            Gtk.Builder builder = new Gtk.Builder.from_resource (@"$(Constants.RESOURCE_PATH_PREFIX)/sources/bing.ui");
             Adw.PreferencesPage prefs = builder.get_object("prefs") as Adw.PreferencesPage;
 
             Adw.ComboRow market = builder.get_object("market") as Adw.ComboRow;

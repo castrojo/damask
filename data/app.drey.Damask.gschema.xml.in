@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="damask">
-	<schema id="app.drey.Damask" path="/app/drey/Damask/">
+	<schema id="@APP_ID@" path="@RESOURCE_PATH@/">
 		<key name="refresh-interval" type="u">
 			<default>60</default>
 		</key>
@@ -18,7 +18,7 @@
 		</key>
 	</schema>
 
-	<schema id="app.drey.Damask.sources.wallhaven" path="/app/drey/Damask/sources/wallhaven/">
+	<schema id="@APP_ID@.sources.wallhaven" path="@RESOURCE_PATH@/sources/wallhaven/">
 		<key name="username" type="s">
 			<default>""</default>
 		</key>
@@ -84,7 +84,7 @@
 		</key>
 	</schema>
 
-	<schema id="app.drey.Damask.sources.bing" path="/app/drey/Damask/sources/bing/">
+	<schema id="@APP_ID@.sources.bing" path="@RESOURCE_PATH@/sources/bing/">
 		<key name="market" type="s">
 			<default>"en-US"</default>
 		</key>

@@ -7,11 +7,11 @@ flatpak:
   extends: .flatpak
   stage: test
   variables:
-    BUNDLE: "app.drey.Damask.flatpak"
-    MANIFEST_PATH: "app.drey.Damask.json"
+    BUNDLE: "app.drey.Damask.Devel.flatpak"
+    MANIFEST_PATH: "app.drey.Damask.Devel.json"
     FLATPAK_MODULE: "damask"
     RUNTIME_REPO: "https://nightly.gnome.org/gnome-nightly.flatpakrepo"
-    APP_ID: "app.drey.Damask"
+    APP_ID: "app.drey.Damask.Devel"
 
 lint:commit:
   stage: test
