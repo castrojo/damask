@@ -28,6 +28,8 @@ namespace Damask {
             Object (application: app);
             Application bg_app = app as Application;
 
+            app.set_accels_for_action ("win.show-help-overlay", {"<primary>question"});
+
             if (Constants.APP_ID.contains (".Devel")) {
                 this.add_css_class ("devel");
             }
@@ -67,6 +69,12 @@ namespace Damask {
 
                 return row;
             });
+        }
+
+        construct {
+            Gtk.Builder builder = new Gtk.Builder.from_resource (@"$(Constants.RESOURCE_PATH_PREFIX)/shortcuts.ui");
+            Gtk.ShortcutsWindow help_overlay = builder.get_object ("help_overlay") as Gtk.ShortcutsWindow;
+            this.set_help_overlay (help_overlay);
         }
     }
 }

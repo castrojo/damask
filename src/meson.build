@@ -1,6 +1,7 @@
 damask_blueprints = [
   'info-window.blp',
   'preferences.blp',
+  'shortcuts.blp',
   'sources/bing.blp',
   'sources/wallhaven.blp',
   'window.blp'
