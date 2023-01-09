@@ -23,18 +23,22 @@ namespace Damask {
     public class Window : Adw.ApplicationWindow {
         [GtkChild] private unowned Gtk.ListBox sources;
         [GtkChild] private unowned Gtk.CheckButton active_source;
+        private ListStore source_store = new ListStore (typeof(WallpaperSource));
 
         public Window (Gtk.Application app) {
             Object (application: app);
-            Application bg_app = app as Application;
 
-            app.set_accels_for_action ("win.show-help-overlay", {"<primary>question"});
+            this.application.set_accels_for_action ("win.show-help-overlay", {"<primary>question"});
 
             if (Constants.APP_ID.contains (".Devel")) {
                 this.add_css_class ("devel");
             }
 
-            this.sources.bind_model (bg_app.sources, (item) => {
+            foreach (WallpaperSource src in (app as Application).sources.values) {
+                this.source_store.append (src);
+            }
+
+            this.sources.bind_model (this.source_store, (item) => {
                 WallpaperSource wp_source = item as WallpaperSource;
                 Adw.ActionRow row = new Adw.ActionRow ();
                 row.title = wp_source.title;
@@ -69,9 +73,7 @@ namespace Damask {
 
                 return row;
             });
-        }
 
-        construct {
             Gtk.Builder builder = new Gtk.Builder.from_resource (@"$(Constants.RESOURCE_PATH_PREFIX)/shortcuts.ui");
             Gtk.ShortcutsWindow help_overlay = builder.get_object ("help_overlay") as Gtk.ShortcutsWindow;
             this.set_help_overlay (help_overlay);

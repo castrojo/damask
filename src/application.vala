@@ -22,11 +22,31 @@ namespace Damask {
     public class Application : Adw.Application {
         public static Settings settings = new Settings (Constants.APP_ID);
 
-        public ListStore sources = new ListStore (typeof(WallpaperSource));
+        /**
+         * sources is a table mapping loaded sources to a string identifier.
+         * It is used to look up and change the active_source reference when
+         * handling the active-source setting key change.
+         */
+        public Gee.HashMap<string, WallpaperSource> sources = new Gee.HashMap<string, WallpaperSource> ();
 
-        private Gee.HashMap<string, WallpaperSource> sources_map = new Gee.HashMap<string, WallpaperSource> ();
+        /**
+         * active_source is a weak reference to the active wallpaper source. It
+         * is used when the refresh timer triggers.
+         */
         private WallpaperSource? active_source;
+
+        /**
+         * source_id is the ID value of the main loop timer task. It is used
+         * to remove existing main loop events when switching active wallpaper
+         * source.
+         */
         private uint source_id;
+
+        /**
+         * skip_window is used to avoid presenting the main window of the
+         * program. It is set to true when the program is started with the
+         * --background option.
+         */
         private bool skip_window = false;
 
         public Application () {
@@ -58,16 +78,16 @@ namespace Damask {
             };
             this.add_main_option_entries (option_entries);
 
-            sources.append(new Sources.Manual.Manual());
-            sources.append(new Sources.Bing.Bing());
-            sources.append(new Sources.Wallhaven.Wallhaven());
+            WallpaperSource manual = new Sources.Manual.Manual ();
+            sources.set (manual.title, manual);
 
-            for (int i = 0; i < sources.get_n_items (); i++) {
-                var source = sources.get_item (i) as WallpaperSource;
-                sources_map.set(source.title, source);
-            }
+            WallpaperSource bing = new Sources.Bing.Bing ();
+            sources.set (bing.title, bing);
 
-            active_source = sources_map.get(Application.settings.get_string ("active-source"));
+            WallpaperSource wallhaven = new Sources.Wallhaven.Wallhaven () as WallpaperSource;
+            sources.set (wallhaven.title, wallhaven);
+
+            active_source = sources.get(Application.settings.get_string ("active-source"));
         }
 
         public override int handle_local_options (VariantDict options) {
@@ -82,19 +102,22 @@ namespace Damask {
             active_source.changed.connect (this.on_active_source_changed);
 
             Application.settings.changed["active-source"].connect((key) => {
-                debug(@"deactivating $(active_source.title)");
+                debug(@"active-source: $(active_source.title)\tdeactivating");
+                active_source.changed.disconnect (this.on_active_source_changed);
                 Source.remove (this.source_id);
                 this.source_id = 0;
-                active_source.changed.disconnect (this.on_active_source_changed);
+                debug(@"active-source: $(active_source.title)\tdeactivated");
 
-                active_source = sources_map.get(Application.settings.get_string (key));
+                debug(@"active-source: $(active_source.title): activating");
+                active_source = sources.get (Application.settings.get_string (key));
                 this.install_timer ();
                 active_source.changed.connect (this.on_active_source_changed);
-                debug(@"activating $(active_source.title)");
+                debug(@"active-source: $(active_source.title): activated");
             });
 
             Application.settings.changed["refresh-interval"].connect ((key) => {
                 Source.remove (this.source_id);
+                this.source_id = 0;
                 this.install_timer ();
             });
 
@@ -217,3 +240,4 @@ namespace Damask {
         }
     }
 }
+
