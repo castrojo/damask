@@ -34,7 +34,8 @@ namespace Damask {
                 this.add_css_class ("devel");
             }
 
-            foreach (WallpaperSource src in (app as Application).sources.values) {
+            Application application = app as Application;
+            foreach (WallpaperSource src in application.sources.values) {
                 this.source_store.append (src);
             }
 
