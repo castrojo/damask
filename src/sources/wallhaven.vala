@@ -56,7 +56,6 @@ namespace Damask.Sources.Wallhaven {
     internal class Metadata : Object, Json.Serializable {
         internal uint current_page { get; set; }
         internal uint last_page { get; set; }
-        internal string per_page { get; set; }
         internal uint total { get; set; }
         internal string? seed { get; set; }
     }
