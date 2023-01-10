@@ -108,11 +108,11 @@ namespace Damask {
                 this.source_id = 0;
                 debug(@"active-source: $(active_source.title)\tdeactivated");
 
-                debug(@"active-source: $(active_source.title): activating");
+                debug(@"active-source: $(active_source.title):\tactivating");
                 active_source = sources.get (Application.settings.get_string (key));
                 this.install_timer ();
                 active_source.changed.connect (this.on_active_source_changed);
-                debug(@"active-source: $(active_source.title): activated");
+                debug(@"active-source: $(active_source.title):\tactivated");
             });
 
             Application.settings.changed["refresh-interval"].connect ((key) => {
