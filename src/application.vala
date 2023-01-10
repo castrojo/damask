@@ -104,17 +104,17 @@ namespace Damask {
             active_source.changed.connect (this.on_active_source_changed);
 
             Application.settings.changed["active-source"].connect((key) => {
-                debug(@"active-source: $(active_source.title)\tdeactivating");
-                active_source.changed.disconnect (this.on_active_source_changed);
-                Source.remove (this.source_id);
-                this.source_id = 0;
-                debug(@"active-source: $(active_source.title)\tdeactivated");
-
-                debug(@"active-source: $(active_source.title):\tactivating");
-                active_source = sources.get (Application.settings.get_string (key));
-                this.install_timer ();
-                active_source.changed.connect (this.on_active_source_changed);
-                debug(@"active-source: $(active_source.title):\tactivated");
+                if (active_source.title == Application.settings.get_string (key)) {
+                    active_source.changed.disconnect (this.on_active_source_changed);
+                    Source.remove (this.source_id);
+                    this.source_id = 0;
+                    debug(@"deactivated '$(active_source.title)'");
+                } else {
+                    active_source = sources.get (Application.settings.get_string (key));
+                    this.install_timer ();
+                    active_source.changed.connect (this.on_active_source_changed);
+                    debug(@"activated '$(active_source.title)'");
+                }
             });
 
             Application.settings.changed["refresh-interval"].connect ((key) => {
