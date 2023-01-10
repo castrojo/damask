@@ -98,7 +98,9 @@ namespace Damask {
         public override void startup () {
             base.startup ();
 
+            this.active_source.refresh ();
             this.install_timer ();
+
             active_source.changed.connect (this.on_active_source_changed);
 
             Application.settings.changed["active-source"].connect((key) => {
