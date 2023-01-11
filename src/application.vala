@@ -209,7 +209,7 @@ namespace Damask {
         }
 
         private void on_info_action () {
-            var info = new Damask.InfoWindow (this, this.active_source.current_wallpaper);
+            var info = new Damask.InfoWindow (this, this.active_source);
             info.set_transient_for (this.active_window);
             info.present ();
         }
