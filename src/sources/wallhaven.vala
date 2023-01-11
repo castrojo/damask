@@ -87,6 +87,11 @@ namespace Damask.Sources.Wallhaven {
         internal uint count { get; set; }
     }
 
+    internal struct SyntaxExample {
+        public string example;
+        public string description;
+    }
+
     public class Wallhaven : Object, WallpaperSource {
         private Settings settings = new Settings(@"$(Constants.APP_ID).sources.wallhaven");
         private static Gee.ArrayList<string> sort_by = new Gee.ArrayList<string>.wrap ({ "date_added", "relevance", "random", "views", "favorites", "top_list" });
@@ -445,6 +450,43 @@ namespace Damask.Sources.Wallhaven {
             color.color_set.connect (() => {
                 Gdk.RGBA rgba = color.get_rgba ();
                 this.settings.set_string ("color", rgba.to_string ());
+            });
+
+            Gtk.Button syntax_help = builder.get_object("syntax_help") as Gtk.Button;
+            syntax_help.clicked.connect (() => {
+                const SyntaxExample[] examples = {
+                    { "<tt>tagname</tt>", "search fuzzily for a tag/keyword" },
+                    { "<tt>-tagname</tt>", "exclude a tag/keyword" },
+                    { "<tt>+tag1 +tag2</tt>", "must have tag1 and tag2" },
+                    { "<tt>+tag1 -tag2</tt>", "must have tag1 and NOT tag2" },
+                    { "<tt>@username</tt>", "user uploads" },
+                    { "<tt>id:123</tt>", "Exact tag search (can not be combined)" },
+                    { "<tt>type:{png/jpg}</tt>", "Search for file type (jpg = jpeg)" },
+                    { "<tt>like:wallpaper ID</tt>", "Find wallpapers with similar tags" }
+                };
+
+                Gtk.Box query_example = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12);
+                Gtk.Box example_examples = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
+                Gtk.Box example_descriptions = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
+                foreach (SyntaxExample example in examples) {
+                    Gtk.Label syntax_label = new Gtk.Label (example.example);
+                    syntax_label.use_markup = true;
+                    syntax_label.halign = Gtk.Align.START;
+
+                    Gtk.Label syntax_description = new Gtk.Label (example.description);
+                    syntax_description.halign = Gtk.Align.START;
+                    syntax_description.add_css_class ("dim-label");
+
+                    example_examples.append (syntax_label);
+                    example_descriptions.append (syntax_description);
+                }
+                query_example.append (example_examples);
+                query_example.append (example_descriptions);
+
+                Gtk.Popover popover = new Gtk.Popover ();
+                popover.child = query_example;
+                popover.set_parent (syntax_help);
+                popover.popup ();
             });
 
             return prefs;
