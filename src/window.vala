@@ -49,6 +49,8 @@ namespace Damask {
                 prefs_button.valign = Gtk.Align.CENTER;
                 prefs_button.clicked.connect ((button) => {
                     var prefs_window = new Adw.PreferencesWindow ();
+                    prefs_window.default_height = 400;
+                    prefs_window.default_width = 500;
                     prefs_window.set_search_enabled (false);
                     var prefs = wp_source.prefs ();
                     if (prefs != null) {

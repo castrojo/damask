@@ -2,8 +2,8 @@ using Gtk 4.0;
 using Adw 1;
 
 template DamaskWindow : Adw.ApplicationWindow {
-  default-width: 600;
-  default-height: 400;
+  default-width: 400;
+  default-height: 300;
   title: "Damask";
 
   Box {
@@ -24,7 +24,7 @@ template DamaskWindow : Adw.ApplicationWindow {
 
       [end]
       Button {
-        icon-name: "dialog-information-symbolic";
+        icon-name: "folder-pictures-symbolic";
         action-name: "app.info";
       }
     }
