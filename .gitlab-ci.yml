@@ -16,7 +16,7 @@ flatpak@x86_64:
 flatpak@aarch64:
   extends: ['.flatpak@aarch64', '.vars-devel']
 
- nightly@x86_64:
+nightly@x86_64:
   extends: '.publish_nightly'
   # assuming your job in named 'flatpak@x86_64'
   needs: ['flatpak@x86_64']
