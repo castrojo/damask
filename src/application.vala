@@ -114,6 +114,7 @@ namespace Damask {
                 this.hold ();
             }
             this.current_source = this.sources.get (this.settings.get_string ("active-source"));
+            this.current_source.changed.connect (this.current_source_changed);
             this.current_source.refresh ();
             this.attach_timer ();
         }
@@ -140,7 +141,9 @@ namespace Damask {
             Xdp.Portal portal = new Xdp.Portal ();
             portal.set_wallpaper.begin (null, uri, Xdp.WallpaperFlags.BACKGROUND, null, (src, res) => {
                 try {
-                    if (!portal.set_wallpaper.end (res)) {
+                    if (portal.set_wallpaper.end (res)) {
+                        this.current_wallpaper = this.current_source.current_wallpaper;
+                    } else {
                         error ("set_wallpaper failed");
                     }
                 } catch (Error e) {

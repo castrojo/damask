@@ -2,8 +2,8 @@ using Gtk 4.0;
 using Adw 1;
 
 template DamaskWindow : Adw.ApplicationWindow {
-  default-width: 400;
-  default-height: 300;
+  default-width: 600;
+  default-height: 500;
   title: "Damask";
 
   Box {
@@ -21,12 +21,6 @@ template DamaskWindow : Adw.ApplicationWindow {
         icon-name: "open-menu-symbolic";
         menu-model: primary_menu;
       }
-
-      [end]
-      Button {
-        icon-name: "folder-pictures-symbolic";
-        action-name: "app.info";
-      }
     }
 
     Gtk.CheckButton active_source {
@@ -34,16 +28,75 @@ template DamaskWindow : Adw.ApplicationWindow {
     }
 
     Adw.Clamp {
-      child: Box {
+      child: Box main_content {
         orientation: vertical;
-        margin-top: 24;
-        margin-bottom: 24;
-        margin-start: 12;
-        margin-end: 12;
-        spacing: 24;
-        Gtk.ListBox sources {
-          selection-mode: none;
-          styles ["boxed-list" ]
+        margin-top: 12;
+
+        Gtk.Label title_label {
+          styles ["heading"]
+        }
+
+        Box preview_content {
+          orientation: horizontal;
+
+          Box thumbnail {
+            orientation: vertical;
+            margin-top: 24;
+            margin-start: 24;
+            margin-end: 24;
+
+            Gtk.Picture preview_picture {
+              styles ["card"]
+              content-fit: contain;
+              can-shrink: false;
+              width-request: 300;
+            }
+
+            Gtk.Label description_label {
+              styles ["caption"]
+              wrap: true;
+              wrap-mode: word;
+              margin-top: 12;
+            }
+          }
+
+          Box info_fields {
+            orientation: vertical;
+            margin-top: 24;
+            margin-bottom: 24;
+            margin-start: 12;
+            margin-end: 12;
+            spacing: 24;
+            hexpand: true;
+
+            Gtk.ListBox {
+              selection-mode: none;
+              styles ["boxed-list"]
+
+              Adw.ActionRow {
+                title: "Webpage";
+                action-name: "win.open-url";
+                activatable: true;
+
+                Gtk.Image {
+                  icon-name: "adw-external-link-symbolic";
+                }
+              }
+            }
+          }
+        }
+
+        Box {
+          orientation: vertical;
+          margin-top: 24;
+          margin-bottom: 24;
+          margin-start: 12;
+          margin-end: 12;
+          spacing: 24;
+          Gtk.ListBox sources {
+            selection-mode: none;
+            styles ["boxed-list" ]
+          }
         }
       };
     }

@@ -23,11 +23,20 @@ namespace Damask {
     public class Window : Adw.ApplicationWindow {
         [GtkChild] private unowned Gtk.ListBox sources;
         [GtkChild] private unowned Gtk.CheckButton active_source;
+
+        [GtkChild] private unowned Gtk.Picture preview_picture;
+        [GtkChild] private unowned Gtk.Label description_label;
+        [GtkChild] private unowned Gtk.Label title_label;
+
         private ListStore source_store = new ListStore (typeof(WallpaperSource));
 
         public Window (Gtk.Application app) {
             Object (application: app);
 
+            ActionEntry[] action_entries = {
+                { "open-url", this.on_open_url_action },
+            };
+            this.add_action_entries (action_entries, this);
             this.application.set_accels_for_action ("win.show-help-overlay", {"<primary>question"});
 
             if (Constants.APP_ID.contains (".Devel")) {
@@ -80,6 +89,35 @@ namespace Damask {
             Gtk.Builder builder = new Gtk.Builder.from_resource (@"$(Constants.RESOURCE_PATH_PREFIX)/shortcuts.ui");
             Gtk.ShortcutsWindow help_overlay = builder.get_object ("help_overlay") as Gtk.ShortcutsWindow;
             this.set_help_overlay (help_overlay);
+
+            application.notify["current-wallpaper"].connect ((src, pspec) => {
+                debug(@"application notify current-wallpaper");
+                Soup.Session session = new Soup.Session ();
+                Soup.Message msg = new Soup.Message ("GET", application.current_wallpaper.thumbnail_url);
+                    session.send_and_read_async.begin (msg, 0, null, (src, res) => {
+                    try {
+                        Bytes body = session.send_and_read_async.end (res);
+                        Gdk.Texture texture = Gdk.Texture.from_bytes (body);
+                        preview_picture.paintable = texture;
+                    } catch (Error e) {
+                        error (e.message);
+                    }
+                });
+
+                if (application.current_wallpaper.title != null) {
+                    this.title_label.set_text (application.current_wallpaper.title);
+                }
+
+                this.description_label.visible = application.current_wallpaper.description != null;
+                if (application.current_wallpaper.description != null) {
+                    this.description_label.set_text (application.current_wallpaper.description);
+                }
+            });
+        }
+
+        private void on_open_url_action () {
+            Application app = this.application as Application;
+            Gtk.show_uri (null, app.current_wallpaper.web_url, Gdk.CURRENT_TIME);
         }
     }
 }

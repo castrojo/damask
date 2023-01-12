@@ -1,5 +1,4 @@
 damask_blueprints = [
-  'info-window.blp',
   'preferences.blp',
   'shortcuts.blp',
   'sources/bing.blp',
@@ -19,7 +18,6 @@ blueprints = custom_target('blueprints',
 
 damask_sources = [
   'application.vala',
-  'info-window.vala',
   'main.vala',
   'preferences.vala',
   'sources/bing.vala',
