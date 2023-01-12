@@ -35,7 +35,7 @@ namespace Damask {
             }
 
             Application application = app as Application;
-            foreach (WallpaperSource src in application.sources.values) {
+            foreach (WallpaperSource src in application.source_list) {
                 this.source_store.append (src);
             }
 
@@ -64,12 +64,12 @@ namespace Damask {
                 Gtk.CheckButton button = new Gtk.CheckButton ();
                 button.group = this.active_source;
 
-                if (Application.settings.get_string("active-source") == row.title) {
+                if (application.settings.get_string("active-source") == wp_source.id) {
                     button.set_active (true);
                 }
 
                 button.toggled.connect ((button) => {
-                    Application.settings.set_string("active-source", row.title);
+                    application.settings.set_string("active-source", wp_source.id);
                 });
                 row.add_prefix (button);
                 row.set_activatable_widget (button);

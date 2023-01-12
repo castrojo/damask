@@ -111,6 +111,10 @@ namespace Damask.Sources.Wallhaven {
             });
         }
 
+        public string id {
+            get { return "wallhaven"; }
+        }
+
         public string title {
             get { return "Wallhaven"; }
         }

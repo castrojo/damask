@@ -20,6 +20,10 @@
 
 namespace Damask.Sources.Manual {
     public class Manual : Object, WallpaperSource {
+        public string id {
+            get { return "manual"; }
+        }
+
         public string title {
             get { return "Disabled"; }
         }

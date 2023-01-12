@@ -20,33 +20,17 @@
 
 namespace Damask {
     public class Application : Adw.Application {
-        public static Settings settings = new Settings (Constants.APP_ID);
+        public Settings settings = new Settings (Constants.APP_ID);
+        public weak Wallpaper? current_wallpaper { get; private set; }
+        public WallpaperSource[] source_list = {
+            new Sources.Manual.Manual (),
+            new Sources.Bing.Bing (),
+            new Sources.Wallhaven.Wallhaven (),
+        };
 
-        /**
-         * sources is a table mapping loaded sources to a string identifier.
-         * It is used to look up and change the active_source reference when
-         * handling the active-source setting key change.
-         */
-        public Gee.HashMap<string, WallpaperSource> sources = new Gee.HashMap<string, WallpaperSource> ();
-
-        /**
-         * active_source is a weak reference to the active wallpaper source. It
-         * is used when the refresh timer triggers.
-         */
-        private WallpaperSource? active_source;
-
-        /**
-         * source_id is the ID value of the main loop timer task. It is used
-         * to remove existing main loop events when switching active wallpaper
-         * source.
-         */
-        private uint source_id;
-
-        /**
-         * skip_window is used to avoid presenting the main window of the
-         * program. It is set to true when the program is started with the
-         * --background option.
-         */
+        private HashTable<string, unowned WallpaperSource> sources = new HashTable<string, unowned WallpaperSource> (str_hash, str_equal);
+        private unowned WallpaperSource? current_source = null;
+        private uint source_id = 0;
         private bool skip_window = false;
 
         public Application () {
@@ -55,10 +39,9 @@ namespace Damask {
 
         construct {
             ActionEntry[] action_entries = {
-                { "refresh", this.on_refresh_action },
-                { "info", this.on_info_action },
-                { "about", this.on_about_action },
-                { "preferences", this.on_preferences_action },
+                { "refresh", this.on_action_refresh },
+                { "about", this.on_action_about },
+                { "preferences", this.on_action_preferences },
                 { "quit", this.quit }
             };
             this.add_action_entries (action_entries, this);
@@ -72,107 +55,72 @@ namespace Damask {
                     OptionFlags.NONE,
                     OptionArg.NONE,
                     null,
-                    "Background the application immediately, bypassing the main window",
+                    "Run application in the background",
                     null
                 }
             };
             this.add_main_option_entries (option_entries);
 
-            WallpaperSource manual = new Sources.Manual.Manual ();
-            sources.set (manual.title, manual);
-
-            WallpaperSource bing = new Sources.Bing.Bing ();
-            sources.set (bing.title, bing);
-
-            WallpaperSource wallhaven = new Sources.Wallhaven.Wallhaven () as WallpaperSource;
-            sources.set (wallhaven.title, wallhaven);
-
-            active_source = sources.get(Application.settings.get_string ("active-source"));
-        }
-
-        public override int handle_local_options (VariantDict options) {
-            this.skip_window = options.contains ("background");
-            return -1;
+            foreach (WallpaperSource s in this.source_list) {
+                this.sources.insert (s.id, s);
+            }
         }
 
         public override void startup () {
             base.startup ();
 
-            this.active_source.refresh ();
-            this.install_timer ();
-
-            active_source.changed.connect (this.on_active_source_changed);
-
-            Application.settings.changed["active-source"].connect((key) => {
-                if (active_source.title == Application.settings.get_string (key)) {
-                    active_source.changed.disconnect (this.on_active_source_changed);
-                    Source.remove (this.source_id);
-                    this.source_id = 0;
-                    debug(@"deactivated '$(active_source.title)'");
-                } else {
-                    active_source = sources.get (Application.settings.get_string (key));
-                    this.install_timer ();
-                    active_source.changed.connect (this.on_active_source_changed);
-                    debug(@"activated '$(active_source.title)'");
-                }
+            /* reattach the timer when refresh-interval changes */
+            this.settings.changed["refresh-interval"].connect ((key) => {
+                debug (@"settings changed: $key");
+                this.detach_timer ();
+                this.attach_timer ();
             });
 
-            Application.settings.changed["refresh-interval"].connect ((key) => {
-                Source.remove (this.source_id);
-                this.source_id = 0;
-                this.install_timer ();
-            });
-
-            Application.settings.changed["run-in-background"].connect ((key) => {
-                if (Application.settings.get_boolean (key)) {
+            /* hold/release application when run-in-background changes */
+            this.settings.changed["run-in-background"].connect ((key) => {
+                debug (@"settings changed: $key");
+                if (this.settings.get_boolean ("run-in-background")) {
                     this.hold ();
                 } else {
                     this.release ();
                 }
             });
 
-            if (Application.settings.get_boolean ("run-in-background")) {
-                this.hold ();
-            }
-
-            Application.settings.changed["autostart"].connect ((key) => {
-                if (Application.settings.get_boolean (key)) {
-                    Xdp.Portal portal = new Xdp.Portal ();
-                    GenericArray<weak string> commandline = new GenericArray<weak string> ();
-                    commandline.add ("damask");
-                    commandline.add ("--background");
-                    portal.request_background.begin (null,
-                                                     "Running automatically",
-                                                     commandline,
-                                                     Xdp.BackgroundFlags.AUTOSTART,
-                                                     null,
-                                                     (src, res) => {
-                        try {
-                            if (!portal.request_background.end (res)) {
-                                error ("background request failed");
-                            }
-                        } catch (Error e) {
-                            error (e.message);
-                        }
-                    });
+            /* install/remove autostart desktop file when autostart changes */
+            this.settings.changed["autostart"].connect ((key) => {
+                debug (@"settings changed: $key");
+                if (this.settings.get_boolean ("autostart")) {
+                    this.install_autostart ();
                 } else {
-                    Xdp.Portal portal = new Xdp.Portal ();
-                    GenericArray<weak string> commandline = new GenericArray<weak string> ();
-                    portal.request_background.begin (null, null, commandline, Xdp.BackgroundFlags.NONE, null, (src, res) => {
-                        try {
-                            if (!portal.request_background.end (res)) {
-                                error ("background request failed");
-                            }
-                        } catch (Error e) {
-                            error (e.message);
-                        }
-                    });
+                    this.remove_autostart ();
                 }
             });
+
+            this.settings.changed["active-source"].connect ((key) => {
+                debug (@"settings changed: $key");
+                if (this.current_source.id == this.settings.get_string ("active-source")) {
+                    debug (@"disabling $(this.current_source.id)");
+                    this.current_source.changed.disconnect (this.current_source_changed);
+                    this.detach_timer ();
+                } else {
+                    this.current_source = this.sources.get (this.settings.get_string ("active-source"));
+                    debug (@"enabling $(this.current_source.id)");
+                    this.attach_timer ();
+                    this.current_source.changed.connect (this.current_source_changed);
+                }
+            });
+
+            if (this.settings.get_boolean ("run-in-background")) {
+                this.hold ();
+            }
+            this.current_source = this.sources.get (this.settings.get_string ("active-source"));
+            this.current_source.refresh ();
+            this.attach_timer ();
         }
 
         public override void activate () {
             base.activate ();
+
             if (!this.skip_window) {
                 var win = this.active_window;
                 if (win == null) {
@@ -183,7 +131,71 @@ namespace Damask {
             this.skip_window = false;
         }
 
-        private void on_about_action () {
+        public override int handle_local_options (VariantDict options) {
+            this.skip_window = options.contains ("background");
+            return -1;
+        }
+
+        private void current_source_changed (string uri) {
+            Xdp.Portal portal = new Xdp.Portal ();
+            portal.set_wallpaper.begin (null, uri, Xdp.WallpaperFlags.BACKGROUND, null, (src, res) => {
+                try {
+                    if (!portal.set_wallpaper.end (res)) {
+                        error ("set_wallpaper failed");
+                    }
+                } catch (Error e) {
+                    error (e.message);
+                }
+            });
+        }
+
+        private void attach_timer () {
+            uint seconds = this.settings.get_uint ("refresh-interval");
+            TimeoutSource timer = new TimeoutSource.seconds ((int) seconds);
+            timer.set_callback (() => {
+                this.current_source.refresh ();
+                return true;
+            });
+            timer.attach ();
+            this.source_id = timer.get_id ();
+        }
+
+        private void detach_timer () {
+            Source.remove (this.source_id);
+            this.source_id = 0;
+        }
+
+        private void install_autostart () {
+            Xdp.Portal portal = new Xdp.Portal ();
+            GenericArray<weak string> cmd = new GenericArray<weak string> ();
+            cmd.add ("damask");
+            cmd.add ("--background");
+            portal.request_background.begin (null, null, cmd, Xdp.BackgroundFlags.AUTOSTART, null, (src, res) => {
+                try {
+                    if (!portal.request_background.end (res)) {
+                        error ("request_background failed");
+                    }
+                } catch (Error e) {
+                    error (e.message);
+                }
+            });
+        }
+
+        private void remove_autostart () {
+            Xdp.Portal portal = new Xdp.Portal ();
+            GenericArray<weak string> cmd = new GenericArray<weak string> ();
+            portal.request_background.begin (null, null, cmd, Xdp.BackgroundFlags.NONE, null, (src, res) => {
+                try {
+                    if (!portal.request_background.end (res)) {
+                        error ("request_background failed");
+                    }
+                } catch (Error e) {
+                    error (e.message);
+                }
+            });
+        }
+
+        private void on_action_about () {
             string[] developers = { "Link Dupont" };
             var about = new Adw.AboutWindow () {
                 transient_for = this.active_window,
@@ -198,47 +210,14 @@ namespace Damask {
             about.present ();
         }
 
-        private void on_preferences_action () {
+        private void on_action_preferences () {
             var prefs = new Damask.PreferencesWindow ();
             prefs.set_transient_for (this.active_window);
             prefs.present ();
         }
 
-        private void on_refresh_action () {
-            this.active_source.refresh();
-        }
-
-        private void on_info_action () {
-            var info = new Damask.InfoWindow (this, this.active_source);
-            info.set_transient_for (this.active_window);
-            info.present ();
-        }
-
-        private void on_active_source_changed (string uri) {
-            Xdp.Portal portal = new Xdp.Portal ();
-            portal.set_wallpaper.begin (null, uri, Xdp.WallpaperFlags.BACKGROUND, null, (src, res) => {
-                try {
-                    if (portal.set_wallpaper.end (res)) {
-                        info(@"wallpaper set to $uri");
-                    } else {
-                        error("failed to set wallpaper");
-                    }
-                } catch (Error e) {
-                    error("cannot set wallpaper: %s", e.message);
-                }
-            });
-        }
-
-        private void install_timer () {
-            uint seconds = Application.settings.get_uint ("refresh-interval");
-            var timer = new TimeoutSource.seconds ((int) seconds);
-            timer.set_callback(() => {
-                debug (@"timer $(timer.get_id ()) fired");
-                active_source.refresh ();
-                return true;
-            });
-            timer.attach ();
-            this.source_id = timer.get_id ();
+        private void on_action_refresh () {
+            this.current_source.refresh();
         }
     }
 }

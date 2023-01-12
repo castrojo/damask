@@ -50,6 +50,10 @@ namespace Damask.Sources.Bing {
         private static Gee.ArrayList<string> markets = new Gee.ArrayList<string>.wrap ({ "en-US", "zh-CN", "ja-JP", "en-AU", "en-GB", "de-DE", "en-NZ", "en-CA", "en-IN", "fr-FR", "fr-CA" });
         private static Gee.ArrayList<string> resolutions = new Gee.ArrayList<string>.wrap ({ "1920x1080", "1366x768", "UHD (3840x2160)" });
 
+        public string id {
+            get { return "bing"; }
+        }
+
         public string title {
             get { return "Bing Wallpaper"; }
         }

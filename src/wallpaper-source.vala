@@ -31,6 +31,7 @@ namespace Damask {
     public interface WallpaperSource : Object {
         public abstract void refresh();
         public abstract Adw.PreferencesPage? prefs();
+        public abstract string id { get; }
         public abstract string title { get; }
         public abstract string subtitle { get; }
         public abstract Wallpaper? current_wallpaper { get; }

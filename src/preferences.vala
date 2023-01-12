@@ -27,13 +27,14 @@ namespace Damask {
         [GtkChild] private unowned Gtk.Switch autostart;
 
         construct {
-            Application.settings.bind("run-in-background", run_in_background, "state", SettingsBindFlags.DEFAULT);
-            Application.settings.bind("autostart", autostart, "state", SettingsBindFlags.DEFAULT);
+            Application application = GLib.Application.get_default () as Application;
+            application.settings.bind("run-in-background", run_in_background, "state", SettingsBindFlags.DEFAULT);
+            application.settings.bind("autostart", autostart, "state", SettingsBindFlags.DEFAULT);
 
-            uint32 current_interval = Application.settings.get_uint ("refresh-interval");
+            uint32 current_interval = application.settings.get_uint ("refresh-interval");
             refresh_interval.selected = intervals.index_of (current_interval);
             refresh_interval.notify["selected"].connect ((pspec) => {
-                Application.settings.set_uint ("refresh-interval", intervals.get ((int) refresh_interval.selected));
+                application.settings.set_uint ("refresh-interval", intervals.get ((int) refresh_interval.selected));
             });
         }
     }
