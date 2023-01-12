@@ -27,6 +27,7 @@ namespace Damask {
         [GtkChild] private unowned Gtk.Picture preview_picture;
         [GtkChild] private unowned Gtk.Label description_label;
         [GtkChild] private unowned Gtk.Label title_label;
+        [GtkChild] private unowned Gtk.Spinner spinner;
 
         private ListStore source_store = new ListStore (typeof(WallpaperSource));
 
@@ -94,11 +95,13 @@ namespace Damask {
                 debug(@"application notify current-wallpaper");
                 Soup.Session session = new Soup.Session ();
                 Soup.Message msg = new Soup.Message ("GET", application.current_wallpaper.thumbnail_url);
-                    session.send_and_read_async.begin (msg, 0, null, (src, res) => {
+                session.send_and_read_async.begin (msg, 0, null, (src, res) => {
                     try {
                         Bytes body = session.send_and_read_async.end (res);
                         Gdk.Texture texture = Gdk.Texture.from_bytes (body);
                         preview_picture.paintable = texture;
+                        this.spinner.spinning = false;
+                        this.spinner.visible = false;
                     } catch (Error e) {
                         error (e.message);
                     }

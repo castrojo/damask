@@ -2,7 +2,7 @@ using Gtk 4.0;
 using Adw 1;
 
 template DamaskWindow : Adw.ApplicationWindow {
-  default-width: 600;
+  default-width: 400;
   default-height: 500;
   title: "Damask";
 
@@ -32,57 +32,55 @@ template DamaskWindow : Adw.ApplicationWindow {
         orientation: vertical;
         margin-top: 12;
 
-        Gtk.Label title_label {
-          styles ["heading"]
-        }
 
         Box preview_content {
-          orientation: horizontal;
+          orientation: vertical;
+          margin-start: 24;
+          margin-end: 24;
 
-          Box thumbnail {
-            orientation: vertical;
-            margin-top: 24;
-            margin-start: 24;
-            margin-end: 24;
-
-            Gtk.Picture preview_picture {
-              styles ["card"]
-              content-fit: contain;
-              can-shrink: false;
-              width-request: 300;
-            }
-
-            Gtk.Label description_label {
-              styles ["caption"]
-              wrap: true;
-              wrap-mode: word;
-              margin-top: 12;
-            }
+          Gtk.Label title_label {
+            margin-bottom: 12;
+            styles ["heading"]
           }
 
-          Box info_fields {
-            orientation: vertical;
-            margin-top: 24;
-            margin-bottom: 24;
-            margin-start: 12;
-            margin-end: 12;
-            spacing: 24;
-            hexpand: true;
+          Adw.Clamp {
+            maximum-size: 300;
+            child: Gtk.Overlay {
+              child: Gtk.Picture preview_picture {
+                styles ["card"]
+                content-fit: contain;
+                can-shrink: false;
+                width-request: 300;
+                height-request: 200;
+              };
 
-            Gtk.ListBox {
-              selection-mode: none;
-              styles ["boxed-list"]
-
-              Adw.ActionRow {
-                title: "Webpage";
-                action-name: "win.open-url";
-                activatable: true;
-
-                Gtk.Image {
-                  icon-name: "adw-external-link-symbolic";
-                }
+              [overlay]
+              Adw.Clamp {
+                maximum-size: 24;
+                child: Gtk.Spinner spinner {
+                  spinning: true;
+                };
               }
-            }
+
+              [overlay]
+              Gtk.Button {
+                styles ["opaque", "circular"]
+                halign: end;
+                valign: end;
+                margin-bottom: 12;
+                margin-end: 12;
+                icon-name: "adw-external-link-symbolic";
+                action-name: "win.open-url";
+              }
+            };
+          }
+
+          Gtk.Label description_label {
+            styles ["caption"]
+            wrap: true;
+            wrap-mode: word;
+            margin-top: 12;
+            margin-bottom: 12;
           }
         }
 

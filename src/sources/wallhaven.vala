@@ -293,7 +293,6 @@ namespace Damask.Sources.Wallhaven {
                         this._current_wallpaper = new Damask.Wallpaper ();
                         this._current_wallpaper.web_url = wp.url;
                         this._current_wallpaper.url = wp.path;
-                        this._current_wallpaper.title = wp.url;
                         this._current_wallpaper.resolution = wp.resolution;
                         this._current_wallpaper.thumbnail_url = wp.thumbs.small;
                         this.changed(wp.path);
