@@ -27,12 +27,6 @@ damask_sources = [
   'window.vala',
 ]
 
-damask_sources += custom_target('blueprint_hack',
-  input: damask_blueprints,
-  output: 'blueprint.vala',
-  command: [find_program('touch'), '@OUTPUT@']
-)
-
 damask_sources += configure_file(
   input: 'constants.vala.in',
   output: 'constants.vala',
