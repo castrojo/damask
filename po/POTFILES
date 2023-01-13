@@ -1,9 +1,7 @@
 data/app.drey.Damask.desktop.in
 data/app.drey.Damask.appdata.xml.in
-data/app.drey.Damask.gschema.xml
+data/app.drey.Damask.gschema.xml.in
 src/application.vala
-src/info-window.blp
-src/info-window.vala
 src/main.vala
 src/preferences.blp
 src/preferences.vala
