@@ -60,18 +60,11 @@ namespace Damask {
                 Gtk.Button prefs_button = new Gtk.Button.from_icon_name ("applications-system-symbolic");
                 prefs_button.valign = Gtk.Align.CENTER;
                 prefs_button.clicked.connect ((button) => {
-                    var prefs_window = new Adw.PreferencesWindow ();
-                    prefs_window.default_height = 400;
-                    prefs_window.default_width = 500;
-                    prefs_window.set_search_enabled (false);
-                    var prefs = wp_source.prefs ();
-                    if (prefs != null) {
-                        prefs_window.add (prefs);
-                    }
+                    var prefs_window = wp_source.preferences ();
                     prefs_window.set_transient_for (this);
                     prefs_window.present ();
                 });
-                prefs_button.sensitive = wp_source.prefs () != null;
+                prefs_button.sensitive = wp_source.preferences () != null;
                 row.add_suffix (prefs_button);
 
                 Gtk.CheckButton button = new Gtk.CheckButton ();

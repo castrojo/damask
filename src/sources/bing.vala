@@ -47,8 +47,6 @@ namespace Damask.Sources.Bing {
 
     public class Bing : Object, WallpaperSource {
         private Settings settings = new Settings(@"$(Constants.APP_ID).sources.bing");
-        private static Gee.ArrayList<string> markets = new Gee.ArrayList<string>.wrap ({ "en-US", "zh-CN", "ja-JP", "en-AU", "en-GB", "de-DE", "en-NZ", "en-CA", "en-IN", "fr-FR", "fr-CA" });
-        private static Gee.ArrayList<string> resolutions = new Gee.ArrayList<string>.wrap ({ "1920x1080", "1366x768", "UHD (3840x2160)" });
 
         public string id {
             get { return "bing"; }
@@ -104,23 +102,30 @@ namespace Damask.Sources.Bing {
             });
         }
 
-        public Adw.PreferencesPage? prefs () {
-            Gtk.Builder builder = new Gtk.Builder.from_resource (@"$(Constants.RESOURCE_PATH_PREFIX)/sources/bing.ui");
-            Adw.PreferencesPage prefs = builder.get_object("prefs") as Adw.PreferencesPage;
+        public Adw.PreferencesWindow? preferences () {
+            return new PreferencesWindow () as Adw.PreferencesWindow;
+        }
+    }
 
-            Adw.ComboRow market = builder.get_object("market") as Adw.ComboRow;
-            market.selected = Bing.markets.index_of (this.settings.get_string ("market"));
-            market.notify["selected"].connect ((pspec) => {
-                this.settings.set_string ("market", Bing.markets.get ((int) market.selected));
+    [GtkTemplate (ui = "/app/drey/Damask/sources/bing.ui")]
+    public class PreferencesWindow : Adw.PreferencesWindow {
+        private Settings settings = new Settings(@"$(Constants.APP_ID).sources.bing");
+        private static Gee.ArrayList<string> markets = new Gee.ArrayList<string>.wrap ({ "en-US", "zh-CN", "ja-JP", "en-AU", "en-GB", "de-DE", "en-NZ", "en-CA", "en-IN", "fr-FR", "fr-CA" });
+        private static Gee.ArrayList<string> resolutions = new Gee.ArrayList<string>.wrap ({ "1920x1080", "1366x768", "UHD (3840x2160)" });
+
+        [GtkChild] private unowned Adw.ComboRow market;
+        [GtkChild] private unowned Adw.ComboRow resolution;
+
+        construct {
+            this.market.selected = PreferencesWindow.markets.index_of (this.settings.get_string ("market"));
+            this.market.notify["selected"].connect ((pspec) => {
+                this.settings.set_string ("market", PreferencesWindow.markets.get ((int) market.selected));
             });
 
-            Adw.ComboRow resolution = builder.get_object("resolution") as Adw.ComboRow;
-            resolution.selected = Bing.resolutions.index_of (this.settings.get_string ("resolution"));
-            resolution.notify["selected"].connect ((pspec) => {
-                this.settings.set_string ("resolution", Bing.resolutions.get ((int) resolution.selected));
+            this.resolution.selected = PreferencesWindow.resolutions.index_of (this.settings.get_string ("resolution"));
+            this.resolution.notify["selected"].connect ((pspec) => {
+                this.settings.set_string ("resolution", PreferencesWindow.resolutions.get ((int) resolution.selected));
             });
-
-            return prefs;
         }
     }
 }

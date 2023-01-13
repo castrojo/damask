@@ -94,8 +94,6 @@ namespace Damask.Sources.Wallhaven {
 
     public class Wallhaven : Object, WallpaperSource {
         private Settings settings = new Settings(@"$(Constants.APP_ID).sources.wallhaven");
-        private static Gee.ArrayList<string> sort_by = new Gee.ArrayList<string>.wrap ({ "date_added", "relevance", "random", "views", "favorites", "top_list" });
-        private static Gee.ArrayList<string> top_list_range = new Gee.ArrayList<string>.wrap ({ "1d", "3d", "1w", "1M", "3M", "6M", "1y" });
 
         private string seed = "";
         private uint current_index = 0;
@@ -303,30 +301,49 @@ namespace Damask.Sources.Wallhaven {
             });
         }
 
-        public Adw.PreferencesPage? prefs () {
-            Gtk.Builder builder = new Gtk.Builder.from_resource (@"$(Constants.RESOURCE_PATH_PREFIX)/sources/wallhaven.ui");
-            Adw.PreferencesPage prefs = builder.get_object("prefs") as Adw.PreferencesPage;
+        public Adw.PreferencesWindow? preferences () {
+            return new PreferencesWindow () as Adw.PreferencesWindow;
+        }
+    }
 
-            Gtk.Entry username = builder.get_object("username") as Gtk.Entry;
-            this.settings.bind("username", username, "text", SettingsBindFlags.DEFAULT);
+    [GtkTemplate (ui = "/app/drey/Damask/sources/wallhaven.ui")]
+    public class PreferencesWindow : Adw.PreferencesWindow {
+        private Settings settings = new Settings(@"$(Constants.APP_ID).sources.wallhaven");
+        private static Gee.ArrayList<string> sort_by_array = new Gee.ArrayList<string>.wrap ({ "date_added", "relevance", "random", "views", "favorites", "top_list" });
+        private static Gee.ArrayList<string> top_list_range_array = new Gee.ArrayList<string>.wrap ({ "1d", "3d", "1w", "1M", "3M", "6M", "1y" });
+        [GtkChild] private unowned Gtk.Entry username;
+        [GtkChild] private unowned Gtk.Entry api_key;
+        [GtkChild] private unowned Gtk.Entry query;
+        [GtkChild] private unowned Gtk.CheckButton search_mode_query;
+        [GtkChild] private unowned Adw.ComboRow collections;
+        [GtkChild] private unowned Gtk.CheckButton search_mode_collections;
+        [GtkChild] private unowned Adw.ComboRow sort_by;
+        [GtkChild] private unowned Adw.ComboRow sort_order;
+        [GtkChild] private unowned Adw.ComboRow top_list_range;
+        [GtkChild] private unowned Gtk.Switch category_general;
+        [GtkChild] private unowned Gtk.Switch category_anime;
+        [GtkChild] private unowned Gtk.Switch category_people;
+        [GtkChild] private unowned Gtk.Switch purity_sfw;
+        [GtkChild] private unowned Gtk.Switch purity_sketchy;
+        [GtkChild] private unowned Gtk.Switch purity_nsfw;
+        [GtkChild] private unowned Gtk.Switch color_enabled;
+        [GtkChild] private unowned Gtk.ColorButton color;
+        [GtkChild] private unowned Gtk.Button syntax_help;
 
-            Gtk.Entry api_key = builder.get_object("api_key") as Gtk.Entry;
+        construct {
+            this.settings.bind ("username", username, "text", SettingsBindFlags.DEFAULT);
             this.settings.bind("api-key", api_key, "text", SettingsBindFlags.DEFAULT);
-
-            Gtk.Entry query = builder.get_object("query") as Gtk.Entry;
             this.settings.bind("query", query, "text", SettingsBindFlags.DEFAULT);
 
-            Gtk.CheckButton search_mode_query = builder.get_object("search_mode_query") as Gtk.CheckButton;
-            search_mode_query.active = this.settings.get_string("search-mode") == "query";
-            search_mode_query.toggled.connect ((button) => {
+            this.search_mode_query.active = this.settings.get_string("search-mode") == "query";
+            this.search_mode_query.toggled.connect ((button) => {
                 this.settings.set_string("search-mode", "query");
             });
 
-            Adw.ComboRow collections = builder.get_object("collections") as Adw.ComboRow;
-            collections.expression = new Gtk.PropertyExpression (typeof(Collection), null, "label");
-            collections.sensitive = this.settings.get_string("username").length > 0;
+            this.collections.expression = new Gtk.PropertyExpression (typeof(Collection), null, "label");
+            this.collections.sensitive = this.settings.get_string("username").length > 0;
             this.settings.changed["username"].connect ((key) => {
-                collections.sensitive = this.settings.get_string(key).length > 0;
+                this.collections.sensitive = this.settings.get_string (key).length > 0;
             });
 
             Soup.Session session = new Soup.Session ();
@@ -345,18 +362,18 @@ namespace Damask.Sources.Wallhaven {
                         list.append (collection);
                         return true;
                     });
-                    collections.model = list;
+                    this.collections.model = list;
                     for (uint i = 0; i < list.get_n_items (); i++) {
                         Collection collection = list.get_object (i) as Collection;
                         if (this.settings.get_uint ("collection-id") == collection.id) {
-                            collections.selected = i;
+                            this.collections.selected = i;
                         }
                     }
-                    collections.notify["selected-item"].connect ((pspec) => {
+                    this.collections.notify["selected-item"].connect ((pspec) => {
                         Collection collection = collections.get_selected_item () as Collection;
-                        if (this.settings.get_uint("collection-id") != collection.id) {
+                        if (this.settings.get_uint ("collection-id") != collection.id) {
                             message (@"selected collection $(collection.label)");
-                            this.settings.set_uint("collection-id", collection.id);
+                            this.settings.set_uint ("collection-id", collection.id);
                         }
                     });
                 } catch (Error e) {
@@ -364,54 +381,37 @@ namespace Damask.Sources.Wallhaven {
                 }
             });
 
-            Gtk.CheckButton search_mode_collections = builder.get_object("search_mode_collections") as Gtk.CheckButton;
-            search_mode_collections.active = this.settings.get_string("search-mode") == "collections";
-            search_mode_collections.toggled.connect ((button) => {
-                this.settings.set_string("search-mode", "collections");
+            this.search_mode_collections.active = this.settings.get_string("search-mode") == "collections";
+            this.search_mode_collections.toggled.connect ((button) => {
+                this.settings.set_string ("search-mode", "collections");
             });
 
-            Adw.ComboRow sort_by = builder.get_object("sort_by") as Adw.ComboRow;
-            sort_by.selected = Wallhaven.sort_by.index_of (this.settings.get_string ("sort-by"));
-            sort_by.notify["selected"].connect ((pspec) => {
-                this.settings.set_string ("sort-by", Wallhaven.sort_by.get ((int) sort_by.selected));
+            this.sort_by.selected = PreferencesWindow.sort_by_array.index_of (this.settings.get_string ("sort-by"));
+            this.sort_by.notify["selected"].connect ((pspec) => {
+                this.settings.set_string ("sort-by", PreferencesWindow.sort_by_array.get ((int) sort_by.selected));
             });
 
-            Adw.ComboRow sort_order = builder.get_object("sort_order") as Adw.ComboRow;
             this.settings.bind("sort-order", sort_order, "selected", SettingsBindFlags.DEFAULT);
 
-            Adw.ComboRow top_list_range = builder.get_object("top_list_range") as Adw.ComboRow;
-            top_list_range.selected = Wallhaven.top_list_range.index_of (this.settings.get_string ("top-list-range"));
-            top_list_range.notify["selected"].connect ((pspec) => {
-                this.settings.set_string ("top-list-range", Wallhaven.top_list_range.get ((int) top_list_range.selected));
+            this.top_list_range.selected = PreferencesWindow.top_list_range_array.index_of (this.settings.get_string ("top-list-range"));
+            this.top_list_range.sensitive = this.settings.get_string ("sort-by") == "top_list";
+            this.top_list_range.notify["selected"].connect ((pspec) => {
+                this.settings.set_string ("top-list-range", PreferencesWindow.top_list_range_array.get ((int) top_list_range.selected));
             });
-
-            Gtk.Switch category_general = builder.get_object("category_general") as Gtk.Switch;
-            this.settings.bind("category-general", category_general, "state", SettingsBindFlags.DEFAULT);
-
-            Gtk.Switch category_anime = builder.get_object("category_anime") as Gtk.Switch;
-            this.settings.bind("category-anime", category_anime, "state", SettingsBindFlags.DEFAULT);
-
-            Gtk.Switch category_people = builder.get_object("category_people") as Gtk.Switch;
-            this.settings.bind("category-people", category_people, "state", SettingsBindFlags.DEFAULT);
-
-            Gtk.Switch purity_sfw = builder.get_object("purity_sfw") as Gtk.Switch;
-            this.settings.bind("purity-sfw", purity_sfw, "state", SettingsBindFlags.DEFAULT);
-
-            Gtk.Switch purity_sketchy = builder.get_object("purity_sketchy") as Gtk.Switch;
-            this.settings.bind("purity-sketchy", purity_sketchy, "state", SettingsBindFlags.DEFAULT);
-
-            Gtk.Switch purity_nsfw = builder.get_object("purity_nsfw") as Gtk.Switch;
-            this.settings.bind("purity-nsfw", purity_nsfw, "state", SettingsBindFlags.DEFAULT);
-
-            top_list_range.sensitive = this.settings.get_string ("sort-by") == "top_list";
             this.settings.changed["sort-by"].connect ((key) => {
                 top_list_range.sensitive = this.settings.get_string (key) == "top_list";
             });
 
-            Gtk.Switch color_enabled = builder.get_object("color_enabled") as Gtk.Switch;
+            this.settings.bind("category-general", category_general, "state", SettingsBindFlags.DEFAULT);
+            this.settings.bind("category-anime", category_anime, "state", SettingsBindFlags.DEFAULT);
+            this.settings.bind("category-people", category_people, "state", SettingsBindFlags.DEFAULT);
+
+            this.settings.bind("purity-sfw", purity_sfw, "state", SettingsBindFlags.DEFAULT);
+            this.settings.bind("purity-sketchy", purity_sketchy, "state", SettingsBindFlags.DEFAULT);
+            this.settings.bind("purity-nsfw", purity_nsfw, "state", SettingsBindFlags.DEFAULT);
+
             this.settings.bind("color-enabled", color_enabled, "state", SettingsBindFlags.DEFAULT);
 
-            Gtk.ColorButton color = builder.get_object("color") as Gtk.ColorButton;
             {
                 Gdk.RGBA rgba = Gdk.RGBA ();
                 if (rgba.parse (this.settings.get_string ("color"))) {
@@ -449,14 +449,13 @@ namespace Damask.Sources.Wallhaven {
                 { 1.000000f, 1.000000f, 1.000000f }, // #ffffff
                 { 0.258824f, 0.254902f, 0.325490f }, // #424153
             };
-            color.add_palette (Gtk.Orientation.HORIZONTAL, 5, palette);
-            color.color_set.connect (() => {
+            this.color.add_palette (Gtk.Orientation.HORIZONTAL, 5, palette);
+            this.color.color_set.connect (() => {
                 Gdk.RGBA rgba = color.get_rgba ();
                 this.settings.set_string ("color", rgba.to_string ());
             });
 
-            Gtk.Button syntax_help = builder.get_object("syntax_help") as Gtk.Button;
-            syntax_help.clicked.connect (() => {
+            this.syntax_help.clicked.connect (() => {
                 const SyntaxExample[] examples = {
                     { "<tt>tagname</tt>", "search fuzzily for a tag/keyword" },
                     { "<tt>-tagname</tt>", "exclude a tag/keyword" },
@@ -491,8 +490,6 @@ namespace Damask.Sources.Wallhaven {
                 popover.set_parent (syntax_help);
                 popover.popup ();
             });
-
-            return prefs;
         }
     }
 }

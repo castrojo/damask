@@ -38,7 +38,7 @@ namespace Damask.Sources.Manual {
 
         public void refresh () {}
 
-        public Adw.PreferencesPage? prefs () {
+        public Adw.PreferencesWindow? preferences () {
             return null;
         }
     }

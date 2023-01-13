@@ -1,187 +1,189 @@
 using Gtk 4.0;
 using Adw 1;
 
-Adw.PreferencesPage prefs {
-  Adw.PreferencesGroup {
-    title: "Source";
+template DamaskSourcesWallhavenPreferencesWindow : Adw.PreferencesWindow {
+  Adw.PreferencesPage prefs {
+    Adw.PreferencesGroup {
+      title: "Source";
 
-    CheckButton search_mode {
-      visible: false;
-    }
-
-    Adw.ActionRow {
-      title: "API Key";
-
-      Entry api_key {
-        placeholder-text: "deadbeef";
-        valign: center;
-      }
-    }
-
-    Adw.ExpanderRow {
-      title: "Query";
-
-      [prefix]
-      CheckButton search_mode_query {
-        group: search_mode;
+      CheckButton search_mode {
+        visible: false;
       }
 
       Adw.ActionRow {
+        title: "API Key";
+
+        Entry api_key {
+          placeholder-text: "deadbeef";
+          valign: center;
+        }
+      }
+
+      Adw.ExpanderRow {
         title: "Query";
 
-        Button syntax_help {
-          styles ["flat"]
-          icon-name: "dialog-information-symbolic";
-          valign: center;
+        [prefix]
+        CheckButton search_mode_query {
+          group: search_mode;
         }
 
-        Entry query {
-          placeholder-text: "space galaxy";
-          valign: center;
+        Adw.ActionRow {
+          title: "Query";
+
+          Button syntax_help {
+            styles ["flat"]
+            icon-name: "dialog-information-symbolic";
+            valign: center;
+          }
+
+          Entry query {
+            placeholder-text: "space galaxy";
+            valign: center;
+          }
+        }
+      }
+
+      Adw.ExpanderRow {
+        title: "Collection";
+
+        [prefix]
+        CheckButton search_mode_collections {
+          group: search_mode;
+        }
+
+        Adw.ActionRow {
+          title: "Username";
+          Entry username {
+            placeholder-text: "kermit_the_frog";
+            valign: center;
+          }
+        }
+
+        Adw.ComboRow collections {
+          title: "Collections";
         }
       }
     }
 
-    Adw.ExpanderRow {
-      title: "Collection";
+    Adw.PreferencesGroup {
+      title: "Sorting";
 
-      [prefix]
-      CheckButton search_mode_collections {
-        group: search_mode;
+      Adw.ComboRow sort_by {
+        title: "Sort By";
+
+        model: StringList {
+          strings [
+            "Date Added",
+            "Relevance",
+            "Random",
+            "Views",
+            "Favorites",
+            "Top List",
+          ]
+        };
+      }
+
+      Adw.ComboRow sort_order {
+        title: "Sort Order";
+
+        model: StringList {
+          strings [
+            "Ascending",
+            "Descending",
+          ]
+        };
+      }
+
+      Adw.ComboRow top_list_range {
+        title: "Top List Range";
+
+        model: StringList {
+          strings [
+            "One Day",
+            "Three Days",
+            "One Week",
+            "One Month",
+            "Three Months",
+            "Six Months",
+            "One Year",
+          ]
+        };
+      }
+    }
+
+    Adw.PreferencesGroup {
+      title: "Filtering";
+
+      Adw.ActionRow {
+        title: "Color";
+
+        activatable-widget: color_enabled;
+
+        [suffix]
+        Switch color_enabled {
+          valign: center;
+        }
+
+        ColorButton color {
+          valign: center;
+          sensitive: bind color_enabled.state;
+        }
+      }
+    }
+
+    Adw.PreferencesGroup {
+      title: "Categories";
+
+      Adw.ActionRow {
+        title: "General";
+
+        Switch category_general {
+          valign: center;
+        }
       }
 
       Adw.ActionRow {
-        title: "Username";
-        Entry username {
-          placeholder-text: "kermit_the_frog";
+        title: "Anime";
+
+        Switch category_anime {
           valign: center;
         }
       }
 
-      Adw.ComboRow collections {
-        title: "Collections";
-      }
-    }
-  }
+      Adw.ActionRow {
+        title: "People";
 
-  Adw.PreferencesGroup {
-    title: "Sorting";
-
-    Adw.ComboRow sort_by {
-      title: "Sort By";
-
-      model: StringList {
-        strings [
-          "Date Added",
-          "Relevance",
-          "Random",
-          "Views",
-          "Favorites",
-          "Top List",
-        ]
-      };
-    }
-
-    Adw.ComboRow sort_order {
-      title: "Sort Order";
-
-      model: StringList {
-        strings [
-          "Ascending",
-          "Descending",
-        ]
-      };
-    }
-
-    Adw.ComboRow top_list_range {
-      title: "Top List Range";
-
-      model: StringList {
-        strings [
-          "One Day",
-          "Three Days",
-          "One Week",
-          "One Month",
-          "Three Months",
-          "Six Months",
-          "One Year",
-        ]
-      };
-    }
-  }
-
-  Adw.PreferencesGroup {
-    title: "Filtering";
-
-    Adw.ActionRow {
-      title: "Color";
-
-      activatable-widget: color_enabled;
-
-      [suffix]
-      Switch color_enabled {
-        valign: center;
-      }
-
-      ColorButton color {
-        valign: center;
-        sensitive: bind color_enabled.state;
-      }
-    }
-  }
-
-  Adw.PreferencesGroup {
-    title: "Categories";
-
-    Adw.ActionRow {
-      title: "General";
-
-      Switch category_general {
-        valign: center;
+        Switch category_people {
+          valign: center;
+        }
       }
     }
 
-    Adw.ActionRow {
-      title: "Anime";
+    Adw.PreferencesGroup {
+      title: "Purity";
 
-      Switch category_anime {
-        valign: center;
+      Adw.ActionRow {
+        title: "Safe for Work";
+
+        Switch purity_sfw {
+          valign: center;
+        }
       }
-    }
 
-    Adw.ActionRow {
-      title: "People";
+      Adw.ActionRow {
+        title: "Sketchy";
 
-      Switch category_people {
-        valign: center;
+        Switch purity_sketchy {
+          valign: center;
+        }
       }
-    }
-  }
 
-  Adw.PreferencesGroup {
-    title: "Purity";
+      Adw.ActionRow {
+        title: "Not Safe for Work";
 
-    Adw.ActionRow {
-      title: "Safe for Work";
-
-      Switch purity_sfw {
-        valign: center;
-      }
-    }
-
-    Adw.ActionRow {
-      title: "Sketchy";
-
-      Switch purity_sketchy {
-        valign: center;
-      }
-    }
-
-    Adw.ActionRow {
-      title: "Not Safe for Work";
-
-      Switch purity_nsfw {
-        valign: center;
+        Switch purity_nsfw {
+          valign: center;
+        }
       }
     }
   }

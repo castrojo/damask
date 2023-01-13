@@ -1,38 +1,40 @@
 using Gtk 4.0;
 using Adw 1;
 
-Adw.PreferencesPage prefs {
-  Adw.PreferencesGroup {
-    Adw.ComboRow market {
-      title: "Market";
+template DamaskSourcesBingPreferencesWindow : Adw.PreferencesWindow {
+  Adw.PreferencesPage prefs {
+    Adw.PreferencesGroup {
+      Adw.ComboRow market {
+        title: "Market";
 
-      model: StringList {
-        strings [
-          "en-US",
-	        "zh-CN",
-	        "ja-JP",
-	        "en-AU",
-	        "en-GB",
-	        "de-DE",
-	        "en-NZ",
-	        "en-CA",
-	        "en-IN",
-	        "fr-FR",
-	        "fr-CA",
-        ]
-      };
-    }
+        model: StringList {
+          strings [
+            "en-US",
+	          "zh-CN",
+	          "ja-JP",
+	          "en-AU",
+	          "en-GB",
+	          "de-DE",
+	          "en-NZ",
+	          "en-CA",
+	          "en-IN",
+	          "fr-FR",
+	          "fr-CA",
+          ]
+        };
+      }
 
-    Adw.ComboRow resolution {
-      title: "Resolution";
+      Adw.ComboRow resolution {
+        title: "Resolution";
 
-      model: StringList {
-        strings [
-          "1920x1080",
-          "1366x768",
-          "UHD (3840x2160)"
-        ]
-      };
+        model: StringList {
+          strings [
+            "1920x1080",
+            "1366x768",
+            "UHD (3840x2160)"
+          ]
+        };
+      }
     }
   }
 }
