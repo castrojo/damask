@@ -27,6 +27,16 @@ damask_sources = [
   'window.vala',
 ]
 
+# This "target" creates a stamp file that is newer than src/meson.build. This
+# appears to ensure that the blueprint files are compiled into UI XML definition
+# files. Otherwise, if the file src/meson.build is newer than the blueprint
+# files, they won't get compiled.
+damask_sources += custom_target('blueprints_stamp',
+  input: blueprints,
+  output: 'blueprint.vala',
+  command: [find_program('touch'), '@OUTPUT@'],
+)
+
 damask_sources += configure_file(
   input: 'constants.vala.in',
   output: 'constants.vala',
