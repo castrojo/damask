@@ -27,6 +27,12 @@ damask_sources = [
   'window.vala',
 ]
 
+damask_sources += custom_target('blueprint_hack',
+  input: damask_blueprints,
+  output: 'blueprint.vala',
+  command: [find_program('touch'), '@OUTPUT@']
+)
+
 damask_sources += configure_file(
   input: 'constants.vala.in',
   output: 'constants.vala',
@@ -57,5 +63,5 @@ damask_sources += gnome.compile_resources('damask-resources',
 executable('damask', damask_sources,
   dependencies: damask_deps,
        install: true,
-     vala_args: ['--gresourcesdir=' + meson.current_build_dir()]
+     vala_args: ['--gresourcesdir=' + blueprints.full_path()]
 )
