@@ -71,6 +71,7 @@ namespace Damask {
                     prefs_window.set_transient_for (this);
                     prefs_window.present ();
                 });
+                prefs_button.sensitive = wp_source.prefs () != null;
                 row.add_suffix (prefs_button);
 
                 Gtk.CheckButton button = new Gtk.CheckButton ();
