@@ -25,7 +25,7 @@ namespace Damask.Sources.Manual {
         }
 
         public string title {
-            get { return "Disabled"; }
+            get { return "Manual"; }
         }
 
         public string subtitle {

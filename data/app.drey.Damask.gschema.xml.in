@@ -6,7 +6,7 @@
 		</key>
 
 		<key name="active-source" type="s">
-			<default>"Disabled"</default>
+			<default>"manual"</default>
 		</key>
 
 		<key name="run-in-background" type="b">
