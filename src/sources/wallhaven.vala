@@ -122,7 +122,7 @@ namespace Damask.Sources.Wallhaven {
         }
 
         private Damask.Wallpaper? _current_wallpaper;
-        public Damask.Wallpaper? current_wallpaper {
+        public unowned Damask.Wallpaper? current_wallpaper {
             get { return _current_wallpaper; }
         }
 

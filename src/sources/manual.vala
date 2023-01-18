@@ -32,7 +32,7 @@ namespace Damask.Sources.Manual {
             get { return "Manually set wallpaper"; }
         }
 
-        public Damask.Wallpaper? current_wallpaper {
+        public unowned Damask.Wallpaper? current_wallpaper {
             get { return null; }
         }
 
