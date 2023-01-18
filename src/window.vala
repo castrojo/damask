@@ -47,7 +47,7 @@ namespace Damask {
                 this.add_css_class ("devel");
             }
 
-            foreach (unowned WallpaperSource src in application.source_list) {
+            foreach (WallpaperSource src in application.source_list) {
                 Adw.ActionRow row = new Adw.ActionRow ();
                 row.title = src.title;
                 row.subtitle = src.subtitle;

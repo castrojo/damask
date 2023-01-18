@@ -21,14 +21,10 @@
 namespace Damask {
     public class Application : Adw.Application {
         public Settings settings = new Settings (Constants.APP_ID);
-        public weak Wallpaper? current_wallpaper { get; private set; }
-        public WallpaperSource[] source_list = {
-            new Sources.Manual.Manual (),
-            new Sources.Bing.Bing (),
-            new Sources.Wallhaven.Wallhaven (),
-        };
+        public Wallpaper? current_wallpaper { get; private set; }
+        public Gee.ArrayList<WallpaperSource> source_list = new Gee.ArrayList<WallpaperSource> ();
 
-        private HashTable<string, unowned WallpaperSource> sources = new HashTable<string, unowned WallpaperSource> (str_hash, str_equal);
+        private HashTable<string, WallpaperSource> sources = new HashTable<string, WallpaperSource> (str_hash, str_equal);
         private unowned WallpaperSource? current_source = null;
         private uint source_id = 0;
         private bool skip_window = false;
@@ -61,8 +57,20 @@ namespace Damask {
             };
             this.add_main_option_entries (option_entries);
 
-            foreach (WallpaperSource s in this.source_list) {
+            {
+                var s = new Sources.Manual.Manual ();
                 this.sources.insert (s.id, s);
+                this.source_list.add (s);
+            }
+            {
+                var s = new Sources.Bing.Bing ();
+                this.sources.insert (s.id, s);
+                this.source_list.add (s);
+            }
+            {
+                var s = new Sources.Wallhaven.Wallhaven ();
+                this.sources.insert (s.id, s);
+                this.source_list.add (s);
             }
         }
 
