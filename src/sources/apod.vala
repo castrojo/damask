@@ -105,7 +105,7 @@ namespace Damask.Sources.Apod {
     [GtkTemplate (ui = "/app/drey/Damask/sources/apod.ui")]
     public class PreferencesWindow : Adw.PreferencesWindow {
         private Settings settings = new Settings (@"$(Constants.APP_ID).sources.apod");
-        [GtkChild] private unowned Gtk.Entry api_key;
+        [GtkChild] private unowned Adw.EntryRow api_key;
 
         construct {
             this.settings.bind ("api-key", api_key, "text", SettingsBindFlags.DEFAULT);

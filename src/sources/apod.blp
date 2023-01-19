@@ -6,13 +6,8 @@ template DamaskSourcesApodPreferencesWindow : Adw.PreferencesWindow {
     Adw.PreferencesGroup {
       title: "Search";
 
-      Adw.ActionRow {
+      Adw.EntryRow api_key {
         title: "API Key";
-
-        Entry api_key {
-          placeholder-text: "deadbeef";
-          valign: center;
-        }
       }
     }
   }
