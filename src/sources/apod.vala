@@ -57,7 +57,6 @@ namespace Damask.Sources.Apod {
             query_parameters.append (@"api_key=$api_key&");
 
             uint min_width = 0;
-            uint min_height = 0;
             Gdk.Display default_display = Gdk.Display.get_default ();
             ListModel model = default_display.get_monitors();
             for (int i = 0; i < model.get_n_items(); i++) {
@@ -65,9 +64,6 @@ namespace Damask.Sources.Apod {
                 Gdk.Rectangle rect = m.get_geometry();
                 if (rect.width > min_width) {
                     min_width = rect.width;
-                }
-                if (rect.height > min_height) {
-                    min_height = rect.height;
                 }
             }
 
@@ -82,14 +78,19 @@ namespace Damask.Sources.Apod {
                     Response resp = Json.gobject_from_data (typeof(Response), (string) response_body.get_data ()) as Response;
                     assert (resp != null);
 
+                    string image_url = resp.url;
+                    if (min_width > 1097) {
+                        image_url = resp.hdurl;
+                    }
+
                     this._current_wallpaper = new Damask.Wallpaper () {
-                        url = resp.url,
+                        url = image_url,
                         thumbnail_url = resp.url,
                         title = resp.title,
                         description = resp.explanation,
                         web_url = "https://apod.nasa.gov/apod/"
                     };
-                    this.changed (resp.url);
+                    this.changed (image_url);
                 } catch (Error e) {
                     error (e.message);
                 }
