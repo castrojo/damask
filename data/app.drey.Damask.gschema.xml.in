@@ -99,4 +99,10 @@
       <default>""</default>
     </key>
   </schema>
+
+  <schema id="@APP_ID@.sources.apod" path="@RESOURCE_PATH@/sources/apod/">
+    <key name="api-key" type="s">
+      <default>""</default>
+    </key>
+  </schema>
 </schemalist>

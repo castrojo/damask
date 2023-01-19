@@ -1,6 +1,7 @@
 damask_blueprints = [
   'preferences.blp',
   'shortcuts.blp',
+  'sources/apod.blp',
   'sources/bing.blp',
   'sources/manual.blp',
   'sources/wallhaven.blp',
@@ -21,6 +22,7 @@ damask_sources = [
   'application.vala',
   'main.vala',
   'preferences.vala',
+  'sources/apod.vala',
   'sources/bing.vala',
   'sources/manual.vala',
   'sources/wallhaven.vala',
