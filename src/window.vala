@@ -84,27 +84,49 @@ namespace Damask {
 
             application.notify["current-wallpaper"].connect ((src, pspec) => {
                 debug(@"application notify current-wallpaper");
-                Soup.Session session = new Soup.Session ();
-                Soup.Message msg = new Soup.Message ("GET", application.current_wallpaper.thumbnail_url);
                 this.spinner.spinning = true;
                 this.spinner.visible = true;
-                session.send_and_read_async.begin (msg, 0, null, (src, res) => {
-                    try {
-                        Bytes body = session.send_and_read_async.end (res);
-                        Gdk.Texture texture = Gdk.Texture.from_bytes (body);
-                        if (this.preview_stack.get_visible_child () == this.preview_picture1) {
-                            this.preview_picture2.paintable = texture;
-                            this.preview_stack.set_visible_child (this.preview_picture2 as Gtk.Widget);
-                        } else {
-                            this.preview_picture1.paintable = texture;
-                            this.preview_stack.set_visible_child (this.preview_picture1 as Gtk.Widget);
-                        }
-                        this.spinner.spinning = false;
-                        this.spinner.visible = false;
-                    } catch (Error e) {
-                        error (e.message);
+                try {
+                    Uri uri = Uri.parse (application.current_wallpaper.thumbnail_url, UriFlags.NONE);
+                    switch (uri.get_scheme()) {
+                        case "file":
+                            string uri_string = uri.to_string ();
+                            File file = File.new_for_uri (uri_string);
+                            Gdk.Texture texture = Gdk.Texture.from_file (file);
+                            if (this.preview_stack.get_visible_child () == this.preview_picture1) {
+                                this.preview_picture2.paintable = texture;
+                                this.preview_stack.set_visible_child (this.preview_picture2 as Gtk.Widget);
+                            } else {
+                                this.preview_picture1.paintable = texture;
+                                this.preview_stack.set_visible_child (this.preview_picture1 as Gtk.Widget);
+                            }
+                            break;
+                        default:
+                            Soup.Session session = new Soup.Session ();
+                            Soup.Message msg = new Soup.Message ("GET", application.current_wallpaper.thumbnail_url);
+                            session.send_and_read_async.begin (msg, 0, null, (src, res) => {
+                                try {
+                                    Bytes body = session.send_and_read_async.end (res);
+                                    Gdk.Texture texture = Gdk.Texture.from_bytes (body);
+                                    if (this.preview_stack.get_visible_child () == this.preview_picture1) {
+                                        this.preview_picture2.paintable = texture;
+                                        this.preview_stack.set_visible_child (this.preview_picture2 as Gtk.Widget);
+                                    } else {
+                                        this.preview_picture1.paintable = texture;
+                                        this.preview_stack.set_visible_child (this.preview_picture1 as Gtk.Widget);
+                                    }
+                                } catch (Error e) {
+                                    error (e.message);
+                                }
+                            });
+                            break;
                     }
-                });
+                } catch (Error e) {
+                    error (e.message);
+                } finally {
+                    this.spinner.spinning = false;
+                    this.spinner.visible = false;
+                }
 
                 this.title_label.visible = application.current_wallpaper.title != null;
                 if (application.current_wallpaper.title != null) {

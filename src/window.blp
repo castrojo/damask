@@ -52,9 +52,8 @@ template DamaskWindow : Adw.ApplicationWindow {
                   name: "stack1";
                   child: Gtk.Picture preview_picture1 {
                     styles ["card"]
-                    content-fit: contain;
-                    can-shrink: false;
-                    width-request: 300;
+                    content-fit: cover;
+                    can-shrink: true;
                     height-request: 200;
                   };
                 }
@@ -63,9 +62,8 @@ template DamaskWindow : Adw.ApplicationWindow {
                   name: "stack2";
                   child: Gtk.Picture preview_picture2 {
                     styles ["card"]
-                    content-fit: contain;
-                    can-shrink: false;
-                    width-request: 300;
+                    content-fit: cover;
+                    can-shrink: true;
                     height-request: 200;
                   };
                 }

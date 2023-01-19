@@ -113,9 +113,9 @@ namespace Damask {
                 } else {
                     this.current_source = this.sources.get (this.settings.get_string ("active-source"));
                     debug (@"enabling $(this.current_source.id)");
-                    this.current_source.refresh ();
                     this.attach_timer ();
                     this.current_source.changed.connect (this.current_source_changed);
+                    this.current_source.refresh ();
                 }
             });
 
