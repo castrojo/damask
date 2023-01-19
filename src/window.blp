@@ -94,7 +94,8 @@ template DamaskWindow : Adw.ApplicationWindow {
           Gtk.Label description_label {
             styles ["caption"]
             wrap: true;
-            wrap-mode: word;
+            ellipsize: end;
+            lines: 3;
             margin-top: 12;
             margin-bottom: 12;
           }

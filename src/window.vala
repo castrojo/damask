@@ -136,6 +136,7 @@ namespace Damask {
                 this.description_label.visible = application.current_wallpaper.description != null;
                 if (application.current_wallpaper.description != null) {
                     this.description_label.set_text (application.current_wallpaper.description);
+                    this.description_label.set_tooltip_text (application.current_wallpaper.description);
                 }
             });
         }
