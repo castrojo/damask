@@ -11,11 +11,6 @@
         "--device=dri",
         "--socket=wayland"
     ],
-    "build-options": {
-        "append-path": "/usr/lib/sdk/vala/bin",
-        "prepend-ld-library-path": "/usr/lib/sdk/vala/lib",
-        "env": {}
-    },
     "cleanup": [
         "/include",
         "/lib/pkgconfig",
@@ -32,6 +27,7 @@
         {
             "name": "blueprint-compiler",
             "buildsystem": "meson",
+            "cleanup": ["*"],
             "sources": [
                 {
                     "type": "git",
