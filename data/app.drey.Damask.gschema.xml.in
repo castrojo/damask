@@ -96,7 +96,7 @@
 
   <schema id="@APP_ID@.sources.manual" path="@RESOURCE_PATH@/sources/manual/">
     <key name="picture-uri" type="s">
-      <default>"file:///usr/share/backgrounds/gnome/adwaita-l.webp"</default>
+      <default>""</default>
     </key>
   </schema>
 </schemalist>

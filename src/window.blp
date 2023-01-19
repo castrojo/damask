@@ -73,7 +73,8 @@ template DamaskWindow : Adw.ApplicationWindow {
               Adw.Clamp {
                 maximum-size: 24;
                 child: Gtk.Spinner spinner {
-                  spinning: true;
+                  spinning: false;
+                  visible: false;
                 };
               }
 

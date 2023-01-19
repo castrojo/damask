@@ -24,11 +24,13 @@ namespace Damask.Sources.Manual {
 
         construct {
             string path = this.settings.get_string ("picture-uri");
-            this._current_wallpaper = new Damask.Wallpaper () {
-                url = path,
-                thumbnail_url = path,
-                web_url = path
-            };
+            if (path != "") {
+                this._current_wallpaper = new Damask.Wallpaper () {
+                    url = path,
+                    thumbnail_url = path,
+                    web_url = path
+                };
+            }
             this.settings.changed["picture-uri"].connect ((key) => {
                 this.refresh ();
             });
@@ -53,13 +55,15 @@ namespace Damask.Sources.Manual {
 
         public void refresh () {
             string path = this.settings.get_string ("picture-uri");
-            this._current_wallpaper = new Damask.Wallpaper () {
-                url = path,
-                thumbnail_url = path,
-                web_url = path
-            };
+            if (path != "") {
+                this._current_wallpaper = new Damask.Wallpaper () {
+                    url = path,
+                    thumbnail_url = path,
+                    web_url = path
+                };
+                this.changed (path);
+            }
 
-            this.changed (path);
         }
 
         public Adw.PreferencesWindow? preferences () {
@@ -83,10 +87,11 @@ namespace Damask.Sources.Manual {
                 Gdk.Texture texture = Gdk.Texture.from_file (file);
                 this.preview_picture1.paintable = texture;
                 this.preview_stack.set_visible_child (this.preview_picture1 as Gtk.Widget);
-                this.spinner.spinning = false;
-                this.spinner.visible = false;
             } catch (Error e) {
                 warning (e.message);
+            } finally {
+                this.spinner.spinning = false;
+                this.spinner.visible = false;
             }
 
             choose_button.clicked.connect (() => {
