@@ -26,13 +26,15 @@
 	  <p>Damask is an automatic wallpaper application. It currently supports setting the wallpaper image from the following sources:</p>
 	  <ul>
 	    <li>wallhaven.cc</li>
-      <li>Microsoft Bing Wallpaper of the dayNo description</li>
+      <li>Microsoft Bing Wallpaper of the day</li>
+	    <li>NASA Astronomy Picture of the Day</li>
 	  </ul>
 	</description>
   <url type="homepage">https://gitlab.gnome.org/subpop/damask</url>
   <url type="bugtracker">https://gitlab.gnome.org/subpop/damask/-/issues</url>
   <releases>
-    <release version="0.1.0" date="2023-01-03"/>
+    <release version="0.1.1" date="2023-01-19"/>
+    <release version="0.1.0" date="2023-01-18"/>
   </releases>
   <screenshots>
     <screenshot type="default">
