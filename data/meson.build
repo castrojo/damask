@@ -18,14 +18,14 @@ endif
 
 appstream_file = i18n.merge_file(
         input: configure_file(
-              input: 'app.drey.Damask.appdata.xml.in.in',
-              output: '@0@.appdata.xml.in'.format(app_id),
+              input: 'app.drey.Damask.metainfo.xml.in.in',
+              output: '@0@.metainfo.xml.in'.format(app_id),
               configuration: config_data
           ),
-       output: '@0@.appdata.xml'.format(app_id),
+       output: '@0@.metainfo.xml'.format(app_id),
        po_dir: '../po',
       install: true,
-  install_dir: join_paths(get_option('datadir'), 'appdata')
+  install_dir: join_paths(get_option('datadir'), 'metainfo')
 )
 
 appstream_util = find_program('appstream-util', required: false)

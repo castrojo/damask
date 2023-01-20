@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component type="desktop">
-	<id>@APP_ID@</id>
+<!-- Copyright 2022-2023 Link Dupont -->
+<component type="desktop-application">
+  <id>@APP_ID@</id>
   <name>Damask</name>
   <content_rating type="oars-1.1">
     <content_attribute id="violence-cartoon">moderate</content_attribute>
@@ -19,22 +20,27 @@
     <content_attribute id="language-discrimination">mild</content_attribute>
     <content_attribute id="money-gambling">intense</content_attribute>
   </content_rating>
-	<metadata_license>CC0-1.0</metadata_license>
-	<project_license>GPL-3.0-or-later</project_license>
+  <launchable type="desktop-id">@APP_ID@.desktop</launchable>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <developer_name>Link Dupont</developer_name>
   <summary>Automatically set wallpaper images from Internet sources</summary>
-	<description>
-	  <p>Damask is an automatic wallpaper application. It currently supports setting the wallpaper image from the following sources:</p>
-	  <ul>
-	    <li>wallhaven.cc</li>
+  <description>
+    <p>Damask is an automatic wallpaper application. It currently supports setting the wallpaper image from the following sources:</p>
+    <ul>
+      <li>wallhaven.cc</li>
       <li>Microsoft Bing Wallpaper of the day</li>
-	    <li>NASA Astronomy Picture of the Day</li>
-	  </ul>
-	</description>
+      <li>NASA Astronomy Picture of the Day</li>
+    </ul>
+  </description>
   <url type="homepage">https://gitlab.gnome.org/subpop/damask</url>
   <url type="bugtracker">https://gitlab.gnome.org/subpop/damask/-/issues</url>
+  <url type="help">https://gitlab.gnome.org/subpop/damask/-/issues</url>
+  <url type="translate">https://gitlab.gnome.org/subpop/damask/-/issues</url>
   <releases>
-    <release version="0.1.1" date="2023-01-19"/>
-    <release version="0.1.0" date="2023-01-18"/>
+    <release date="2023-01-20" version="0.1.2"/>
+    <release date="2023-01-19" version="0.1.1"/>
+    <release date="2023-01-18" version="0.1.0"/>
   </releases>
   <screenshots>
     <screenshot type="default">
