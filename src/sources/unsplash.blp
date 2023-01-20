@@ -1,0 +1,38 @@
+using Gtk 4.0;
+using Adw 1;
+
+template DamaskSourcesUnsplashPreferencesWindow : Adw.PreferencesWindow {
+  Adw.PreferencesPage prefs {
+    Adw.PreferencesGroup {
+      Adw.EntryRow api_key {
+        title: "API Key";
+      }
+
+      Adw.EntryRow query {
+        title: "Query";
+        tooltip-text: "Limit selection to photos matching a search term";
+      }
+
+      Adw.EntryRow collections {
+        title: "Collections";
+        tooltip-text: "Public collection IDs to filter selection (comma-separated)";
+      }
+
+      Adw.EntryRow topics {
+        title: "Topics";
+        tooltip-text: "Public topic IDs to filter selection (comma-separated)";
+      }
+
+      Adw.ComboRow content_filter {
+        title: "Content Filter";
+
+        model: StringList {
+          strings [
+            "Low",
+            "High",
+          ]
+        };
+      }
+    }
+  }
+}

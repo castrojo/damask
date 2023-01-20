@@ -77,6 +77,11 @@ namespace Damask {
                 this.sources.insert (s.id, s);
                 this.source_list.add (s);
             }
+            {
+                var s = new Sources.Unsplash.Unsplash ();
+                this.sources.insert (s.id, s);
+                this.source_list.add (s);
+            }
         }
 
         public override void startup () {

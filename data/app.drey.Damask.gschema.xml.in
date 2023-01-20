@@ -105,4 +105,26 @@
       <default>""</default>
     </key>
   </schema>
+
+  <schema id="@APP_ID@.sources.unsplash" path="@RESOURCE_PATH@/sources/unsplash/">
+    <key name="api-key" type="s">
+      <default>""</default>
+    </key>
+
+    <key name="query" type="s">
+      <default>""</default>
+    </key>
+
+    <key name="collections" type="s">
+      <default>""</default>
+    </key>
+
+    <key name="topics" type="s">
+      <default>""</default>
+    </key>
+
+    <key name="content-filter" type="s">
+      <default>"low"</default>
+    </key>
+  </schema>
 </schemalist>
