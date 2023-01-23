@@ -56,7 +56,7 @@
 		</key>
 
 		<key name="category-anime" type="b">
-			<default>true</default>
+			<default>false</default>
 		</key>
 
 		<key name="category-people" type="b">
