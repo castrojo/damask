@@ -41,6 +41,12 @@ namespace Damask.Sources.Unsplash {
     public class Unsplash : Object, WallpaperSource {
         private Settings settings = new Settings (@"$(Constants.APP_ID).sources.unsplash");
 
+        construct {
+            this.settings.changed["api-key"].connect (() => {
+                this.notify_property ("can-activate");
+            });
+        }
+
         public string id {
             get { return "unsplash"; }
         }

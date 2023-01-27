@@ -33,6 +33,12 @@ namespace Damask.Sources.Apod {
     public class Apod : Object, WallpaperSource {
         private Settings settings = new Settings (@"$(Constants.APP_ID).sources.apod");
 
+        construct {
+            this.settings.changed["api-key"].connect (() => {
+                this.notify_property ("can-activate");
+            });
+        }
+
         public string id {
             get { return "apod"; }
         }

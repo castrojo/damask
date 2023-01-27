@@ -64,6 +64,10 @@ namespace Damask {
 
                 Gtk.CheckButton button = new Gtk.CheckButton ();
                 button.group = this.active_source;
+                button.sensitive = src.can_activate;
+                src.notify["can-activate"].connect ((pspec) => {
+                    button.sensitive = src.can_activate;
+                });
 
                 if (application.settings.get_string("active-source") == src.id) {
                     button.set_active (true);
