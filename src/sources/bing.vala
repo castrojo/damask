@@ -60,6 +60,10 @@ namespace Damask.Sources.Bing {
             get { return "Use Microsoft Bing's wallpaper of the day"; }
         }
 
+        public bool can_activate {
+            get { return true; }
+        }
+
         private Damask.Wallpaper? _current_wallpaper;
         public unowned Damask.Wallpaper? current_wallpaper {
             get { return _current_wallpaper; }

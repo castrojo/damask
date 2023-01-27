@@ -121,6 +121,10 @@ namespace Damask.Sources.Wallhaven {
             get { return "Get wallpapers from wallhaven.cc"; }
         }
 
+        public bool can_activate {
+            get { return true; }
+        }
+
         private Damask.Wallpaper? _current_wallpaper;
         public unowned Damask.Wallpaper? current_wallpaper {
             get { return _current_wallpaper; }

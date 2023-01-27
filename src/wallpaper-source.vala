@@ -34,6 +34,7 @@ namespace Damask {
         public abstract string id { get; }
         public abstract string title { get; }
         public abstract string subtitle { get; }
+        public abstract bool can_activate { get; }
         public abstract unowned Wallpaper? current_wallpaper { get; }
 
         public signal void changed(string uri);

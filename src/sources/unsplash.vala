@@ -53,6 +53,10 @@ namespace Damask.Sources.Unsplash {
             get { return "Get wallpapers from unsplash.com"; }
         }
 
+        public bool can_activate {
+            get { return this.settings.get_string ("api-key") != ""; }
+        }
+
         private Damask.Wallpaper? _current_wallpaper;
         public unowned Damask.Wallpaper? current_wallpaper {
             get { return _current_wallpaper; }
