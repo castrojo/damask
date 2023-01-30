@@ -102,8 +102,8 @@ namespace Damask.Sources.Manual {
                 Gtk.FileChooserNative chooser = new Gtk.FileChooserNative (_("Select Picture"),
                                                                            this,
                                                                            Gtk.FileChooserAction.OPEN,
-                                                                           "_Select",
-                                                                           "_Cancel");
+                                                                           _("_Select"),
+                                                                           _("_Cancel"));
                 chooser.response.connect ((response) => {
                     this.spinner.spinning = true;
                     this.spinner.visible = true;
