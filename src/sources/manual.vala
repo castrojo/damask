@@ -45,7 +45,7 @@ namespace Damask.Sources.Manual {
         }
 
         public string subtitle {
-            get { return "Manually set wallpaper"; }
+            get { return _("Manually set wallpaper"); }
         }
 
         public bool can_activate {
@@ -99,7 +99,7 @@ namespace Damask.Sources.Manual {
             }
 
             choose_button.clicked.connect (() => {
-                Gtk.FileChooserNative chooser = new Gtk.FileChooserNative ("Select Picture",
+                Gtk.FileChooserNative chooser = new Gtk.FileChooserNative (_("Select Picture"),
                                                                            this,
                                                                            Gtk.FileChooserAction.OPEN,
                                                                            "_Select",

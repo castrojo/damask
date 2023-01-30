@@ -5,31 +5,31 @@ template DamaskSourcesUnsplashPreferencesWindow : Adw.PreferencesWindow {
   Adw.PreferencesPage prefs {
     Adw.PreferencesGroup {
       Adw.EntryRow api_key {
-        title: "API Key";
+        title: _("API Key");
       }
 
       Adw.EntryRow query {
-        title: "Query";
-        tooltip-text: "Limit selection to photos matching a search term";
+        title: _("Query");
+        tooltip-text: _("Limit selection to photos matching a search term");
       }
 
       Adw.EntryRow collections {
-        title: "Collections";
-        tooltip-text: "Public collection IDs to filter selection (comma-separated)";
+        title: _("Collections");
+        tooltip-text: _("Public collection IDs to filter selection (comma-separated)");
       }
 
       Adw.EntryRow topics {
-        title: "Topics";
-        tooltip-text: "Public topic IDs to filter selection (comma-separated)";
+        title: _("Topics");
+        tooltip-text: _("Public topic IDs to filter selection (comma-separated)");
       }
 
       Adw.ComboRow content_filter {
-        title: "Content Filter";
+        title: _("Content Filter");
 
         model: StringList {
           strings [
-            "Low",
-            "High",
+            _("Low"),
+            _("High"),
           ]
         };
       }

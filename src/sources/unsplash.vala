@@ -56,7 +56,7 @@ namespace Damask.Sources.Unsplash {
         }
 
         public string subtitle {
-            get { return "Get wallpapers from unsplash.com"; }
+            get { return _("Get wallpapers from unsplash.com"); }
         }
 
         public bool can_activate {

@@ -4,23 +4,23 @@ using Adw 1;
 template DamaskSourcesWallhavenPreferencesWindow : Adw.PreferencesWindow {
   Adw.PreferencesPage prefs {
     Adw.PreferencesGroup {
-      title: "Source";
+      title: _("Source");
 
       CheckButton search_mode {
         visible: false;
       }
 
       Adw.ActionRow {
-        title: "API Key";
+        title: _("API Key");
 
         Entry api_key {
-          placeholder-text: "deadbeef";
+          placeholder-text: _("deadbeef");
           valign: center;
         }
       }
 
       Adw.ExpanderRow {
-        title: "Query";
+        title: _("Query");
 
         [prefix]
         CheckButton search_mode_query {
@@ -28,7 +28,7 @@ template DamaskSourcesWallhavenPreferencesWindow : Adw.PreferencesWindow {
         }
 
         Adw.ActionRow {
-          title: "Query";
+          title: _("Query");
 
           Button syntax_help {
             styles ["flat"]
@@ -37,14 +37,14 @@ template DamaskSourcesWallhavenPreferencesWindow : Adw.PreferencesWindow {
           }
 
           Entry query {
-            placeholder-text: "space galaxy";
+            placeholder-text: _("space galaxy");
             valign: center;
           }
         }
       }
 
       Adw.ExpanderRow {
-        title: "Collection";
+        title: _("Collection");
 
         [prefix]
         CheckButton search_mode_collections {
@@ -52,70 +52,70 @@ template DamaskSourcesWallhavenPreferencesWindow : Adw.PreferencesWindow {
         }
 
         Adw.ActionRow {
-          title: "Username";
+          title: _("Username");
           Entry username {
-            placeholder-text: "kermit_the_frog";
+            placeholder-text: _("kermit_the_frog");
             valign: center;
           }
         }
 
         Adw.ComboRow collections {
-          title: "Collections";
+          title: _("Collections");
         }
       }
     }
 
     Adw.PreferencesGroup {
-      title: "Sorting";
+      title: _("Sorting");
 
       Adw.ComboRow sort_by {
-        title: "Sort By";
+        title: _("Sort By");
 
         model: StringList {
           strings [
-            "Date Added",
-            "Relevance",
-            "Random",
-            "Views",
-            "Favorites",
-            "Top List",
+            _("Date Added"),
+            _("Relevance"),
+            _("Random"),
+            _("Views"),
+            _("Favorites"),
+            _("Top List"),
           ]
         };
       }
 
       Adw.ComboRow sort_order {
-        title: "Sort Order";
+        title: _("Sort Order");
 
         model: StringList {
           strings [
-            "Ascending",
-            "Descending",
+            _("Ascending"),
+            _("Descending"),
           ]
         };
       }
 
       Adw.ComboRow top_list_range {
-        title: "Top List Range";
+        title: _("Top List Range");
 
         model: StringList {
           strings [
-            "One Day",
-            "Three Days",
-            "One Week",
-            "One Month",
-            "Three Months",
-            "Six Months",
-            "One Year",
+            _("One Day"),
+            _("Three Days"),
+            _("One Week"),
+            _("One Month"),
+            _("Three Months"),
+            _("Six Months"),
+            _("One Year"),
           ]
         };
       }
     }
 
     Adw.PreferencesGroup {
-      title: "Filtering";
+      title: _("Filtering");
 
       Adw.ActionRow {
-        title: "Color";
+        title: _("Color");
 
         activatable-widget: color_enabled;
 
@@ -132,10 +132,10 @@ template DamaskSourcesWallhavenPreferencesWindow : Adw.PreferencesWindow {
     }
 
     Adw.PreferencesGroup {
-      title: "Categories";
+      title: _("Categories");
 
       Adw.ActionRow {
-        title: "General";
+        title: _("General");
 
         Switch category_general {
           valign: center;
@@ -143,7 +143,7 @@ template DamaskSourcesWallhavenPreferencesWindow : Adw.PreferencesWindow {
       }
 
       Adw.ActionRow {
-        title: "Anime";
+        title: _("Anime");
 
         Switch category_anime {
           valign: center;
@@ -151,7 +151,7 @@ template DamaskSourcesWallhavenPreferencesWindow : Adw.PreferencesWindow {
       }
 
       Adw.ActionRow {
-        title: "People";
+        title: _("People");
 
         Switch category_people {
           valign: center;
@@ -160,10 +160,10 @@ template DamaskSourcesWallhavenPreferencesWindow : Adw.PreferencesWindow {
     }
 
     Adw.PreferencesGroup {
-      title: "Purity";
+      title: _("Purity");
 
       Adw.ActionRow {
-        title: "Safe for Work";
+        title: _("Safe for Work");
 
         Switch purity_sfw {
           valign: center;
@@ -171,7 +171,7 @@ template DamaskSourcesWallhavenPreferencesWindow : Adw.PreferencesWindow {
       }
 
       Adw.ActionRow {
-        title: "Sketchy";
+        title: _("Sketchy");
 
         Switch purity_sketchy {
           valign: center;
@@ -179,7 +179,7 @@ template DamaskSourcesWallhavenPreferencesWindow : Adw.PreferencesWindow {
       }
 
       Adw.ActionRow {
-        title: "Not Safe for Work";
+        title: _("Not Safe for Work");
 
         Switch purity_nsfw {
           valign: center;

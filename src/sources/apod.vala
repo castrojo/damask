@@ -48,7 +48,7 @@ namespace Damask.Sources.Apod {
         }
 
         public string subtitle {
-            get { return "Each day a different image or photograph of our fascinating universe."; }
+            get { return _("Each day a different image or photograph of our fascinating universe."); }
         }
 
         public bool can_activate {

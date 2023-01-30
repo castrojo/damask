@@ -57,7 +57,7 @@ namespace Damask.Sources.Bing {
         }
 
         public string subtitle {
-            get { return "Use Microsoft Bing's wallpaper of the day"; }
+            get { return _("Use Microsoft Bing's wallpaper of the day"); }
         }
 
         public bool can_activate {

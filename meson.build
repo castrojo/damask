@@ -19,7 +19,7 @@ endif
 i18n = import('i18n')
 gnome = import('gnome')
 
-add_project_arguments(['-DG_LOG_DOMAIN="damask"'], language: 'c')
+add_project_arguments(['-DGETTEXT_PACKAGE="damask"', '-DG_LOG_DOMAIN="damask"'], language: 'c')
 
 config_data = configuration_data()
 config_data.set('VERSION', meson.project_version())

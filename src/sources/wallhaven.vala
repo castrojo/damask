@@ -118,7 +118,7 @@ namespace Damask.Sources.Wallhaven {
         }
 
         public string subtitle {
-            get { return "Get wallpapers from wallhaven.cc"; }
+            get { return _("Get wallpapers from wallhaven.cc"); }
         }
 
         public bool can_activate {
@@ -181,29 +181,29 @@ namespace Damask.Sources.Wallhaven {
                         }
                         switch (ratio) {
                             case 13:
-                              aspect = "4∶3";
+                              aspect = "4:3";
                               break;
                             case 16:
-                              aspect = "16∶10";
+                              aspect = "16:10";
                               break;
                             case 17:
-                              aspect = "16∶9";
+                              aspect = "16:9";
                               break;
                             case 23:
-                              aspect = "21∶9";
+                              aspect = "21:9";
                               break;
                             case 12:
-                              aspect = "5∶4";
+                              aspect = "5:4";
                               break;
                               /* This catches 1.5625 as well (1600x1024) when maybe it shouldn't. */
                             case 15:
-                              aspect = "3∶2";
+                              aspect = "3:2";
                               break;
                             case 18:
-                              aspect = "9∶5";
+                              aspect = "9:5";
                               break;
                             case 10:
-                              aspect = "1∶1";
+                              aspect = "1:1";
                               break;
                         }
                         query_parameters.append(@"ratios=$aspect&");
@@ -460,15 +460,15 @@ namespace Damask.Sources.Wallhaven {
             });
 
             this.syntax_help.clicked.connect (() => {
-                const SyntaxExample[] examples = {
-                    { "<tt>tagname</tt>", "search fuzzily for a tag/keyword" },
-                    { "<tt>-tagname</tt>", "exclude a tag/keyword" },
-                    { "<tt>+tag1 +tag2</tt>", "must have tag1 and tag2" },
-                    { "<tt>+tag1 -tag2</tt>", "must have tag1 and NOT tag2" },
-                    { "<tt>@username</tt>", "user uploads" },
-                    { "<tt>id:123</tt>", "Exact tag search (can not be combined)" },
-                    { "<tt>type:{png/jpg}</tt>", "Search for file type (jpg = jpeg)" },
-                    { "<tt>like:wallpaper ID</tt>", "Find wallpapers with similar tags" }
+                SyntaxExample[] examples = {
+                    { _("<tt>tagname</tt>"), _("search fuzzily for a tag/keyword") },
+                    { _("<tt>-tagname</tt>"), _("exclude a tag/keyword") },
+                    { _("<tt>+tag1 +tag2</tt>"), _("must have tag1 and tag2") },
+                    { _("<tt>+tag1 -tag2</tt>"), _("must have tag1 and NOT tag2") },
+                    { _("<tt>@username</tt>"), _("user uploads") },
+                    { _("<tt>id:123</tt>"), _("Exact tag search (can not be combined)") },
+                    { _("<tt>type:{png/jpg}</tt>"), _("Search for file type (jpg = jpeg)") },
+                    { _("<tt>like:wallpaper ID</tt>"), _("Find wallpapers with similar tags") }
                 };
 
                 Gtk.Box query_example = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12);
