@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-08 09:45+0200\n"
-"PO-Revision-Date: 2023-02-08 08:45+0000\n"
+"PO-Revision-Date: 2023-02-09 19:37+0000\n"
 "Last-Translator: rene-coty <irenee.thirion@e.email>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/damask/damask/fr/>"
 "\n"
@@ -53,326 +53,328 @@ msgstr "Image astronomique du jour de la NASA"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:44
 msgid "Add \"wallpaper\" keyword to desktop file"
-msgstr ""
+msgstr "Ajout du mot-clé « arrière-plan » au fichier desktop"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:45
 msgid "Disable \"Anime\" category in the wallhaven source by default"
-msgstr ""
+msgstr "Catégorie « Anime » de la source wallhaven désactivée par défaut"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:46
 msgid ""
 "Dynamically disable sources that require certain values such as API key to "
 "function"
 msgstr ""
+"Désactive dynamiquement les sources qui requièrent certaines valeurs comme "
+"une clé API pour fonctionner"
 
 #: src/preferences.blp:10
 msgid "Refresh interval"
-msgstr ""
+msgstr "Intervalle de rafraîchissement"
 
 #: src/preferences.blp:14
 msgid "30 seconds"
-msgstr ""
+msgstr "30 secondes"
 
 #: src/preferences.blp:15
 msgid "1 minute"
-msgstr ""
+msgstr "1 minute"
 
 #: src/preferences.blp:16
 msgid "5 minutes"
-msgstr ""
+msgstr "5 minutes"
 
 #: src/preferences.blp:17
 msgid "15 minutes"
-msgstr ""
+msgstr "15 minutes"
 
 #: src/preferences.blp:18
 msgid "30 minutes"
-msgstr ""
+msgstr "30 minutes"
 
 #: src/preferences.blp:19
 msgid "1 hour"
-msgstr ""
+msgstr "1 heure"
 
 #: src/preferences.blp:20
 msgid "6 hours"
-msgstr ""
+msgstr "6 heures"
 
 #: src/preferences.blp:21
 msgid "12 hours"
-msgstr ""
+msgstr "12 heures"
 
 #: src/preferences.blp:22
 msgid "24 hours"
-msgstr ""
+msgstr "24 heures"
 
 #: src/preferences.blp:27
 msgid "Run in background"
-msgstr ""
+msgstr "Exécution en arrière-plan"
 
 #: src/preferences.blp:33
 msgid "Start automatically upon login"
-msgstr ""
+msgstr "Démarrage automatique lors de la connexion"
 
 #: src/sources/bing.blp:8
 msgid "Market"
-msgstr ""
+msgstr "Marché"
 
 #: src/sources/bing.blp:28
 msgid "Resolution"
-msgstr ""
+msgstr "Résolution"
 
 #: src/sources/bing.vala:60
 msgid "Use Microsoft Bing's wallpaper of the day"
-msgstr ""
+msgstr "Utiliser le fond d’écran du jour Microsoft Bing"
 
 #: src/sources/manual.vala:48
 msgid "Use a manually selected image as the wallpaper"
-msgstr ""
+msgstr "Utiliser comme arrière-plan une image sélectionnée manuellement"
 
 #: src/sources/manual.vala:102
 msgid "Select Picture"
-msgstr ""
+msgstr "Sélectionnez une image"
 
 #: src/sources/manual.vala:105
 msgid "_Select"
-msgstr ""
+msgstr "_Sélectionner"
 
 #: src/sources/manual.vala:106
 msgid "_Cancel"
-msgstr ""
+msgstr "_Annuler"
 
 #: src/sources/wallhaven.blp:7
 msgid "Source"
-msgstr ""
+msgstr "Source"
 
 #: src/sources/wallhaven.blp:14
 msgid "API Key"
-msgstr ""
+msgstr "Clé API"
 
 #: src/sources/wallhaven.blp:17
 msgid "deadbeef"
-msgstr ""
+msgstr "deadbeef"
 
 #: src/sources/wallhaven.blp:23 src/sources/wallhaven.blp:31
 msgid "Query"
-msgstr ""
+msgstr "Requête"
 
 #: src/sources/wallhaven.blp:40
 msgid "space galaxy"
-msgstr ""
+msgstr "space galaxy"
 
 #: src/sources/wallhaven.blp:47
 msgid "Collection"
-msgstr ""
+msgstr "Collection"
 
 #: src/sources/wallhaven.blp:55
 msgid "Username"
-msgstr ""
+msgstr "Nom d’utilisateur"
 
 #: src/sources/wallhaven.blp:57
 msgid "kermit_the_frog"
-msgstr ""
+msgstr "kermit_the_frog"
 
 #: src/sources/wallhaven.blp:63
 msgid "Collections"
-msgstr ""
+msgstr "Collections"
 
 #: src/sources/wallhaven.blp:69
 msgid "Sorting"
-msgstr ""
+msgstr "Tri"
 
 #: src/sources/wallhaven.blp:72
 msgid "Sort By"
-msgstr ""
+msgstr "Trier par"
 
 #: src/sources/wallhaven.blp:76
 msgid "Date Added"
-msgstr ""
+msgstr "Date d’ajout"
 
 #: src/sources/wallhaven.blp:77
 msgid "Relevance"
-msgstr ""
+msgstr "Pertinence"
 
 #: src/sources/wallhaven.blp:78
 msgid "Random"
-msgstr ""
+msgstr "Aléatoire"
 
 #: src/sources/wallhaven.blp:79
 msgid "Views"
-msgstr ""
+msgstr "Vues"
 
 #: src/sources/wallhaven.blp:80
 msgid "Favorites"
-msgstr ""
+msgstr "Favoris"
 
 #: src/sources/wallhaven.blp:81
 msgid "Top List"
-msgstr ""
+msgstr "Top Liste"
 
 #: src/sources/wallhaven.blp:87
 msgid "Sort Order"
-msgstr ""
+msgstr "Ordre de tri"
 
 #: src/sources/wallhaven.blp:91
 msgid "Ascending"
-msgstr ""
+msgstr "Croissant"
 
 #: src/sources/wallhaven.blp:92
 msgid "Descending"
-msgstr ""
+msgstr "Décroissant"
 
 #: src/sources/wallhaven.blp:98
 msgid "Top List Range"
-msgstr ""
+msgstr "Fourchette Top Liste"
 
 #: src/sources/wallhaven.blp:102
 msgid "One Day"
-msgstr ""
+msgstr "Un jour"
 
 #: src/sources/wallhaven.blp:103
 msgid "Three Days"
-msgstr ""
+msgstr "Trois jours"
 
 #: src/sources/wallhaven.blp:104
 msgid "One Week"
-msgstr ""
+msgstr "Une semaine"
 
 #: src/sources/wallhaven.blp:105
 msgid "One Month"
-msgstr ""
+msgstr "Un mois"
 
 #: src/sources/wallhaven.blp:106
 msgid "Three Months"
-msgstr ""
+msgstr "Trois mois"
 
 #: src/sources/wallhaven.blp:107
 msgid "Six Months"
-msgstr ""
+msgstr "Six mois"
 
 #: src/sources/wallhaven.blp:108
 msgid "One Year"
-msgstr ""
+msgstr "Un an"
 
 #: src/sources/wallhaven.blp:115
 msgid "Filtering"
-msgstr ""
+msgstr "Filtrage"
 
 #: src/sources/wallhaven.blp:118
 msgid "Color"
-msgstr ""
+msgstr "Couleur"
 
 #: src/sources/wallhaven.blp:135
 msgid "Categories"
-msgstr ""
+msgstr "Catégories"
 
 #: src/sources/wallhaven.blp:138
 msgid "General"
-msgstr ""
+msgstr "Général"
 
 #: src/sources/wallhaven.blp:146
 msgid "Anime"
-msgstr ""
+msgstr "Anime"
 
 #: src/sources/wallhaven.blp:154
 msgid "People"
-msgstr ""
+msgstr "Personnes"
 
 #: src/sources/wallhaven.blp:163
 msgid "Purity"
-msgstr ""
+msgstr "Pureté"
 
 #: src/sources/wallhaven.blp:166
 msgid "Safe for Work"
-msgstr ""
+msgstr "OK pour le travail"
 
 #: src/sources/wallhaven.blp:174
 msgid "Sketchy"
-msgstr ""
+msgstr "Douteux"
 
 #: src/sources/wallhaven.blp:182
 msgid "Not Safe for Work"
-msgstr ""
+msgstr "Potentiellement choquant"
 
 #: src/sources/wallhaven.vala:121
 msgid "Get wallpapers from wallhaven.cc"
-msgstr ""
+msgstr "Obtenir des fonds d’écrans depuis wallhaven.cc"
 
 #: src/sources/wallhaven.vala:464
 msgid "<tt>tagname</tt>"
-msgstr ""
+msgstr "<tt>motclé</tt>"
 
 #: src/sources/wallhaven.vala:464
 msgid "search fuzzily for a tag/keyword"
-msgstr ""
+msgstr "rechercher vaguement une balise / un mot clé"
 
 #: src/sources/wallhaven.vala:465
 msgid "<tt>-tagname</tt>"
-msgstr ""
+msgstr "<tt>-motclé</tt>"
 
 #: src/sources/wallhaven.vala:465
 msgid "exclude a tag/keyword"
-msgstr ""
+msgstr "exclure une balise / un mot-clé"
 
 #: src/sources/wallhaven.vala:466
 msgid "<tt>+tag1 +tag2</tt>"
-msgstr ""
+msgstr "<tt>+motclé1 +motclé2</tt>"
 
 #: src/sources/wallhaven.vala:466
 msgid "must have tag1 and tag2"
-msgstr ""
+msgstr "doit contenir les mot-clés 1 et 2"
 
 #: src/sources/wallhaven.vala:467
 msgid "<tt>+tag1 -tag2</tt>"
-msgstr ""
+msgstr "<tt>+motclé1 -motclé2</tt>"
 
 #: src/sources/wallhaven.vala:467
 msgid "must have tag1 and NOT tag2"
-msgstr ""
+msgstr "doit contenir le mot-clé 1 sans le 2"
 
 #: src/sources/wallhaven.vala:468
 msgid "<tt>@username</tt>"
-msgstr ""
+msgstr "<tt>@nomd’utilisateur</tt>"
 
 #: src/sources/wallhaven.vala:468
 msgid "user uploads"
-msgstr ""
+msgstr "par un utilisateur"
 
 #: src/sources/wallhaven.vala:469
 msgid "<tt>id:123</tt>"
-msgstr ""
+msgstr "<tt>id:123</tt>"
 
 #: src/sources/wallhaven.vala:469
 msgid "Exact tag search (can not be combined)"
-msgstr ""
+msgstr "Recherche exacte d’une balise (ne peut être combinée)"
 
 #: src/sources/wallhaven.vala:470
 msgid "<tt>type:{png/jpg}</tt>"
-msgstr ""
+msgstr "<tt>type:{png/jpg}</tt>"
 
 #: src/sources/wallhaven.vala:470
 msgid "Search for file type (jpg = jpeg)"
-msgstr ""
+msgstr "Chercher un type de fichier (jpg = jpeg)"
 
 #: src/sources/wallhaven.vala:471
 msgid "<tt>like:wallpaper ID</tt>"
-msgstr ""
+msgstr "<tt>like:ID de fond d’écran</tt>"
 
 #: src/sources/wallhaven.vala:471
 msgid "Find wallpapers with similar tags"
-msgstr ""
+msgstr "Trouver des fonds d’écrans avec des balises similaires"
 
 #: src/window.blp:124
 msgid "_Preferences"
-msgstr ""
+msgstr "_Préférences"
 
 #: src/window.blp:129
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "_Raccourcis clavier"
 
 #: src/window.blp:134
 msgid "_About Damask"
-msgstr ""
+msgstr "_À propos de Damask"
 
 #: src/window.blp:139
 msgid "_Quit"
-msgstr ""
+msgstr "_Quitter"
