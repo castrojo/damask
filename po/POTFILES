@@ -1,5 +1,5 @@
-data/app.drey.Damask.desktop.in
-data/app.drey.Damask.appdata.xml.in
+data/app.drey.Damask.desktop.in.in
+data/app.drey.Damask.metainfo.xml.in.in
 data/app.drey.Damask.gschema.xml.in
 src/application.vala
 src/main.vala
