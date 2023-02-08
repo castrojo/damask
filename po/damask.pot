@@ -1,0 +1,379 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the damask package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: damask\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-07 20:53-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/app.drey.Damask.desktop.in.in:3
+#: data/app.drey.Damask.metainfo.xml.in.in:5
+msgid "Damask"
+msgstr ""
+
+#: data/app.drey.Damask.desktop.in.in:10
+msgid "wallpaper;"
+msgstr ""
+
+#: data/app.drey.Damask.metainfo.xml.in.in:26
+msgid "Link Dupont"
+msgstr ""
+
+#: data/app.drey.Damask.metainfo.xml.in.in:27
+msgid "Automatically set wallpaper images from Internet sources"
+msgstr ""
+
+#: data/app.drey.Damask.metainfo.xml.in.in:29
+msgid ""
+"Damask is an automatic wallpaper application. It currently supports setting "
+"the wallpaper image from the following sources:"
+msgstr ""
+
+#: data/app.drey.Damask.metainfo.xml.in.in:31
+msgid "wallhaven.cc"
+msgstr ""
+
+#: data/app.drey.Damask.metainfo.xml.in.in:32
+msgid "Microsoft Bing Wallpaper of the day"
+msgstr ""
+
+#: data/app.drey.Damask.metainfo.xml.in.in:33
+msgid "NASA Astronomy Picture of the Day"
+msgstr ""
+
+#: data/app.drey.Damask.metainfo.xml.in.in:44
+msgid "Add \"wallpaper\" keyword to desktop file"
+msgstr ""
+
+#: data/app.drey.Damask.metainfo.xml.in.in:45
+msgid "Disable \"Anime\" category in the wallhaven source by default"
+msgstr ""
+
+#: data/app.drey.Damask.metainfo.xml.in.in:46
+msgid ""
+"Dynamically disable sources that require certain values such as API key to "
+"function"
+msgstr ""
+
+#: src/preferences.blp:10
+msgid "Refresh interval"
+msgstr ""
+
+#: src/preferences.blp:14
+msgid "30 seconds"
+msgstr ""
+
+#: src/preferences.blp:15
+msgid "1 minute"
+msgstr ""
+
+#: src/preferences.blp:16
+msgid "5 minutes"
+msgstr ""
+
+#: src/preferences.blp:17
+msgid "15 minutes"
+msgstr ""
+
+#: src/preferences.blp:18
+msgid "30 minutes"
+msgstr ""
+
+#: src/preferences.blp:19
+msgid "1 hour"
+msgstr ""
+
+#: src/preferences.blp:20
+msgid "6 hours"
+msgstr ""
+
+#: src/preferences.blp:21
+msgid "12 hours"
+msgstr ""
+
+#: src/preferences.blp:22
+msgid "24 hours"
+msgstr ""
+
+#: src/preferences.blp:27
+msgid "Run in background"
+msgstr ""
+
+#: src/preferences.blp:33
+msgid "Start automatically upon login"
+msgstr ""
+
+#: src/sources/bing.blp:8
+msgid "Market"
+msgstr ""
+
+#: src/sources/bing.blp:28
+msgid "Resolution"
+msgstr ""
+
+#: src/sources/bing.vala:60
+msgid "Use Microsoft Bing's wallpaper of the day"
+msgstr ""
+
+#: src/sources/manual.vala:48
+msgid "Use a manually selected image as the wallpaper"
+msgstr ""
+
+#: src/sources/manual.vala:102
+msgid "Select Picture"
+msgstr ""
+
+#: src/sources/manual.vala:105
+msgid "_Select"
+msgstr ""
+
+#: src/sources/manual.vala:106
+msgid "_Cancel"
+msgstr ""
+
+#: src/sources/wallhaven.blp:7
+msgid "Source"
+msgstr ""
+
+#: src/sources/wallhaven.blp:14
+msgid "API Key"
+msgstr ""
+
+#: src/sources/wallhaven.blp:17
+msgid "deadbeef"
+msgstr ""
+
+#: src/sources/wallhaven.blp:23 src/sources/wallhaven.blp:31
+msgid "Query"
+msgstr ""
+
+#: src/sources/wallhaven.blp:40
+msgid "space galaxy"
+msgstr ""
+
+#: src/sources/wallhaven.blp:47
+msgid "Collection"
+msgstr ""
+
+#: src/sources/wallhaven.blp:55
+msgid "Username"
+msgstr ""
+
+#: src/sources/wallhaven.blp:57
+msgid "kermit_the_frog"
+msgstr ""
+
+#: src/sources/wallhaven.blp:63
+msgid "Collections"
+msgstr ""
+
+#: src/sources/wallhaven.blp:69
+msgid "Sorting"
+msgstr ""
+
+#: src/sources/wallhaven.blp:72
+msgid "Sort By"
+msgstr ""
+
+#: src/sources/wallhaven.blp:76
+msgid "Date Added"
+msgstr ""
+
+#: src/sources/wallhaven.blp:77
+msgid "Relevance"
+msgstr ""
+
+#: src/sources/wallhaven.blp:78
+msgid "Random"
+msgstr ""
+
+#: src/sources/wallhaven.blp:79
+msgid "Views"
+msgstr ""
+
+#: src/sources/wallhaven.blp:80
+msgid "Favorites"
+msgstr ""
+
+#: src/sources/wallhaven.blp:81
+msgid "Top List"
+msgstr ""
+
+#: src/sources/wallhaven.blp:87
+msgid "Sort Order"
+msgstr ""
+
+#: src/sources/wallhaven.blp:91
+msgid "Ascending"
+msgstr ""
+
+#: src/sources/wallhaven.blp:92
+msgid "Descending"
+msgstr ""
+
+#: src/sources/wallhaven.blp:98
+msgid "Top List Range"
+msgstr ""
+
+#: src/sources/wallhaven.blp:102
+msgid "One Day"
+msgstr ""
+
+#: src/sources/wallhaven.blp:103
+msgid "Three Days"
+msgstr ""
+
+#: src/sources/wallhaven.blp:104
+msgid "One Week"
+msgstr ""
+
+#: src/sources/wallhaven.blp:105
+msgid "One Month"
+msgstr ""
+
+#: src/sources/wallhaven.blp:106
+msgid "Three Months"
+msgstr ""
+
+#: src/sources/wallhaven.blp:107
+msgid "Six Months"
+msgstr ""
+
+#: src/sources/wallhaven.blp:108
+msgid "One Year"
+msgstr ""
+
+#: src/sources/wallhaven.blp:115
+msgid "Filtering"
+msgstr ""
+
+#: src/sources/wallhaven.blp:118
+msgid "Color"
+msgstr ""
+
+#: src/sources/wallhaven.blp:135
+msgid "Categories"
+msgstr ""
+
+#: src/sources/wallhaven.blp:138
+msgid "General"
+msgstr ""
+
+#: src/sources/wallhaven.blp:146
+msgid "Anime"
+msgstr ""
+
+#: src/sources/wallhaven.blp:154
+msgid "People"
+msgstr ""
+
+#: src/sources/wallhaven.blp:163
+msgid "Purity"
+msgstr ""
+
+#: src/sources/wallhaven.blp:166
+msgid "Safe for Work"
+msgstr ""
+
+#: src/sources/wallhaven.blp:174
+msgid "Sketchy"
+msgstr ""
+
+#: src/sources/wallhaven.blp:182
+msgid "Not Safe for Work"
+msgstr ""
+
+#: src/sources/wallhaven.vala:121
+msgid "Get wallpapers from wallhaven.cc"
+msgstr ""
+
+#: src/sources/wallhaven.vala:464
+msgid "<tt>tagname</tt>"
+msgstr ""
+
+#: src/sources/wallhaven.vala:464
+msgid "search fuzzily for a tag/keyword"
+msgstr ""
+
+#: src/sources/wallhaven.vala:465
+msgid "<tt>-tagname</tt>"
+msgstr ""
+
+#: src/sources/wallhaven.vala:465
+msgid "exclude a tag/keyword"
+msgstr ""
+
+#: src/sources/wallhaven.vala:466
+msgid "<tt>+tag1 +tag2</tt>"
+msgstr ""
+
+#: src/sources/wallhaven.vala:466
+msgid "must have tag1 and tag2"
+msgstr ""
+
+#: src/sources/wallhaven.vala:467
+msgid "<tt>+tag1 -tag2</tt>"
+msgstr ""
+
+#: src/sources/wallhaven.vala:467
+msgid "must have tag1 and NOT tag2"
+msgstr ""
+
+#: src/sources/wallhaven.vala:468
+msgid "<tt>@username</tt>"
+msgstr ""
+
+#: src/sources/wallhaven.vala:468
+msgid "user uploads"
+msgstr ""
+
+#: src/sources/wallhaven.vala:469
+msgid "<tt>id:123</tt>"
+msgstr ""
+
+#: src/sources/wallhaven.vala:469
+msgid "Exact tag search (can not be combined)"
+msgstr ""
+
+#: src/sources/wallhaven.vala:470
+msgid "<tt>type:{png/jpg}</tt>"
+msgstr ""
+
+#: src/sources/wallhaven.vala:470
+msgid "Search for file type (jpg = jpeg)"
+msgstr ""
+
+#: src/sources/wallhaven.vala:471
+msgid "<tt>like:wallpaper ID</tt>"
+msgstr ""
+
+#: src/sources/wallhaven.vala:471
+msgid "Find wallpapers with similar tags"
+msgstr ""
+
+#: src/window.blp:124
+msgid "_Preferences"
+msgstr ""
+
+#: src/window.blp:129
+msgid "_Keyboard Shortcuts"
+msgstr ""
+
+#: src/window.blp:134
+msgid "_About Damask"
+msgstr ""
+
+#: src/window.blp:139
+msgid "_Quit"
+msgstr ""
