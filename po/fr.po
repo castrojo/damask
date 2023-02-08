@@ -1,3 +1,19 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-08 09:45+0200\n"
+"PO-Revision-Date: 2023-02-08 08:45+0000\n"
+"Last-Translator: rene-coty <irenee.thirion@e.email>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/damask/damask/fr/>"
+"\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.16-dev\n"
+
 #: data/app.drey.Damask.desktop.in.in:3
 #: data/app.drey.Damask.metainfo.xml.in.in:5
 msgid "Damask"
@@ -5,33 +21,35 @@ msgstr "Damask"
 
 #: data/app.drey.Damask.desktop.in.in:10
 msgid "wallpaper;"
-msgstr ""
+msgstr "arrière-plan;fond d'écran;papier peint;"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:26
 msgid "Link Dupont"
-msgstr ""
+msgstr "Link Dupont"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:27
 msgid "Automatically set wallpaper images from Internet sources"
-msgstr ""
+msgstr "Définir une image de fond d’écran depuis des sources en ligne"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:29
 msgid ""
 "Damask is an automatic wallpaper application. It currently supports setting "
 "the wallpaper image from the following sources:"
 msgstr ""
+"Damask est une application de fond d’écran automatique. Elle prend "
+"actuellement en charge les sources suivantes pour définir un arrière-plan :"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:31
 msgid "wallhaven.cc"
-msgstr ""
+msgstr "wallhaven.cc"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:32
 msgid "Microsoft Bing Wallpaper of the day"
-msgstr ""
+msgstr "Arrière-plan du jour Microsoft Bing"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:33
 msgid "NASA Astronomy Picture of the Day"
-msgstr ""
+msgstr "Image astronomique du jour de la NASA"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:44
 msgid "Add \"wallpaper\" keyword to desktop file"
