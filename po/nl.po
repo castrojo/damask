@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: damask\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-07 20:53-0500\n"
-"PO-Revision-Date: 2023-02-08 08:45+0000\n"
-"Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
+"PO-Revision-Date: 2023-02-09 19:37+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/damask/damask/nl/>"
 "\n"
 "Language: nl\n"
@@ -41,7 +41,7 @@ msgid ""
 "Damask is an automatic wallpaper application. It currently supports setting "
 "the wallpaper image from the following sources:"
 msgstr ""
-"Damask is een app welke automatisch achtergronden instelt. Momenteel "
+"Damask is een toepassing die automatisch achtergronden instelt. Momenteel "
 "ondersteunt deze de volgende bronnen:"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:31
@@ -58,21 +58,23 @@ msgstr "NASA Astronomy - Foto van de dag"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:44
 msgid "Add \"wallpaper\" keyword to desktop file"
-msgstr ""
+msgstr "‘achtergrond’ toegevoegd aan desktopbestand"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:45
 msgid "Disable \"Anime\" category in the wallhaven source by default"
-msgstr ""
+msgstr "Nieuw: Anime-categorie in Wallhaven standaard uitgeschakeld"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:46
 msgid ""
 "Dynamically disable sources that require certain values such as API key to "
 "function"
 msgstr ""
+"Nieuw: bronnen die bepaalde waarden, zoals api-sleutels, verwachten worden "
+"dynamisch uitgeschakeld"
 
 #: src/preferences.blp:10
 msgid "Refresh interval"
-msgstr "Verversingsinterval"
+msgstr "Vernieuwen, iedere"
 
 #: src/preferences.blp:14
 msgid "30 seconds"
@@ -112,11 +114,11 @@ msgstr "24 uur"
 
 #: src/preferences.blp:27
 msgid "Run in background"
-msgstr "Op achtergrond uitvoeren"
+msgstr "Uitvoeren op achtergrond"
 
 #: src/preferences.blp:33
 msgid "Start automatically upon login"
-msgstr "Automatisch starten bij inloggen"
+msgstr "Automatisch opstarten"
 
 #: src/sources/bing.blp:8
 msgid "Market"
@@ -128,19 +130,19 @@ msgstr "Resolutie"
 
 #: src/sources/bing.vala:60
 msgid "Use Microsoft Bing's wallpaper of the day"
-msgstr "Microsoft Bing's achtergrond van de dag gebruiken"
+msgstr "Toon Microsoft Bings achtergrond van de dag"
 
 #: src/sources/manual.vala:48
 msgid "Use a manually selected image as the wallpaper"
-msgstr "Handmatig gekozen achtergrond gebruiken"
+msgstr "Toon een zelfgekozen achtergrond"
 
 #: src/sources/manual.vala:102
 msgid "Select Picture"
-msgstr "Afbeelding selecteren"
+msgstr "Kies een afbeelding"
 
 #: src/sources/manual.vala:105
 msgid "_Select"
-msgstr "_Selecteren"
+msgstr "_Kiezen"
 
 #: src/sources/manual.vala:106
 msgid "_Cancel"
@@ -152,7 +154,7 @@ msgstr "Bron"
 
 #: src/sources/wallhaven.blp:14
 msgid "API Key"
-msgstr "API-sleutel"
+msgstr "Api-sleutel"
 
 #: src/sources/wallhaven.blp:17
 msgid "deadbeef"
@@ -168,7 +170,7 @@ msgstr "melkweg"
 
 #: src/sources/wallhaven.blp:47
 msgid "Collection"
-msgstr "Collectie"
+msgstr "Verzameling"
 
 #: src/sources/wallhaven.blp:55
 msgid "Username"
@@ -192,7 +194,7 @@ msgstr "Sorteren op"
 
 #: src/sources/wallhaven.blp:76
 msgid "Date Added"
-msgstr "Wanneer toegevoegd"
+msgstr "Toegevoegd"
 
 #: src/sources/wallhaven.blp:77
 msgid "Relevance"
@@ -204,7 +206,7 @@ msgstr "Willekeurig"
 
 #: src/sources/wallhaven.blp:79
 msgid "Views"
-msgstr "Weergaven"
+msgstr "Aantal weergaven"
 
 #: src/sources/wallhaven.blp:80
 msgid "Favorites"
@@ -284,100 +286,100 @@ msgstr "Mensen"
 
 #: src/sources/wallhaven.blp:163
 msgid "Purity"
-msgstr "Zuiverheid"
+msgstr "Zedelijkheid"
 
 #: src/sources/wallhaven.blp:166
 msgid "Safe for Work"
-msgstr "Safe for work"
+msgstr "Geschikt voor werk"
 
 #: src/sources/wallhaven.blp:174
 msgid "Sketchy"
-msgstr "Sketchy"
+msgstr "Schunnig"
 
 #: src/sources/wallhaven.blp:182
 msgid "Not Safe for Work"
-msgstr "Not safe for work"
+msgstr "Ongeschikt voor werk"
 
 #: src/sources/wallhaven.vala:121
 msgid "Get wallpapers from wallhaven.cc"
-msgstr ""
+msgstr "Toon achtergronden van wallhaven.cc"
 
 #: src/sources/wallhaven.vala:464
 msgid "<tt>tagname</tt>"
-msgstr ""
+msgstr "<tt>tagnaam</tt>"
 
 #: src/sources/wallhaven.vala:464
 msgid "search fuzzily for a tag/keyword"
-msgstr ""
+msgstr "zoeken op tag/trefwoord"
 
 #: src/sources/wallhaven.vala:465
 msgid "<tt>-tagname</tt>"
-msgstr ""
+msgstr "<tt>-tagnaam</tt>"
 
 #: src/sources/wallhaven.vala:465
 msgid "exclude a tag/keyword"
-msgstr ""
+msgstr "tag/trefwoord uitsluiten"
 
 #: src/sources/wallhaven.vala:466
 msgid "<tt>+tag1 +tag2</tt>"
-msgstr ""
+msgstr "<tt>+tag1 +tag2</tt>"
 
 #: src/sources/wallhaven.vala:466
 msgid "must have tag1 and tag2"
-msgstr ""
+msgstr "dient tag1 en tag2 te bevatten"
 
 #: src/sources/wallhaven.vala:467
 msgid "<tt>+tag1 -tag2</tt>"
-msgstr ""
+msgstr "<tt>+tag1 -tag2</tt>"
 
 #: src/sources/wallhaven.vala:467
 msgid "must have tag1 and NOT tag2"
-msgstr ""
+msgstr "dient tag1 maar NIET tag2 te bevatten"
 
 #: src/sources/wallhaven.vala:468
 msgid "<tt>@username</tt>"
-msgstr ""
+msgstr "<tt>@gebruikersnaam</tt>"
 
 #: src/sources/wallhaven.vala:468
 msgid "user uploads"
-msgstr ""
+msgstr "gebruikersuploads"
 
 #: src/sources/wallhaven.vala:469
 msgid "<tt>id:123</tt>"
-msgstr ""
+msgstr "<tt>id:123</tt>"
 
 #: src/sources/wallhaven.vala:469
 msgid "Exact tag search (can not be combined)"
-msgstr ""
+msgstr "Nauwkeurig zoeken op tag (kan niet worden gecombineerd)"
 
 #: src/sources/wallhaven.vala:470
 msgid "<tt>type:{png/jpg}</tt>"
-msgstr ""
+msgstr "<tt>type:{png/jpg}</tt>"
 
 #: src/sources/wallhaven.vala:470
 msgid "Search for file type (jpg = jpeg)"
-msgstr ""
+msgstr "Zoeken op bestandstype (jpg = jpeg)"
 
 #: src/sources/wallhaven.vala:471
 msgid "<tt>like:wallpaper ID</tt>"
-msgstr ""
+msgstr "<tt>like:achtergrond-id</tt>"
 
 #: src/sources/wallhaven.vala:471
 msgid "Find wallpapers with similar tags"
-msgstr ""
+msgstr "Zoeken naar achtergronden met vergelijkbare tags"
 
 #: src/window.blp:124
 msgid "_Preferences"
-msgstr ""
+msgstr "_Voorkeuren"
 
 #: src/window.blp:129
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "_Sneltoetsen"
 
 #: src/window.blp:134
 msgid "_About Damask"
-msgstr ""
+msgstr "_Over Damask"
 
 #: src/window.blp:139
 msgid "_Quit"
-msgstr ""
+msgstr "_Afsluiten"
