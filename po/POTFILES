@@ -7,7 +7,10 @@ src/preferences.blp
 src/preferences.vala
 src/sources/bing.blp
 src/sources/bing.vala
+src/sources/manual.blp
 src/sources/manual.vala
+src/sources/slideshow.blp
+src/sources/slideshow.vala
 src/sources/wallhaven.blp
 src/sources/wallhaven.vala
 src/wallpaper-source.vala

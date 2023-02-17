@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: damask\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-07 20:53-0500\n"
+"POT-Creation-Date: 2023-02-17 15:31-0500\n"
 "PO-Revision-Date: 2023-02-09 19:37+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/damask/damask/nl/>"
-"\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/damask/damask/nl/"
+">\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -56,15 +56,39 @@ msgstr "Microsoft Bing - Achtergrond van de dag"
 msgid "NASA Astronomy Picture of the Day"
 msgstr "NASA Astronomy - Foto van de dag"
 
-#: data/app.drey.Damask.metainfo.xml.in.in:44
+#: data/app.drey.Damask.metainfo.xml.in.in:34
+msgid "Unsplash"
+msgstr ""
+
+#: data/app.drey.Damask.metainfo.xml.in.in:45
+msgid "Added French and Dutch translations"
+msgstr ""
+
+#: data/app.drey.Damask.metainfo.xml.in.in:46
+msgid "Added \"Slideshow\" source to rotate through images in a local folder"
+msgstr ""
+
+#: data/app.drey.Damask.metainfo.xml.in.in:47
+msgid "Fixed an issue using the Wallhaven NSFW filter without an API key"
+msgstr ""
+
+#: data/app.drey.Damask.metainfo.xml.in.in:48
+msgid "Fixed an issue using the Unsplash ncontent_filter setting"
+msgstr ""
+
+#: data/app.drey.Damask.metainfo.xml.in.in:49
+msgid "Changed the default refresh interval to 15 minutes"
+msgstr ""
+
+#: data/app.drey.Damask.metainfo.xml.in.in:56
 msgid "Add \"wallpaper\" keyword to desktop file"
 msgstr "‘achtergrond’ toegevoegd aan desktopbestand"
 
-#: data/app.drey.Damask.metainfo.xml.in.in:45
+#: data/app.drey.Damask.metainfo.xml.in.in:57
 msgid "Disable \"Anime\" category in the wallhaven source by default"
 msgstr "Nieuw: Anime-categorie in Wallhaven standaard uitgeschakeld"
 
-#: data/app.drey.Damask.metainfo.xml.in.in:46
+#: data/app.drey.Damask.metainfo.xml.in.in:58
 msgid ""
 "Dynamically disable sources that require certain values such as API key to "
 "function"
@@ -124,6 +148,50 @@ msgstr "Automatisch opstarten"
 msgid "Market"
 msgstr "Markt"
 
+#: src/sources/bing.blp:12
+msgid "English (United States)"
+msgstr ""
+
+#: src/sources/bing.blp:13
+msgid "Chinese (Simplified)"
+msgstr ""
+
+#: src/sources/bing.blp:14
+msgid "Japanese (Japan)"
+msgstr ""
+
+#: src/sources/bing.blp:15
+msgid "English (Australia)"
+msgstr ""
+
+#: src/sources/bing.blp:16
+msgid "English (United Kingdom)"
+msgstr ""
+
+#: src/sources/bing.blp:17
+msgid "German (Germany)"
+msgstr ""
+
+#: src/sources/bing.blp:18
+msgid "English (New Zealand)"
+msgstr ""
+
+#: src/sources/bing.blp:19
+msgid "English (Canada)"
+msgstr ""
+
+#: src/sources/bing.blp:20
+msgid "English (India)"
+msgstr ""
+
+#: src/sources/bing.blp:21
+msgid "French (France)"
+msgstr ""
+
+#: src/sources/bing.blp:22
+msgid "French (Canada)"
+msgstr ""
+
 #: src/sources/bing.blp:28
 msgid "Resolution"
 msgstr "Resolutie"
@@ -140,13 +208,47 @@ msgstr "Toon een zelfgekozen achtergrond"
 msgid "Select Picture"
 msgstr "Kies een afbeelding"
 
-#: src/sources/manual.vala:105
+#: src/sources/manual.vala:105 src/sources/slideshow.vala:170
 msgid "_Select"
 msgstr "_Kiezen"
 
-#: src/sources/manual.vala:106
+#: src/sources/manual.vala:106 src/sources/slideshow.vala:171
 msgid "_Cancel"
 msgstr "_Annuleren"
+
+#: src/sources/slideshow.blp:11
+msgid "Choose Folder"
+msgstr ""
+
+#: src/sources/slideshow.blp:21 src/sources/wallhaven.blp:72
+msgid "Sort By"
+msgstr "Sorteren op"
+
+#: src/sources/slideshow.blp:24 src/sources/wallhaven.blp:78
+msgid "Random"
+msgstr "Willekeurig"
+
+#: src/sources/slideshow.blp:25
+msgid "Name"
+msgstr ""
+
+#: src/sources/slideshow.blp:26
+msgid "Creation Date"
+msgstr ""
+
+#: src/sources/slideshow.vala:43
+msgid "Slideshow"
+msgstr ""
+
+#: src/sources/slideshow.vala:47
+#, fuzzy
+msgid "Use the contents of a folder as the wallpaper"
+msgstr "Toon een zelfgekozen achtergrond"
+
+#: src/sources/slideshow.vala:167
+#, fuzzy
+msgid "Select Folder"
+msgstr "_Kiezen"
 
 #: src/sources/wallhaven.blp:7
 msgid "Source"
@@ -188,10 +290,6 @@ msgstr "Verzamelingen"
 msgid "Sorting"
 msgstr "Sorteren"
 
-#: src/sources/wallhaven.blp:72
-msgid "Sort By"
-msgstr "Sorteren op"
-
 #: src/sources/wallhaven.blp:76
 msgid "Date Added"
 msgstr "Toegevoegd"
@@ -199,10 +297,6 @@ msgstr "Toegevoegd"
 #: src/sources/wallhaven.blp:77
 msgid "Relevance"
 msgstr "Relevantie"
-
-#: src/sources/wallhaven.blp:78
-msgid "Random"
-msgstr "Willekeurig"
 
 #: src/sources/wallhaven.blp:79
 msgid "Views"
@@ -300,71 +394,75 @@ msgstr "Schunnig"
 msgid "Not Safe for Work"
 msgstr "Ongeschikt voor werk"
 
+#: src/sources/wallhaven.blp:183
+msgid "An API key is required to access not safe for work content"
+msgstr ""
+
 #: src/sources/wallhaven.vala:121
 msgid "Get wallpapers from wallhaven.cc"
 msgstr "Toon achtergronden van wallhaven.cc"
 
-#: src/sources/wallhaven.vala:464
+#: src/sources/wallhaven.vala:466
 msgid "<tt>tagname</tt>"
 msgstr "<tt>tagnaam</tt>"
 
-#: src/sources/wallhaven.vala:464
+#: src/sources/wallhaven.vala:466
 msgid "search fuzzily for a tag/keyword"
 msgstr "zoeken op tag/trefwoord"
 
-#: src/sources/wallhaven.vala:465
+#: src/sources/wallhaven.vala:467
 msgid "<tt>-tagname</tt>"
 msgstr "<tt>-tagnaam</tt>"
 
-#: src/sources/wallhaven.vala:465
+#: src/sources/wallhaven.vala:467
 msgid "exclude a tag/keyword"
 msgstr "tag/trefwoord uitsluiten"
 
-#: src/sources/wallhaven.vala:466
+#: src/sources/wallhaven.vala:468
 msgid "<tt>+tag1 +tag2</tt>"
 msgstr "<tt>+tag1 +tag2</tt>"
 
-#: src/sources/wallhaven.vala:466
+#: src/sources/wallhaven.vala:468
 msgid "must have tag1 and tag2"
 msgstr "dient tag1 en tag2 te bevatten"
 
-#: src/sources/wallhaven.vala:467
+#: src/sources/wallhaven.vala:469
 msgid "<tt>+tag1 -tag2</tt>"
 msgstr "<tt>+tag1 -tag2</tt>"
 
-#: src/sources/wallhaven.vala:467
+#: src/sources/wallhaven.vala:469
 msgid "must have tag1 and NOT tag2"
 msgstr "dient tag1 maar NIET tag2 te bevatten"
 
-#: src/sources/wallhaven.vala:468
+#: src/sources/wallhaven.vala:470
 msgid "<tt>@username</tt>"
 msgstr "<tt>@gebruikersnaam</tt>"
 
-#: src/sources/wallhaven.vala:468
+#: src/sources/wallhaven.vala:470
 msgid "user uploads"
 msgstr "gebruikersuploads"
 
-#: src/sources/wallhaven.vala:469
+#: src/sources/wallhaven.vala:471
 msgid "<tt>id:123</tt>"
 msgstr "<tt>id:123</tt>"
 
-#: src/sources/wallhaven.vala:469
+#: src/sources/wallhaven.vala:471
 msgid "Exact tag search (can not be combined)"
 msgstr "Nauwkeurig zoeken op tag (kan niet worden gecombineerd)"
 
-#: src/sources/wallhaven.vala:470
+#: src/sources/wallhaven.vala:472
 msgid "<tt>type:{png/jpg}</tt>"
 msgstr "<tt>type:{png/jpg}</tt>"
 
-#: src/sources/wallhaven.vala:470
+#: src/sources/wallhaven.vala:472
 msgid "Search for file type (jpg = jpeg)"
 msgstr "Zoeken op bestandstype (jpg = jpeg)"
 
-#: src/sources/wallhaven.vala:471
+#: src/sources/wallhaven.vala:473
 msgid "<tt>like:wallpaper ID</tt>"
 msgstr "<tt>like:achtergrond-id</tt>"
 
-#: src/sources/wallhaven.vala:471
+#: src/sources/wallhaven.vala:473
 msgid "Find wallpapers with similar tags"
 msgstr "Zoeken naar achtergronden met vergelijkbare tags"
 
