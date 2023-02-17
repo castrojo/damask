@@ -14,7 +14,7 @@
 
 	<schema id="@APP_ID@" path="@RESOURCE_PATH@/">
 		<key name="refresh-interval" enum="@APP_ID@.refresh_interval">
-			<default>"60"</default>
+			<default>"900"</default>
 		</key>
 
 		<key name="active-source" type="s">
