@@ -21,7 +21,6 @@
 namespace Damask {
     [GtkTemplate (ui = "/app/drey/Damask/preferences.ui")]
     public class PreferencesWindow : Adw.PreferencesWindow {
-        private static Gee.ArrayList<uint> intervals = new Gee.ArrayList<uint>.wrap ({ 30, 60, 300, 900, 1800, 3600, 21600, 43200, 86400 });
         [GtkChild] private unowned Adw.ComboRow refresh_interval;
         [GtkChild] private unowned Gtk.Switch run_in_background;
         [GtkChild] private unowned Gtk.Switch autostart;
@@ -31,10 +30,9 @@ namespace Damask {
             application.settings.bind("run-in-background", run_in_background, "state", SettingsBindFlags.DEFAULT);
             application.settings.bind("autostart", autostart, "state", SettingsBindFlags.DEFAULT);
 
-            uint32 current_interval = application.settings.get_uint ("refresh-interval");
-            refresh_interval.selected = intervals.index_of (current_interval);
+            refresh_interval.selected = application.settings.get_enum ("refresh-interval");
             refresh_interval.notify["selected"].connect ((pspec) => {
-                application.settings.set_uint ("refresh-interval", intervals.get ((int) refresh_interval.selected));
+                application.settings.set_enum ("refresh-interval", (int) refresh_interval.selected);
             });
         }
     }

@@ -177,8 +177,8 @@ namespace Damask {
         }
 
         private void attach_timer () {
-            uint seconds = this.settings.get_uint ("refresh-interval");
-            TimeoutSource timer = new TimeoutSource.seconds ((int) seconds);
+            int seconds = this.settings.get_string("refresh-interval").to_int();
+            TimeoutSource timer = new TimeoutSource.seconds (seconds);
             timer.set_callback (() => {
                 this.current_source.refresh ();
                 return true;

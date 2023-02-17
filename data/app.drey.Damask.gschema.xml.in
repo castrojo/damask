@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="damask">
+  <enum id="@APP_ID@.refresh_interval">
+    <value nick="30" value="0"/>
+    <value nick="60" value="1"/>
+    <value nick="300" value="2"/>
+    <value nick="900" value="3"/>
+    <value nick="1800" value="4"/>
+    <value nick="3600" value="5"/>
+    <value nick="21600" value="6"/>
+    <value nick="43200" value="7"/>
+    <value nick="86400" value="8"/>
+  </enum>
+
 	<schema id="@APP_ID@" path="@RESOURCE_PATH@/">
-		<key name="refresh-interval" type="u">
-			<default>60</default>
+		<key name="refresh-interval" enum="@APP_ID@.refresh_interval">
+			<default>"60"</default>
 		</key>
 
 		<key name="active-source" type="s">
