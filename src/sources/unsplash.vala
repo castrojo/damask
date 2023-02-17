@@ -76,6 +76,9 @@ namespace Damask.Sources.Unsplash {
 
             query_parameters.append ("orientation=landscape&");
 
+            string content_filter = this.settings.get_string ("content_filter");
+            query_parameters.append (@"content_filter=$content_filter&");
+
             if (this.settings.get_string ("collections") != "") {
                 string collections = this.settings.get_string ("collections");
                 query_parameters.append (@"collections=$collections&");
