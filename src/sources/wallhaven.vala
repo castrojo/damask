@@ -413,6 +413,10 @@ namespace Damask.Sources.Wallhaven {
             this.settings.bind("purity-sfw", purity_sfw, "state", SettingsBindFlags.DEFAULT);
             this.settings.bind("purity-sketchy", purity_sketchy, "state", SettingsBindFlags.DEFAULT);
             this.settings.bind("purity-nsfw", purity_nsfw, "state", SettingsBindFlags.DEFAULT);
+            this.purity_nsfw.sensitive = this.settings.get_string("api-key").length > 0;
+            this.settings.changed["api-key"].connect ((key) => {
+                this.purity_nsfw.sensitive = this.settings.get_string(key).length > 0;
+            });
 
             this.settings.bind("color-enabled", color_enabled, "state", SettingsBindFlags.DEFAULT);
 
