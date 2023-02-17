@@ -108,12 +108,32 @@
 		</key>
 	</schema>
 
+  <enum id="@APP_ID@.sources.bing.market">
+    <value nick="en-US" value="0"/>
+    <value nick="zh-CN" value="1"/>
+    <value nick="ja-JP" value="2"/>
+    <value nick="en-AU" value="3"/>
+    <value nick="en-GB" value="4"/>
+    <value nick="de-DE" value="5"/>
+    <value nick="en-NZ" value="6"/>
+    <value nick="en-CA" value="7"/>
+    <value nick="en-IN" value="8"/>
+    <value nick="fr-FR" value="9"/>
+    <value nick="fr-CA" value="10"/>
+  </enum>
+
+  <enum id="@APP_ID@.sources.bing.resolution">
+    <value nick="1920x1080" value="0"/>
+    <value nick="1366x768" value="1"/>
+    <value nick="UHD (3840x2160)" value="2"/>
+  </enum>
+
 	<schema id="@APP_ID@.sources.bing" path="@RESOURCE_PATH@/sources/bing/">
-		<key name="market" type="s">
+		<key name="market" enum="@APP_ID@.sources.bing.market">
 			<default>"en-US"</default>
 		</key>
 
-		<key name="resolution" type="s">
+		<key name="resolution" enum="@APP_ID@.sources.bing.resolution">
 			<default>"1920x1080"</default>
 		</key>
 	</schema>

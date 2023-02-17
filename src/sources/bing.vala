@@ -114,21 +114,19 @@ namespace Damask.Sources.Bing {
     [GtkTemplate (ui = "/app/drey/Damask/sources/bing.ui")]
     public class PreferencesWindow : Adw.PreferencesWindow {
         private Settings settings = new Settings(@"$(Constants.APP_ID).sources.bing");
-        private static Gee.ArrayList<string> markets = new Gee.ArrayList<string>.wrap ({ "en-US", "zh-CN", "ja-JP", "en-AU", "en-GB", "de-DE", "en-NZ", "en-CA", "en-IN", "fr-FR", "fr-CA" });
-        private static Gee.ArrayList<string> resolutions = new Gee.ArrayList<string>.wrap ({ "1920x1080", "1366x768", "UHD (3840x2160)" });
 
         [GtkChild] private unowned Adw.ComboRow market;
         [GtkChild] private unowned Adw.ComboRow resolution;
 
         construct {
-            this.market.selected = PreferencesWindow.markets.index_of (this.settings.get_string ("market"));
+            this.market.selected = this.settings.get_enum ("market");
             this.market.notify["selected"].connect ((pspec) => {
-                this.settings.set_string ("market", PreferencesWindow.markets.get ((int) market.selected));
+                this.settings.set_enum ("market", (int) market.selected);
             });
 
-            this.resolution.selected = PreferencesWindow.resolutions.index_of (this.settings.get_string ("resolution"));
+            this.resolution.selected = this.settings.get_enum ("resolution");
             this.resolution.notify["selected"].connect ((pspec) => {
-                this.settings.set_string ("resolution", PreferencesWindow.resolutions.get ((int) resolution.selected));
+                this.settings.set_enum ("resolution", (int) resolution.selected);
             });
         }
     }
