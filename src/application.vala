@@ -63,6 +63,11 @@ namespace Damask {
                 this.source_list.add (s);
             }
             {
+                var s = new Sources.Slideshow.Slideshow ();
+                this.sources.insert (s.id, s);
+                this.source_list.add (s);
+            }
+            {
                 var s = new Sources.Bing.Bing ();
                 this.sources.insert (s.id, s);
                 this.source_list.add (s);

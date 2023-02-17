@@ -100,6 +100,20 @@
     </key>
   </schema>
 
+  <enum id="@APP_ID@.sources.slideshow.sort_by">
+    <value nick="random" value="0"/>
+    <value nick="name" value="1"/>
+    <value nick="creation-date" value="2"/>
+  </enum>
+  <schema id="@APP_ID@.sources.slideshow" path="@RESOURCE_PATH@/sources/slideshow/">
+    <key name="folder-uri" type="s">
+      <default>""</default>
+    </key>
+    <key name="sort-by" enum="@APP_ID@.sources.slideshow.sort_by">
+      <default>"random"</default>
+    </key>
+  </schema>
+
   <schema id="@APP_ID@.sources.apod" path="@RESOURCE_PATH@/sources/apod/">
     <key name="api-key" type="s">
       <default>""</default>

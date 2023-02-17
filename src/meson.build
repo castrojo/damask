@@ -4,6 +4,7 @@ damask_blueprints = [
   'sources/apod.blp',
   'sources/bing.blp',
   'sources/manual.blp',
+  'sources/slideshow.blp',
   'sources/unsplash.blp',
   'sources/wallhaven.blp',
   'window.blp'
@@ -26,6 +27,7 @@ damask_sources = [
   'sources/apod.vala',
   'sources/bing.vala',
   'sources/manual.vala',
+  'sources/slideshow.vala',
   'sources/unsplash.vala',
   'sources/wallhaven.vala',
   'wallpaper-source.vala',
