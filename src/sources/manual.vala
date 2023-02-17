@@ -45,7 +45,7 @@ namespace Damask.Sources.Manual {
         }
 
         public string subtitle {
-            get { return _("Manually set wallpaper"); }
+            get { return _("Use a manually selected image as the wallpaper"); }
         }
 
         public bool can_activate {
