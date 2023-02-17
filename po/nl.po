@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: damask\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 15:31-0500\n"
-"PO-Revision-Date: 2023-02-09 19:37+0000\n"
+"PO-Revision-Date: 2023-02-18 21:38+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/damask/damask/nl/"
-">\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/damask/damask/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,27 +58,29 @@ msgstr "NASA Astronomy - Foto van de dag"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:34
 msgid "Unsplash"
-msgstr ""
+msgstr "Unsplash"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:45
 msgid "Added French and Dutch translations"
-msgstr ""
+msgstr "Nieuw: Franse en Nederlandse vertalingen"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:46
 msgid "Added \"Slideshow\" source to rotate through images in a local folder"
 msgstr ""
+"Nieuw: diavoorstellingsfunctie die meerdere afbeeldingen uit een lokale map "
+"toont"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:47
 msgid "Fixed an issue using the Wallhaven NSFW filter without an API key"
-msgstr ""
+msgstr "Opgelost: probleem met het Wallhaven NSFW-filter zonder api-sleutel"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:48
 msgid "Fixed an issue using the Unsplash ncontent_filter setting"
-msgstr ""
+msgstr "Opgelost: probleem met de Unsplash-instellingen ‘ncontent_filter’"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:49
 msgid "Changed the default refresh interval to 15 minutes"
-msgstr ""
+msgstr "Gewijzigd: de standaard ververstussenpoos is voortaan 15 minuten"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:56
 msgid "Add \"wallpaper\" keyword to desktop file"
@@ -150,47 +152,47 @@ msgstr "Markt"
 
 #: src/sources/bing.blp:12
 msgid "English (United States)"
-msgstr ""
+msgstr "Engels (Verenigde Staten)"
 
 #: src/sources/bing.blp:13
 msgid "Chinese (Simplified)"
-msgstr ""
+msgstr "Chinees (Vereenvoudigd)"
 
 #: src/sources/bing.blp:14
 msgid "Japanese (Japan)"
-msgstr ""
+msgstr "Japans (Japan)"
 
 #: src/sources/bing.blp:15
 msgid "English (Australia)"
-msgstr ""
+msgstr "Engels (Australië)"
 
 #: src/sources/bing.blp:16
 msgid "English (United Kingdom)"
-msgstr ""
+msgstr "Engels (Verenigd Koninkrijk)"
 
 #: src/sources/bing.blp:17
 msgid "German (Germany)"
-msgstr ""
+msgstr "Duits (Duitsland)"
 
 #: src/sources/bing.blp:18
 msgid "English (New Zealand)"
-msgstr ""
+msgstr "Engels (Nieuw-Zeeland)"
 
 #: src/sources/bing.blp:19
 msgid "English (Canada)"
-msgstr ""
+msgstr "Engels (Canada)"
 
 #: src/sources/bing.blp:20
 msgid "English (India)"
-msgstr ""
+msgstr "Engels (India)"
 
 #: src/sources/bing.blp:21
 msgid "French (France)"
-msgstr ""
+msgstr "Frans (Frankrijk)"
 
 #: src/sources/bing.blp:22
 msgid "French (Canada)"
-msgstr ""
+msgstr "Frans (Canada)"
 
 #: src/sources/bing.blp:28
 msgid "Resolution"
@@ -218,7 +220,7 @@ msgstr "_Annuleren"
 
 #: src/sources/slideshow.blp:11
 msgid "Choose Folder"
-msgstr ""
+msgstr "Kies een map"
 
 #: src/sources/slideshow.blp:21 src/sources/wallhaven.blp:72
 msgid "Sort By"
@@ -230,25 +232,23 @@ msgstr "Willekeurig"
 
 #: src/sources/slideshow.blp:25
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 #: src/sources/slideshow.blp:26
 msgid "Creation Date"
-msgstr ""
+msgstr "Aanmaakdatum"
 
 #: src/sources/slideshow.vala:43
 msgid "Slideshow"
-msgstr ""
+msgstr "Diavoorstelling"
 
 #: src/sources/slideshow.vala:47
-#, fuzzy
 msgid "Use the contents of a folder as the wallpaper"
-msgstr "Toon een zelfgekozen achtergrond"
+msgstr "Toon meerdere afbeeldingen uit een map"
 
 #: src/sources/slideshow.vala:167
-#, fuzzy
 msgid "Select Folder"
-msgstr "_Kiezen"
+msgstr "Kies een map"
 
 #: src/sources/wallhaven.blp:7
 msgid "Source"
@@ -396,7 +396,7 @@ msgstr "Ongeschikt voor werk"
 
 #: src/sources/wallhaven.blp:183
 msgid "An API key is required to access not safe for work content"
-msgstr ""
+msgstr "Voor het tonen van NSFW-inhoud is een api-sleutel vereist"
 
 #: src/sources/wallhaven.vala:121
 msgid "Get wallpapers from wallhaven.cc"
