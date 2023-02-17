@@ -18,6 +18,30 @@
 		</key>
 	</schema>
 
+  <enum id="@APP_ID@.sources.wallhaven.sort_by">
+    <value nick="date_added" value="0"/>
+    <value nick="relevance" value="1"/>
+    <value nick="random" value="2"/>
+    <value nick="views" value="3"/>
+    <value nick="favorites" value="4"/>
+    <value nick="toplist" value="5"/>
+  </enum>
+
+  <enum id="@APP_ID@.sources.wallhaven.search_mode">
+    <value nick="query" value="0"/>
+    <value nick="collections" value="2"/>
+  </enum>
+
+  <enum id="@APP_ID@.sources.wallhaven.top_list_range">
+    <value nick="1d" value="0"/>
+    <value nick="3d" value="1"/>
+    <value nick="1w" value="2"/>
+    <value nick="1M" value="3"/>
+    <value nick="3M" value="4"/>
+    <value nick="6M" value="5"/>
+    <value nick="1y" value="6"/>
+  </enum>
+
 	<schema id="@APP_ID@.sources.wallhaven" path="@RESOURCE_PATH@/sources/wallhaven/">
 		<key name="username" type="s">
 			<default>""</default>
@@ -27,7 +51,7 @@
 			<default>""</default>
 		</key>
 
-		<key name="search-mode" type="s">
+		<key name="search-mode" enum="@APP_ID@.sources.wallhaven.search_mode">
 			<default>"query"</default>
 		</key>
 
@@ -39,7 +63,7 @@
 			<default>0</default>
 		</key>
 
-		<key name="sort-by" type="s">
+		<key name="sort-by" enum="@APP_ID@.sources.wallhaven.sort_by">
 			<default>"date_added"</default>
 		</key>
 
@@ -47,7 +71,7 @@
 			<default>1</default>
 		</key>
 
-		<key name="top-list-range" type="s">
+		<key name="top-list-range" enum="@APP_ID@.sources.wallhaven.top_list_range">
 			<default>"1d"</default>
 		</key>
 

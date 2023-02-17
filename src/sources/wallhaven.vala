@@ -209,7 +209,7 @@ namespace Damask.Sources.Wallhaven {
                         query_parameters.append(@"ratios=$aspect&");
                     }
 
-                    string sorting = this.settings.get_string("sort-by");
+                    string sorting = this.settings.get_string ("sort-by");
                     query_parameters.append(@"sorting=$sorting&");
 
                     string order = "";
@@ -313,8 +313,6 @@ namespace Damask.Sources.Wallhaven {
     [GtkTemplate (ui = "/app/drey/Damask/sources/wallhaven.ui")]
     public class PreferencesWindow : Adw.PreferencesWindow {
         private Settings settings = new Settings(@"$(Constants.APP_ID).sources.wallhaven");
-        private static Gee.ArrayList<string> sort_by_array = new Gee.ArrayList<string>.wrap ({ "date_added", "relevance", "random", "views", "favorites", "top_list" });
-        private static Gee.ArrayList<string> top_list_range_array = new Gee.ArrayList<string>.wrap ({ "1d", "3d", "1w", "1M", "3M", "6M", "1y" });
         [GtkChild] private unowned Gtk.Entry username;
         [GtkChild] private unowned Gtk.Entry api_key;
         [GtkChild] private unowned Gtk.Entry query;
@@ -390,20 +388,20 @@ namespace Damask.Sources.Wallhaven {
                 this.settings.set_string ("search-mode", "collections");
             });
 
-            this.sort_by.selected = PreferencesWindow.sort_by_array.index_of (this.settings.get_string ("sort-by"));
+            this.sort_by.selected = this.settings.get_enum ("sort-by");
             this.sort_by.notify["selected"].connect ((pspec) => {
-                this.settings.set_string ("sort-by", PreferencesWindow.sort_by_array.get ((int) sort_by.selected));
+                this.settings.set_enum ("sort-by", (int) this.sort_by.selected);
             });
 
             this.settings.bind("sort-order", sort_order, "selected", SettingsBindFlags.DEFAULT);
 
-            this.top_list_range.selected = PreferencesWindow.top_list_range_array.index_of (this.settings.get_string ("top-list-range"));
+            this.top_list_range.selected = this.settings.get_enum ("top-list-range");
             this.top_list_range.sensitive = this.settings.get_string ("sort-by") == "top_list";
             this.top_list_range.notify["selected"].connect ((pspec) => {
-                this.settings.set_string ("top-list-range", PreferencesWindow.top_list_range_array.get ((int) top_list_range.selected));
+                this.settings.set_enum ("top-list-range", (int) top_list_range.selected);
             });
             this.settings.changed["sort-by"].connect ((key) => {
-                top_list_range.sensitive = this.settings.get_string (key) == "top_list";
+                this.top_list_range.sensitive = this.settings.get_string (key) == "top_list";
             });
 
             this.settings.bind("category-general", category_general, "state", SettingsBindFlags.DEFAULT);
