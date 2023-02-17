@@ -38,8 +38,6 @@ Builder](https://wiki.gnome.org/Apps/Builder) or locally using `meson` and `ninj
 
 ```sh
 cd damask
-mkdir _build
-cd _build
-meson configure ..
-meson build
+meson configure builddir
+meson compile -C builddir
 ```
