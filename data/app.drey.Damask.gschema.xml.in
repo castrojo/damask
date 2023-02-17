@@ -164,6 +164,11 @@
     </key>
   </schema>
 
+  <enum id="@APP_ID@.sources.unsplash.content_filter">
+    <value nick="low" value="0"/>
+    <value nick="high" value="1"/>
+  </enum>
+
   <schema id="@APP_ID@.sources.unsplash" path="@RESOURCE_PATH@/sources/unsplash/">
     <key name="api-key" type="s">
       <default>""</default>
@@ -181,7 +186,7 @@
       <default>""</default>
     </key>
 
-    <key name="content-filter" type="s">
+    <key name="content-filter" enum="@APP_ID@.sources.unsplash.content_filter">
       <default>"low"</default>
     </key>
   </schema>

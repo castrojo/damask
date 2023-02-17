@@ -124,7 +124,6 @@ namespace Damask.Sources.Unsplash {
     [GtkTemplate (ui = "/app/drey/Damask/sources/unsplash.ui")]
     public class PreferencesWindow : Adw.PreferencesWindow {
         private Settings settings = new Settings (@"$(Constants.APP_ID).sources.unsplash");
-        private static Gee.ArrayList<string> content_filter_array = new Gee.ArrayList<string>.wrap ({"low", "high"});
 
         [GtkChild] private unowned Adw.EntryRow api_key;
         [GtkChild] private unowned Adw.EntryRow query;
@@ -138,9 +137,9 @@ namespace Damask.Sources.Unsplash {
             this.settings.bind ("collections", collections, "text", SettingsBindFlags.DEFAULT);
             this.settings.bind ("topics", topics, "text", SettingsBindFlags.DEFAULT);
 
-            this.content_filter.selected = PreferencesWindow.content_filter_array.index_of (this.settings.get_string ("content-filter"));
+            this.content_filter.selected = this.settings.get_enum ("content-filter");
             this.content_filter.notify["selected"].connect ((pspec) => {
-                this.settings.set_string ("content-filter", PreferencesWindow.content_filter_array.get ((int) this.content_filter.selected));
+                this.settings.set_enum ("content-filter", (int) this.content_filter.selected);
             });
         }
     }
