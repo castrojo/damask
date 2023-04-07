@@ -97,6 +97,10 @@ namespace Damask.Sources.Slideshow {
         }
 
         private void rebuild_file_list () {
+            if (this.settings.get_string("folder-uri") == "") {
+                return;
+            }
+
             this.current_index = 0;
             this.files.clear ();
 
@@ -115,7 +119,7 @@ namespace Damask.Sources.Slideshow {
                     }
                 }
             } catch (Error e) {
-                error (e.message);
+                critical (e.message);
             }
 
             switch (this.settings.get_enum("sort-by")) {
@@ -149,7 +153,7 @@ namespace Damask.Sources.Slideshow {
                     this.rebuild_file_list ();
                 });
             } catch (Error e) {
-                error (e.message);
+                critical (e.message);
             }
         }
     }
