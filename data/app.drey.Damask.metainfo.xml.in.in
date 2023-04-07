@@ -39,7 +39,7 @@
   <url type="help">https://gitlab.gnome.org/subpop/damask/-/issues</url>
   <url type="translate">https://gitlab.gnome.org/subpop/damask/-/issues</url>
   <releases>
-    <release date="2023-02-17" version="0.1.4">
+    <release date="2023-04-06" version="0.1.4">
       <description>
         <ul>
           <li>Added French and Dutch translations</li>
@@ -47,6 +47,7 @@
           <li>Fixed an issue using the Wallhaven NSFW filter without an API key</li>
           <li>Fixed an issue using the Unsplash ncontent_filter setting</li>
           <li>Changed the default refresh interval to 15 minutes</li>
+          <li>Fix a crash when disabling autostart</li>
         </ul>
       </description>
     </release>
