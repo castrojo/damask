@@ -211,6 +211,8 @@ namespace Damask {
         private void remove_autostart () {
             Xdp.Portal portal = new Xdp.Portal ();
             GenericArray<weak string> cmd = new GenericArray<weak string> ();
+            cmd.add ("damask");
+            cmd.add ("--background");
             portal.request_background.begin (null, null, cmd, Xdp.BackgroundFlags.NONE, null, (src, res) => {
                 try {
                     if (!portal.request_background.end (res)) {
