@@ -19,6 +19,10 @@
  */
 
 int main (string[] args) {
+    Intl.bindtextdomain (Damask.Constants.GETTEXT_PACKAGE, Damask.Constants.LOCALEDIR);
+    Intl.bind_textdomain_codeset (Damask.Constants.GETTEXT_PACKAGE, "UTF-8");
+    Intl.textdomain (Damask.Constants.GETTEXT_PACKAGE);
+
     var app = new Damask.Application ();
     return app.run (args);
 }

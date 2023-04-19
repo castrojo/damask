@@ -23,4 +23,6 @@ namespace Damask.Constants {
     const string APP_ID = "@APP_ID@";
     const string RESOURCE_PATH_PREFIX = "@RESOURCE_PATH_PREFIX@";
     const string RESOURCE_PATH = "@RESOURCE_PATH@";
+    const string GETTEXT_PACKAGE = "@GETTEXT_PACKAGE@";
+    const string LOCALEDIR = "@LOCALEDIR@";
 }

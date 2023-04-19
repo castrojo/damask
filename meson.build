@@ -26,6 +26,8 @@ config_data.set('VERSION', meson.project_version())
 config_data.set('APP_ID', app_id)
 config_data.set('RESOURCE_PATH_PREFIX', resource_path_prefix)
 config_data.set('RESOURCE_PATH', resource_path)
+config_data.set('GETTEXT_PACKAGE', meson.project_name ())
+config_data.set('LOCALEDIR', get_option('prefix') / get_option('localedir'))
 
 subdir('data')
 subdir('src')
