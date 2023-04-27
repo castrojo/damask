@@ -29,6 +29,12 @@ namespace Damask {
         private uint source_id = 0;
         private bool skip_window = false;
 
+        internal Window? window {
+            get {
+                return this.active_window as Window?;
+            }
+        }
+
         public Application () {
             Object (application_id: Constants.APP_ID, flags: ApplicationFlags.FLAGS_NONE);
         }
@@ -130,7 +136,11 @@ namespace Damask {
                     debug (@"enabling $(this.current_source.id)");
                     this.attach_timer ();
                     this.current_source.changed.connect (this.current_source_changed);
-                    this.current_source.refresh ();
+                     try {
+                        this.current_source.refresh();
+                    } catch (Error e) {
+                        this.window.show_toast (new Adw.Toast (_(@"Unable to refresh wallpaper: $(e.message)")));
+                    }
                 }
             });
 
@@ -139,7 +149,11 @@ namespace Damask {
             }
             this.current_source = this.sources.get (this.settings.get_string ("active-source"));
             this.current_source.changed.connect (this.current_source_changed);
-            this.current_source.refresh ();
+             try {
+                this.current_source.refresh();
+            } catch (Error e) {
+                this.window.show_toast (new Adw.Toast (_(@"Unable to refresh wallpaper: $(e.message)")));
+            }
             this.attach_timer ();
         }
 
@@ -168,10 +182,10 @@ namespace Damask {
                     if (portal.set_wallpaper.end (res)) {
                         this.current_wallpaper = this.current_source.current_wallpaper;
                     } else {
-                        error ("set_wallpaper failed");
+                        this.window.show_toast (new Adw.Toast(@"Unable to set wallpaper"));
                     }
                 } catch (Error e) {
-                    error (e.message);
+                    this.window.show_toast (new Adw.Toast(@"Unable to set wallpaper: $(e.message)"));
                 }
             });
         }
@@ -180,7 +194,11 @@ namespace Damask {
             int seconds = this.settings.get_string("refresh-interval").to_int();
             TimeoutSource timer = new TimeoutSource.seconds (seconds);
             timer.set_callback (() => {
-                this.current_source.refresh ();
+                try {
+                    this.current_source.refresh ();
+                } catch (Error e) {
+                    this.window.show_toast (new Adw.Toast(_(@"Unable to refresh wallpaper: $(e.message)")));
+                }
                 return true;
             });
             timer.attach ();
@@ -200,10 +218,10 @@ namespace Damask {
             portal.request_background.begin (null, null, cmd, Xdp.BackgroundFlags.AUTOSTART, null, (src, res) => {
                 try {
                     if (!portal.request_background.end (res)) {
-                        error ("request_background failed");
+                        this.window.show_toast (new Adw.Toast (_("Unable to activate autostart")));
                     }
                 } catch (Error e) {
-                    error (e.message);
+                    this.window.show_toast (new Adw.Toast (_(@"Unable to activate autostart: $(e.message)")));
                 }
             });
         }
@@ -216,10 +234,10 @@ namespace Damask {
             portal.request_background.begin (null, null, cmd, Xdp.BackgroundFlags.NONE, null, (src, res) => {
                 try {
                     if (!portal.request_background.end (res)) {
-                        error ("request_background failed");
+                        this.window.show_toast (new Adw.Toast (_("Unable to deactivate autostart")));
                     }
                 } catch (Error e) {
-                    error (e.message);
+                    this.window.show_toast (new Adw.Toast (_(@"Unable to deactivate autostart: $(e.message)")));
                 }
             });
         }
@@ -246,7 +264,11 @@ namespace Damask {
         }
 
         private void on_action_refresh () {
-            this.current_source.refresh();
+            try {
+                this.current_source.refresh();
+            } catch (Error e) {
+                this.window.show_toast (new Adw.Toast (_(@"Unable to refresh wallpaper: $(e.message)")));
+            }
         }
     }
 }

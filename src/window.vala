@@ -30,6 +30,7 @@ namespace Damask {
         [GtkChild] private unowned Gtk.Label description_label;
         [GtkChild] private unowned Gtk.Label title_label;
         [GtkChild] private unowned Gtk.Spinner spinner;
+        [GtkChild] private unowned Adw.ToastOverlay toast_overlay;
 
         public Window (Gtk.Application app) {
             Object (application: app);
@@ -120,13 +121,13 @@ namespace Damask {
                                         this.preview_stack.set_visible_child (this.preview_picture1 as Gtk.Widget);
                                     }
                                 } catch (Error e) {
-                                    error (e.message);
+                                    this.show_toast (new Adw.Toast(_(@"Unable to set wallpaper from URL: $(e.message)")));
                                 }
                             });
                             break;
                     }
                 } catch (Error e) {
-                    error (e.message);
+                    this.show_toast (new Adw.Toast(_(@"Unable to set wallpaper: $(e.message)")));
                 } finally {
                     this.spinner.spinning = false;
                     this.spinner.visible = false;
@@ -148,6 +149,10 @@ namespace Damask {
         private void on_open_url_action () {
             Application app = this.application as Application;
             Gtk.show_uri (null, app.current_wallpaper.web_url, Gdk.CURRENT_TIME);
+        }
+
+        internal void show_toast (Adw.Toast toast) {
+            this.toast_overlay.add_toast (toast);
         }
     }
 }

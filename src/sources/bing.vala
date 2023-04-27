@@ -69,13 +69,14 @@ namespace Damask.Sources.Bing {
             get { return _current_wallpaper; }
         }
 
-        public void refresh () {
+        public void refresh () throws Error {
             string mkt = this.settings.get_string ("market");
 
             Soup.Session session = new Soup.Session ();
             Soup.Message msg = new Soup.Message ("GET", @"https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=$mkt");
 
             session.send_and_read_async.begin (msg, 0, null, (source, result) => {
+                Application application = GLib.Application.get_default () as Application;
                 try {
                     Bytes response_body = session.send_and_read_async.end (result);
                     debug ((string) response_body.get_data ());
@@ -101,7 +102,7 @@ namespace Damask.Sources.Bing {
 
                     this.changed(path);
                 } catch (Error e) {
-                    error (e.message);
+                    application.window.show_toast (new Adw.Toast (_(@"Unable to set wallpaper: $(e.message)")));
                 }
             });
         }

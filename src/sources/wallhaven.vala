@@ -130,7 +130,7 @@ namespace Damask.Sources.Wallhaven {
             get { return _current_wallpaper; }
         }
 
-        public void refresh () {
+        public void refresh () throws Error {
             string url = "";
 
             switch (this.settings.get_string ("search-mode")) {

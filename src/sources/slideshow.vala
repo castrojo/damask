@@ -26,13 +26,26 @@ namespace Damask.Sources.Slideshow {
         private FileMonitor? monitor = null;
 
         construct {
+            Application application = GLib.Application.get_default () as Application;
             this.settings.changed["folder-uri"].connect (() => {
-                this.rebuild_file_list ();
+                try {
+                    this.rebuild_file_list ();
+                } catch (Error e) {
+                    application.window.show_toast (new Adw.Toast (_(@"Unable to refresh folder contents: $(e.message)")));
+                }
             });
             this.settings.changed["sort-by"].connect (() => {
-                this.rebuild_file_list ();
+                try {
+                    this.rebuild_file_list ();
+                } catch (Error e) {
+                    application.window.show_toast (new Adw.Toast (_(@"Unable to refresh folder contents: $(e.message)")));
+                }
             });
-            this.rebuild_file_list ();
+            try {
+                this.rebuild_file_list ();
+            } catch (Error e) {
+                application.window.show_toast (new Adw.Toast (_(@"Unable to refresh folder contents: $(e.message)")));
+            }
         }
 
         public string id {
@@ -56,7 +69,7 @@ namespace Damask.Sources.Slideshow {
             get { return _current_wallpaper; }
         }
 
-        public void refresh () {
+        public void refresh () throws Error {
             string folder_uri = this.settings.get_string ("folder-uri");
             string? path = null;
 
@@ -96,7 +109,7 @@ namespace Damask.Sources.Slideshow {
             return new PreferencesWindow () as Adw.PreferencesWindow;
         }
 
-        private void rebuild_file_list () {
+        private void rebuild_file_list () throws Error {
             if (this.settings.get_string("folder-uri") == "") {
                 return;
             }
@@ -149,11 +162,16 @@ namespace Damask.Sources.Slideshow {
             try {
                 this.monitor = folder.monitor_directory (FileMonitorFlags.WATCH_MOVES, null);
                 this.monitor.changed.connect ((src, dest, event) => {
+                    Application application = GLib.Application.get_default () as Application;
                     debug (@"$event");
-                    this.rebuild_file_list ();
+                    try {
+                        this.rebuild_file_list ();
+                    } catch (Error e) {
+                        application.window.show_toast (new Adw.Toast (_(@"Unable to refresh folder contents: $(e.message)")));
+                    }
                 });
             } catch (Error e) {
-                critical (e.message);
+                throw e;
             }
         }
     }

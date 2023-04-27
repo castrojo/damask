@@ -6,114 +6,116 @@ template DamaskWindow : Adw.ApplicationWindow {
   default-height: 500;
   title: "Damask";
 
-  Box {
-    orientation: vertical;
+  Adw.ToastOverlay toast_overlay {
+    Box {
+      orientation: vertical;
 
-    HeaderBar header_bar {
-      [start]
-      Button {
-        icon-name: "view-refresh-symbolic";
-        action-name: "app.refresh";
+      HeaderBar header_bar {
+        [start]
+        Button {
+          icon-name: "view-refresh-symbolic";
+          action-name: "app.refresh";
+        }
+
+        [end]
+        MenuButton {
+          icon-name: "open-menu-symbolic";
+          menu-model: primary_menu;
+        }
       }
 
-      [end]
-      MenuButton {
-        icon-name: "open-menu-symbolic";
-        menu-model: primary_menu;
+      Gtk.CheckButton active_source {
+        visible: false;
       }
-    }
 
-    Gtk.CheckButton active_source {
-      visible: false;
-    }
-
-    Adw.Clamp {
-      child: Box main_content {
-        orientation: vertical;
-        margin-top: 12;
-
-
-        Box preview_content {
+      Adw.Clamp {
+        child: Box main_content {
           orientation: vertical;
-          margin-start: 24;
-          margin-end: 24;
+          margin-top: 12;
 
-          Gtk.Label title_label {
-            margin-bottom: 12;
-            styles ["heading"]
-          }
 
-          Adw.Clamp {
-            maximum-size: 300;
-            child: Gtk.Overlay {
-              child: Gtk.Stack preview_stack {
-                transition-type: crossfade;
-                Gtk.StackPage stack_page1 {
-                  name: "stack1";
-                  child: Gtk.Picture preview_picture1 {
-                    styles ["card"]
-                    content-fit: cover;
-                    can-shrink: true;
-                    height-request: 200;
+          Box preview_content {
+            orientation: vertical;
+            margin-start: 24;
+            margin-end: 24;
+
+            Gtk.Label title_label {
+              margin-bottom: 12;
+              styles ["heading"]
+            }
+
+            Adw.Clamp {
+              maximum-size: 300;
+              child: Gtk.Overlay {
+                child: Gtk.Stack preview_stack {
+                  transition-type: crossfade;
+                  Gtk.StackPage stack_page1 {
+                    name: "stack1";
+                    child: Gtk.Picture preview_picture1 {
+                      styles ["card"]
+                      content-fit: cover;
+                      can-shrink: true;
+                      height-request: 200;
+                    };
+                  }
+
+                  Gtk.StackPage stack_page2 {
+                    name: "stack2";
+                    child: Gtk.Picture preview_picture2 {
+                      styles ["card"]
+                      content-fit: cover;
+                      can-shrink: true;
+                      height-request: 200;
+                    };
+                  }
+                };
+
+                [overlay]
+                Adw.Clamp {
+                  maximum-size: 24;
+                  child: Gtk.Spinner spinner {
+                    spinning: false;
+                    visible: false;
                   };
                 }
 
-                Gtk.StackPage stack_page2 {
-                  name: "stack2";
-                  child: Gtk.Picture preview_picture2 {
-                    styles ["card"]
-                    content-fit: cover;
-                    can-shrink: true;
-                    height-request: 200;
-                  };
+                [overlay]
+                Gtk.Button {
+                  styles ["opaque", "circular"]
+                  halign: end;
+                  valign: end;
+                  margin-bottom: 12;
+                  margin-end: 12;
+                  icon-name: "adw-external-link-symbolic";
+                  action-name: "win.open-url";
                 }
               };
+            }
 
-              [overlay]
-              Adw.Clamp {
-                maximum-size: 24;
-                child: Gtk.Spinner spinner {
-                  spinning: false;
-                  visible: false;
-                };
-              }
-
-              [overlay]
-              Gtk.Button {
-                styles ["opaque", "circular"]
-                halign: end;
-                valign: end;
-                margin-bottom: 12;
-                margin-end: 12;
-                icon-name: "adw-external-link-symbolic";
-                action-name: "win.open-url";
-              }
-            };
+            Gtk.Label description_label {
+              styles ["caption"]
+              wrap: true;
+              ellipsize: end;
+              lines: 3;
+              margin-top: 12;
+              margin-bottom: 12;
+            }
           }
 
-          Gtk.Label description_label {
-            styles ["caption"]
-            wrap: true;
-            ellipsize: end;
-            lines: 3;
-            margin-top: 12;
-            margin-bottom: 12;
+          Box {
+            orientation: vertical;
+            margin-top: 24;
+            margin-bottom: 24;
+            margin-start: 12;
+            margin-end: 12;
+            spacing: 24;
+            Gtk.ListBox sources {
+              selection-mode: none;
+              styles ["boxed-list" ]
+            }
           }
-        }
-
-        Box {
-          orientation: vertical;
-          margin-top: 24;
-          margin-bottom: 24;
-          margin-start: 12;
-          margin-end: 12;
-          spacing: 24;
-          Gtk.ListBox sources {
-            selection-mode: none;
-            styles ["boxed-list" ]
-          }
-        }
-      };
+        };
+      }
     }
   }
 }

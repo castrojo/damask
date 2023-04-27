@@ -29,7 +29,7 @@ namespace Damask {
     }
 
     public interface WallpaperSource : Object {
-        public abstract void refresh();
+        public abstract void refresh() throws Error;
         public abstract Adw.PreferencesWindow? preferences ();
         public abstract string id { get; }
         public abstract string title { get; }
