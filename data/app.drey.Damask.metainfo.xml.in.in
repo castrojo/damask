@@ -39,6 +39,15 @@
   <url type="help">https://gitlab.gnome.org/subpop/damask/-/issues</url>
   <url type="translate">https://gitlab.gnome.org/subpop/damask/-/issues</url>
   <releases>
+    <release date="2023-05-27" version="0.1.5">
+      <description>
+        <ul>
+          <li>Fixed an issue initializing translations</li>
+          <li>Report errors as a window toast</li>
+          <li>Fixed a crash in the Unsplash source using the wrong settings key name</li>
+        </ul>
+      </description>
+    </release>
     <release date="2023-04-06" version="0.1.4">
       <description>
         <ul>
