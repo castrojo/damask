@@ -39,7 +39,7 @@
   <url type="help">https://gitlab.gnome.org/subpop/damask/-/issues</url>
   <url type="translate">https://gitlab.gnome.org/subpop/damask/-/issues</url>
   <releases>
-    <release date="2023-05-27" version="0.1.5">
+    <release date="2023-04-27" version="0.1.5">
       <description>
         <ul>
           <li>Fixed an issue initializing translations</li>
