@@ -130,7 +130,7 @@ namespace Damask.Sources.Wallhaven {
             get { return _current_wallpaper; }
         }
 
-        public void refresh () throws Error {
+        public void refresh () {
             string url = "";
 
             switch (this.settings.get_string ("search-mode")) {
@@ -300,13 +300,14 @@ namespace Damask.Sources.Wallhaven {
                         this.changed(wp.path);
                     }
                 } catch (Error e) {
-                    print ("cannot deserialize from data: %s\n", e.message);
+                    this.toast (new Adw.Toast (_(@"Failed to get wallpaper: $(e.message)")));
+                    message (e.message);
                 }
             });
         }
 
         public Adw.PreferencesWindow? preferences () {
-            return new PreferencesWindow () as Adw.PreferencesWindow;
+            return new PreferencesWindow (this) as Adw.PreferencesWindow;
         }
     }
 
@@ -331,6 +332,14 @@ namespace Damask.Sources.Wallhaven {
         [GtkChild] private unowned Gtk.Switch color_enabled;
         [GtkChild] private unowned Gtk.ColorButton color;
         [GtkChild] private unowned Gtk.Button syntax_help;
+
+        public WallpaperSource source {
+            get; construct;
+        }
+
+        public PreferencesWindow (WallpaperSource source) {
+            Object (source: source);
+        }
 
         construct {
             this.settings.bind ("username", username, "text", SettingsBindFlags.DEFAULT);
@@ -379,7 +388,8 @@ namespace Damask.Sources.Wallhaven {
                         }
                     });
                 } catch (Error e) {
-                    print ("cannot deserialize from data: %s\n", e.message);
+                    this.source.toast (new Adw.Toast (_(@"Failed to get collections: $(e.message)")));
+                    message (e.message);
                 }
             });
 

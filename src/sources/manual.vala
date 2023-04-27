@@ -32,12 +32,7 @@ namespace Damask.Sources.Manual {
                 };
             }
             this.settings.changed["picture-uri"].connect ((key) => {
-                try {
-                    this.refresh ();
-                } catch (Error e) {
-                    Application application = GLib.Application.get_default () as Application;
-                    application.window.show_toast (new Adw.Toast(_(@"Unable to set wallpaper: $(e.message)")));
-                }
+                this.refresh ();
             });
         }
 
@@ -62,7 +57,7 @@ namespace Damask.Sources.Manual {
             get { return _current_wallpaper; }
         }
 
-        public void refresh () throws Error {
+        public void refresh () {
             string path = this.settings.get_string ("picture-uri");
             if (path != "") {
                 this._current_wallpaper = new Damask.Wallpaper () {
@@ -72,11 +67,10 @@ namespace Damask.Sources.Manual {
                 };
                 this.changed (path);
             }
-
         }
 
         public Adw.PreferencesWindow? preferences () {
-            return new PreferencesWindow () as Adw.PreferencesWindow;
+            return new PreferencesWindow (this) as Adw.PreferencesWindow;
         }
     }
 
@@ -90,6 +84,14 @@ namespace Damask.Sources.Manual {
         [GtkChild] private unowned Gtk.Spinner spinner;
         [GtkChild] private unowned Gtk.Button choose_button;
 
+        public WallpaperSource source {
+            get; construct;
+        }
+
+        public PreferencesWindow (WallpaperSource source) {
+            Object (source: source);
+        }
+
         construct {
             try {
                 File file = File.new_for_uri (this.settings.get_string ("picture-uri"));
@@ -97,7 +99,8 @@ namespace Damask.Sources.Manual {
                 this.preview_picture1.paintable = texture;
                 this.preview_stack.set_visible_child (this.preview_picture1 as Gtk.Widget);
             } catch (Error e) {
-                warning (e.message);
+                this.source.toast (new Adw.Toast(_(@"Unable to load preview: $(e.message)")));
+                message (e.message);
             } finally {
                 this.spinner.spinning = false;
                 this.spinner.visible = false;
@@ -110,7 +113,6 @@ namespace Damask.Sources.Manual {
                                                                            _("_Select"),
                                                                            _("_Cancel"));
                 chooser.response.connect ((response) => {
-                    Application application = GLib.Application.get_default () as Application;
                     this.spinner.spinning = true;
                     this.spinner.visible = true;
                     if (response == Gtk.ResponseType.ACCEPT) {
@@ -126,7 +128,8 @@ namespace Damask.Sources.Manual {
                             }
                             this.settings.set_string ("picture-uri", file.get_uri());
                         } catch (Error e) {
-                            application.window.show_toast (new Adw.Toast (_(@"Unable to set wallpaper: $(e.message)")));
+                            this.source.toast (new Adw.Toast (_(@"Unable to set wallpaper: $(e.message)")));
+                            message (e.message);
                         }
                     }
                     this.spinner.spinning = false;

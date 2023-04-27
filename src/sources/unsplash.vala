@@ -68,7 +68,7 @@ namespace Damask.Sources.Unsplash {
             get { return _current_wallpaper; }
         }
 
-        public void refresh () throws Error {
+        public void refresh () {
             StringBuilder query_parameters = new StringBuilder ();
 
             string query = this.settings.get_string ("query");
@@ -98,7 +98,6 @@ namespace Damask.Sources.Unsplash {
             debug (msg.uri.to_string());
 
             session.send_and_read_async.begin (msg, 0, null, (source, result) => {
-                Application application = GLib.Application.get_default () as Application;
                 try {
                     Bytes response_body = session.send_and_read_async.end (result);
                     debug ((string) response_body.get_data ());
@@ -115,7 +114,8 @@ namespace Damask.Sources.Unsplash {
 
                     this.changed (img.urls.full);
                 } catch (Error e) {
-                    application.window.show_toast (new Adw.Toast (_(@"Unable to set wallpaper: $(e.message)")));
+                    this.toast (new Adw.Toast (_(@"Failed to get wallpaper: $(e.message)")));
+                    message (e.message);
                 }
             });
         }

@@ -60,7 +60,7 @@ namespace Damask.Sources.Apod {
             get { return _current_wallpaper; }
         }
 
-        public void refresh () throws Error {
+        public void refresh () {
             StringBuilder query_parameters = new StringBuilder ();
 
             string api_key = this.settings.get_string ("api-key");
@@ -102,8 +102,8 @@ namespace Damask.Sources.Apod {
                     };
                     this.changed (image_url);
                 } catch (Error e) {
-                    Application application = GLib.Application.get_default () as Application;
-                    application.window.show_toast (new Adw.Toast (_(@"Unable to set wallpaper: $(e.message)")));
+                    this.toast (new Adw.Toast (_(@"Failed to get image: $(e.message)")));
+                    message (e.message);
                 }
             });
         }

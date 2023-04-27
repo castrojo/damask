@@ -26,26 +26,13 @@ namespace Damask.Sources.Slideshow {
         private FileMonitor? monitor = null;
 
         construct {
-            Application application = GLib.Application.get_default () as Application;
             this.settings.changed["folder-uri"].connect (() => {
-                try {
-                    this.rebuild_file_list ();
-                } catch (Error e) {
-                    application.window.show_toast (new Adw.Toast (_(@"Unable to refresh folder contents: $(e.message)")));
-                }
+                this.rebuild_file_list ();
             });
             this.settings.changed["sort-by"].connect (() => {
-                try {
-                    this.rebuild_file_list ();
-                } catch (Error e) {
-                    application.window.show_toast (new Adw.Toast (_(@"Unable to refresh folder contents: $(e.message)")));
-                }
-            });
-            try {
                 this.rebuild_file_list ();
-            } catch (Error e) {
-                application.window.show_toast (new Adw.Toast (_(@"Unable to refresh folder contents: $(e.message)")));
-            }
+            });
+            this.rebuild_file_list ();
         }
 
         public string id {
@@ -69,7 +56,7 @@ namespace Damask.Sources.Slideshow {
             get { return _current_wallpaper; }
         }
 
-        public void refresh () throws Error {
+        public void refresh () {
             string folder_uri = this.settings.get_string ("folder-uri");
             string? path = null;
 
@@ -109,7 +96,7 @@ namespace Damask.Sources.Slideshow {
             return new PreferencesWindow () as Adw.PreferencesWindow;
         }
 
-        private void rebuild_file_list () throws Error {
+        private void rebuild_file_list () {
             if (this.settings.get_string("folder-uri") == "") {
                 return;
             }
@@ -132,7 +119,8 @@ namespace Damask.Sources.Slideshow {
                     }
                 }
             } catch (Error e) {
-                critical (e.message);
+                this.toast (new Adw.Toast(_(@"Failed to get folder contents: $(e.message)")));
+                message (e.message);
             }
 
             switch (this.settings.get_enum("sort-by")) {
@@ -162,16 +150,12 @@ namespace Damask.Sources.Slideshow {
             try {
                 this.monitor = folder.monitor_directory (FileMonitorFlags.WATCH_MOVES, null);
                 this.monitor.changed.connect ((src, dest, event) => {
-                    Application application = GLib.Application.get_default () as Application;
                     debug (@"$event");
-                    try {
-                        this.rebuild_file_list ();
-                    } catch (Error e) {
-                        application.window.show_toast (new Adw.Toast (_(@"Unable to refresh folder contents: $(e.message)")));
-                    }
+                    this.rebuild_file_list ();
                 });
             } catch (Error e) {
-                throw e;
+                this.toast (new Adw.Toast (_(@"Unable to watch folder for changes: $(e.message)")));
+                message (e.message);
             }
         }
     }
