@@ -8,467 +8,477 @@ msgstr ""
 "Project-Id-Version: damask\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 15:31-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-04-30 23:50+0000\n"
+"Last-Translator: Daudix UFO <ddaudix@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/damask/damask/ru/"
+">\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: data/app.drey.Damask.desktop.in.in:3
 #: data/app.drey.Damask.metainfo.xml.in.in:5
 msgid "Damask"
-msgstr ""
+msgstr "Damask"
 
 #: data/app.drey.Damask.desktop.in.in:10
 msgid "wallpaper;"
-msgstr ""
+msgstr "обои;"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:26
 msgid "Link Dupont"
-msgstr ""
+msgstr "Link Dupont"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:27
 msgid "Automatically set wallpaper images from Internet sources"
-msgstr ""
+msgstr "Автоматическая установка изображений обоев из интернет источников"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:29
 msgid ""
 "Damask is an automatic wallpaper application. It currently supports setting "
 "the wallpaper image from the following sources:"
 msgstr ""
+"Damask - это приложение автоматических обоев. В настоящее время оно "
+"поддерживает установку изображений обоев из следующих источников:"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:31
 msgid "wallhaven.cc"
-msgstr ""
+msgstr "wallhaven.cc"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:32
 msgid "Microsoft Bing Wallpaper of the day"
-msgstr ""
+msgstr "Обои дня Microsoft Bing"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:33
 msgid "NASA Astronomy Picture of the Day"
-msgstr ""
+msgstr "Астрономическое изображения дня NASA"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:34
 msgid "Unsplash"
-msgstr ""
+msgstr "Unsplash"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:45
 msgid "Added French and Dutch translations"
-msgstr ""
+msgstr "Добавлены французский и голландский переводы"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:46
 msgid "Added \"Slideshow\" source to rotate through images in a local folder"
 msgstr ""
+"Добавлен источник \"Слайд-шоу\" для прокрутки изображений в локальной папке"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:47
 msgid "Fixed an issue using the Wallhaven NSFW filter without an API key"
 msgstr ""
+"Исправлена проблема с использованием фильтра NSFW в Wallhaven без ключа API"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:48
 msgid "Fixed an issue using the Unsplash ncontent_filter setting"
-msgstr ""
+msgstr "Исправлена проблема с использованием параметра Unsplash ncontent_filter"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:49
 msgid "Changed the default refresh interval to 15 minutes"
-msgstr ""
+msgstr "Изменен интервал обновления по умолчанию на 15 минут"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:56
 msgid "Add \"wallpaper\" keyword to desktop file"
-msgstr ""
+msgstr "Добавлено ключевое слово \"обои\" в файл рабочего стола"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:57
 msgid "Disable \"Anime\" category in the wallhaven source by default"
-msgstr ""
+msgstr "Отключена категория \"Аниме\" в источнике wallhaven по умолчанию"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:58
 msgid ""
 "Dynamically disable sources that require certain values such as API key to "
 "function"
 msgstr ""
+"Динамическое отключение источников, для функционирования которых требуются "
+"определенные значения, например, ключ API"
 
 #: src/preferences.blp:10
 msgid "Refresh interval"
-msgstr ""
+msgstr "Интервал обновления"
 
 #: src/preferences.blp:14
 msgid "30 seconds"
-msgstr ""
+msgstr "30 секунд"
 
 #: src/preferences.blp:15
 msgid "1 minute"
-msgstr ""
+msgstr "1 минута"
 
 #: src/preferences.blp:16
 msgid "5 minutes"
-msgstr ""
+msgstr "5 минут"
 
 #: src/preferences.blp:17
 msgid "15 minutes"
-msgstr ""
+msgstr "15 минут"
 
 #: src/preferences.blp:18
 msgid "30 minutes"
-msgstr ""
+msgstr "30 минут"
 
 #: src/preferences.blp:19
 msgid "1 hour"
-msgstr ""
+msgstr "1 час"
 
 #: src/preferences.blp:20
 msgid "6 hours"
-msgstr ""
+msgstr "6 часов"
 
 #: src/preferences.blp:21
 msgid "12 hours"
-msgstr ""
+msgstr "12 часов"
 
 #: src/preferences.blp:22
 msgid "24 hours"
-msgstr ""
+msgstr "24 часа"
 
 #: src/preferences.blp:27
 msgid "Run in background"
-msgstr ""
+msgstr "Работать в фоне"
 
 #: src/preferences.blp:33
 msgid "Start automatically upon login"
-msgstr ""
+msgstr "Автоматически запускать при входе в систему"
 
 #: src/sources/bing.blp:8
 msgid "Market"
-msgstr ""
+msgstr "Рынок"
 
 #: src/sources/bing.blp:12
 msgid "English (United States)"
-msgstr ""
+msgstr "Английский (США)"
 
 #: src/sources/bing.blp:13
 msgid "Chinese (Simplified)"
-msgstr ""
+msgstr "Китайский (упрощенный)"
 
 #: src/sources/bing.blp:14
 msgid "Japanese (Japan)"
-msgstr ""
+msgstr "Японский (Япония)"
 
 #: src/sources/bing.blp:15
 msgid "English (Australia)"
-msgstr ""
+msgstr "Английский (Австралия)"
 
 #: src/sources/bing.blp:16
 msgid "English (United Kingdom)"
-msgstr ""
+msgstr "Английский (Великобритания)"
 
 #: src/sources/bing.blp:17
 msgid "German (Germany)"
-msgstr ""
+msgstr "Немецкий (Германия)"
 
 #: src/sources/bing.blp:18
 msgid "English (New Zealand)"
-msgstr ""
+msgstr "Английский (Новая Зеландия)"
 
 #: src/sources/bing.blp:19
 msgid "English (Canada)"
-msgstr ""
+msgstr "Английский (Канада)"
 
 #: src/sources/bing.blp:20
 msgid "English (India)"
-msgstr ""
+msgstr "Английский (Индия)"
 
 #: src/sources/bing.blp:21
 msgid "French (France)"
-msgstr ""
+msgstr "Французский (Франция)"
 
 #: src/sources/bing.blp:22
 msgid "French (Canada)"
-msgstr ""
+msgstr "Французский (Канада)"
 
 #: src/sources/bing.blp:28
 msgid "Resolution"
-msgstr ""
+msgstr "Разрешение"
 
 #: src/sources/bing.vala:60
 msgid "Use Microsoft Bing's wallpaper of the day"
-msgstr ""
+msgstr "Использовать обои дня Microsoft Bing"
 
 #: src/sources/manual.vala:48
 msgid "Use a manually selected image as the wallpaper"
-msgstr ""
+msgstr "Использовать изображение выбранное вручную в качестве обоев"
 
 #: src/sources/manual.vala:102
 msgid "Select Picture"
-msgstr ""
+msgstr "Выбрать изображение"
 
 #: src/sources/manual.vala:105 src/sources/slideshow.vala:170
 msgid "_Select"
-msgstr ""
+msgstr "_Выбрать"
 
 #: src/sources/manual.vala:106 src/sources/slideshow.vala:171
 msgid "_Cancel"
-msgstr ""
+msgstr "_Отменить"
 
 #: src/sources/slideshow.blp:11
 msgid "Choose Folder"
-msgstr ""
+msgstr "Выбрать папку"
 
 #: src/sources/slideshow.blp:21 src/sources/wallhaven.blp:72
 msgid "Sort By"
-msgstr ""
+msgstr "Сортировать по"
 
 #: src/sources/slideshow.blp:24 src/sources/wallhaven.blp:78
 msgid "Random"
-msgstr ""
+msgstr "Случайное"
 
 #: src/sources/slideshow.blp:25
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 #: src/sources/slideshow.blp:26
 msgid "Creation Date"
-msgstr ""
+msgstr "Дата создания"
 
 #: src/sources/slideshow.vala:43
 msgid "Slideshow"
-msgstr ""
+msgstr "Слайд-шоу"
 
 #: src/sources/slideshow.vala:47
 msgid "Use the contents of a folder as the wallpaper"
-msgstr ""
+msgstr "Использовать содержимое папки в качестве обоев"
 
 #: src/sources/slideshow.vala:167
 msgid "Select Folder"
-msgstr ""
+msgstr "Выберите папку"
 
 #: src/sources/wallhaven.blp:7
 msgid "Source"
-msgstr ""
+msgstr "Источник"
 
 #: src/sources/wallhaven.blp:14
 msgid "API Key"
-msgstr ""
+msgstr "Ключ API"
 
 #: src/sources/wallhaven.blp:17
 msgid "deadbeef"
-msgstr ""
+msgstr "deadbeef"
 
 #: src/sources/wallhaven.blp:23 src/sources/wallhaven.blp:31
 msgid "Query"
-msgstr ""
+msgstr "Запрос"
 
 #: src/sources/wallhaven.blp:40
 msgid "space galaxy"
-msgstr ""
+msgstr "space galaxy"
 
 #: src/sources/wallhaven.blp:47
 msgid "Collection"
-msgstr ""
+msgstr "Коллекция"
 
 #: src/sources/wallhaven.blp:55
 msgid "Username"
-msgstr ""
+msgstr "Имя пользователя"
 
 #: src/sources/wallhaven.blp:57
 msgid "kermit_the_frog"
-msgstr ""
+msgstr "kermit_the_frog"
 
 #: src/sources/wallhaven.blp:63
 msgid "Collections"
-msgstr ""
+msgstr "Коллекции"
 
 #: src/sources/wallhaven.blp:69
 msgid "Sorting"
-msgstr ""
+msgstr "Сортировка"
 
 #: src/sources/wallhaven.blp:76
 msgid "Date Added"
-msgstr ""
+msgstr "Дата добавления"
 
 #: src/sources/wallhaven.blp:77
 msgid "Relevance"
-msgstr ""
+msgstr "Уместность"
 
 #: src/sources/wallhaven.blp:79
 msgid "Views"
-msgstr ""
+msgstr "Просмотры"
 
 #: src/sources/wallhaven.blp:80
 msgid "Favorites"
-msgstr ""
+msgstr "Избранное"
 
 #: src/sources/wallhaven.blp:81
 msgid "Top List"
-msgstr ""
+msgstr "Список лучших"
 
 #: src/sources/wallhaven.blp:87
 msgid "Sort Order"
-msgstr ""
+msgstr "Порядок сортировки"
 
 #: src/sources/wallhaven.blp:91
 msgid "Ascending"
-msgstr ""
+msgstr "По возрастанию"
 
 #: src/sources/wallhaven.blp:92
 msgid "Descending"
-msgstr ""
+msgstr "По убыванию"
 
 #: src/sources/wallhaven.blp:98
 msgid "Top List Range"
-msgstr ""
+msgstr "Диапазон списка лучших"
 
 #: src/sources/wallhaven.blp:102
 msgid "One Day"
-msgstr ""
+msgstr "Один день"
 
 #: src/sources/wallhaven.blp:103
 msgid "Three Days"
-msgstr ""
+msgstr "Три дня"
 
 #: src/sources/wallhaven.blp:104
 msgid "One Week"
-msgstr ""
+msgstr "Одна неделя"
 
 #: src/sources/wallhaven.blp:105
 msgid "One Month"
-msgstr ""
+msgstr "Один месяц"
 
 #: src/sources/wallhaven.blp:106
 msgid "Three Months"
-msgstr ""
+msgstr "Три месяца"
 
 #: src/sources/wallhaven.blp:107
 msgid "Six Months"
-msgstr ""
+msgstr "Шесть месяцев"
 
 #: src/sources/wallhaven.blp:108
 msgid "One Year"
-msgstr ""
+msgstr "Один год"
 
 #: src/sources/wallhaven.blp:115
 msgid "Filtering"
-msgstr ""
+msgstr "Фильтрация"
 
 #: src/sources/wallhaven.blp:118
 msgid "Color"
-msgstr ""
+msgstr "Цвет"
 
 #: src/sources/wallhaven.blp:135
 msgid "Categories"
-msgstr ""
+msgstr "Категории"
 
 #: src/sources/wallhaven.blp:138
 msgid "General"
-msgstr ""
+msgstr "Общее"
 
 #: src/sources/wallhaven.blp:146
 msgid "Anime"
-msgstr ""
+msgstr "Аниме"
 
 #: src/sources/wallhaven.blp:154
 msgid "People"
-msgstr ""
+msgstr "Люди"
 
 #: src/sources/wallhaven.blp:163
 msgid "Purity"
-msgstr ""
+msgstr "Чистота"
 
 #: src/sources/wallhaven.blp:166
 msgid "Safe for Work"
-msgstr ""
+msgstr "Безопасное для работы"
 
 #: src/sources/wallhaven.blp:174
 msgid "Sketchy"
-msgstr ""
+msgstr "Поверхностное"
 
 #: src/sources/wallhaven.blp:182
 msgid "Not Safe for Work"
-msgstr ""
+msgstr "Небезопасное для работы"
 
 #: src/sources/wallhaven.blp:183
 msgid "An API key is required to access not safe for work content"
-msgstr ""
+msgstr "Для доступа к небезопасному для работы контенту требуется ключ API"
 
 #: src/sources/wallhaven.vala:121
 msgid "Get wallpapers from wallhaven.cc"
-msgstr ""
+msgstr "Получать обои с wallhaven.cc"
 
 #: src/sources/wallhaven.vala:466
 msgid "<tt>tagname</tt>"
-msgstr ""
+msgstr "<tt>tagname</tt>"
 
 #: src/sources/wallhaven.vala:466
 msgid "search fuzzily for a tag/keyword"
-msgstr ""
+msgstr "нечеткий поиск по тегам/ключевым словам"
 
 #: src/sources/wallhaven.vala:467
 msgid "<tt>-tagname</tt>"
-msgstr ""
+msgstr "<tt>-tagname</tt>"
 
 #: src/sources/wallhaven.vala:467
 msgid "exclude a tag/keyword"
-msgstr ""
+msgstr "исключить тег/ключевое слово"
 
 #: src/sources/wallhaven.vala:468
 msgid "<tt>+tag1 +tag2</tt>"
-msgstr ""
+msgstr "<tt>+tag1 +tag2</tt>"
 
 #: src/sources/wallhaven.vala:468
 msgid "must have tag1 and tag2"
-msgstr ""
+msgstr "должен иметь тег1 и тег2"
 
 #: src/sources/wallhaven.vala:469
 msgid "<tt>+tag1 -tag2</tt>"
-msgstr ""
+msgstr "<tt>+tag1 -tag2</tt>"
 
 #: src/sources/wallhaven.vala:469
 msgid "must have tag1 and NOT tag2"
-msgstr ""
+msgstr "должен иметь тег1 и НЕ иметь тег2"
 
 #: src/sources/wallhaven.vala:470
 msgid "<tt>@username</tt>"
-msgstr ""
+msgstr "<tt>@username</tt>"
 
 #: src/sources/wallhaven.vala:470
 msgid "user uploads"
-msgstr ""
+msgstr "пользовательские загрузки"
 
 #: src/sources/wallhaven.vala:471
 msgid "<tt>id:123</tt>"
-msgstr ""
+msgstr "<tt>id:123</tt>"
 
 #: src/sources/wallhaven.vala:471
 msgid "Exact tag search (can not be combined)"
-msgstr ""
+msgstr "Точный поиск по тегам (нельзя комбинировать)"
 
 #: src/sources/wallhaven.vala:472
 msgid "<tt>type:{png/jpg}</tt>"
-msgstr ""
+msgstr "<tt>type:{png/jpg}</tt>"
 
 #: src/sources/wallhaven.vala:472
 msgid "Search for file type (jpg = jpeg)"
-msgstr ""
+msgstr "Поиск по типу файла (jpg = jpeg)"
 
 #: src/sources/wallhaven.vala:473
 msgid "<tt>like:wallpaper ID</tt>"
-msgstr ""
+msgstr "<tt>like:wallpaper ID</tt>"
 
 #: src/sources/wallhaven.vala:473
 msgid "Find wallpapers with similar tags"
-msgstr ""
+msgstr "Найти обои с похожими тегами"
 
 #: src/window.blp:124
 msgid "_Preferences"
-msgstr ""
+msgstr "_Параметры"
 
 #: src/window.blp:129
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "_Комбинации клавиш"
 
 #: src/window.blp:134
 msgid "_About Damask"
-msgstr ""
+msgstr "_О Damask"
 
 #: src/window.blp:139
 msgid "_Quit"
-msgstr ""
+msgstr "_Выйти"
