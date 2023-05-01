@@ -39,18 +39,6 @@ namespace Damask.Sources.Slideshow {
             get { return "slideshow"; }
         }
 
-        public string title {
-            get { return _("Slideshow"); }
-        }
-
-        public string subtitle {
-            get { return _("Use the contents of a folder as the wallpaper"); }
-        }
-
-        public bool can_activate {
-            get { return true; }
-        }
-
         private Damask.Wallpaper? _current_wallpaper;
         public unowned Damask.Wallpaper? current_wallpaper {
             get { return _current_wallpaper; }
@@ -92,10 +80,6 @@ namespace Damask.Sources.Slideshow {
             }
         }
 
-        public Adw.PreferencesWindow? preferences () {
-            return new PreferencesWindow () as Adw.PreferencesWindow;
-        }
-
         private void rebuild_file_list () {
             if (this.settings.get_string("folder-uri") == "") {
                 return;
@@ -119,7 +103,7 @@ namespace Damask.Sources.Slideshow {
                     }
                 }
             } catch (Error e) {
-                this.toast (new Adw.Toast(_(@"Failed to get folder contents: $(e.message)")));
+                this.toast (_(@"Failed to get folder contents: $(e.message)"));
                 message (e.message);
             }
 
@@ -154,14 +138,14 @@ namespace Damask.Sources.Slideshow {
                     this.rebuild_file_list ();
                 });
             } catch (Error e) {
-                this.toast (new Adw.Toast (_(@"Unable to watch folder for changes: $(e.message)")));
+                this.toast (_(@"Unable to watch folder for changes: $(e.message)"));
                 message (e.message);
             }
         }
     }
 
     [GtkTemplate (ui = "/app/drey/Damask/sources/slideshow.ui")]
-    public class PreferencesWindow : Adw.PreferencesWindow {
+    public class PreferencesPage : Adw.PreferencesPage {
         private Settings settings = new Settings (@"$(Constants.APP_ID).sources.slideshow");
 
         [GtkChild] private unowned Gtk.Button choose_button;
@@ -169,9 +153,10 @@ namespace Damask.Sources.Slideshow {
         [GtkChild] private unowned Adw.ComboRow sort_by;
 
         construct {
+            debug (@"[%p] $(this.get_type().name()).construct", this);
             choose_button.clicked.connect (() => {
                 Gtk.FileChooserNative chooser = new Gtk.FileChooserNative (_("Select Folder"),
-                                                                           this,
+                                                                           null,
                                                                            Gtk.FileChooserAction.SELECT_FOLDER,
                                                                            _("_Select"),
                                                                            _("_Cancel"));
@@ -191,6 +176,10 @@ namespace Damask.Sources.Slideshow {
             this.sort_by.notify["selected"].connect ((pspec) => {
                 this.settings.set_enum ("sort-by", (int) sort_by.selected);
             });
+        }
+
+        ~PreferencesPage () {
+            debug (@"[%p] ~$(this.get_type().name())", this);
         }
     }
 }

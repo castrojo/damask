@@ -2,119 +2,195 @@ using Gtk 4.0;
 using Adw 1;
 
 template DamaskWindow : Adw.ApplicationWindow {
-  default-width: 400;
+  default-width: 700;
   default-height: 500;
   title: "Damask";
 
+  Gtk.CheckButton active_source {
+    visible: false;
+  }
+
   Adw.ToastOverlay toast_overlay {
-    Box {
-      orientation: vertical;
+    Adw.Leaflet leaflet {
+      can-navigate-back: true;
+      fold-threshold-policy: natural;
 
-      HeaderBar header_bar {
-        [start]
-        Button {
-          icon-name: "view-refresh-symbolic";
-          action-name: "app.refresh";
+      Gtk.Box sources_list_view {
+        orientation: vertical;
+        Adw.HeaderBar {
+          show-end-title-buttons: bind leaflet.folded;
+          title-widget: Adw.WindowTitle {
+            title: _("Damask");
+            visible: bind leaflet.folded;
+          };
+
+          [end]
+          MenuButton {
+            icon-name: "open-menu-symbolic";
+            menu-model: primary_menu;
+            visible: bind leaflet.folded;
+          }
+
+          [end]
+          Button {
+            icon-name: "view-refresh-symbolic";
+            action-name: "app.refresh";
+            visible: bind leaflet.folded;
+          }
         }
 
-        [end]
-        MenuButton {
-          icon-name: "open-menu-symbolic";
-          menu-model: primary_menu;
+        Gtk.ScrolledWindow {
+          vexpand: true;
+          width-request: 300;
+
+          Gtk.ListBox sources {
+            selection-mode: browse;
+            activate-on-single-click: true;
+            styles ["navigation-sidebar"]
+
+            Adw.ActionRow manual_row {
+              name: "manual";
+              title: _("Manual");
+              subtitle: _("Use a manually selected image as the wallpaper");
+              activatable: true;
+
+              [prefix]
+              Gtk.CheckButton {
+                group: active_source;
+                action-name: "win.active-source";
+                action-target: "'manual'";
+              }
+            }
+
+            Adw.ActionRow slideshow_row {
+              name: "slideshow";
+              title: _("Slideshow");
+              subtitle: _("Use the contents of a folder as the wallpaper");
+              activatable: true;
+
+              [prefix]
+              Gtk.CheckButton {
+                group: active_source;
+                action-name: "win.active-source";
+                action-target: "'slideshow'";
+              }
+            }
+
+            Adw.ActionRow bing_row {
+              name: "bing";
+              title: _("Bing Wallpaper");
+              subtitle: _("Use Microsoft Bing's wallpaper of the day");
+              activatable: true;
+
+              [prefix]
+              Gtk.CheckButton {
+                group: active_source;
+                action-name: "win.active-source";
+                action-target: "'bing'";
+              }
+            }
+
+            Adw.ActionRow wallhaven_row {
+              name: "wallhaven";
+              title: _("Wallhaven");
+              subtitle: _("Get wallpapers from wallhaven.cc");
+              activatable: true;
+
+              [prefix]
+              Gtk.CheckButton {
+                group: active_source;
+                action-name: "win.active-source";
+                action-target: "'wallhaven'";
+              }
+            }
+
+            Adw.ActionRow apod_row {
+              name: "apod";
+              title: _("NASA Astronomy Picture of the Day");
+              subtitle: _("Each day a different image or photograph of our fascinating universe");
+              activatable: true;
+
+              [prefix]
+              Gtk.CheckButton {
+                group: active_source;
+                action-name: "win.active-source";
+                action-target: "'apod'";
+              }
+            }
+
+            Adw.ActionRow unsplash_row {
+              name: "unsplash";
+              title: _("Unsplash");
+              subtitle: _("Get wallpapers from unsplash.com");
+              activatable: true;
+
+              [prefix]
+              Gtk.CheckButton {
+                group: active_source;
+                action-name: "win.active-source";
+                action-target: "'unsplash'";
+              }
+            }
+          }
         }
       }
 
-      Gtk.CheckButton active_source {
-        visible: false;
+      Adw.LeafletPage separator {
+        navigatable: false;
+        child: Separator {};
       }
 
-      Adw.Clamp {
-        child: Box main_content {
-          orientation: vertical;
-          margin-top: 12;
+      Gtk.Box source_content_view {
+        orientation: vertical;
+        hexpand: true;
 
+        Adw.HeaderBar {
+          show-start-title-buttons: bind leaflet.folded;
 
-          Box preview_content {
-            orientation: vertical;
-            margin-start: 24;
-            margin-end: 24;
-
-            Gtk.Label title_label {
-              margin-bottom: 12;
-              styles ["heading"]
-            }
-
-            Adw.Clamp {
-              maximum-size: 300;
-              child: Gtk.Overlay {
-                child: Gtk.Stack preview_stack {
-                  transition-type: crossfade;
-                  Gtk.StackPage stack_page1 {
-                    name: "stack1";
-                    child: Gtk.Picture preview_picture1 {
-                      styles ["card"]
-                      content-fit: cover;
-                      can-shrink: true;
-                      height-request: 200;
-                    };
-                  }
-
-                  Gtk.StackPage stack_page2 {
-                    name: "stack2";
-                    child: Gtk.Picture preview_picture2 {
-                      styles ["card"]
-                      content-fit: cover;
-                      can-shrink: true;
-                      height-request: 200;
-                    };
-                  }
-                };
-
-                [overlay]
-                Adw.Clamp {
-                  maximum-size: 24;
-                  child: Gtk.Spinner spinner {
-                    spinning: false;
-                    visible: false;
-                  };
-                }
-
-                [overlay]
-                Gtk.Button {
-                  styles ["opaque", "circular"]
-                  halign: end;
-                  valign: end;
-                  margin-bottom: 12;
-                  margin-end: 12;
-                  icon-name: "adw-external-link-symbolic";
-                  action-name: "win.open-url";
-                }
-              };
-            }
-
-            Gtk.Label description_label {
-              styles ["caption"]
-              wrap: true;
-              ellipsize: end;
-              lines: 3;
-              margin-top: 12;
-              margin-bottom: 12;
-            }
+          Gtk.Button source_content_back_button {
+            visible: bind leaflet.folded;
+            icon-name: "go-previous-symbolic";
           }
 
-          Box {
-            orientation: vertical;
-            margin-top: 24;
-            margin-bottom: 24;
-            margin-start: 12;
-            margin-end: 12;
-            spacing: 24;
-            Gtk.ListBox sources {
-              selection-mode: none;
-              styles ["boxed-list" ]
-            }
+          [end]
+          MenuButton {
+            icon-name: "open-menu-symbolic";
+            menu-model: primary_menu;
           }
-        };
+
+          [end]
+          Gtk.Button {
+            icon-name: "view-refresh-symbolic";
+            action-name: "app.refresh";
+          }
+        }
+
+        Gtk.Stack source_content_stack {
+          Gtk.StackPage {
+            name: "manual";
+            child: $DamaskSourcesManualPreferencesPage {};
+          }
+          Gtk.StackPage {
+            name: "slideshow";
+            child: $DamaskSourcesSlideshowPreferencesPage {};
+          }
+          Gtk.StackPage {
+            name: "bing";
+            child: $DamaskSourcesBingPreferencesPage {};
+          }
+          Gtk.StackPage {
+            name: "wallhaven";
+            child: $DamaskSourcesWallhavenPreferencesPage {};
+          }
+          Gtk.StackPage {
+            name: "apod";
+            child: $DamaskSourcesApodPreferencesPage {};
+          }
+          Gtk.StackPage {
+            name: "unsplash";
+            child: $DamaskSourcesUnsplashPreferencesPage {};
+          }
+        }
       }
     }
   }

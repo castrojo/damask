@@ -7,6 +7,7 @@ damask_blueprints = [
   'sources/slideshow.blp',
   'sources/unsplash.blp',
   'sources/wallhaven.blp',
+  'wallpaper-preview.blp',
   'window.blp'
 ]
 
@@ -30,6 +31,7 @@ damask_sources = [
   'sources/slideshow.vala',
   'sources/unsplash.vala',
   'sources/wallhaven.vala',
+  'wallpaper-preview.vala',
   'wallpaper-source.vala',
   'window.vala',
 ]

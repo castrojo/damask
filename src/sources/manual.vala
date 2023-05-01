@@ -40,18 +40,6 @@ namespace Damask.Sources.Manual {
             get { return "manual"; }
         }
 
-        public string title {
-            get { return "Manual"; }
-        }
-
-        public string subtitle {
-            get { return _("Use a manually selected image as the wallpaper"); }
-        }
-
-        public bool can_activate {
-            get { return true; }
-        }
-
         private Damask.Wallpaper? _current_wallpaper;
         public unowned Damask.Wallpaper? current_wallpaper {
             get { return _current_wallpaper; }
@@ -68,75 +56,39 @@ namespace Damask.Sources.Manual {
                 this.changed (path);
             }
         }
-
-        public Adw.PreferencesWindow? preferences () {
-            return new PreferencesWindow (this) as Adw.PreferencesWindow;
-        }
     }
 
     [GtkTemplate (ui = "/app/drey/Damask/sources/manual.ui")]
-    public class PreferencesWindow : Adw.PreferencesWindow {
+    public class PreferencesPage : Adw.PreferencesPage {
         private Settings settings = new Settings (@"$(Constants.APP_ID).sources.manual");
 
-        [GtkChild] private unowned Gtk.Stack preview_stack;
-        [GtkChild] private unowned Gtk.Picture preview_picture1;
-        [GtkChild] private unowned Gtk.Picture preview_picture2;
-        [GtkChild] private unowned Gtk.Spinner spinner;
         [GtkChild] private unowned Gtk.Button choose_button;
-
-        public WallpaperSource source {
-            get; construct;
-        }
-
-        public PreferencesWindow (WallpaperSource source) {
-            Object (source: source);
-        }
+        [GtkChild] private unowned Adw.ActionRow row;
 
         construct {
-            try {
-                File file = File.new_for_uri (this.settings.get_string ("picture-uri"));
-                Gdk.Texture texture = Gdk.Texture.from_file (file);
-                this.preview_picture1.paintable = texture;
-                this.preview_stack.set_visible_child (this.preview_picture1 as Gtk.Widget);
-            } catch (Error e) {
-                this.source.toast (new Adw.Toast(_(@"Unable to load preview: $(e.message)")));
-                message (e.message);
-            } finally {
-                this.spinner.spinning = false;
-                this.spinner.visible = false;
-            }
-
+            debug (@"[%p] $(this.get_type().name()).construct", this);
             choose_button.clicked.connect (() => {
                 Gtk.FileChooserNative chooser = new Gtk.FileChooserNative (_("Select Picture"),
-                                                                           this,
+                                                                           null,
                                                                            Gtk.FileChooserAction.OPEN,
                                                                            _("_Select"),
                                                                            _("_Cancel"));
                 chooser.response.connect ((response) => {
-                    this.spinner.spinning = true;
-                    this.spinner.visible = true;
                     if (response == Gtk.ResponseType.ACCEPT) {
-                        try {
-                            File file = chooser.get_file ();
-                            Gdk.Texture texture = Gdk.Texture.from_file (file);
-                            if (this.preview_stack.get_visible_child () == this.preview_picture1) {
-                                this.preview_picture2.paintable = texture;
-                                this.preview_stack.set_visible_child (this.preview_picture2 as Gtk.Widget);
-                            } else {
-                                this.preview_picture1.paintable = texture;
-                                this.preview_stack.set_visible_child (this.preview_picture1 as Gtk.Widget);
-                            }
-                            this.settings.set_string ("picture-uri", file.get_uri());
-                        } catch (Error e) {
-                            this.source.toast (new Adw.Toast (_(@"Unable to set wallpaper: $(e.message)")));
-                            message (e.message);
-                        }
+                        File file = chooser.get_file ();
+                        this.settings.set_string ("picture-uri", file.get_uri ());
+                        this.row.subtitle = file.get_path ();
                     }
-                    this.spinner.spinning = false;
-                    this.spinner.visible = false;
                 });
                 chooser.show ();
             });
+
+            File file = File.new_for_uri (this.settings.get_string ("picture-uri"));
+            this.row.subtitle = file.get_path ();
+        }
+
+        ~PreferencesPage () {
+            debug (@"[%p] ~$(this.get_type().name())", this);
         }
     }
 }

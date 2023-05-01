@@ -1,38 +1,42 @@
 using Gtk 4.0;
 using Adw 1;
 
-template DamaskSourcesUnsplashPreferencesWindow : Adw.PreferencesWindow {
-  Adw.PreferencesPage prefs {
-    Adw.PreferencesGroup {
-      Adw.EntryRow api_key {
-        title: _("API Key");
-      }
+template DamaskSourcesUnsplashPreferencesPage : Adw.PreferencesPage {
+  Adw.PreferencesGroup {
+    $DamaskWallpaperPreview preview {
+      source: "unsplash";
+    }
+  }
 
-      Adw.EntryRow query {
-        title: _("Query");
-        tooltip-text: _("Limit selection to photos matching a search term");
-      }
+  Adw.PreferencesGroup {
+    Adw.EntryRow api_key {
+      title: _("API Key");
+    }
 
-      Adw.EntryRow collections {
-        title: _("Collections");
-        tooltip-text: _("Public collection IDs to filter selection (comma-separated)");
-      }
+    Adw.EntryRow query {
+      title: _("Query");
+      tooltip-text: _("Limit selection to photos matching a search term");
+    }
 
-      Adw.EntryRow topics {
-        title: _("Topics");
-        tooltip-text: _("Public topic IDs to filter selection (comma-separated)");
-      }
+    Adw.EntryRow collections {
+      title: _("Collections");
+      tooltip-text: _("Public collection IDs to filter selection (comma-separated)");
+    }
 
-      Adw.ComboRow content_filter {
-        title: _("Content Filter");
+    Adw.EntryRow topics {
+      title: _("Topics");
+      tooltip-text: _("Public topic IDs to filter selection (comma-separated)");
+    }
 
-        model: StringList {
-          strings [
-            _("Low"),
-            _("High"),
-          ]
-        };
-      }
+    Adw.ComboRow content_filter {
+      title: _("Content Filter");
+
+      model: StringList {
+        strings [
+          _("Low"),
+          _("High"),
+        ]
+      };
     }
   }
 }

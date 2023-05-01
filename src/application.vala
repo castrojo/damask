@@ -22,18 +22,11 @@ namespace Damask {
     public class Application : Adw.Application {
         public Settings settings = new Settings (Constants.APP_ID);
         public Wallpaper? current_wallpaper { get; private set; }
-        public Gee.ArrayList<WallpaperSource> source_list = new Gee.ArrayList<WallpaperSource> ();
+        public Gee.HashMap<string, WallpaperSource> sources = new Gee.HashMap<string, WallpaperSource> ();
 
-        private HashTable<string, WallpaperSource> sources = new HashTable<string, WallpaperSource> (str_hash, str_equal);
-        private unowned WallpaperSource? current_source = null;
+        private WallpaperSource? current_source = null;
         private uint source_id = 0;
         private bool skip_window = false;
-
-        private Window? window {
-            get {
-                return this.active_window as Window?;
-            }
-        }
 
         public Application () {
             Object (application_id: Constants.APP_ID, flags: ApplicationFlags.FLAGS_NONE);
@@ -65,33 +58,33 @@ namespace Damask {
 
             {
                 var s = new Sources.Manual.Manual ();
-                this.sources.insert (s.id, s);
-                this.source_list.add (s);
+                this.sources.set (s.id, s);
+                Type? type = typeof (Sources.Manual.PreferencesPage);
             }
             {
                 var s = new Sources.Slideshow.Slideshow ();
-                this.sources.insert (s.id, s);
-                this.source_list.add (s);
+                this.sources.set (s.id, s);
+                Type? type = typeof (Sources.Slideshow.PreferencesPage);
             }
             {
                 var s = new Sources.Bing.Bing ();
-                this.sources.insert (s.id, s);
-                this.source_list.add (s);
+                this.sources.set (s.id, s);
+                Type? type = typeof (Sources.Bing.PreferencesPage);
             }
             {
                 var s = new Sources.Wallhaven.Wallhaven ();
-                this.sources.insert (s.id, s);
-                this.source_list.add (s);
+                this.sources.set (s.id, s);
+                Type? type = typeof (Sources.Wallhaven.PreferencesPage);
             }
             {
                 var s = new Sources.Apod.Apod ();
-                this.sources.insert (s.id, s);
-                this.source_list.add (s);
+                this.sources.set (s.id, s);
+                Type? type = typeof (Sources.Apod.PreferencesPage);
             }
             {
                 var s = new Sources.Unsplash.Unsplash ();
-                this.sources.insert (s.id, s);
-                this.source_list.add (s);
+                this.sources.set (s.id, s);
+                Type? type = typeof (Sources.Unsplash.PreferencesPage);
             }
         }
 
@@ -128,19 +121,16 @@ namespace Damask {
             /* connect to the active-source settings key */
             this.settings.changed["active-source"].connect ((key) => {
                 debug (@"settings changed: $key");
-                if (this.current_source.id == this.settings.get_string ("active-source")) {
-                    debug (@"disabling $(this.current_source.id)");
-                    this.current_source.changed.disconnect (this.current_source_changed);
-                    this.current_source.toast.disconnect (this.current_source_toast);
-                    this.detach_timer ();
-                } else {
-                    this.current_source = this.sources.get (this.settings.get_string ("active-source"));
-                    debug (@"enabling $(this.current_source.id)");
-                    this.attach_timer ();
-                    this.current_source.changed.connect (this.current_source_changed);
-                    this.current_source.toast.connect (this.current_source_toast);
-                    this.current_source.refresh();
-                }
+                debug (@"disabling $(this.current_source.id)");
+                this.current_source.changed.disconnect (this.current_source_changed);
+                this.current_source.toast.disconnect (this.current_source_toast);
+                this.detach_timer ();
+                this.current_source = this.sources.get (this.settings.get_string ("active-source"));
+                debug (@"enabling $(this.current_source.id)");
+                this.attach_timer ();
+                this.current_source.changed.connect (this.current_source_changed);
+                this.current_source.toast.connect (this.current_source_toast);
+                this.current_source.refresh();
             });
 
             if (this.settings.get_boolean ("run-in-background")) {
@@ -151,7 +141,6 @@ namespace Damask {
             this.current_source = this.sources.get (this.settings.get_string ("active-source"));
             this.current_source.changed.connect (this.current_source_changed);
             this.current_source.toast.connect (this.current_source_toast);
-            this.current_source.refresh();
             this.attach_timer ();
         }
 
@@ -180,22 +169,28 @@ namespace Damask {
                     if (portal.set_wallpaper.end (res)) {
                         this.current_wallpaper = this.current_source.current_wallpaper;
                     } else {
-                        this.current_source_toast (new Adw.Toast(_("Unable to set wallpaper")));
+                        this.current_source_toast (_("Unable to set wallpaper"));
                     }
                 } catch (Error e) {
-                    this.current_source_toast (new Adw.Toast(_(@"Unable to set wallpaper: $(e.message)")));
+                    this.current_source_toast (_(@"Unable to set wallpaper: $(e.message)"));
                 }
             });
         }
 
-        private void current_source_toast (Adw.Toast toast) {
-            this.window.show_toast (toast);
+        private void current_source_toast (string message) {
+            var window = (this.active_window as Window);
+            if (window != null) {
+                var action = window.lookup_action ("show-toast");
+                action.activate (new Variant.string (message));
+            }
         }
 
         private void attach_timer () {
+            debug (@"[%p] $(this.get_type().name()).attach_timer", this);
             int seconds = this.settings.get_string("refresh-interval").to_int();
             TimeoutSource timer = new TimeoutSource.seconds (seconds);
             timer.set_callback (() => {
+                debug (@"[%p] $(this.get_type().name()) timer callback", this);
                 this.current_source.refresh ();
                 return true;
             });
@@ -204,6 +199,7 @@ namespace Damask {
         }
 
         private void detach_timer () {
+            debug (@"[%p] $(this.get_type().name()).detach_timer", this);
             Source.remove (this.source_id);
             this.source_id = 0;
         }
@@ -216,10 +212,10 @@ namespace Damask {
             portal.request_background.begin (null, null, cmd, Xdp.BackgroundFlags.AUTOSTART, null, (src, res) => {
                 try {
                     if (!portal.request_background.end (res)) {
-                        this.current_source_toast (new Adw.Toast (_("Unable to activate autostart")));
+                        this.current_source_toast (_("Unable to activate autostart"));
                     }
                 } catch (Error e) {
-                    this.current_source_toast (new Adw.Toast (_(@"Unable to activate autostart: $(e.message)")));
+                    this.current_source_toast (_(@"Unable to activate autostart: $(e.message)"));
                 }
             });
         }
@@ -232,10 +228,10 @@ namespace Damask {
             portal.request_background.begin (null, null, cmd, Xdp.BackgroundFlags.NONE, null, (src, res) => {
                 try {
                     if (!portal.request_background.end (res)) {
-                        this.current_source_toast (new Adw.Toast (_("Unable to deactivate autostart")));
+                        this.current_source_toast (_("Unable to deactivate autostart"));
                     }
                 } catch (Error e) {
-                    this.current_source_toast (new Adw.Toast (_(@"Unable to deactivate autostart: $(e.message)")));
+                    this.current_source_toast (_(@"Unable to deactivate autostart: $(e.message)"));
                 }
             });
         }

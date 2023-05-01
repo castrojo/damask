@@ -1,14 +1,18 @@
 using Gtk 4.0;
 using Adw 1;
 
-template DamaskSourcesApodPreferencesWindow : Adw.PreferencesWindow {
-  Adw.PreferencesPage prefs {
-    Adw.PreferencesGroup {
-      title: _("Search");
+template DamaskSourcesApodPreferencesPage : Adw.PreferencesPage {
+  Adw.PreferencesGroup {
+    $DamaskWallpaperPreview preview {
+      source: "apod";
+    }
+  }
 
-      Adw.EntryRow api_key {
-        title: _("API Key");
-      }
+  Adw.PreferencesGroup {
+    title: _("Search");
+
+    Adw.EntryRow api_key {
+      title: _("API Key");
     }
   }
 }

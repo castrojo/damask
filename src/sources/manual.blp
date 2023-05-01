@@ -1,55 +1,21 @@
 using Gtk 4.0;
 using Adw 1;
 
-template DamaskSourcesManualPreferencesWindow : Adw.PreferencesWindow {
-  default-width: 360;
-  default-height: 280;
-  Adw.PreferencesPage prefs {
-    Adw.PreferencesGroup {
-      Adw.Clamp {
-        maximum-size: 300;
-        child: Gtk.Overlay {
-          child: Gtk.Stack preview_stack {
-            transition-type: crossfade;
-            Gtk.StackPage stack_page1 {
-              name: "stack1";
-              child: Gtk.Picture preview_picture1 {
-                styles ["card"]
-                content-fit: contain;
-                can-shrink: true;
-                height-request: 180;
-              };
-            }
+template DamaskSourcesManualPreferencesPage : Adw.PreferencesPage {
+  Adw.PreferencesGroup {
+    $DamaskWallpaperPreview preview {
+      source: "manual";
+    }
+  }
 
-            Gtk.StackPage stack_page2 {
-              name: "stack2";
-              child: Gtk.Picture preview_picture2 {
-                styles ["card"]
-                content-fit: contain;
-                can-shrink: true;
-                height-request: 180;
-              };
-            }
-          };
+  Adw.PreferencesGroup {
+    Adw.ActionRow row {
+      title: _("Choose Picture");
 
-          [overlay]
-          Adw.Clamp {
-            maximum-size: 24;
-            child: Gtk.Spinner spinner {
-              spinning: true;
-            };
-          }
-
-          [overlay]
-          Gtk.Button choose_button {
-            styles ["opaque", "circular"]
-            halign: end;
-            valign: end;
-            margin-bottom: 12;
-            margin-end: 12;
-            icon-name: "document-edit-symbolic";
-          }
-        };
+      Gtk.Button choose_button {
+        valign: center;
+        styles ["flat"]
+        icon-name: "document-edit-symbolic";
       }
     }
   }

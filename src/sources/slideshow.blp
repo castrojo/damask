@@ -1,32 +1,33 @@
 using Gtk 4.0;
 using Adw 1;
 
-template DamaskSourcesSlideshowPreferencesWindow : Adw.PreferencesWindow {
-  default-width: 360;
-  default-height: 400;
+template DamaskSourcesSlideshowPreferencesPage : Adw.PreferencesPage {
+  Adw.PreferencesGroup {
+    $DamaskWallpaperPreview preview {
+      source: "slideshow";
+    }
+  }
 
-  Adw.PreferencesPage prefs {
-    Adw.PreferencesGroup {
-      Adw.ActionRow choose_folder_row {
-        title: _("Choose Folder");
+  Adw.PreferencesGroup {
+    Adw.ActionRow choose_folder_row {
+      title: _("Choose Folder");
 
-        Gtk.Button choose_button {
-          valign: center;
-          styles ["flat"]
-          icon-name: "document-edit-symbolic";
-        }
+      Gtk.Button choose_button {
+        valign: center;
+        styles ["flat"]
+        icon-name: "document-edit-symbolic";
       }
+    }
 
-      Adw.ComboRow sort_by {
-        title: _("Sort By");
-        model: StringList {
-          strings [
-            _("Random"),
-            _("Name"),
-            _("Creation Date")
-          ]
-        };
-      }
+    Adw.ComboRow sort_by {
+      title: _("Sort By");
+      model: StringList {
+        strings [
+          _("Random"),
+          _("Name"),
+          _("Creation Date")
+        ]
+      };
     }
   }
 }

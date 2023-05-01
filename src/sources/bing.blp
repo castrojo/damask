@@ -1,40 +1,44 @@
 using Gtk 4.0;
 using Adw 1;
 
-template DamaskSourcesBingPreferencesWindow : Adw.PreferencesWindow {
-  Adw.PreferencesPage prefs {
-    Adw.PreferencesGroup {
-      Adw.ComboRow market {
-        title: _("Market");
+template DamaskSourcesBingPreferencesPage : Adw.PreferencesPage {
+  Adw.PreferencesGroup {
+    $DamaskWallpaperPreview preview {
+      source: "bing";
+    }
+  }
 
-        model: StringList {
-          strings [
-            _("English (United States)"),
-            _("Chinese (Simplified)"),
-            _("Japanese (Japan)"),
-            _("English (Australia)"),
-            _("English (United Kingdom)"),
-            _("German (Germany)"),
-            _("English (New Zealand)"),
-            _("English (Canada)"),
-            _("English (India)"),
-            _("French (France)"),
-            _("French (Canada)"),
-          ]
-        };
-      }
+  Adw.PreferencesGroup {
+    Adw.ComboRow market {
+      title: _("Market");
 
-      Adw.ComboRow resolution {
-        title: _("Resolution");
+      model: StringList {
+        strings [
+          _("English (United States)"),
+          _("Chinese (Simplified)"),
+          _("Japanese (Japan)"),
+          _("English (Australia)"),
+          _("English (United Kingdom)"),
+          _("German (Germany)"),
+          _("English (New Zealand)"),
+          _("English (Canada)"),
+          _("English (India)"),
+          _("French (France)"),
+          _("French (Canada)"),
+        ]
+      };
+    }
 
-        model: StringList {
-          strings [
-            "1920x1080",
-            "1366x768",
-            "UHD (3840x2160)"
-          ]
-        };
-      }
+    Adw.ComboRow resolution {
+      title: _("Resolution");
+
+      model: StringList {
+        strings [
+          "1920x1080",
+          "1366x768",
+          "UHD (3840x2160)"
+        ]
+      };
     }
   }
 }

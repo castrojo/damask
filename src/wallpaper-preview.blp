@@ -1,0 +1,63 @@
+using Gtk 4.0;
+using Adw 1;
+
+template DamaskWallpaperPreview : Gtk.Box {
+  orientation: vertical;
+
+  Adw.Clamp {
+    maximum-size: 300;
+    child: Gtk.Overlay {
+      child: Gtk.Stack stack {
+        transition-type: crossfade;
+        Gtk.StackPage page1 {
+          name: "page1";
+          child: Gtk.Picture picture1 {
+            styles ["card"]
+            content-fit: cover;
+            can-shrink: true;
+            height-request: 200;
+            width-request: 300;
+          };
+        }
+        Gtk.StackPage page2 {
+          name: "page2";
+          child: Gtk.Picture picture2 {
+            styles ["card"]
+            content-fit: cover;
+            can-shrink: true;
+            height-request: 200;
+            width-request: 300;
+          };
+        }
+      };
+
+      [overlay]
+      Gtk.Button {
+        styles ["opaque", "circular"]
+        halign: end;
+        valign: end;
+        margin-bottom: 12;
+        margin-end: 12;
+        icon-name: "adw-external-link-symbolic";
+        action-name: "win.open-url";
+      }
+    };
+  }
+
+  Gtk.Label title {
+    styles ["heading"]
+    margin-top: 12;
+    visible: false;
+  }
+
+  Gtk.Label description {
+    styles ["caption"]
+    wrap: true;
+    ellipsize: end;
+    lines: 3;
+    margin-top: 12;
+    margin-bottom: 12;
+    visible: false;
+  }
+
+}

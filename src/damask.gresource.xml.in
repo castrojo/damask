@@ -2,6 +2,7 @@
 <gresources>
   <gresource prefix="@RESOURCE_PATH_PREFIX@">
     <file preprocess="xml-stripblanks">preferences.ui</file>
+    <file preprocess="xml-stripblanks">wallpaper-preview.ui</file>
     <file preprocess="xml-stripblanks">window.ui</file>
     <file preprocess="xml-stripblanks">shortcuts.ui</file>
     <file preprocess="xml-stripblanks">sources/apod.ui</file>

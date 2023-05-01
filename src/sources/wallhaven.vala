@@ -113,18 +113,6 @@ namespace Damask.Sources.Wallhaven {
             get { return "wallhaven"; }
         }
 
-        public string title {
-            get { return "Wallhaven"; }
-        }
-
-        public string subtitle {
-            get { return _("Get wallpapers from wallhaven.cc"); }
-        }
-
-        public bool can_activate {
-            get { return true; }
-        }
-
         private Damask.Wallpaper? _current_wallpaper;
         public unowned Damask.Wallpaper? current_wallpaper {
             get { return _current_wallpaper; }
@@ -300,19 +288,15 @@ namespace Damask.Sources.Wallhaven {
                         this.changed(wp.path);
                     }
                 } catch (Error e) {
-                    this.toast (new Adw.Toast (_(@"Failed to get wallpaper: $(e.message)")));
+                    this.toast (_(@"Failed to get wallpaper: $(e.message)"));
                     message (e.message);
                 }
             });
         }
-
-        public Adw.PreferencesWindow? preferences () {
-            return new PreferencesWindow (this) as Adw.PreferencesWindow;
-        }
     }
 
     [GtkTemplate (ui = "/app/drey/Damask/sources/wallhaven.ui")]
-    public class PreferencesWindow : Adw.PreferencesWindow {
+    public class PreferencesPage : Adw.PreferencesPage {
         private Settings settings = new Settings(@"$(Constants.APP_ID).sources.wallhaven");
         [GtkChild] private unowned Gtk.Entry username;
         [GtkChild] private unowned Gtk.Entry api_key;
@@ -333,15 +317,8 @@ namespace Damask.Sources.Wallhaven {
         [GtkChild] private unowned Gtk.ColorButton color;
         [GtkChild] private unowned Gtk.Button syntax_help;
 
-        public WallpaperSource source {
-            get; construct;
-        }
-
-        public PreferencesWindow (WallpaperSource source) {
-            Object (source: source);
-        }
-
         construct {
+            debug (@"[%p] $(this.get_type().name()).construct", this);
             this.settings.bind ("username", username, "text", SettingsBindFlags.DEFAULT);
             this.settings.bind("api-key", api_key, "text", SettingsBindFlags.DEFAULT);
             this.settings.bind("query", query, "text", SettingsBindFlags.DEFAULT);
@@ -388,7 +365,6 @@ namespace Damask.Sources.Wallhaven {
                         }
                     });
                 } catch (Error e) {
-                    this.source.toast (new Adw.Toast (_(@"Failed to get collections: $(e.message)")));
                     message (e.message);
                 }
             });
@@ -506,6 +482,10 @@ namespace Damask.Sources.Wallhaven {
                 popover.set_parent (syntax_help);
                 popover.popup ();
             });
+        }
+
+        ~PreferencesPage () {
+            debug (@"[%p] ~$(this.get_type().name())", this);
         }
     }
 }

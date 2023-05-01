@@ -51,18 +51,6 @@ namespace Damask.Sources.Unsplash {
             get { return "unsplash"; }
         }
 
-        public string title {
-            get { return "Unsplash"; }
-        }
-
-        public string subtitle {
-            get { return _("Get wallpapers from unsplash.com"); }
-        }
-
-        public bool can_activate {
-            get { return this.settings.get_string ("api-key") != ""; }
-        }
-
         private Damask.Wallpaper? _current_wallpaper;
         public unowned Damask.Wallpaper? current_wallpaper {
             get { return _current_wallpaper; }
@@ -114,19 +102,15 @@ namespace Damask.Sources.Unsplash {
 
                     this.changed (img.urls.full);
                 } catch (Error e) {
-                    this.toast (new Adw.Toast (_(@"Failed to get wallpaper: $(e.message)")));
+                    this.toast (_(@"Failed to get wallpaper: $(e.message)"));
                     message (e.message);
                 }
             });
         }
-
-        public Adw.PreferencesWindow? preferences () {
-            return new PreferencesWindow () as Adw.PreferencesWindow;
-        }
     }
 
     [GtkTemplate (ui = "/app/drey/Damask/sources/unsplash.ui")]
-    public class PreferencesWindow : Adw.PreferencesWindow {
+    public class PreferencesPage : Adw.PreferencesPage {
         private Settings settings = new Settings (@"$(Constants.APP_ID).sources.unsplash");
 
         [GtkChild] private unowned Adw.EntryRow api_key;
@@ -136,6 +120,7 @@ namespace Damask.Sources.Unsplash {
         [GtkChild] private unowned Adw.ComboRow content_filter;
 
         construct {
+            debug (@"[%p] $(this.get_type().name()).construct", this);
             this.settings.bind ("api-key", api_key, "text", SettingsBindFlags.DEFAULT);
             this.settings.bind ("query", query, "text", SettingsBindFlags.DEFAULT);
             this.settings.bind ("collections", collections, "text", SettingsBindFlags.DEFAULT);
@@ -145,6 +130,10 @@ namespace Damask.Sources.Unsplash {
             this.content_filter.notify["selected"].connect ((pspec) => {
                 this.settings.set_enum ("content-filter", (int) this.content_filter.selected);
             });
+        }
+
+        ~PreferencesPage () {
+            debug (@"[%p] ~$(this.get_type().name())", this);
         }
     }
 }

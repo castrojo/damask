@@ -22,137 +22,100 @@ namespace Damask {
     [GtkTemplate (ui = "/app/drey/Damask/window.ui")]
     public class Window : Adw.ApplicationWindow {
         [GtkChild] private unowned Gtk.ListBox sources;
-        [GtkChild] private unowned Gtk.CheckButton active_source;
-
-        [GtkChild] private unowned Gtk.Picture preview_picture1;
-        [GtkChild] private unowned Gtk.Picture preview_picture2;
-        [GtkChild] private unowned Gtk.Stack preview_stack;
-        [GtkChild] private unowned Gtk.Label description_label;
-        [GtkChild] private unowned Gtk.Label title_label;
-        [GtkChild] private unowned Gtk.Spinner spinner;
         [GtkChild] private unowned Adw.ToastOverlay toast_overlay;
+        [GtkChild] private unowned Gtk.Stack source_content_stack;
+        [GtkChild] private unowned Adw.Leaflet leaflet;
+        [GtkChild] private unowned Gtk.Button source_content_back_button;
+        [GtkChild] private unowned Adw.ActionRow manual_row;
+        [GtkChild] private unowned Adw.ActionRow slideshow_row;
+        [GtkChild] private unowned Adw.ActionRow bing_row;
+        [GtkChild] private unowned Adw.ActionRow wallhaven_row;
+        [GtkChild] private unowned Adw.ActionRow apod_row;
+        [GtkChild] private unowned Adw.ActionRow unsplash_row;
 
         public Window (Gtk.Application app) {
+            Type? type = typeof (WallpaperPreview);
+            type.ensure ();
             Object (application: app);
         }
 
         construct {
+            debug (@"[%p] $(this.get_type().name()).construct", this);
             Application application = GLib.Application.get_default () as Application;
             ActionEntry[] action_entries = {
                 { "open-url", this.on_open_url_action },
+                { "show-toast", this.on_show_toast_action },
             };
             this.add_action_entries (action_entries, this);
             application.set_accels_for_action ("win.show-help-overlay", {"<primary>question"});
+            Action active_source_action = application.settings.create_action ("active-source");
+            this.add_action (active_source_action);
 
             if (Constants.APP_ID.contains (".Devel")) {
                 this.add_css_class ("devel");
             }
 
-            foreach (WallpaperSource src in application.source_list) {
-                Adw.ActionRow row = new Adw.ActionRow ();
-                row.title = src.title;
-                row.subtitle = src.subtitle;
-
-                Gtk.Button prefs_button = new Gtk.Button.from_icon_name ("applications-system-symbolic");
-                prefs_button.valign = Gtk.Align.CENTER;
-                prefs_button.clicked.connect ((button) => {
-                    var prefs_window = src.preferences ();
-                    prefs_window.set_transient_for (this);
-                    prefs_window.present ();
-                });
-                prefs_button.sensitive = src.preferences () != null;
-                row.add_suffix (prefs_button);
-
-                Gtk.CheckButton button = new Gtk.CheckButton ();
-                button.group = this.active_source;
-                button.sensitive = src.can_activate;
-                src.notify["can-activate"].connect ((pspec) => {
-                    button.sensitive = src.can_activate;
-                });
-
-                if (application.settings.get_string("active-source") == src.id) {
-                    button.set_active (true);
-                }
-
-                button.toggled.connect ((button) => {
-                    application.settings.set_string ("active-source", src.id);
-                });
-                row.add_prefix (button);
-                row.set_activatable_widget (button);
-
-                this.sources.append (row);
+            this.sources.row_activated.connect (this.on_source_list_activated);
+            Adw.ActionRow? row = null;
+            switch (application.settings.get_string ("active-source")) {
+                case "manual":
+                    row = this.manual_row;
+                    break;
+                case "slideshow":
+                    row = this.slideshow_row;
+                    break;
+                case "bing":
+                    row = this.bing_row;
+                    break;
+                case "wallhaven":
+                    row = this.wallhaven_row;
+                case "apod":
+                    row = this.apod_row;
+                    break;
+                case "unsplash":
+                    row = this.unsplash_row;
+                    break;
+                default:
+                    row = this.manual_row;
+                    break;
             }
+            this.sources.select_row (row);
+            this.on_source_list_activated (this.sources, row);
 
             Gtk.Builder builder = new Gtk.Builder.from_resource (@"$(Constants.RESOURCE_PATH_PREFIX)/shortcuts.ui");
             Gtk.ShortcutsWindow help_overlay = builder.get_object ("help_overlay") as Gtk.ShortcutsWindow;
             this.set_help_overlay (help_overlay);
 
-            application.notify["current-wallpaper"].connect ((src, pspec) => {
-                debug(@"application notify current-wallpaper");
-                this.spinner.spinning = true;
-                this.spinner.visible = true;
-                try {
-                    Uri uri = Uri.parse (application.current_wallpaper.thumbnail_url, UriFlags.NONE);
-                    switch (uri.get_scheme()) {
-                        case "file":
-                            string uri_string = uri.to_string ();
-                            File file = File.new_for_uri (uri_string);
-                            Gdk.Texture texture = Gdk.Texture.from_file (file);
-                            if (this.preview_stack.get_visible_child () == this.preview_picture1) {
-                                this.preview_picture2.paintable = texture;
-                                this.preview_stack.set_visible_child (this.preview_picture2 as Gtk.Widget);
-                            } else {
-                                this.preview_picture1.paintable = texture;
-                                this.preview_stack.set_visible_child (this.preview_picture1 as Gtk.Widget);
-                            }
-                            break;
-                        default:
-                            Soup.Session session = new Soup.Session ();
-                            Soup.Message msg = new Soup.Message ("GET", application.current_wallpaper.thumbnail_url);
-                            session.send_and_read_async.begin (msg, 0, null, (src, res) => {
-                                try {
-                                    Bytes body = session.send_and_read_async.end (res);
-                                    Gdk.Texture texture = Gdk.Texture.from_bytes (body);
-                                    if (this.preview_stack.get_visible_child () == this.preview_picture1) {
-                                        this.preview_picture2.paintable = texture;
-                                        this.preview_stack.set_visible_child (this.preview_picture2 as Gtk.Widget);
-                                    } else {
-                                        this.preview_picture1.paintable = texture;
-                                        this.preview_stack.set_visible_child (this.preview_picture1 as Gtk.Widget);
-                                    }
-                                } catch (Error e) {
-                                    this.show_toast (new Adw.Toast(_(@"Unable to set wallpaper from URL: $(e.message)")));
-                                }
-                            });
-                            break;
-                    }
-                } catch (Error e) {
-                    this.show_toast (new Adw.Toast(_(@"Unable to set wallpaper: $(e.message)")));
-                } finally {
-                    this.spinner.spinning = false;
-                    this.spinner.visible = false;
-                }
-
-                this.title_label.visible = application.current_wallpaper.title != null;
-                if (application.current_wallpaper.title != null) {
-                    this.title_label.set_text (application.current_wallpaper.title);
-                }
-
-                this.description_label.visible = application.current_wallpaper.description != null;
-                if (application.current_wallpaper.description != null) {
-                    this.description_label.set_text (application.current_wallpaper.description);
-                    this.description_label.set_tooltip_text (application.current_wallpaper.description);
-                }
+            this.source_content_back_button.clicked.connect ((button) => {
+                this.leaflet.navigate (Adw.NavigationDirection.BACK);
             });
+        }
+
+        private void on_source_list_activated (Gtk.ListBox box, Gtk.ListBoxRow row) {
+            debug (@"[%p] $(this.get_type().name()).on_source_list_activated", this);
+            if (row != null) {
+                var action_row = row as Adw.ActionRow;
+                this.source_content_stack.set_visible_child_name (action_row.name);
+                if (this.leaflet.folded) {
+                    this.leaflet.navigate (Adw.NavigationDirection.FORWARD);
+                }
+            }
         }
 
         private void on_open_url_action () {
             Application app = this.application as Application;
-            Gtk.show_uri (null, app.current_wallpaper.web_url, Gdk.CURRENT_TIME);
+            WallpaperSource? source = app.sources.get (this.source_content_stack.visible_child_name);
+            Gtk.show_uri (null, source.current_wallpaper.web_url, Gdk.CURRENT_TIME);
         }
 
-        internal void show_toast (Adw.Toast toast) {
+        private void on_show_toast_action (SimpleAction action, Variant? parameter) {
+            var message = parameter.get_string ();
+            var toast = new Adw.Toast (message);
             this.toast_overlay.add_toast (toast);
+        }
+
+        ~Window () {
+            debug (@"[%p] ~$(this.get_type().name())", this);
         }
     }
 }

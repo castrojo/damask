@@ -52,18 +52,6 @@ namespace Damask.Sources.Bing {
             get { return "bing"; }
         }
 
-        public string title {
-            get { return "Bing Wallpaper"; }
-        }
-
-        public string subtitle {
-            get { return _("Use Microsoft Bing's wallpaper of the day"); }
-        }
-
-        public bool can_activate {
-            get { return true; }
-        }
-
         private Damask.Wallpaper? _current_wallpaper;
         public unowned Damask.Wallpaper? current_wallpaper {
             get { return _current_wallpaper; }
@@ -101,25 +89,22 @@ namespace Damask.Sources.Bing {
 
                     this.changed(path);
                 } catch (Error e) {
-                    this.toast (new Adw.Toast (_(@"Failed to get wallpaper: $(e.message)")));
+                    this.toast (_(@"Failed to get wallpaper: $(e.message)"));
                     message (e.message);
                 }
             });
         }
-
-        public Adw.PreferencesWindow? preferences () {
-            return new PreferencesWindow () as Adw.PreferencesWindow;
-        }
     }
 
     [GtkTemplate (ui = "/app/drey/Damask/sources/bing.ui")]
-    public class PreferencesWindow : Adw.PreferencesWindow {
+    public class PreferencesPage : Adw.PreferencesPage {
         private Settings settings = new Settings(@"$(Constants.APP_ID).sources.bing");
 
         [GtkChild] private unowned Adw.ComboRow market;
         [GtkChild] private unowned Adw.ComboRow resolution;
 
         construct {
+            debug (@"[%p] $(this.get_type().name()).construct", this);
             this.market.selected = this.settings.get_enum ("market");
             this.market.notify["selected"].connect ((pspec) => {
                 this.settings.set_enum ("market", (int) market.selected);
@@ -129,6 +114,10 @@ namespace Damask.Sources.Bing {
             this.resolution.notify["selected"].connect ((pspec) => {
                 this.settings.set_enum ("resolution", (int) resolution.selected);
             });
+        }
+
+        ~PreferencesPage () {
+            debug (@"[%p] ~$(this.get_type().name())", this);
         }
     }
 }

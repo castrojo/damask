@@ -43,18 +43,6 @@ namespace Damask.Sources.Apod {
             get { return "apod"; }
         }
 
-        public string title {
-            get { return "NASA Astronomy Picture of the Day"; }
-        }
-
-        public string subtitle {
-            get { return _("Each day a different image or photograph of our fascinating universe."); }
-        }
-
-        public bool can_activate {
-            get { return this.settings.get_string ("api-key") != ""; }
-        }
-
         private Damask.Wallpaper? _current_wallpaper;
         public unowned Damask.Wallpaper? current_wallpaper {
             get { return _current_wallpaper; }
@@ -102,24 +90,25 @@ namespace Damask.Sources.Apod {
                     };
                     this.changed (image_url);
                 } catch (Error e) {
-                    this.toast (new Adw.Toast (_(@"Failed to get image: $(e.message)")));
+                    this.toast (_(@"Failed to get image: $(e.message)"));
                     message (e.message);
                 }
             });
         }
-
-        public Adw.PreferencesWindow? preferences () {
-            return new PreferencesWindow () as Adw.PreferencesWindow;
-        }
     }
 
     [GtkTemplate (ui = "/app/drey/Damask/sources/apod.ui")]
-    public class PreferencesWindow : Adw.PreferencesWindow {
+    public class PreferencesPage : Adw.PreferencesPage {
         private Settings settings = new Settings (@"$(Constants.APP_ID).sources.apod");
         [GtkChild] private unowned Adw.EntryRow api_key;
 
         construct {
+            debug (@"[%p] $(this.get_type().name()).construct", this);
             this.settings.bind ("api-key", api_key, "text", SettingsBindFlags.DEFAULT);
+        }
+
+        ~PreferencesPage () {
+            debug (@"[%p] ~$(this.get_type().name())", this);
         }
     }
 }
