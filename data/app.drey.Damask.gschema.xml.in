@@ -202,4 +202,15 @@
       <default>"low"</default>
     </key>
   </schema>
+
+  <enum id="@APP_ID@.sources.earthview.sort_by">
+    <value nick="random" value="0"/>
+    <value nick="sequential" value="1"/>
+  </enum>
+
+  <schema id="@APP_ID@.sources.earthview" path="@RESOURCE_PATH@/sources/earthview/">
+    <key name="sort-by" enum="@APP_ID@.sources.earthview.sort_by">
+      <default>"random"</default>
+    </key>
+  </schema>
 </schemalist>

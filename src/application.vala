@@ -87,6 +87,11 @@ namespace Damask {
                 this.sources.set (s.id, s);
                 Type? type = typeof (Sources.Unsplash.PreferencesPage);
             }
+            {
+                var s = new Sources.EarthView.EarthView ();
+                this.sources.set (s.id, s);
+                Type? type = typeof (Sources.EarthView.PreferencesPage);
+            }
         }
 
         public override void startup () {

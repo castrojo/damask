@@ -124,6 +124,20 @@ template DamaskWindow : Adw.ApplicationWindow {
                 action-target: "'unsplash'";
               }
             }
+
+            Adw.ActionRow earthview_row {
+              name: "earthview";
+              title: _("Google Earth View");
+              subtitle: _("Use images from Google Earth View");
+              activatable: true;
+
+              [prefix]
+              Gtk.CheckButton {
+                group: active_source;
+                action-name: "win.active-source";
+                action-target: "'earthview'";
+              }
+            }
           }
         }
       }
@@ -197,6 +211,10 @@ template DamaskWindow : Adw.ApplicationWindow {
           Gtk.StackPage {
             name: "unsplash";
             child: $DamaskSourcesUnsplashPreferencesPage {};
+          }
+          Gtk.StackPage {
+            name: "earthview";
+            child: $DamaskSourcesEarthViewPreferencesPage {};
           }
         }
       }

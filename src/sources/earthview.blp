@@ -1,0 +1,22 @@
+using Gtk 4.0;
+using Adw 1;
+
+template DamaskSourcesEarthViewPreferencesPage : Adw.PreferencesPage {
+  Adw.PreferencesGroup {
+    $DamaskWallpaperPreview preview {
+      source: "earthview";
+    }
+  }
+
+  Adw.PreferencesGroup {
+    Adw.ComboRow sort_by {
+      title: _("Sort By");
+      model: StringList {
+        strings [
+          _("Random"),
+          _("Sequential"),
+        ]
+      };
+    }
+  }
+}
