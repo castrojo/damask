@@ -39,17 +39,14 @@ namespace Damask.Sources.Slideshow {
             get { return "slideshow"; }
         }
 
-        private Damask.Wallpaper? _current_wallpaper;
-        public unowned Damask.Wallpaper? current_wallpaper {
-            get { return _current_wallpaper; }
-        }
+        public Wallpaper? current_wallpaper { get; internal set; }
 
-        public void refresh () {
+        public async Wallpaper? refresh () {
             string folder_uri = this.settings.get_string ("folder-uri");
             string? path = null;
 
             if (this.files.size == 0) {
-                return;
+                return null;
             }
 
             if (this.settings.get_enum ("sort-by") == 0) {
@@ -69,15 +66,17 @@ namespace Damask.Sources.Slideshow {
                 this.current_index++;
             }
 
-            if (path != "") {
-                debug (path);
-                this._current_wallpaper = new Damask.Wallpaper () {
-                    url = path,
-                    thumbnail_url = path,
-                    web_url = path
-                };
-                this.changed (path);
+            if (path == "") {
+                return null;
             }
+
+            debug (path);
+            this.current_wallpaper = new Damask.Wallpaper () {
+                url = path,
+                thumbnail_url = path,
+                web_url = path,
+            };
+            return this.current_wallpaper;
         }
 
         private void rebuild_file_list () {
@@ -88,7 +87,11 @@ namespace Damask.Sources.Slideshow {
             this.current_index = 0;
             this.files.clear ();
 
-            File folder = File.new_for_uri (this.settings.get_string("folder-uri"));
+            var folder_uri = this.settings.get_string ("folder-uri");
+            if (folder_uri == "") {
+                return;
+            }
+            File folder = File.new_for_uri (folder_uri);
 
             try {
                 FileEnumerator enumerator = folder.enumerate_children ("standard::*,time::*", FileQueryInfoFlags.NONE, null);

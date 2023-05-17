@@ -21,6 +21,8 @@
 namespace Damask {
     [GtkTemplate (ui = "/app/drey/Damask/window.ui")]
     public class Window : Adw.ApplicationWindow {
+        [GtkChild] private unowned Gtk.Button refresh_button;
+        [GtkChild] private unowned Gtk.Stack refresh_button_stack;
         [GtkChild] private unowned Gtk.ListBox sources;
         [GtkChild] private unowned Adw.ToastOverlay toast_overlay;
         [GtkChild] private unowned Gtk.Stack source_content_stack;
@@ -86,6 +88,9 @@ namespace Damask {
             Gtk.ShortcutsWindow help_overlay = builder.get_object ("help_overlay") as Gtk.ShortcutsWindow;
             this.set_help_overlay (help_overlay);
 
+            application.notify["is-refreshing"].connect (this.update_refresh_button);
+            this.update_refresh_button ();
+
             this.source_content_back_button.clicked.connect ((button) => {
                 this.leaflet.navigate (Adw.NavigationDirection.BACK);
             });
@@ -102,9 +107,15 @@ namespace Damask {
             }
         }
 
+        private void update_refresh_button () {
+            Application application = GLib.Application.get_default () as Application;
+            this.refresh_button_stack.visible_child_name = application.is_refreshing ? "spinner" : "sensitive";
+            this.refresh_button.sensitive = !application.is_refreshing;
+        }
+
         private void on_open_url_action () {
-            Application app = this.application as Application;
-            WallpaperSource? source = app.sources.get (this.source_content_stack.visible_child_name);
+            Application application = GLib.Application.get_default () as Application;
+            WallpaperSource? source = application.sources.get (this.source_content_stack.visible_child_name);
             Gtk.show_uri (null, source.current_wallpaper.web_url, Gdk.CURRENT_TIME);
         }
 

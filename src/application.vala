@@ -22,6 +22,7 @@ namespace Damask {
     public class Application : Adw.Application {
         public Settings settings = new Settings (Constants.APP_ID);
         public Wallpaper? current_wallpaper { get; private set; }
+        public bool is_refreshing { get; private set; default = false; }
         public Gee.HashMap<string, WallpaperSource> sources = new Gee.HashMap<string, WallpaperSource> ();
 
         private WallpaperSource? current_source = null;
@@ -34,7 +35,7 @@ namespace Damask {
 
         construct {
             ActionEntry[] action_entries = {
-                { "refresh", this.on_action_refresh },
+                { "refresh", this.refresh_current_source },
                 { "about", this.on_action_about },
                 { "preferences", this.on_action_preferences },
                 { "quit", this.quit }
@@ -119,29 +120,14 @@ namespace Damask {
             });
 
             /* connect to the active-source settings key */
-            this.settings.changed["active-source"].connect ((key) => {
-                debug (@"settings changed: $key");
-                debug (@"disabling $(this.current_source.id)");
-                this.current_source.changed.disconnect (this.current_source_changed);
-                this.current_source.toast.disconnect (this.current_source_toast);
-                this.detach_timer ();
-                this.current_source = this.sources.get (this.settings.get_string ("active-source"));
-                debug (@"enabling $(this.current_source.id)");
-                this.attach_timer ();
-                this.current_source.changed.connect (this.current_source_changed);
-                this.current_source.toast.connect (this.current_source_toast);
-                this.current_source.refresh();
-            });
+            this.settings.changed["active-source"].connect (this.active_source_changed);
 
             if (this.settings.get_boolean ("run-in-background")) {
                 this.hold ();
             }
 
             /* get the active source and set it up */
-            this.current_source = this.sources.get (this.settings.get_string ("active-source"));
-            this.current_source.changed.connect (this.current_source_changed);
-            this.current_source.toast.connect (this.current_source_toast);
-            this.attach_timer ();
+            this.active_source_changed ();
         }
 
         public override void activate () {
@@ -162,19 +148,58 @@ namespace Damask {
             return -1;
         }
 
-        private void current_source_changed (string uri) {
+        private void active_source_changed () {
+            debug ("active_source_changed");
+            if (this.current_source != null) {
+                debug (@"disabling $(this.current_source.id)");
+                this.current_source.request_refresh.disconnect (this.refresh_current_source);
+                this.current_source.toast.disconnect (this.current_source_toast);
+                this.detach_timer ();
+            }
+            this.current_source = this.sources.get (this.settings.get_string ("active-source"));
+            this.is_refreshing = false;
+            debug (@"enabling $(this.current_source.id)");
+            this.attach_timer ();
+            this.current_source.request_refresh.connect (this.refresh_current_source);
+            this.current_source.toast.connect (this.current_source_toast);
+            this.refresh_current_source ();
+        }
+
+        private void refresh_current_source () {
+            this.refresh_current_source_async.begin ();
+        }
+
+        private async void refresh_current_source_async () {
+            if (this.current_source == null || this.is_refreshing) return;
+            var source = this.current_source;
+            this.is_refreshing = true;
+            debug (@"refreshing $(source.id)");
+
+            var wallpaper = yield source.refresh ();
+            if (this.current_source != source) {
+                return; // the user changed the source
+            }
+            if (wallpaper == null) {
+                debug (@"finished refreshing $(source.id); no wallpaper retrieved");
+                this.current_wallpaper = null;
+                this.is_refreshing = false;
+                return;
+            }
+
             Xdp.Portal portal = new Xdp.Portal ();
-            portal.set_wallpaper.begin (null, uri, Xdp.WallpaperFlags.BACKGROUND, null, (src, res) => {
-                try {
-                    if (portal.set_wallpaper.end (res)) {
-                        this.current_wallpaper = this.current_source.current_wallpaper;
-                    } else {
-                        this.current_source_toast (_("Unable to set wallpaper"));
-                    }
-                } catch (Error e) {
-                    this.current_source_toast (_(@"Unable to set wallpaper: $(e.message)"));
+            try {
+                var success = yield portal.set_wallpaper (null, wallpaper.url, Xdp.WallpaperFlags.BACKGROUND, null);
+                debug (@"finished setting wallpaper");
+                if (success) {
+                    this.current_wallpaper = wallpaper;
+                } else {
+                    this.current_source_toast (_("Unable to set wallpaper"));
                 }
-            });
+            } catch (Error e) {
+                this.current_source_toast (_(@"Unable to set wallpaper: $(e.message)"));
+            } finally {
+                this.is_refreshing = false;
+            }
         }
 
         private void current_source_toast (string message) {
@@ -191,7 +216,7 @@ namespace Damask {
             TimeoutSource timer = new TimeoutSource.seconds (seconds);
             timer.set_callback (() => {
                 debug (@"[%p] $(this.get_type().name()) timer callback", this);
-                this.current_source.refresh ();
+                this.refresh_current_source ();
                 return true;
             });
             timer.attach ();
@@ -255,10 +280,6 @@ namespace Damask {
             var prefs = new Damask.PreferencesWindow ();
             prefs.set_transient_for (this.active_window);
             prefs.present ();
-        }
-
-        private void on_action_refresh () {
-            this.current_source.refresh();
         }
     }
 }

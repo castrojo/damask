@@ -113,12 +113,9 @@ namespace Damask.Sources.Wallhaven {
             get { return "wallhaven"; }
         }
 
-        private Damask.Wallpaper? _current_wallpaper;
-        public unowned Damask.Wallpaper? current_wallpaper {
-            get { return _current_wallpaper; }
-        }
+        public Damask.Wallpaper? current_wallpaper { get; internal set; }
 
-        public void refresh () {
+        public async Damask.Wallpaper? refresh () {
             string url = "";
 
             switch (this.settings.get_string ("search-mode")) {
@@ -246,52 +243,53 @@ namespace Damask.Sources.Wallhaven {
             msg.get_request_headers().append("X-API-Key", this.settings.get_string("api-key"));
             debug (msg.uri.to_string());
 
-            session.send_and_read_async.begin (msg, 0, null, (source, result) => {
-                try {
-                    Bytes response_body = session.send_and_read_async.end(result);
-                    debug ((string) response_body.get_data());
-                    Response resp = Json.gobject_from_data (typeof(Response), (string)response_body.get_data()) as Response;
-                    assert (resp != null);
+            try {
+                Bytes response_body = yield session.send_and_read_async (msg, 0, null);
+                debug ((string) response_body.get_data());
+                Response resp = Json.gobject_from_data (typeof(Response), (string)response_body.get_data()) as Response;
+                assert (resp != null);
 
-                    debug(@"$(resp.meta.total) results matched");
+                debug(@"$(resp.meta.total) results matched");
 
-                    if (resp.meta.seed != null) {
-                        this.seed = resp.meta.seed;
-                    } else {
-                        this.seed = "";
-                    }
-
-                    Wallpaper wp;
-                    if (resp.meta.total > 0) {
-                        if (this.settings.get_string ("search-mode") == "query" && this.settings.get_string ("sort-by") == "random") {
-                            wp = resp.data.first ();
-                        } else {
-                            if (this.current_total >= resp.meta.total) {
-                                this.current_index = 0;
-                                this.current_page = 1;
-                                this.current_total = 0;
-                            }
-                            wp = resp.data.get ((int) this.current_index);
-                            this.current_index++;
-                            this.current_total++;
-                            this.current_page = resp.meta.current_page;
-                            if (this.current_index > 24) {
-                                this.current_index = 0;
-                                this.current_page++;
-                            }
-                        }
-                        this._current_wallpaper = new Damask.Wallpaper ();
-                        this._current_wallpaper.web_url = wp.url;
-                        this._current_wallpaper.url = wp.path;
-                        this._current_wallpaper.resolution = wp.resolution;
-                        this._current_wallpaper.thumbnail_url = wp.thumbs.small;
-                        this.changed(wp.path);
-                    }
-                } catch (Error e) {
-                    this.toast (_(@"Failed to get wallpaper: $(e.message)"));
-                    message (e.message);
+                if (resp.meta.seed != null) {
+                    this.seed = resp.meta.seed;
+                } else {
+                    this.seed = "";
                 }
-            });
+
+                Wallpaper wp;
+                if (resp.meta.total > 0) {
+                    if (this.settings.get_string ("search-mode") == "query" && this.settings.get_string ("sort-by") == "random") {
+                        wp = resp.data.first ();
+                    } else {
+                        if (this.current_total >= resp.meta.total) {
+                            this.current_index = 0;
+                            this.current_page = 1;
+                            this.current_total = 0;
+                        }
+                        wp = resp.data.get ((int) this.current_index);
+                        this.current_index++;
+                        this.current_total++;
+                        this.current_page = resp.meta.current_page;
+                        if (this.current_index > 24) {
+                            this.current_index = 0;
+                            this.current_page++;
+                        }
+                    }
+
+                    this.current_wallpaper = new Damask.Wallpaper () {
+                        web_url = wp.url,
+                        url = wp.path,
+                        resolution = wp.resolution,
+                        thumbnail_url = wp.thumbs.small,
+                    };
+                    return this.current_wallpaper;
+                }
+            } catch (Error e) {
+                this.toast (_(@"Failed to get wallpaper: $(e.message)"));
+                message (e.message);
+            }
+            return null;
         }
     }
 

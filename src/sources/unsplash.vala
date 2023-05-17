@@ -51,12 +51,9 @@ namespace Damask.Sources.Unsplash {
             get { return "unsplash"; }
         }
 
-        private Damask.Wallpaper? _current_wallpaper;
-        public unowned Damask.Wallpaper? current_wallpaper {
-            get { return _current_wallpaper; }
-        }
+        public Wallpaper? current_wallpaper { get; internal set; }
 
-        public void refresh () {
+        public async Wallpaper? refresh () {
             StringBuilder query_parameters = new StringBuilder ();
 
             string query = this.settings.get_string ("query");
@@ -85,27 +82,24 @@ namespace Damask.Sources.Unsplash {
             msg.get_request_headers().append ("Accept-Version", "v1");
             debug (msg.uri.to_string());
 
-            session.send_and_read_async.begin (msg, 0, null, (source, result) => {
-                try {
-                    Bytes response_body = session.send_and_read_async.end (result);
-                    debug ((string) response_body.get_data ());
-                    Image img = Json.gobject_from_data (typeof(Image), (string) response_body.get_data ()) as Image;
-                    assert (img != null);
+            try {
+                Bytes response_body = yield session.send_and_read_async (msg, 0, null);
+                debug ((string) response_body.get_data ());
+                Image img = Json.gobject_from_data (typeof(Image), (string) response_body.get_data ()) as Image;
+                assert (img != null);
 
-                    this._current_wallpaper = new Damask.Wallpaper () {
-                        url = img.urls.full,
-                        thumbnail_url = img.urls.thumb,
-                        description = img.description,
-                        web_url = img.links.html
-                    };
-                    if (this._current_wallpaper.description == null)
-
-                    this.changed (img.urls.full);
-                } catch (Error e) {
-                    this.toast (_(@"Failed to get wallpaper: $(e.message)"));
-                    message (e.message);
-                }
-            });
+                this.current_wallpaper = new Damask.Wallpaper () {
+                    url = img.urls.full,
+                    thumbnail_url = img.urls.thumb,
+                    description = img.description,
+                    web_url = img.links.html,
+                };
+                return this.current_wallpaper;
+            } catch (Error e) {
+                this.toast (_(@"Failed to get wallpaper: $(e.message)"));
+                message (e.message);
+            }
+            return null;
         }
     }
 

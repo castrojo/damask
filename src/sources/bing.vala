@@ -52,47 +52,43 @@ namespace Damask.Sources.Bing {
             get { return "bing"; }
         }
 
-        private Damask.Wallpaper? _current_wallpaper;
-        public unowned Damask.Wallpaper? current_wallpaper {
-            get { return _current_wallpaper; }
-        }
+        public Wallpaper? current_wallpaper { get; internal set; }
 
-        public void refresh () {
+        public async Wallpaper? refresh () {
             string mkt = this.settings.get_string ("market");
 
             Soup.Session session = new Soup.Session ();
             Soup.Message msg = new Soup.Message ("GET", @"https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=$mkt");
 
-            session.send_and_read_async.begin (msg, 0, null, (source, result) => {
-                try {
-                    Bytes response_body = session.send_and_read_async.end (result);
-                    debug ((string) response_body.get_data ());
-                    Response resp = Json.gobject_from_data (typeof(Response), (string) response_body.get_data ()) as Response;
-                    assert (resp != null);
+            try {
+                Bytes response_body = yield session.send_and_read_async (msg, 0, null);
+                debug ((string) response_body.get_data ());
+                Response resp = Json.gobject_from_data (typeof(Response), (string) response_body.get_data ()) as Response;
+                assert (resp != null);
 
-                    Image image = resp.images.first();
+                Image image = resp.images.first();
 
-                    string resolution = this.settings.get_string ("resolution");
-                    if (resolution == "UHD (3840x2160)") {
-                        resolution = "UHD";
-                    }
-
-                    string path = @"https://www.bing.com$(image.urlbase)_$resolution.jpg";
-                    debug (path);
-
-                    this._current_wallpaper = new Damask.Wallpaper ();
-                    this._current_wallpaper.url = path;
-                    this._current_wallpaper.thumbnail_url = @"https://www.bing.com/$(image.urlbase)_320x240.jpg";
-                    this._current_wallpaper.title = image.title;
-                    this._current_wallpaper.web_url = image.copyrightlink;
-                    this._current_wallpaper.description = image.copyright;
-
-                    this.changed(path);
-                } catch (Error e) {
-                    this.toast (_(@"Failed to get wallpaper: $(e.message)"));
-                    message (e.message);
+                string resolution = this.settings.get_string ("resolution");
+                if (resolution == "UHD (3840x2160)") {
+                    resolution = "UHD";
                 }
-            });
+
+                string path = @"https://www.bing.com$(image.urlbase)_$resolution.jpg";
+                debug (path);
+
+                this.current_wallpaper = new Damask.Wallpaper () {
+                    url = path,
+                    thumbnail_url = @"https://www.bing.com/$(image.urlbase)_320x240.jpg",
+                    title = image.title,
+                    web_url = image.copyrightlink,
+                    description = image.copyright,
+                };
+                return this.current_wallpaper;
+            } catch (Error e) {
+                this.toast (_(@"Failed to get wallpaper: $(e.message)"));
+                message (e.message);
+            }
+            return null;
         }
     }
 

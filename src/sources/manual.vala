@@ -24,15 +24,8 @@ namespace Damask.Sources.Manual {
 
         construct {
             string path = this.settings.get_string ("picture-uri");
-            if (path != "") {
-                this._current_wallpaper = new Damask.Wallpaper () {
-                    url = path,
-                    thumbnail_url = path,
-                    web_url = path
-                };
-            }
             this.settings.changed["picture-uri"].connect ((key) => {
-                this.refresh ();
+                this.request_refresh ();
             });
         }
 
@@ -40,21 +33,20 @@ namespace Damask.Sources.Manual {
             get { return "manual"; }
         }
 
-        private Damask.Wallpaper? _current_wallpaper;
-        public unowned Damask.Wallpaper? current_wallpaper {
-            get { return _current_wallpaper; }
-        }
+        public Wallpaper? current_wallpaper { get; internal set; }
 
-        public void refresh () {
+        public async Wallpaper? refresh () {
             string path = this.settings.get_string ("picture-uri");
-            if (path != "") {
-                this._current_wallpaper = new Damask.Wallpaper () {
-                    url = path,
-                    thumbnail_url = path,
-                    web_url = path
-                };
-                this.changed (path);
+            if (path == "") {
+                return null;
             }
+
+            this.current_wallpaper = new Damask.Wallpaper () {
+                url = path,
+                thumbnail_url = path,
+                web_url = path,
+            };
+            return this.current_wallpaper;
         }
     }
 

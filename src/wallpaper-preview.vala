@@ -32,26 +32,30 @@ namespace Damask {
             get { return this._source.id; }
             construct set {
                 if (this._source != null) {
-                    this._source.changed.disconnect (this.on_source_changed);
+                    this._source.notify["current-wallpaper"].disconnect (this.refresh_source);
                 }
                 Application application = GLib.Application.get_default () as Application;
                 this._source = application.sources.get (value);
-                this._source.changed.connect (this.on_source_changed);
+                this._source.notify["current-wallpaper"].connect (this.refresh_source);
+                if (application.settings.get_string ("active-source") != value) {
+                    this._source.refresh.begin ();
+                } else {
+                    this.refresh_source ();
+                }
             }
         }
 
         construct {
             debug (@"[%p] $(this.get_type().name()).construct", this);
-            if (this._source.current_wallpaper == null) {
-                this._source.refresh ();
-            } else {
-                this.on_source_changed ("");
-            }
         }
 
-        private void on_source_changed (string image_uri) {
-            debug (@"[%p] $(this.get_type().name()).on_source_changed", this);
-            this.refresh_picture ();
+        private void refresh_source () {
+            this.refresh_source_async.begin ();
+        }
+
+        private async void refresh_source_async () {
+            debug (@"[%p] $(this.get_type().name()).refresh_source_async", this);
+            yield this.refresh_picture ();
 
             this.title.visible = this._source.current_wallpaper.title != null;
             if (this._source.current_wallpaper.title != null) {
@@ -74,7 +78,7 @@ namespace Damask {
             }
         }
 
-        private void refresh_picture () {
+        private async void refresh_picture () {
             debug (@"[%p] $(this.get_type().name()).refresh_picture", this);
             try {
                 Uri uri = Uri.parse (this._source.current_wallpaper.thumbnail_url, UriFlags.NONE);
@@ -88,15 +92,9 @@ namespace Damask {
                     default:
                         Soup.Session session = new Soup.Session ();
                         Soup.Message msg = new Soup.Message ("GET", uri.to_string ());
-                        session.send_and_read_async.begin (msg, 0, null, (src, res) => {
-                            try {
-                                Bytes body = session.send_and_read_async.end (res);
-                                Gdk.Texture texture = Gdk.Texture.from_bytes (body);
-                                this.set_paintable_swap (texture);
-                            } catch (Error e) {
-                                message (e.message);
-                            }
-                        });
+                        Bytes body = yield session.send_and_read_async (msg, 0, null);
+                        Gdk.Texture texture = Gdk.Texture.from_bytes (body);
+                        this.set_paintable_swap (texture);
                         break;
                 }
             } catch (Error e) {

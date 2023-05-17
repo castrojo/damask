@@ -30,13 +30,6 @@ template DamaskWindow : Adw.ApplicationWindow {
             menu-model: primary_menu;
             visible: bind leaflet.folded;
           }
-
-          [end]
-          Button {
-            icon-name: "view-refresh-symbolic";
-            action-name: "app.refresh";
-            visible: bind leaflet.folded;
-          }
         }
 
         Gtk.ScrolledWindow {
@@ -159,9 +152,23 @@ template DamaskWindow : Adw.ApplicationWindow {
           }
 
           [end]
-          Gtk.Button {
-            icon-name: "view-refresh-symbolic";
+          Gtk.Button refresh_button {
             action-name: "app.refresh";
+            child: Gtk.Stack refresh_button_stack {
+              transition-type: crossfade;
+              Gtk.StackPage {
+                name: "sensitive";
+                child: Gtk.Image {
+                  icon-name: "view-refresh-symbolic";
+                };
+              }
+              Gtk.StackPage {
+                name: "spinner";
+                child: Gtk.Spinner {
+                  spinning: true;
+                };
+              }
+            };
           }
         }
 

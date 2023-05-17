@@ -29,11 +29,40 @@ namespace Damask {
     }
 
     public interface WallpaperSource : Object {
-        public abstract void refresh();
-        public abstract string id { get; }
-        public abstract unowned Wallpaper? current_wallpaper { get; }
+        /**
+         * refresh:
+         *
+         * Fetch a new wallpaper from the backend source.
+         */
+        public abstract async Wallpaper? refresh ();
 
-        public signal void changed(string uri);
-        public signal void toast(string message);
+        /**
+         * id:
+         *
+         * Unique identifier for the source.
+         */
+        public abstract string id { get; }
+
+        /**
+         * current_wallpaper:
+         *
+         * The current wallpaper.
+         */
+        public abstract Wallpaper? current_wallpaper { get; internal set; }
+
+        /**
+         * request_refresh:
+         *
+         * Emitted when the wallpaper source needs to be refreshed. For example,
+         * after preferences have changed.
+         */
+        public signal void request_refresh ();
+
+        /**
+         * toast:
+         *
+         * Emitted when a source needs to display a message via a Toast.
+         */
+        public signal void toast (string message);
     }
 }

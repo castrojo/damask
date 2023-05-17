@@ -43,12 +43,9 @@ namespace Damask.Sources.Apod {
             get { return "apod"; }
         }
 
-        private Damask.Wallpaper? _current_wallpaper;
-        public unowned Damask.Wallpaper? current_wallpaper {
-            get { return _current_wallpaper; }
-        }
+        public Wallpaper? current_wallpaper { get; internal set; }
 
-        public void refresh () {
+        public async Wallpaper? refresh () {
             StringBuilder query_parameters = new StringBuilder ();
 
             string api_key = this.settings.get_string ("api-key");
@@ -70,30 +67,29 @@ namespace Damask.Sources.Apod {
             Soup.Session session = new Soup.Session ();
             Soup.Message msg = new Soup.Message ("GET", url);
 
-            session.send_and_read_async.begin (msg, 0, null, (source, result) => {
-                try {
-                    Bytes response_body = session.send_and_read_async.end (result);
-                    Response resp = Json.gobject_from_data (typeof(Response), (string) response_body.get_data ()) as Response;
-                    assert (resp != null);
+            try {
+                Bytes response_body = yield session.send_and_read_async (msg, 0, null);
+                Response resp = Json.gobject_from_data (typeof(Response), (string) response_body.get_data ()) as Response;
+                assert (resp != null);
 
-                    string image_url = resp.url;
-                    if (min_width > 1097) {
-                        image_url = resp.hdurl;
-                    }
-
-                    this._current_wallpaper = new Damask.Wallpaper () {
-                        url = image_url,
-                        thumbnail_url = resp.url,
-                        title = resp.title,
-                        description = resp.explanation,
-                        web_url = "https://apod.nasa.gov/apod/"
-                    };
-                    this.changed (image_url);
-                } catch (Error e) {
-                    this.toast (_(@"Failed to get image: $(e.message)"));
-                    message (e.message);
+                string image_url = resp.url;
+                if (min_width > 1097) {
+                    image_url = resp.hdurl;
                 }
-            });
+
+                this.current_wallpaper = new Damask.Wallpaper () {
+                    url = image_url,
+                    thumbnail_url = resp.url,
+                    title = resp.title,
+                    description = resp.explanation,
+                    web_url = "https://apod.nasa.gov/apod/",
+                };
+                return this.current_wallpaper;
+            } catch (Error e) {
+                this.toast (_(@"Failed to get image: $(e.message)"));
+                message (e.message);
+            }
+            return null;
         }
     }
 
