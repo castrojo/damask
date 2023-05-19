@@ -95,6 +95,7 @@ namespace Damask {
         }
 
         public override void startup () {
+            this.resource_base_path = "/app/drey/Damask";
             base.startup ();
 
             /* reattach the timer when refresh-interval changes */
@@ -217,7 +218,7 @@ namespace Damask {
 
         private void attach_timer () {
             debug (@"[%p] $(this.get_type().name()).attach_timer", this);
-            int seconds = this.settings.get_string("refresh-interval").to_int();
+            int seconds = int.parse (this.settings.get_string("refresh-interval"));
             TimeoutSource timer = new TimeoutSource.seconds (seconds);
             timer.set_callback (() => {
                 debug (@"[%p] $(this.get_type().name()) timer callback", this);

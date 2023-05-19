@@ -217,12 +217,8 @@ namespace Damask.Sources.Wallhaven {
                     }
 
                     if (this.settings.get_boolean ("color-enabled")) {
-                        Gdk.RGBA rgba = Gdk.RGBA ();
-                        if (rgba.parse (this.settings.get_string ("color"))) {
-                            StringBuilder color_string = new StringBuilder ();
-                            color_string.append_printf ("%02X%02X%02X", (int) (rgba.red * 255), (int) (rgba.green * 255), (int) (rgba.blue * 255));
-                            query_parameters.append(@"colors=$(color_string.str)&");
-                        }
+                        var color = this.settings.get_string ("color");
+                        query_parameters.append (@"colors=$color&");
                     }
 
                     query_parameters.append(@"seed=$(this.seed)&");
@@ -312,7 +308,8 @@ namespace Damask.Sources.Wallhaven {
         [GtkChild] private unowned Gtk.Switch purity_sketchy;
         [GtkChild] private unowned Gtk.Switch purity_nsfw;
         [GtkChild] private unowned Gtk.Switch color_enabled;
-        [GtkChild] private unowned Gtk.ColorButton color;
+        [GtkChild] private unowned Gtk.Button color_button;
+        [GtkChild] private unowned Gtk.Popover color_popover;
         [GtkChild] private unowned Gtk.Button syntax_help;
 
         construct {
@@ -402,48 +399,34 @@ namespace Damask.Sources.Wallhaven {
 
             this.settings.bind("color-enabled", color_enabled, "state", SettingsBindFlags.DEFAULT);
 
-            {
-                Gdk.RGBA rgba = Gdk.RGBA ();
-                if (rgba.parse (this.settings.get_string ("color"))) {
-                    color.rgba = rgba;
+            var colors = new Gee.ArrayList<Gee.ArrayList<string>> ();
+            colors.add (new Gee.ArrayList<string>.wrap ({ "660000", "990000", "cc0000", "cc3333", "ea4c88" }));
+            colors.add (new Gee.ArrayList<string>.wrap ({ "993399", "663399", "333399", "0066cc", "0099cc" }));
+            colors.add (new Gee.ArrayList<string>.wrap ({ "66cccc", "77cc33", "669900", "336600", "666600" }));
+            colors.add (new Gee.ArrayList<string>.wrap ({ "999900", "cccc33", "ffff00", "ffcc33", "ff9900" }));
+            colors.add (new Gee.ArrayList<string>.wrap ({ "ff6600", "cc6633", "996633", "663300", "000000" }));
+            colors.add (new Gee.ArrayList<string>.wrap ({ "999999", "cccccc", "ffffff", "424153" }));
+
+            var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+            box.homogeneous = true;
+            box.spacing = 8;
+            foreach (Gee.ArrayList<string> row in colors) {
+                var row_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+                row_box.homogeneous = row.size == 5;
+                row_box.spacing = 8;
+                foreach (string color in row) {
+                    var button = new Gtk.Button ();
+                    button.name = @"$color";
+                    button.clicked.connect (this.color_swatch_button_clicked);
+                    button.css_classes = { "opaque", @"color_$(color)" };
+                    row_box.append (button);
                 }
+                box.append (row_box);
             }
-            const Gdk.RGBA[] palette = {
-                { 0.400000f, 0.000000f, 0.000000f }, // #660000
-                { 0.600000f, 0.000000f, 0.000000f }, // #990000
-                { 0.800000f, 0.000000f, 0.000000f }, // #cc0000
-                { 0.800000f, 0.200000f, 0.200000f }, // #cc3333
-                { 0.917647f, 0.298039f, 0.533333f }, // #ea4c88
-                { 0.600000f, 0.200000f, 0.600000f }, // #993399
-                { 0.400000f, 0.200000f, 0.600000f }, // #663399
-                { 0.200000f, 0.200000f, 0.600000f }, // #333399
-                { 0.000000f, 0.400000f, 0.800000f }, // #0066cc
-                { 0.000000f, 0.600000f, 0.800000f }, // #0099cc
-                { 0.400000f, 0.800000f, 0.800000f }, // #66cccc
-                { 0.466667f, 0.800000f, 0.200000f }, // #77cc33
-                { 0.400000f, 0.600000f, 0.000000f }, // #669900
-                { 0.200000f, 0.400000f, 0.000000f }, // #336600
-                { 0.400000f, 0.400000f, 0.000000f }, // #666600
-                { 0.600000f, 0.600000f, 0.000000f }, // #999900
-                { 0.800000f, 0.800000f, 0.200000f }, // #cccc33
-                { 1.000000f, 1.000000f, 0.000000f }, // #ffff00
-                { 1.000000f, 0.800000f, 0.200000f }, // #ffcc33
-                { 1.000000f, 0.600000f, 0.000000f }, // #ff9900
-                { 1.000000f, 0.400000f, 0.000000f }, // #ff6600
-                { 0.800000f, 0.400000f, 0.200000f }, // #cc6633
-                { 0.600000f, 0.400000f, 0.200000f }, // #996633
-                { 0.400000f, 0.200000f, 0.000000f }, // #663300
-                { 0.000000f, 0.000000f, 0.000000f }, // #000000
-                { 0.600000f, 0.600000f, 0.600000f }, // #999999
-                { 0.800000f, 0.800000f, 0.800000f }, // #cccccc
-                { 1.000000f, 1.000000f, 1.000000f }, // #ffffff
-                { 0.258824f, 0.254902f, 0.325490f }, // #424153
-            };
-            this.color.add_palette (Gtk.Orientation.HORIZONTAL, 5, palette);
-            this.color.color_set.connect (() => {
-                Gdk.RGBA rgba = color.get_rgba ();
-                this.settings.set_string ("color", rgba.to_string ());
-            });
+            this.color_popover.child = box;
+            var color = this.settings.get_string ("color");
+            this.color_button.css_classes = { "opaque", @"color_$color" };
+            this.color_button.clicked.connect (this.color_button_clicked);
 
             this.syntax_help.clicked.connect (() => {
                 SyntaxExample[] examples = {
@@ -480,6 +463,17 @@ namespace Damask.Sources.Wallhaven {
                 popover.set_parent (syntax_help);
                 popover.popup ();
             });
+        }
+
+        public void color_button_clicked () {
+            this.color_popover.popup ();
+        }
+
+        public void color_swatch_button_clicked (Gtk.Button button) {
+            message (button.name);
+            this.settings.set_string ("color", @"$(button.name)");
+            this.color_button.css_classes = { "opaque", @"color_$(button.name)" };
+            this.color_popover.popdown ();
         }
 
         ~PreferencesPage () {

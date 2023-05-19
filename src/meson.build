@@ -55,7 +55,7 @@ damask_sources += configure_file(
 )
 
 damask_deps = [
-  dependency('gtk4'),
+  dependency('gtk4', version: '>=4.10'),
   dependency('libadwaita-1', version: '>=1.2'),
   dependency('libsoup-3.0'),
   dependency('json-glib-1.0'),

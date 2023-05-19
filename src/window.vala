@@ -116,7 +116,25 @@ namespace Damask {
         private void on_open_url_action () {
             Application application = GLib.Application.get_default () as Application;
             WallpaperSource? source = application.sources.get (this.source_content_stack.visible_child_name);
-            Gtk.show_uri (null, source.current_wallpaper.web_url, Gdk.CURRENT_TIME);
+            try {
+                Uri uri = Uri.parse (source.current_wallpaper.web_url, UriFlags.NONE);
+
+                switch (uri.get_scheme ()) {
+                    case "file":
+                        File file = File.new_for_uri (uri.to_string ());
+                        Gtk.FileLauncher launcher = new Gtk.FileLauncher (file);
+                        launcher.launch.begin (this, null);
+                        break;
+                    default:
+                        Gtk.UriLauncher launcher = new Gtk.UriLauncher (uri.to_string ());
+                        launcher.launch.begin (this, null);
+                        break;
+                }
+            } catch (Error e) {
+                var toast = new Adw.Toast (_(@"Unable to open URL: $(e.message)"));
+                this.toast_overlay.add_toast (toast);
+                message (e.message);
+            }
         }
 
         private void on_show_toast_action (SimpleAction action, Variant? parameter) {

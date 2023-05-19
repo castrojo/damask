@@ -26,6 +26,7 @@ namespace Damask.Sources.Manual {
             string path = this.settings.get_string ("picture-uri");
             this.settings.changed["picture-uri"].connect ((key) => {
                 this.request_refresh ();
+                this.refresh.begin ();
             });
         }
 
@@ -59,24 +60,22 @@ namespace Damask.Sources.Manual {
 
         construct {
             debug (@"[%p] $(this.get_type().name()).construct", this);
-            choose_button.clicked.connect (() => {
-                Gtk.FileChooserNative chooser = new Gtk.FileChooserNative (_("Select Picture"),
-                                                                           null,
-                                                                           Gtk.FileChooserAction.OPEN,
-                                                                           _("_Select"),
-                                                                           _("_Cancel"));
-                chooser.response.connect ((response) => {
-                    if (response == Gtk.ResponseType.ACCEPT) {
-                        File file = chooser.get_file ();
-                        this.settings.set_string ("picture-uri", file.get_uri ());
-                        this.row.subtitle = file.get_path ();
-                    }
-                });
-                chooser.show ();
-            });
+            this.choose_button.clicked.connect (this.on_select_picture);
 
             File file = File.new_for_uri (this.settings.get_string ("picture-uri"));
             this.row.subtitle = file.get_path ();
+        }
+
+        private async void on_select_picture () {
+            Gtk.FileDialog dialog = new Gtk.FileDialog ();
+            dialog.title = _("Select Picture");
+            try {
+                File file = yield dialog.open (null, null);
+                this.settings.set_string ("picture-uri", file.get_uri ());
+                this.row.subtitle = file.get_path ();
+            } catch (Error e) {
+                message (e.message);
+            }
         }
 
         ~PreferencesPage () {

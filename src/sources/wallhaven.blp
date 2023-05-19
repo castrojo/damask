@@ -119,19 +119,18 @@ template DamaskSourcesWallhavenPreferencesPage : Adw.PreferencesPage {
   Adw.PreferencesGroup {
     title: _("Filtering");
 
-    Adw.ActionRow {
+    Adw.ActionRow color2 {
       title: _("Color");
 
-      activatable-widget: color_enabled;
-
-      [suffix]
-      Switch color_enabled {
-        valign: center;
-      }
-
-      ColorButton color {
+      Gtk.Button color_button {
         valign: center;
         sensitive: bind color_enabled.state;
+
+        Gtk.Popover color_popover {}
+      }
+
+      Gtk.Switch  color_enabled {
+        valign: center;
       }
     }
   }

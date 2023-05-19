@@ -157,21 +157,7 @@ namespace Damask.Sources.Slideshow {
 
         construct {
             debug (@"[%p] $(this.get_type().name()).construct", this);
-            choose_button.clicked.connect (() => {
-                Gtk.FileChooserNative chooser = new Gtk.FileChooserNative (_("Select Folder"),
-                                                                           null,
-                                                                           Gtk.FileChooserAction.SELECT_FOLDER,
-                                                                           _("_Select"),
-                                                                           _("_Cancel"));
-                chooser.response.connect ((response) => {
-                    if (response == Gtk.ResponseType.ACCEPT) {
-                        File file = chooser.get_file ();
-                        this.settings.set_string ("folder-uri", file.get_uri());
-                        this.choose_folder_row.subtitle = file.get_path ();
-                    }
-                });
-                chooser.show ();
-            });
+            choose_button.clicked.connect (this.on_select_folder);
 
             File file = File.new_for_uri (this.settings.get_string ("folder-uri"));
             this.choose_folder_row.subtitle = file.get_path ();
@@ -179,6 +165,18 @@ namespace Damask.Sources.Slideshow {
             this.sort_by.notify["selected"].connect ((pspec) => {
                 this.settings.set_enum ("sort-by", (int) sort_by.selected);
             });
+        }
+
+        private async void on_select_folder () {
+            Gtk.FileDialog dialog = new Gtk.FileDialog ();
+            dialog.title = _(@"Select Folder");
+            try {
+                File file = yield dialog.select_folder (null, null);
+                this.settings.set_string ("folder-uri", file.get_uri ());
+                this.choose_folder_row.subtitle = file.get_path ();
+            } catch (Error e) {
+                message (e.message);
+            }
         }
 
         ~PreferencesPage () {
