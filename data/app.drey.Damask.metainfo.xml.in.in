@@ -39,6 +39,15 @@
   <url type="help">https://gitlab.gnome.org/subpop/damask/-/issues</url>
   <url type="translate">https://gitlab.gnome.org/subpop/damask/-/issues</url>
   <releases>
+    <release date="2023-05-18" version="0.2.0">
+      <description>
+        <ul>
+          <li>Updated UI, using a list of sources and preference pages</li>
+          <li>Added Google EarthView as a new source</li>
+          <li>Updated minimal GTK version to 4.10 and fixed deprecation notices</li>
+        </ul>
+      </description>
+    </release>
     <release date="2023-04-27" version="0.1.5">
       <description>
         <ul>
