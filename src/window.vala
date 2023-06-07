@@ -52,35 +52,14 @@ namespace Damask {
             application.set_accels_for_action ("win.show-help-overlay", {"<primary>question"});
             Action active_source_action = application.settings.create_action ("active-source");
             this.add_action (active_source_action);
+            application.settings.changed["active-source"].connect (this.on_active_source_changed);
 
             if (Constants.APP_ID.contains (".Devel")) {
                 this.add_css_class ("devel");
             }
 
             this.sources.row_activated.connect (this.on_source_list_activated);
-            Adw.ActionRow? row = null;
-            switch (application.settings.get_string ("active-source")) {
-                case "manual":
-                    row = this.manual_row;
-                    break;
-                case "slideshow":
-                    row = this.slideshow_row;
-                    break;
-                case "bing":
-                    row = this.bing_row;
-                    break;
-                case "wallhaven":
-                    row = this.wallhaven_row;
-                case "apod":
-                    row = this.apod_row;
-                    break;
-                case "unsplash":
-                    row = this.unsplash_row;
-                    break;
-                default:
-                    row = this.manual_row;
-                    break;
-            }
+            Adw.ActionRow? row = this._get_active_source_row (application.settings.get_string ("active-source"));
             this.sources.select_row (row);
             this.on_source_list_activated (this.sources, row);
 
@@ -94,6 +73,43 @@ namespace Damask {
             this.source_content_back_button.clicked.connect ((button) => {
                 this.leaflet.navigate (Adw.NavigationDirection.BACK);
             });
+        }
+
+        private Adw.ActionRow? _get_active_source_row (string active_source) {
+            Adw.ActionRow? row = null;
+            switch (active_source) {
+                case "manual":
+                    row = this.manual_row;
+                    break;
+                case "slideshow":
+                    row = this.slideshow_row;
+                    break;
+                case "bing":
+                    row = this.bing_row;
+                    break;
+                case "wallhaven":
+                    row = this.wallhaven_row;
+                    break;
+                case "apod":
+                    row = this.apod_row;
+                    break;
+                case "unsplash":
+                    row = this.unsplash_row;
+                    break;
+                default:
+                    row = this.manual_row;
+                    break;
+            }
+            return row;
+        }
+
+        private void on_active_source_changed (string key) {
+            debug (@"[%p] $(this.get_type().name()).on_active_source_changed", this);
+            Application application = GLib.Application.get_default () as Application;
+            string active_source = application.settings.get_string (key);
+            Adw.ActionRow? row = this._get_active_source_row (active_source);
+            this.sources.select_row (row);
+            this.on_source_list_activated (this.sources, row);
         }
 
         private void on_source_list_activated (Gtk.ListBox box, Gtk.ListBoxRow row) {
