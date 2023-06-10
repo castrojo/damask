@@ -27,8 +27,8 @@ namespace Damask {
 
         construct {
             Application application = GLib.Application.get_default () as Application;
-            application.settings.bind("run-in-background", run_in_background, "state", SettingsBindFlags.DEFAULT);
-            application.settings.bind("autostart", autostart, "state", SettingsBindFlags.DEFAULT);
+            application.settings.bind("run-in-background", run_in_background, "active", SettingsBindFlags.DEFAULT);
+            application.settings.bind("autostart", autostart, "active", SettingsBindFlags.DEFAULT);
 
             refresh_interval.selected = application.settings.get_enum ("refresh-interval");
             refresh_interval.notify["selected"].connect ((pspec) => {

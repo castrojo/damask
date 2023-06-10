@@ -124,7 +124,7 @@ template DamaskSourcesWallhavenPreferencesPage : Adw.PreferencesPage {
 
       Gtk.Button color_button {
         valign: center;
-        sensitive: bind color_enabled.state;
+        sensitive: bind color_enabled.active;
 
         Gtk.Popover color_popover {}
       }

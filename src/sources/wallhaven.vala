@@ -385,19 +385,19 @@ namespace Damask.Sources.Wallhaven {
                 this.top_list_range.sensitive = this.settings.get_string (key) == "top_list";
             });
 
-            this.settings.bind("category-general", category_general, "state", SettingsBindFlags.DEFAULT);
-            this.settings.bind("category-anime", category_anime, "state", SettingsBindFlags.DEFAULT);
-            this.settings.bind("category-people", category_people, "state", SettingsBindFlags.DEFAULT);
+            this.settings.bind("category-general", category_general, "active", SettingsBindFlags.DEFAULT);
+            this.settings.bind("category-anime", category_anime, "active", SettingsBindFlags.DEFAULT);
+            this.settings.bind("category-people", category_people, "active", SettingsBindFlags.DEFAULT);
 
-            this.settings.bind("purity-sfw", purity_sfw, "state", SettingsBindFlags.DEFAULT);
-            this.settings.bind("purity-sketchy", purity_sketchy, "state", SettingsBindFlags.DEFAULT);
-            this.settings.bind("purity-nsfw", purity_nsfw, "state", SettingsBindFlags.DEFAULT);
+            this.settings.bind("purity-sfw", purity_sfw, "active", SettingsBindFlags.DEFAULT);
+            this.settings.bind("purity-sketchy", purity_sketchy, "active", SettingsBindFlags.DEFAULT);
+            this.settings.bind("purity-nsfw", purity_nsfw, "active", SettingsBindFlags.DEFAULT);
             this.purity_nsfw.sensitive = this.settings.get_string("api-key").length > 0;
             this.settings.changed["api-key"].connect ((key) => {
                 this.purity_nsfw.sensitive = this.settings.get_string(key).length > 0;
             });
 
-            this.settings.bind("color-enabled", color_enabled, "state", SettingsBindFlags.DEFAULT);
+            this.settings.bind("color-enabled", color_enabled, "active", SettingsBindFlags.DEFAULT);
 
             var colors = new Gee.ArrayList<Gee.ArrayList<string>> ();
             colors.add (new Gee.ArrayList<string>.wrap ({ "660000", "990000", "cc0000", "cc3333", "ea4c88" }));
