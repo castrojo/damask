@@ -11,6 +11,7 @@ template DamaskSourcesSlideshowPreferencesPage : Adw.PreferencesPage {
   Adw.PreferencesGroup {
     Adw.ActionRow choose_folder_row {
       title: _("Choose Folder");
+      activatable-widget: choose_button;
 
       Gtk.Button choose_button {
         valign: center;
