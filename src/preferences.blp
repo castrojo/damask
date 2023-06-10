@@ -25,12 +25,14 @@ template DamaskPreferencesWindow : Adw.PreferencesWindow {
       }
       Adw.ActionRow {
         title: _("Run in background");
+        activatable-widget: run_in_background;
         Switch run_in_background {
           valign: center;
         }
       }
       Adw.ActionRow {
         title: _("Start automatically upon login");
+        activatable-widget: autostart;
         Switch autostart {
           valign: center;
         }
