@@ -85,7 +85,7 @@ namespace Damask.Sources.Bing {
                 };
                 return this.current_wallpaper;
             } catch (Error e) {
-                this.toast (_(@"Failed to get wallpaper: $(e.message)"));
+                this.toast (_("Failed to get wallpaper: %s").printf(e.message));
                 message (e.message);
             }
             return null;

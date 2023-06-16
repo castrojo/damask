@@ -86,7 +86,7 @@ namespace Damask.Sources.Apod {
                 };
                 return this.current_wallpaper;
             } catch (Error e) {
-                this.toast (_(@"Failed to get image: $(e.message)"));
+                this.toast (_("Failed to get image: %s").printf(e.message));
                 message (e.message);
             }
             return null;

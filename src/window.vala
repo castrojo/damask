@@ -147,7 +147,7 @@ namespace Damask {
                         break;
                 }
             } catch (Error e) {
-                var toast = new Adw.Toast (_(@"Unable to open URL: $(e.message)"));
+                var toast = new Adw.Toast (_("Unable to open URL: %s").printf(e.message));
                 this.toast_overlay.add_toast (toast);
                 message (e.message);
             }

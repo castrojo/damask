@@ -202,7 +202,7 @@ namespace Damask {
                     this.current_source_toast (_("Unable to set wallpaper"));
                 }
             } catch (Error e) {
-                this.current_source_toast (_(@"Unable to set wallpaper: $(e.message)"));
+                this.current_source_toast (_("Unable to set wallpaper: %s").printf(e.message));
             } finally {
                 this.is_refreshing = false;
             }
@@ -246,7 +246,7 @@ namespace Damask {
                         this.current_source_toast (_("Unable to activate autostart"));
                     }
                 } catch (Error e) {
-                    this.current_source_toast (_(@"Unable to activate autostart: $(e.message)"));
+                    this.current_source_toast (_("Unable to activate autostart: %s").printf(e.message));
                 }
             });
         }
@@ -262,7 +262,7 @@ namespace Damask {
                         this.current_source_toast (_("Unable to deactivate autostart"));
                     }
                 } catch (Error e) {
-                    this.current_source_toast (_(@"Unable to deactivate autostart: $(e.message)"));
+                    this.current_source_toast (_("Unable to deactivate autostart: %s").printf(e.message));
                 }
             });
         }

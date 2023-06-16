@@ -106,7 +106,7 @@ namespace Damask.Sources.Slideshow {
                     }
                 }
             } catch (Error e) {
-                this.toast (_(@"Failed to get folder contents: $(e.message)"));
+                this.toast (_("Failed to get folder contents: %s").printf(e.message));
                 message (e.message);
             }
 
@@ -141,7 +141,7 @@ namespace Damask.Sources.Slideshow {
                     this.rebuild_file_list ();
                 });
             } catch (Error e) {
-                this.toast (_(@"Unable to watch folder for changes: $(e.message)"));
+                this.toast (_("Unable to watch folder for changes: %s").printf(e.message));
                 message (e.message);
             }
         }
@@ -169,7 +169,7 @@ namespace Damask.Sources.Slideshow {
 
         private async void on_select_folder () {
             Gtk.FileDialog dialog = new Gtk.FileDialog ();
-            dialog.title = _(@"Select Folder");
+            dialog.title = _("Select Folder");
             try {
                 File file = yield dialog.select_folder (null, null);
                 this.settings.set_string ("folder-uri", file.get_uri ());
