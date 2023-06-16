@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: damask\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-17 15:31-0500\n"
+"POT-Creation-Date: 2023-06-15 23:01-0400\n"
 "PO-Revision-Date: 2023-02-18 21:38+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/damask/damask/nl/>"
-"\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/damask/damask/nl/"
+">\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Weblate 4.16-dev\n"
 
 #: data/app.drey.Damask.desktop.in.in:3
-#: data/app.drey.Damask.metainfo.xml.in.in:5
+#: data/app.drey.Damask.metainfo.xml.in.in:5 src/window.blp:23
 msgid "Damask"
 msgstr "Damask"
 
@@ -52,51 +52,107 @@ msgstr "wallhaven.cc"
 msgid "Microsoft Bing Wallpaper of the day"
 msgstr "Microsoft Bing - Achtergrond van de dag"
 
-#: data/app.drey.Damask.metainfo.xml.in.in:33
+#: data/app.drey.Damask.metainfo.xml.in.in:33 src/window.blp:102
 msgid "NASA Astronomy Picture of the Day"
 msgstr "NASA Astronomy - Foto van de dag"
 
-#: data/app.drey.Damask.metainfo.xml.in.in:34
+#: data/app.drey.Damask.metainfo.xml.in.in:34 src/window.blp:116
 msgid "Unsplash"
 msgstr "Unsplash"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:45
+msgid "Updated UI, using a list of sources and preference pages"
+msgstr ""
+
+#: data/app.drey.Damask.metainfo.xml.in.in:46
+msgid "Added Google EarthView as a new source"
+msgstr ""
+
+#: data/app.drey.Damask.metainfo.xml.in.in:47
+msgid "Updated minimal GTK version to 4.10 and fixed deprecation notices"
+msgstr ""
+
+#: data/app.drey.Damask.metainfo.xml.in.in:54
+msgid "Fixed an issue initializing translations"
+msgstr ""
+
+#: data/app.drey.Damask.metainfo.xml.in.in:55
+msgid "Report errors as a window toast"
+msgstr ""
+
+#: data/app.drey.Damask.metainfo.xml.in.in:56
+#, fuzzy
+msgid "Fixed a crash in the Unsplash source using the wrong settings key name"
+msgstr "Opgelost: probleem met de Unsplash-instellingen ‘ncontent_filter’"
+
+#: data/app.drey.Damask.metainfo.xml.in.in:63
 msgid "Added French and Dutch translations"
 msgstr "Nieuw: Franse en Nederlandse vertalingen"
 
-#: data/app.drey.Damask.metainfo.xml.in.in:46
+#: data/app.drey.Damask.metainfo.xml.in.in:64
 msgid "Added \"Slideshow\" source to rotate through images in a local folder"
 msgstr ""
 "Nieuw: diavoorstellingsfunctie die meerdere afbeeldingen uit een lokale map "
 "toont"
 
-#: data/app.drey.Damask.metainfo.xml.in.in:47
+#: data/app.drey.Damask.metainfo.xml.in.in:65
 msgid "Fixed an issue using the Wallhaven NSFW filter without an API key"
 msgstr "Opgelost: probleem met het Wallhaven NSFW-filter zonder api-sleutel"
 
-#: data/app.drey.Damask.metainfo.xml.in.in:48
+#: data/app.drey.Damask.metainfo.xml.in.in:66
 msgid "Fixed an issue using the Unsplash ncontent_filter setting"
 msgstr "Opgelost: probleem met de Unsplash-instellingen ‘ncontent_filter’"
 
-#: data/app.drey.Damask.metainfo.xml.in.in:49
+#: data/app.drey.Damask.metainfo.xml.in.in:67
 msgid "Changed the default refresh interval to 15 minutes"
 msgstr "Gewijzigd: de standaard ververstussenpoos is voortaan 15 minuten"
 
-#: data/app.drey.Damask.metainfo.xml.in.in:56
+#: data/app.drey.Damask.metainfo.xml.in.in:68
+msgid "Fix a crash when disabling autostart"
+msgstr ""
+
+#: data/app.drey.Damask.metainfo.xml.in.in:75
 msgid "Add \"wallpaper\" keyword to desktop file"
 msgstr "‘achtergrond’ toegevoegd aan desktopbestand"
 
-#: data/app.drey.Damask.metainfo.xml.in.in:57
+#: data/app.drey.Damask.metainfo.xml.in.in:76
 msgid "Disable \"Anime\" category in the wallhaven source by default"
 msgstr "Nieuw: Anime-categorie in Wallhaven standaard uitgeschakeld"
 
-#: data/app.drey.Damask.metainfo.xml.in.in:58
+#: data/app.drey.Damask.metainfo.xml.in.in:77
 msgid ""
 "Dynamically disable sources that require certain values such as API key to "
 "function"
 msgstr ""
 "Nieuw: bronnen die bepaalde waarden, zoals api-sleutels, verwachten worden "
 "dynamisch uitgeschakeld"
+
+#: src/application.vala:202
+msgid "Unable to set wallpaper"
+msgstr ""
+
+#: src/application.vala:205
+#, c-format
+msgid "Unable to set wallpaper: %s"
+msgstr ""
+
+#: src/application.vala:246
+msgid "Unable to activate autostart"
+msgstr ""
+
+#: src/application.vala:249
+#, c-format
+msgid "Unable to activate autostart: %s"
+msgstr ""
+
+#: src/application.vala:262
+msgid "Unable to deactivate autostart"
+msgstr ""
+
+#: src/application.vala:265
+#, c-format
+msgid "Unable to deactivate autostart: %s"
+msgstr ""
 
 #: src/preferences.blp:10
 msgid "Refresh interval"
@@ -142,342 +198,457 @@ msgstr "24 uur"
 msgid "Run in background"
 msgstr "Uitvoeren op achtergrond"
 
-#: src/preferences.blp:33
+#: src/preferences.blp:34
 msgid "Start automatically upon login"
 msgstr "Automatisch opstarten"
 
-#: src/sources/bing.blp:8
-msgid "Market"
-msgstr "Markt"
-
-#: src/sources/bing.blp:12
-msgid "English (United States)"
-msgstr "Engels (Verenigde Staten)"
-
-#: src/sources/bing.blp:13
-msgid "Chinese (Simplified)"
-msgstr "Chinees (Vereenvoudigd)"
-
-#: src/sources/bing.blp:14
-msgid "Japanese (Japan)"
-msgstr "Japans (Japan)"
-
-#: src/sources/bing.blp:15
-msgid "English (Australia)"
-msgstr "Engels (Australië)"
-
-#: src/sources/bing.blp:16
-msgid "English (United Kingdom)"
-msgstr "Engels (Verenigd Koninkrijk)"
-
-#: src/sources/bing.blp:17
-msgid "German (Germany)"
-msgstr "Duits (Duitsland)"
-
-#: src/sources/bing.blp:18
-msgid "English (New Zealand)"
-msgstr "Engels (Nieuw-Zeeland)"
-
-#: src/sources/bing.blp:19
-msgid "English (Canada)"
-msgstr "Engels (Canada)"
-
-#: src/sources/bing.blp:20
-msgid "English (India)"
-msgstr "Engels (India)"
-
-#: src/sources/bing.blp:21
-msgid "French (France)"
-msgstr "Frans (Frankrijk)"
-
-#: src/sources/bing.blp:22
-msgid "French (Canada)"
-msgstr "Frans (Canada)"
-
-#: src/sources/bing.blp:28
-msgid "Resolution"
-msgstr "Resolutie"
-
-#: src/sources/bing.vala:60
-msgid "Use Microsoft Bing's wallpaper of the day"
-msgstr "Toon Microsoft Bings achtergrond van de dag"
-
-#: src/sources/manual.vala:48
-msgid "Use a manually selected image as the wallpaper"
-msgstr "Toon een zelfgekozen achtergrond"
-
-#: src/sources/manual.vala:102
-msgid "Select Picture"
-msgstr "Kies een afbeelding"
-
-#: src/sources/manual.vala:105 src/sources/slideshow.vala:170
-msgid "_Select"
-msgstr "_Kiezen"
-
-#: src/sources/manual.vala:106 src/sources/slideshow.vala:171
-msgid "_Cancel"
-msgstr "_Annuleren"
-
-#: src/sources/slideshow.blp:11
-msgid "Choose Folder"
-msgstr "Kies een map"
-
-#: src/sources/slideshow.blp:21 src/sources/wallhaven.blp:72
-msgid "Sort By"
-msgstr "Sorteren op"
-
-#: src/sources/slideshow.blp:24 src/sources/wallhaven.blp:78
-msgid "Random"
-msgstr "Willekeurig"
-
-#: src/sources/slideshow.blp:25
-msgid "Name"
-msgstr "Naam"
-
-#: src/sources/slideshow.blp:26
-msgid "Creation Date"
-msgstr "Aanmaakdatum"
-
-#: src/sources/slideshow.vala:43
-msgid "Slideshow"
-msgstr "Diavoorstelling"
-
-#: src/sources/slideshow.vala:47
-msgid "Use the contents of a folder as the wallpaper"
-msgstr "Toon meerdere afbeeldingen uit een map"
-
-#: src/sources/slideshow.vala:167
-msgid "Select Folder"
-msgstr "Kies een map"
-
-#: src/sources/wallhaven.blp:7
-msgid "Source"
-msgstr "Bron"
-
-#: src/sources/wallhaven.blp:14
-msgid "API Key"
-msgstr "Api-sleutel"
-
-#: src/sources/wallhaven.blp:17
-msgid "deadbeef"
-msgstr "deadbeef"
-
-#: src/sources/wallhaven.blp:23 src/sources/wallhaven.blp:31
-msgid "Query"
-msgstr "Zoekopdracht"
-
-#: src/sources/wallhaven.blp:40
-msgid "space galaxy"
-msgstr "melkweg"
-
-#: src/sources/wallhaven.blp:47
-msgid "Collection"
-msgstr "Verzameling"
-
-#: src/sources/wallhaven.blp:55
-msgid "Username"
-msgstr "Gebruikersnaam"
-
-#: src/sources/wallhaven.blp:57
-msgid "kermit_the_frog"
-msgstr "kermit_de_kikker"
-
-#: src/sources/wallhaven.blp:63
-msgid "Collections"
-msgstr "Verzamelingen"
-
-#: src/sources/wallhaven.blp:69
-msgid "Sorting"
-msgstr "Sorteren"
-
-#: src/sources/wallhaven.blp:76
-msgid "Date Added"
-msgstr "Toegevoegd"
-
-#: src/sources/wallhaven.blp:77
-msgid "Relevance"
-msgstr "Relevantie"
-
-#: src/sources/wallhaven.blp:79
-msgid "Views"
-msgstr "Aantal weergaven"
-
-#: src/sources/wallhaven.blp:80
-msgid "Favorites"
-msgstr "Favorieten"
-
-#: src/sources/wallhaven.blp:81
-msgid "Top List"
-msgstr "Toplijst"
-
-#: src/sources/wallhaven.blp:87
-msgid "Sort Order"
-msgstr "Sorteervolgorde"
-
-#: src/sources/wallhaven.blp:91
-msgid "Ascending"
-msgstr "Oplopend"
-
-#: src/sources/wallhaven.blp:92
-msgid "Descending"
-msgstr "Aflopend"
-
-#: src/sources/wallhaven.blp:98
-msgid "Top List Range"
-msgstr "Toplijstbereik"
-
-#: src/sources/wallhaven.blp:102
-msgid "One Day"
-msgstr "Eén dag"
-
-#: src/sources/wallhaven.blp:103
-msgid "Three Days"
-msgstr "Drie dagen"
-
-#: src/sources/wallhaven.blp:104
-msgid "One Week"
-msgstr "Eén week"
-
-#: src/sources/wallhaven.blp:105
-msgid "One Month"
-msgstr "Eén maand"
-
-#: src/sources/wallhaven.blp:106
-msgid "Three Months"
-msgstr "Drie maanden"
-
-#: src/sources/wallhaven.blp:107
-msgid "Six Months"
-msgstr "Zes maanden"
-
-#: src/sources/wallhaven.blp:108
-msgid "One Year"
-msgstr "Eén jaar"
-
-#: src/sources/wallhaven.blp:115
-msgid "Filtering"
-msgstr "Filteren"
-
-#: src/sources/wallhaven.blp:118
-msgid "Color"
-msgstr "Kleur"
-
-#: src/sources/wallhaven.blp:135
-msgid "Categories"
-msgstr "Categorieën"
-
-#: src/sources/wallhaven.blp:138
+#: src/shortcuts.blp:11 src/sources/wallhaven.blp:144
 msgid "General"
 msgstr "Algemeen"
 
-#: src/sources/wallhaven.blp:146
-msgid "Anime"
-msgstr "Anime"
+#: src/shortcuts.blp:14
+#, fuzzy
+msgid "Show Shortcuts"
+msgstr "_Sneltoetsen"
 
-#: src/sources/wallhaven.blp:154
-msgid "People"
-msgstr "Mensen"
+#: src/shortcuts.blp:19
+#, fuzzy
+msgid "Refresh Wallpaper"
+msgstr "Vernieuwen, iedere"
 
-#: src/sources/wallhaven.blp:163
-msgid "Purity"
-msgstr "Zedelijkheid"
+#: src/shortcuts.blp:24
+#, fuzzy
+msgid "Quit"
+msgstr "_Afsluiten"
 
-#: src/sources/wallhaven.blp:166
-msgid "Safe for Work"
-msgstr "Geschikt voor werk"
+#: src/window.blp:46
+msgid "Manual"
+msgstr ""
 
-#: src/sources/wallhaven.blp:174
-msgid "Sketchy"
-msgstr "Schunnig"
+#: src/window.blp:47
+msgid "Use a manually selected image as the wallpaper"
+msgstr "Toon een zelfgekozen achtergrond"
 
-#: src/sources/wallhaven.blp:182
-msgid "Not Safe for Work"
-msgstr "Ongeschikt voor werk"
+#: src/window.blp:60
+msgid "Slideshow"
+msgstr "Diavoorstelling"
 
-#: src/sources/wallhaven.blp:183
-msgid "An API key is required to access not safe for work content"
-msgstr "Voor het tonen van NSFW-inhoud is een api-sleutel vereist"
+#: src/window.blp:61
+msgid "Use the contents of a folder as the wallpaper"
+msgstr "Toon meerdere afbeeldingen uit een map"
 
-#: src/sources/wallhaven.vala:121
+#: src/window.blp:74
+#, fuzzy
+msgid "Bing Wallpaper"
+msgstr "wallpaper;achtergrond;"
+
+#: src/window.blp:75
+msgid "Use Microsoft Bing's wallpaper of the day"
+msgstr "Toon Microsoft Bings achtergrond van de dag"
+
+#: src/window.blp:88
+#, fuzzy
+msgid "Wallhaven"
+msgstr "wallhaven.cc"
+
+#: src/window.blp:89
 msgid "Get wallpapers from wallhaven.cc"
 msgstr "Toon achtergronden van wallhaven.cc"
 
-#: src/sources/wallhaven.vala:466
-msgid "<tt>tagname</tt>"
-msgstr "<tt>tagnaam</tt>"
+#: src/window.blp:103
+msgid "Each day a different image or photograph of our fascinating universe"
+msgstr ""
 
-#: src/sources/wallhaven.vala:466
-msgid "search fuzzily for a tag/keyword"
-msgstr "zoeken op tag/trefwoord"
+#: src/window.blp:117
+#, fuzzy
+msgid "Get wallpapers from unsplash.com"
+msgstr "Toon achtergronden van wallhaven.cc"
 
-#: src/sources/wallhaven.vala:467
-msgid "<tt>-tagname</tt>"
-msgstr "<tt>-tagnaam</tt>"
+#: src/window.blp:130
+msgid "Google Earth View"
+msgstr ""
 
-#: src/sources/wallhaven.vala:467
-msgid "exclude a tag/keyword"
-msgstr "tag/trefwoord uitsluiten"
+#: src/window.blp:131
+msgid "Use images from Google Earth View"
+msgstr ""
 
-#: src/sources/wallhaven.vala:468
-msgid "<tt>+tag1 +tag2</tt>"
-msgstr "<tt>+tag1 +tag2</tt>"
-
-#: src/sources/wallhaven.vala:468
-msgid "must have tag1 and tag2"
-msgstr "dient tag1 en tag2 te bevatten"
-
-#: src/sources/wallhaven.vala:469
-msgid "<tt>+tag1 -tag2</tt>"
-msgstr "<tt>+tag1 -tag2</tt>"
-
-#: src/sources/wallhaven.vala:469
-msgid "must have tag1 and NOT tag2"
-msgstr "dient tag1 maar NIET tag2 te bevatten"
-
-#: src/sources/wallhaven.vala:470
-msgid "<tt>@username</tt>"
-msgstr "<tt>@gebruikersnaam</tt>"
-
-#: src/sources/wallhaven.vala:470
-msgid "user uploads"
-msgstr "gebruikersuploads"
-
-#: src/sources/wallhaven.vala:471
-msgid "<tt>id:123</tt>"
-msgstr "<tt>id:123</tt>"
-
-#: src/sources/wallhaven.vala:471
-msgid "Exact tag search (can not be combined)"
-msgstr "Nauwkeurig zoeken op tag (kan niet worden gecombineerd)"
-
-#: src/sources/wallhaven.vala:472
-msgid "<tt>type:{png/jpg}</tt>"
-msgstr "<tt>type:{png/jpg}</tt>"
-
-#: src/sources/wallhaven.vala:472
-msgid "Search for file type (jpg = jpeg)"
-msgstr "Zoeken op bestandstype (jpg = jpeg)"
-
-#: src/sources/wallhaven.vala:473
-msgid "<tt>like:wallpaper ID</tt>"
-msgstr "<tt>like:achtergrond-id</tt>"
-
-#: src/sources/wallhaven.vala:473
-msgid "Find wallpapers with similar tags"
-msgstr "Zoeken naar achtergronden met vergelijkbare tags"
-
-#: src/window.blp:124
+#: src/window.blp:228
 msgid "_Preferences"
 msgstr "_Voorkeuren"
 
-#: src/window.blp:129
+#: src/window.blp:233
 msgid "_Keyboard Shortcuts"
 msgstr "_Sneltoetsen"
 
-#: src/window.blp:134
+#: src/window.blp:238
 msgid "_About Damask"
 msgstr "_Over Damask"
 
-#: src/window.blp:139
+#: src/window.blp:243
 msgid "_Quit"
 msgstr "_Afsluiten"
+
+#: src/window.vala:150
+#, c-format
+msgid "Unable to open URL: %s"
+msgstr ""
+
+#: src/sources/apod.blp:12
+msgid "Search"
+msgstr ""
+
+#: src/sources/apod.blp:15 src/sources/unsplash.blp:13
+#: src/sources/wallhaven.blp:19
+msgid "API Key"
+msgstr "Api-sleutel"
+
+#: src/sources/apod.vala:89 src/sources/earthview.vala:86
+#, c-format
+msgid "Failed to get image: %s"
+msgstr ""
+
+#: src/sources/bing.blp:13
+msgid "Market"
+msgstr "Markt"
+
+#: src/sources/bing.blp:17
+msgid "English (United States)"
+msgstr "Engels (Verenigde Staten)"
+
+#: src/sources/bing.blp:18
+msgid "Chinese (Simplified)"
+msgstr "Chinees (Vereenvoudigd)"
+
+#: src/sources/bing.blp:19
+msgid "Japanese (Japan)"
+msgstr "Japans (Japan)"
+
+#: src/sources/bing.blp:20
+msgid "English (Australia)"
+msgstr "Engels (Australië)"
+
+#: src/sources/bing.blp:21
+msgid "English (United Kingdom)"
+msgstr "Engels (Verenigd Koninkrijk)"
+
+#: src/sources/bing.blp:22
+msgid "German (Germany)"
+msgstr "Duits (Duitsland)"
+
+#: src/sources/bing.blp:23
+msgid "English (New Zealand)"
+msgstr "Engels (Nieuw-Zeeland)"
+
+#: src/sources/bing.blp:24
+msgid "English (Canada)"
+msgstr "Engels (Canada)"
+
+#: src/sources/bing.blp:25
+msgid "English (India)"
+msgstr "Engels (India)"
+
+#: src/sources/bing.blp:26
+msgid "French (France)"
+msgstr "Frans (Frankrijk)"
+
+#: src/sources/bing.blp:27
+msgid "French (Canada)"
+msgstr "Frans (Canada)"
+
+#: src/sources/bing.blp:33
+msgid "Resolution"
+msgstr "Resolutie"
+
+#: src/sources/bing.vala:88 src/sources/unsplash.vala:99
+#: src/sources/wallhaven.vala:285
+#, c-format
+msgid "Failed to get wallpaper: %s"
+msgstr ""
+
+#: src/sources/earthview.blp:13 src/sources/slideshow.blp:24
+#: src/sources/wallhaven.blp:78
+msgid "Sort By"
+msgstr "Sorteren op"
+
+#: src/sources/earthview.blp:16 src/sources/slideshow.blp:27
+#: src/sources/wallhaven.blp:84
+msgid "Random"
+msgstr "Willekeurig"
+
+#: src/sources/earthview.blp:17
+msgid "Sequential"
+msgstr ""
+
+#: src/sources/manual.blp:13
+#, fuzzy
+msgid "Choose Picture"
+msgstr "Kies een afbeelding"
+
+#: src/sources/manual.vala:71
+msgid "Select Picture"
+msgstr "Kies een afbeelding"
+
+#: src/sources/slideshow.blp:13
+msgid "Choose Folder"
+msgstr "Kies een map"
+
+#: src/sources/slideshow.blp:28
+msgid "Name"
+msgstr "Naam"
+
+#: src/sources/slideshow.blp:29
+msgid "Creation Date"
+msgstr "Aanmaakdatum"
+
+#: src/sources/slideshow.vala:109
+#, c-format
+msgid "Failed to get folder contents: %s"
+msgstr ""
+
+#: src/sources/slideshow.vala:144
+#, c-format
+msgid "Unable to watch folder for changes: %s"
+msgstr ""
+
+#: src/sources/slideshow.vala:172
+msgid "Select Folder"
+msgstr "Kies een map"
+
+#: src/sources/unsplash.blp:17 src/sources/wallhaven.blp:29
+#: src/sources/wallhaven.blp:37
+msgid "Query"
+msgstr "Zoekopdracht"
+
+#: src/sources/unsplash.blp:18
+msgid "Limit selection to photos matching a search term"
+msgstr ""
+
+#: src/sources/unsplash.blp:22 src/sources/wallhaven.blp:69
+msgid "Collections"
+msgstr "Verzamelingen"
+
+#: src/sources/unsplash.blp:23
+msgid "Public collection IDs to filter selection (comma-separated)"
+msgstr ""
+
+#: src/sources/unsplash.blp:27
+msgid "Topics"
+msgstr ""
+
+#: src/sources/unsplash.blp:28
+msgid "Public topic IDs to filter selection (comma-separated)"
+msgstr ""
+
+#: src/sources/unsplash.blp:32
+msgid "Content Filter"
+msgstr ""
+
+#: src/sources/unsplash.blp:36
+msgid "Low"
+msgstr ""
+
+#: src/sources/unsplash.blp:37
+msgid "High"
+msgstr ""
+
+#: src/sources/wallhaven.blp:12
+msgid "Source"
+msgstr "Bron"
+
+#: src/sources/wallhaven.blp:23
+msgid "deadbeef"
+msgstr "deadbeef"
+
+#: src/sources/wallhaven.blp:46
+msgid "space galaxy"
+msgstr "melkweg"
+
+#: src/sources/wallhaven.blp:53
+msgid "Collection"
+msgstr "Verzameling"
+
+#: src/sources/wallhaven.blp:61
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#: src/sources/wallhaven.blp:63
+msgid "kermit_the_frog"
+msgstr "kermit_de_kikker"
+
+#: src/sources/wallhaven.blp:75
+msgid "Sorting"
+msgstr "Sorteren"
+
+#: src/sources/wallhaven.blp:82
+msgid "Date Added"
+msgstr "Toegevoegd"
+
+#: src/sources/wallhaven.blp:83
+msgid "Relevance"
+msgstr "Relevantie"
+
+#: src/sources/wallhaven.blp:85
+msgid "Views"
+msgstr "Aantal weergaven"
+
+#: src/sources/wallhaven.blp:86
+msgid "Favorites"
+msgstr "Favorieten"
+
+#: src/sources/wallhaven.blp:87
+msgid "Top List"
+msgstr "Toplijst"
+
+#: src/sources/wallhaven.blp:93
+msgid "Sort Order"
+msgstr "Sorteervolgorde"
+
+#: src/sources/wallhaven.blp:97
+msgid "Ascending"
+msgstr "Oplopend"
+
+#: src/sources/wallhaven.blp:98
+msgid "Descending"
+msgstr "Aflopend"
+
+#: src/sources/wallhaven.blp:104
+msgid "Top List Range"
+msgstr "Toplijstbereik"
+
+#: src/sources/wallhaven.blp:108
+msgid "One Day"
+msgstr "Eén dag"
+
+#: src/sources/wallhaven.blp:109
+msgid "Three Days"
+msgstr "Drie dagen"
+
+#: src/sources/wallhaven.blp:110
+msgid "One Week"
+msgstr "Eén week"
+
+#: src/sources/wallhaven.blp:111
+msgid "One Month"
+msgstr "Eén maand"
+
+#: src/sources/wallhaven.blp:112
+msgid "Three Months"
+msgstr "Drie maanden"
+
+#: src/sources/wallhaven.blp:113
+msgid "Six Months"
+msgstr "Zes maanden"
+
+#: src/sources/wallhaven.blp:114
+msgid "One Year"
+msgstr "Eén jaar"
+
+#: src/sources/wallhaven.blp:121
+msgid "Filtering"
+msgstr "Filteren"
+
+#: src/sources/wallhaven.blp:124
+msgid "Color"
+msgstr "Kleur"
+
+#: src/sources/wallhaven.blp:141
+msgid "Categories"
+msgstr "Categorieën"
+
+#: src/sources/wallhaven.blp:153
+msgid "Anime"
+msgstr "Anime"
+
+#: src/sources/wallhaven.blp:162
+msgid "People"
+msgstr "Mensen"
+
+#: src/sources/wallhaven.blp:172
+msgid "Purity"
+msgstr "Zedelijkheid"
+
+#: src/sources/wallhaven.blp:175
+msgid "Safe for Work"
+msgstr "Geschikt voor werk"
+
+#: src/sources/wallhaven.blp:184
+msgid "Sketchy"
+msgstr "Schunnig"
+
+#: src/sources/wallhaven.blp:193
+msgid "Not Safe for Work"
+msgstr "Ongeschikt voor werk"
+
+#: src/sources/wallhaven.blp:194
+msgid "An API key is required to access not safe for work content"
+msgstr "Voor het tonen van NSFW-inhoud is een api-sleutel vereist"
+
+#: src/sources/wallhaven.vala:433
+msgid "<tt>tagname</tt>"
+msgstr "<tt>tagnaam</tt>"
+
+#: src/sources/wallhaven.vala:433
+msgid "search fuzzily for a tag/keyword"
+msgstr "zoeken op tag/trefwoord"
+
+#: src/sources/wallhaven.vala:434
+msgid "<tt>-tagname</tt>"
+msgstr "<tt>-tagnaam</tt>"
+
+#: src/sources/wallhaven.vala:434
+msgid "exclude a tag/keyword"
+msgstr "tag/trefwoord uitsluiten"
+
+#: src/sources/wallhaven.vala:435
+msgid "<tt>+tag1 +tag2</tt>"
+msgstr "<tt>+tag1 +tag2</tt>"
+
+#: src/sources/wallhaven.vala:435
+msgid "must have tag1 and tag2"
+msgstr "dient tag1 en tag2 te bevatten"
+
+#: src/sources/wallhaven.vala:436
+msgid "<tt>+tag1 -tag2</tt>"
+msgstr "<tt>+tag1 -tag2</tt>"
+
+#: src/sources/wallhaven.vala:436
+msgid "must have tag1 and NOT tag2"
+msgstr "dient tag1 maar NIET tag2 te bevatten"
+
+#: src/sources/wallhaven.vala:437
+msgid "<tt>@username</tt>"
+msgstr "<tt>@gebruikersnaam</tt>"
+
+#: src/sources/wallhaven.vala:437
+msgid "user uploads"
+msgstr "gebruikersuploads"
+
+#: src/sources/wallhaven.vala:438
+msgid "<tt>id:123</tt>"
+msgstr "<tt>id:123</tt>"
+
+#: src/sources/wallhaven.vala:438
+msgid "Exact tag search (can not be combined)"
+msgstr "Nauwkeurig zoeken op tag (kan niet worden gecombineerd)"
+
+#: src/sources/wallhaven.vala:439
+msgid "<tt>type:{png/jpg}</tt>"
+msgstr "<tt>type:{png/jpg}</tt>"
+
+#: src/sources/wallhaven.vala:439
+msgid "Search for file type (jpg = jpeg)"
+msgstr "Zoeken op bestandstype (jpg = jpeg)"
+
+#: src/sources/wallhaven.vala:440
+msgid "<tt>like:wallpaper ID</tt>"
+msgstr "<tt>like:achtergrond-id</tt>"
+
+#: src/sources/wallhaven.vala:440
+msgid "Find wallpapers with similar tags"
+msgstr "Zoeken naar achtergronden met vergelijkbare tags"
+
+#~ msgid "_Select"
+#~ msgstr "_Kiezen"
+
+#~ msgid "_Cancel"
+#~ msgstr "_Annuleren"
