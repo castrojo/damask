@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: damask\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-15 23:01-0400\n"
-"PO-Revision-Date: 2023-02-18 21:38+0000\n"
+"PO-Revision-Date: 2023-06-20 18:47+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/damask/damask/nl/"
-">\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/damask/damask/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.18.1\n"
 
 #: data/app.drey.Damask.desktop.in.in:3
 #: data/app.drey.Damask.metainfo.xml.in.in:5 src/window.blp:23
@@ -62,28 +62,29 @@ msgstr "Unsplash"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:45
 msgid "Updated UI, using a list of sources and preference pages"
-msgstr ""
+msgstr "Nieuw: er wordt nu een lijst met bronnen en voorkeuren getoond"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:46
 msgid "Added Google EarthView as a new source"
-msgstr ""
+msgstr "Nieuw: Google EarthView-bron"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:47
 msgid "Updated minimal GTK version to 4.10 and fixed deprecation notices"
-msgstr ""
+msgstr "Bijgewerkt: minimale GTK-versie naar 4.10 en verouderingsmeldingen"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:54
 msgid "Fixed an issue initializing translations"
-msgstr ""
+msgstr "Opgelost: probleem omtrent het laden van vertalingen"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:55
 msgid "Report errors as a window toast"
-msgstr ""
+msgstr "Nieuw: meld foutmeldingen via een melding"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:56
-#, fuzzy
 msgid "Fixed a crash in the Unsplash source using the wrong settings key name"
-msgstr "Opgelost: probleem met de Unsplash-instellingen ‘ncontent_filter’"
+msgstr ""
+"Opgelost: probleem met de Unsplash-instellingen wegens een verkeerde "
+"sleutelnaam"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:63
 msgid "Added French and Dutch translations"
@@ -109,7 +110,7 @@ msgstr "Gewijzigd: de standaard ververstussenpoos is voortaan 15 minuten"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:68
 msgid "Fix a crash when disabling autostart"
-msgstr ""
+msgstr "Opgelost: crash na het uitschakelen van automatisch opstarten"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:75
 msgid "Add \"wallpaper\" keyword to desktop file"
@@ -129,30 +130,30 @@ msgstr ""
 
 #: src/application.vala:202
 msgid "Unable to set wallpaper"
-msgstr ""
+msgstr "Achtergrond instellen mislukt"
 
 #: src/application.vala:205
 #, c-format
 msgid "Unable to set wallpaper: %s"
-msgstr ""
+msgstr "De achtergrond kan niet worden ingesteld: %s"
 
 #: src/application.vala:246
 msgid "Unable to activate autostart"
-msgstr ""
+msgstr "Automatisch opstarten mislukt"
 
 #: src/application.vala:249
 #, c-format
 msgid "Unable to activate autostart: %s"
-msgstr ""
+msgstr "Automatisch opstarten kan niet worden ingeschakeld: %s"
 
 #: src/application.vala:262
 msgid "Unable to deactivate autostart"
-msgstr ""
+msgstr "Automatisch opstarten mislukt"
 
 #: src/application.vala:265
 #, c-format
 msgid "Unable to deactivate autostart: %s"
-msgstr ""
+msgstr "Automatisch opstarten kan niet worden uitgeschakeld: %s"
 
 #: src/preferences.blp:10
 msgid "Refresh interval"
@@ -207,23 +208,20 @@ msgid "General"
 msgstr "Algemeen"
 
 #: src/shortcuts.blp:14
-#, fuzzy
 msgid "Show Shortcuts"
-msgstr "_Sneltoetsen"
+msgstr "Sneltoetsen tonen"
 
 #: src/shortcuts.blp:19
-#, fuzzy
 msgid "Refresh Wallpaper"
-msgstr "Vernieuwen, iedere"
+msgstr "Achtergrond vernieuwen"
 
 #: src/shortcuts.blp:24
-#, fuzzy
 msgid "Quit"
-msgstr "_Afsluiten"
+msgstr "Afsluiten"
 
 #: src/window.blp:46
 msgid "Manual"
-msgstr ""
+msgstr "Zelfgekozen"
 
 #: src/window.blp:47
 msgid "Use a manually selected image as the wallpaper"
@@ -238,18 +236,16 @@ msgid "Use the contents of a folder as the wallpaper"
 msgstr "Toon meerdere afbeeldingen uit een map"
 
 #: src/window.blp:74
-#, fuzzy
 msgid "Bing Wallpaper"
-msgstr "wallpaper;achtergrond;"
+msgstr "Bing-achtergrond"
 
 #: src/window.blp:75
 msgid "Use Microsoft Bing's wallpaper of the day"
 msgstr "Toon Microsoft Bings achtergrond van de dag"
 
 #: src/window.blp:88
-#, fuzzy
 msgid "Wallhaven"
-msgstr "wallhaven.cc"
+msgstr "Wallhaven"
 
 #: src/window.blp:89
 msgid "Get wallpapers from wallhaven.cc"
@@ -257,20 +253,19 @@ msgstr "Toon achtergronden van wallhaven.cc"
 
 #: src/window.blp:103
 msgid "Each day a different image or photograph of our fascinating universe"
-msgstr ""
+msgstr "Elke dag een andere afbeelding of foto van ons fascinerende universum"
 
 #: src/window.blp:117
-#, fuzzy
 msgid "Get wallpapers from unsplash.com"
-msgstr "Toon achtergronden van wallhaven.cc"
+msgstr "Toon achtergronden van unsplash.com"
 
 #: src/window.blp:130
 msgid "Google Earth View"
-msgstr ""
+msgstr "Google Earth View"
 
 #: src/window.blp:131
 msgid "Use images from Google Earth View"
-msgstr ""
+msgstr "Toon achtergronden van Google Earth View"
 
 #: src/window.blp:228
 msgid "_Preferences"
@@ -291,11 +286,11 @@ msgstr "_Afsluiten"
 #: src/window.vala:150
 #, c-format
 msgid "Unable to open URL: %s"
-msgstr ""
+msgstr "De url kan niet worden geopend: %s"
 
 #: src/sources/apod.blp:12
 msgid "Search"
-msgstr ""
+msgstr "Zoeken"
 
 #: src/sources/apod.blp:15 src/sources/unsplash.blp:13
 #: src/sources/wallhaven.blp:19
@@ -305,7 +300,7 @@ msgstr "Api-sleutel"
 #: src/sources/apod.vala:89 src/sources/earthview.vala:86
 #, c-format
 msgid "Failed to get image: %s"
-msgstr ""
+msgstr "De afbeelding kan niet worden opgehaald: %s"
 
 #: src/sources/bing.blp:13
 msgid "Market"
@@ -363,7 +358,7 @@ msgstr "Resolutie"
 #: src/sources/wallhaven.vala:285
 #, c-format
 msgid "Failed to get wallpaper: %s"
-msgstr ""
+msgstr "De achtergrond kan niet worden opgehaald: %s"
 
 #: src/sources/earthview.blp:13 src/sources/slideshow.blp:24
 #: src/sources/wallhaven.blp:78
@@ -377,10 +372,9 @@ msgstr "Willekeurig"
 
 #: src/sources/earthview.blp:17
 msgid "Sequential"
-msgstr ""
+msgstr "Reeks"
 
 #: src/sources/manual.blp:13
-#, fuzzy
 msgid "Choose Picture"
 msgstr "Kies een afbeelding"
 
@@ -403,12 +397,12 @@ msgstr "Aanmaakdatum"
 #: src/sources/slideshow.vala:109
 #, c-format
 msgid "Failed to get folder contents: %s"
-msgstr ""
+msgstr "De mapinhoud kan niet worden opgehaald: %s"
 
 #: src/sources/slideshow.vala:144
 #, c-format
 msgid "Unable to watch folder for changes: %s"
-msgstr ""
+msgstr "De map kan niet worden bijgehouden: %s"
 
 #: src/sources/slideshow.vala:172
 msgid "Select Folder"
@@ -421,7 +415,7 @@ msgstr "Zoekopdracht"
 
 #: src/sources/unsplash.blp:18
 msgid "Limit selection to photos matching a search term"
-msgstr ""
+msgstr "Resultaten beperken tot foto's die overeenkomen met zoekterm"
 
 #: src/sources/unsplash.blp:22 src/sources/wallhaven.blp:69
 msgid "Collections"
@@ -429,27 +423,27 @@ msgstr "Verzamelingen"
 
 #: src/sources/unsplash.blp:23
 msgid "Public collection IDs to filter selection (comma-separated)"
-msgstr ""
+msgstr "Openbare verzamelingid's om de selectie te filteren (kommagescheiden)"
 
 #: src/sources/unsplash.blp:27
 msgid "Topics"
-msgstr ""
+msgstr "Onderwerpen"
 
 #: src/sources/unsplash.blp:28
 msgid "Public topic IDs to filter selection (comma-separated)"
-msgstr ""
+msgstr "Openbare onderwerpid's om de selectie te filteren (kommagescheiden)"
 
 #: src/sources/unsplash.blp:32
 msgid "Content Filter"
-msgstr ""
+msgstr "Inhoudsfilter"
 
 #: src/sources/unsplash.blp:36
 msgid "Low"
-msgstr ""
+msgstr "Laag"
 
 #: src/sources/unsplash.blp:37
 msgid "High"
-msgstr ""
+msgstr "Hoog"
 
 #: src/sources/wallhaven.blp:12
 msgid "Source"
