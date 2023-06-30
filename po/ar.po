@@ -8,52 +8,56 @@ msgstr ""
 "Project-Id-Version: damask\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-15 22:57-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-07-01 09:52+0000\n"
+"Last-Translator: hasna pasha <bashahsn22@gmail.com>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/damask/damask/ar/>"
+"\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/app.drey.Damask.desktop.in.in:3
 #: data/app.drey.Damask.metainfo.xml.in.in:5 src/window.blp:23
 msgid "Damask"
-msgstr ""
+msgstr "Damask"
 
 #: data/app.drey.Damask.desktop.in.in:10
 msgid "wallpaper;"
-msgstr ""
+msgstr "خلفية;"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:26
 msgid "Link Dupont"
-msgstr ""
+msgstr "اربط Dupont"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:27
 msgid "Automatically set wallpaper images from Internet sources"
-msgstr ""
+msgstr "تعيين الخلفية تلقائيا من الانترنت"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:29
 msgid ""
 "Damask is an automatic wallpaper application. It currently supports setting "
 "the wallpaper image from the following sources:"
-msgstr ""
+msgstr "‬Damask هو تطبيق خلفيات. حالياً يدعم تعيين الخلفية من المصادر التالية:"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:31
 msgid "wallhaven.cc"
-msgstr ""
+msgstr "wallhaven.cc"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:32
 msgid "Microsoft Bing Wallpaper of the day"
-msgstr ""
+msgstr "ميكروسوفت بينج خلفية اليوم"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:33 src/window.blp:102
 msgid "NASA Astronomy Picture of the Day"
-msgstr ""
+msgstr "ناسا صورة اليوم"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:34 src/window.blp:116
 msgid "Unsplash"
-msgstr ""
+msgstr "أونسبلاش"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:45
 msgid "Updated UI, using a list of sources and preference pages"
@@ -61,7 +65,7 @@ msgstr ""
 
 #: data/app.drey.Damask.metainfo.xml.in.in:46
 msgid "Added Google EarthView as a new source"
-msgstr ""
+msgstr "تم إضافة جوجل ايرث فيو كمصدر جديد"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:47
 msgid "Updated minimal GTK version to 4.10 and fixed deprecation notices"
