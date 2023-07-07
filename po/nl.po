@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: damask\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-15 23:01-0400\n"
-"PO-Revision-Date: 2023-06-20 18:47+0000\n"
-"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"PO-Revision-Date: 2023-07-08 07:51+0000\n"
+"Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/damask/damask/nl/>"
 "\n"
 "Language: nl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18.1\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/app.drey.Damask.desktop.in.in:3
 #: data/app.drey.Damask.metainfo.xml.in.in:5 src/window.blp:23
@@ -41,8 +41,8 @@ msgid ""
 "Damask is an automatic wallpaper application. It currently supports setting "
 "the wallpaper image from the following sources:"
 msgstr ""
-"Damask is een toepassing die automatisch achtergronden instelt. Momenteel "
-"ondersteunt deze de volgende bronnen:"
+"Damask is een app voor het automatisch instellen van achtergronden. "
+"Momenteel ondersteunt deze de volgende bronnen:"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:31
 msgid "wallhaven.cc"
@@ -139,7 +139,7 @@ msgstr "De achtergrond kan niet worden ingesteld: %s"
 
 #: src/application.vala:246
 msgid "Unable to activate autostart"
-msgstr "Automatisch opstarten mislukt"
+msgstr "Automatisch opstarten activeren mislukt"
 
 #: src/application.vala:249
 #, c-format
@@ -148,7 +148,7 @@ msgstr "Automatisch opstarten kan niet worden ingeschakeld: %s"
 
 #: src/application.vala:262
 msgid "Unable to deactivate autostart"
-msgstr "Automatisch opstarten mislukt"
+msgstr "Automatisch opstarten deactiveren mislukt"
 
 #: src/application.vala:265
 #, c-format
@@ -571,7 +571,7 @@ msgstr "Schunnig"
 
 #: src/sources/wallhaven.blp:193
 msgid "Not Safe for Work"
-msgstr "Ongeschikt voor werk"
+msgstr "Ongeschikt voor werk (NSFW)"
 
 #: src/sources/wallhaven.blp:194
 msgid "An API key is required to access not safe for work content"
