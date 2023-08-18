@@ -9,6 +9,14 @@ template DamaskWallpaperPreview : Gtk.Box {
     child: Gtk.Overlay {
       child: Gtk.Stack stack {
         transition-type: crossfade;
+        Gtk.StackPage placeholder {
+          name: "placeholder";
+          child: Adw.StatusPage {
+            icon-name: "image-missing-symbolic";
+            height-request: 200;
+            width-request: 300;
+          };
+        }
         Gtk.StackPage page1 {
           name: "page1";
           child: Gtk.Picture picture1 {
@@ -32,7 +40,7 @@ template DamaskWallpaperPreview : Gtk.Box {
       };
 
       [overlay]
-      Gtk.Button {
+      Gtk.Button open_url {
         styles ["opaque", "circular"]
         halign: end;
         valign: end;
@@ -40,6 +48,7 @@ template DamaskWallpaperPreview : Gtk.Box {
         margin-end: 12;
         icon-name: "adw-external-link-symbolic";
         action-name: "win.open-url";
+        visible: false;
       }
     };
   }

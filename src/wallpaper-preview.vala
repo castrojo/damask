@@ -26,6 +26,7 @@ namespace Damask {
         [GtkChild] private unowned Gtk.Picture picture2;
         [GtkChild] private unowned Gtk.Label title;
         [GtkChild] private unowned Gtk.Label description;
+        [GtkChild] private unowned Gtk.Button open_url;
 
         private WallpaperSource? _source;
         public string source {
@@ -56,6 +57,8 @@ namespace Damask {
         private async void refresh_source_async () {
             debug (@"[%p] $(this.get_type().name()).refresh_source_async", this);
             yield this.refresh_picture ();
+
+            this.open_url.visible = this._source.current_wallpaper.web_url != null;
 
             this.title.visible = this._source.current_wallpaper.title != null;
             if (this._source.current_wallpaper.title != null) {
