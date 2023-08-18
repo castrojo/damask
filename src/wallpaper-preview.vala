@@ -82,20 +82,21 @@ namespace Damask {
             debug (@"[%p] $(this.get_type().name()).refresh_picture", this);
             try {
                 Uri uri = Uri.parse (this._source.current_wallpaper.thumbnail_url, UriFlags.NONE);
-                switch (uri.get_scheme()) {
-                    case "file":
-                        string uri_string = uri.to_string ();
-                        File file = File.new_for_uri (uri_string);
-                        Gdk.Texture texture = Gdk.Texture.from_file (file);
-                        this.set_paintable_swap (texture);
-                        break;
-                    default:
-                        Soup.Session session = new Soup.Session ();
-                        Soup.Message msg = new Soup.Message ("GET", uri.to_string ());
-                        Bytes body = yield session.send_and_read_async (msg, 0, null);
-                        Gdk.Texture texture = Gdk.Texture.from_bytes (body);
-                        this.set_paintable_swap (texture);
-                        break;
+                switch (uri.get_scheme ()) {
+                case "file":
+                    string uri_string = uri.to_string ();
+                    File file = File.new_for_uri (uri_string);
+                    Gdk.Texture texture = Gdk.Texture.from_file (file);
+                    this.set_paintable_swap (texture);
+                    break;
+                default:
+                    Soup.Session session = new Soup.Session ();
+                    Soup.Message msg = new Soup.Message ("GET", uri.to_string ());
+                    Bytes body = yield session.send_and_read_async (msg, 0, null);
+
+                    Gdk.Texture texture = Gdk.Texture.from_bytes (body);
+                    this.set_paintable_swap (texture);
+                    break;
                 }
             } catch (Error e) {
                 message (e.message);
