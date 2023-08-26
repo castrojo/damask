@@ -58,16 +58,21 @@ namespace Damask {
             debug (@"[%p] $(this.get_type().name()).refresh_source_async", this);
             yield this.refresh_picture ();
 
-            this.open_url.visible = this._source.current_wallpaper.web_url != null;
+            if (this._source.current_wallpaper != null) {
+                this.open_url.visible = this._source.current_wallpaper.web_url != null;
 
-            this.title.visible = this._source.current_wallpaper.title != null;
-            if (this._source.current_wallpaper.title != null) {
-                this.title.set_markup (this._source.current_wallpaper.title);
-            }
+                this.title.visible = this._source.current_wallpaper.title != null;
+                if (this._source.current_wallpaper.title != null) {
+                    this.title.set_markup (this._source.current_wallpaper.title);
+                }
 
-            this.description.visible = this._source.current_wallpaper.description != null;
-            if (this._source.current_wallpaper.description != null) {
-                this.description.set_markup (this._source.current_wallpaper.description);
+                this.description.visible = this._source.current_wallpaper.description != null;
+                if (this._source.current_wallpaper.description != null) {
+                    this.description.set_markup (this._source.current_wallpaper.description);
+                }
+            } else {
+                this.stack.set_visible_child_name ("placeholder");
+                this.open_url.visible = false;
             }
         }
 
@@ -84,22 +89,24 @@ namespace Damask {
         private async void refresh_picture () {
             debug (@"[%p] $(this.get_type().name()).refresh_picture", this);
             try {
-                Uri uri = Uri.parse (this._source.current_wallpaper.thumbnail_url, UriFlags.NONE);
-                switch (uri.get_scheme ()) {
-                case "file":
-                    string uri_string = uri.to_string ();
-                    File file = File.new_for_uri (uri_string);
-                    Gdk.Texture texture = Gdk.Texture.from_file (file);
-                    this.set_paintable_swap (texture);
-                    break;
-                default:
-                    Soup.Session session = new Soup.Session ();
-                    Soup.Message msg = new Soup.Message ("GET", uri.to_string ());
-                    Bytes body = yield session.send_and_read_async (msg, 0, null);
+                if (this._source.current_wallpaper != null) {
+                    Uri uri = Uri.parse (this._source.current_wallpaper.thumbnail_url, UriFlags.NONE);
+                    switch (uri.get_scheme ()) {
+                    case "file":
+                        string uri_string = uri.to_string ();
+                        File file = File.new_for_uri (uri_string);
+                        Gdk.Texture texture = Gdk.Texture.from_file (file);
+                        this.set_paintable_swap (texture);
+                        break;
+                    default:
+                        Soup.Session session = new Soup.Session ();
+                        Soup.Message msg = new Soup.Message ("GET", uri.to_string ());
+                        Bytes body = yield session.send_and_read_async (msg, 0, null);
 
-                    Gdk.Texture texture = Gdk.Texture.from_bytes (body);
-                    this.set_paintable_swap (texture);
-                    break;
+                        Gdk.Texture texture = Gdk.Texture.from_bytes (body);
+                        this.set_paintable_swap (texture);
+                        break;
+                    }
                 }
             } catch (Error e) {
                 message (e.message);
