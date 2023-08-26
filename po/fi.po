@@ -8,52 +8,57 @@ msgstr ""
 "Project-Id-Version: damask\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-15 22:57-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-08-27 09:01+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/damask/damask/fi/"
+">\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: data/app.drey.Damask.desktop.in.in:3
 #: data/app.drey.Damask.metainfo.xml.in.in:5 src/window.blp:23
 msgid "Damask"
-msgstr ""
+msgstr "Damask"
 
 #: data/app.drey.Damask.desktop.in.in:10
 msgid "wallpaper;"
-msgstr ""
+msgstr "wallpaper;taustakuva;"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:26
 msgid "Link Dupont"
-msgstr ""
+msgstr "Link Dupont"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:27
 msgid "Automatically set wallpaper images from Internet sources"
-msgstr ""
+msgstr "Aseta taustakuva automaattisesti Internetin eri lähteistä"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:29
 msgid ""
 "Damask is an automatic wallpaper application. It currently supports setting "
 "the wallpaper image from the following sources:"
 msgstr ""
+"Damaskilla voit asettaa taustakuvan automaattisesti. Se tukee taustakuvan "
+"asettamista seuraavista lähteistä:"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:31
 msgid "wallhaven.cc"
-msgstr ""
+msgstr "wallhaven.cc"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:32
 msgid "Microsoft Bing Wallpaper of the day"
-msgstr ""
+msgstr "Microsoft Bingin päivän taustakuva"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:33 src/window.blp:102
 msgid "NASA Astronomy Picture of the Day"
-msgstr ""
+msgstr "NASA-astronomian päivän kuva"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:34 src/window.blp:116
 msgid "Unsplash"
-msgstr ""
+msgstr "Unsplash"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:45
 msgid "Updated UI, using a list of sources and preference pages"
@@ -119,452 +124,454 @@ msgstr ""
 
 #: src/application.vala:202
 msgid "Unable to set wallpaper"
-msgstr ""
+msgstr "Taustakuvan asettaminen ei onnistunut"
 
 #: src/application.vala:205
 #, c-format
 msgid "Unable to set wallpaper: %s"
-msgstr ""
+msgstr "Taustakuvan asettaminen ei onnistunut: %s"
 
 #: src/application.vala:246
 msgid "Unable to activate autostart"
-msgstr ""
+msgstr "Automaattisen käynnistyksen aktivointi ei onnistunut"
 
 #: src/application.vala:249
 #, c-format
 msgid "Unable to activate autostart: %s"
-msgstr ""
+msgstr "Automaattisen käynnistyksen aktivointi ei onnistunut: %s"
 
 #: src/application.vala:262
 msgid "Unable to deactivate autostart"
-msgstr ""
+msgstr "Automaattisen käynnistyksen poistaminen käytöstä ei onnistunut"
 
 #: src/application.vala:265
 #, c-format
 msgid "Unable to deactivate autostart: %s"
-msgstr ""
+msgstr "Automaattisen käynnistyksen poistaminen käytöstä ei onnistunut: %s"
 
 #: src/preferences.blp:10
 msgid "Refresh interval"
-msgstr ""
+msgstr "Päivitysväli"
 
 #: src/preferences.blp:14
 msgid "30 seconds"
-msgstr ""
+msgstr "30 sekuntia"
 
 #: src/preferences.blp:15
 msgid "1 minute"
-msgstr ""
+msgstr "1 minuutti"
 
 #: src/preferences.blp:16
 msgid "5 minutes"
-msgstr ""
+msgstr "5 minuuttia"
 
 #: src/preferences.blp:17
 msgid "15 minutes"
-msgstr ""
+msgstr "15 minuuttia"
 
 #: src/preferences.blp:18
 msgid "30 minutes"
-msgstr ""
+msgstr "30 minuuttia"
 
 #: src/preferences.blp:19
 msgid "1 hour"
-msgstr ""
+msgstr "1 tunti"
 
 #: src/preferences.blp:20
 msgid "6 hours"
-msgstr ""
+msgstr "6 tuntia"
 
 #: src/preferences.blp:21
 msgid "12 hours"
-msgstr ""
+msgstr "12 tuntia"
 
 #: src/preferences.blp:22
 msgid "24 hours"
-msgstr ""
+msgstr "24 tuntia"
 
 #: src/preferences.blp:27
 msgid "Run in background"
-msgstr ""
+msgstr "Suorita taustalla"
 
 #: src/preferences.blp:34
 msgid "Start automatically upon login"
-msgstr ""
+msgstr "Käynnistä kirjautumisen yhteydessä"
 
 #: src/shortcuts.blp:11 src/sources/wallhaven.blp:144
 msgid "General"
-msgstr ""
+msgstr "Yleiset"
 
 #: src/shortcuts.blp:14
 msgid "Show Shortcuts"
-msgstr ""
+msgstr "Näytä pikanäppäimet"
 
 #: src/shortcuts.blp:19
 msgid "Refresh Wallpaper"
-msgstr ""
+msgstr "Päivitä taustakuva"
 
 #: src/shortcuts.blp:24
 msgid "Quit"
-msgstr ""
+msgstr "Lopeta"
 
 #: src/window.blp:46
 msgid "Manual"
-msgstr ""
+msgstr "Manuaalisesti"
 
 #: src/window.blp:47
 msgid "Use a manually selected image as the wallpaper"
-msgstr ""
+msgstr "Käytä itse valittua kuvaa taustakuvana"
 
 #: src/window.blp:60
 msgid "Slideshow"
-msgstr ""
+msgstr "Diaesitys"
 
 #: src/window.blp:61
 msgid "Use the contents of a folder as the wallpaper"
-msgstr ""
+msgstr "Käytä kansion sisältöä taustakuvana"
 
 #: src/window.blp:74
 msgid "Bing Wallpaper"
-msgstr ""
+msgstr "Bing-taustakuva"
 
 #: src/window.blp:75
 msgid "Use Microsoft Bing's wallpaper of the day"
-msgstr ""
+msgstr "Käytä Microsoft Bingin päivän taustakuvaa"
 
 #: src/window.blp:88
 msgid "Wallhaven"
-msgstr ""
+msgstr "Wallhaven"
 
 #: src/window.blp:89
 msgid "Get wallpapers from wallhaven.cc"
-msgstr ""
+msgstr "Hae taustakuvia wallhaven.cc:stä"
 
 #: src/window.blp:103
 msgid "Each day a different image or photograph of our fascinating universe"
-msgstr ""
+msgstr "Päivittäin eri kuva tai valokuva kiehtovasta maailmankaikkeudesta"
 
 #: src/window.blp:117
 msgid "Get wallpapers from unsplash.com"
-msgstr ""
+msgstr "Hae taustakuvia unsplash.comista"
 
 #: src/window.blp:130
 msgid "Google Earth View"
-msgstr ""
+msgstr "Google Earth View"
 
 #: src/window.blp:131
 msgid "Use images from Google Earth View"
-msgstr ""
+msgstr "Käytä kuvia Google Earth View'stä"
 
 #: src/window.blp:228
 msgid "_Preferences"
-msgstr ""
+msgstr "_Asetukset"
 
 #: src/window.blp:233
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "_Pikanäppäimet"
 
 #: src/window.blp:238
 msgid "_About Damask"
-msgstr ""
+msgstr "_Tietoja - Damask"
 
 #: src/window.blp:243
 msgid "_Quit"
-msgstr ""
+msgstr "_Lopeta"
 
 #: src/window.vala:150
 #, c-format
 msgid "Unable to open URL: %s"
-msgstr ""
+msgstr "Verkko-osoitetta ei voitu avata: %s"
 
 #: src/sources/apod.blp:12
 msgid "Search"
-msgstr ""
+msgstr "Etsi"
 
 #: src/sources/apod.blp:15 src/sources/unsplash.blp:13
 #: src/sources/wallhaven.blp:19
 msgid "API Key"
-msgstr ""
+msgstr "Rajapinta-avain"
 
 #: src/sources/apod.vala:89 src/sources/earthview.vala:86
 #, c-format
 msgid "Failed to get image: %s"
-msgstr ""
+msgstr "Kuvan nouto epäonnistui: %s"
 
 #: src/sources/bing.blp:13
 msgid "Market"
-msgstr ""
+msgstr "Kohdealue"
 
 #: src/sources/bing.blp:17
 msgid "English (United States)"
-msgstr ""
+msgstr "Englanti (Yhdysvallat)"
 
 #: src/sources/bing.blp:18
 msgid "Chinese (Simplified)"
-msgstr ""
+msgstr "Kiina (yksinkertaistettu)"
 
 #: src/sources/bing.blp:19
 msgid "Japanese (Japan)"
-msgstr ""
+msgstr "Japani (Japani)"
 
 #: src/sources/bing.blp:20
 msgid "English (Australia)"
-msgstr ""
+msgstr "Englanti (Australia)"
 
 #: src/sources/bing.blp:21
 msgid "English (United Kingdom)"
-msgstr ""
+msgstr "Englanti (Yhdistynyt kuningaskunta)"
 
 #: src/sources/bing.blp:22
 msgid "German (Germany)"
-msgstr ""
+msgstr "Saksa (Saksa)"
 
 #: src/sources/bing.blp:23
 msgid "English (New Zealand)"
-msgstr ""
+msgstr "Englanti (Uusi-Seelanti)"
 
 #: src/sources/bing.blp:24
 msgid "English (Canada)"
-msgstr ""
+msgstr "Englanti (Kanada)"
 
 #: src/sources/bing.blp:25
 msgid "English (India)"
-msgstr ""
+msgstr "Englanti (Intia)"
 
 #: src/sources/bing.blp:26
 msgid "French (France)"
-msgstr ""
+msgstr "Ranska (Ranska)"
 
 #: src/sources/bing.blp:27
 msgid "French (Canada)"
-msgstr ""
+msgstr "Ranska (Kanada)"
 
 #: src/sources/bing.blp:33
 msgid "Resolution"
-msgstr ""
+msgstr "Tarkkuus"
 
 #: src/sources/bing.vala:88 src/sources/unsplash.vala:99
 #: src/sources/wallhaven.vala:285
 #, c-format
 msgid "Failed to get wallpaper: %s"
-msgstr ""
+msgstr "Taustakuvan saaminen epäonnistui: %s"
 
 #: src/sources/earthview.blp:13 src/sources/slideshow.blp:24
 #: src/sources/wallhaven.blp:78
 msgid "Sort By"
-msgstr ""
+msgstr "Järjestysperuste"
 
 #: src/sources/earthview.blp:16 src/sources/slideshow.blp:27
 #: src/sources/wallhaven.blp:84
 msgid "Random"
-msgstr ""
+msgstr "Satunnainen"
 
 #: src/sources/earthview.blp:17
 msgid "Sequential"
-msgstr ""
+msgstr "Peräkkäinen"
 
 #: src/sources/manual.blp:13
 msgid "Choose Picture"
-msgstr ""
+msgstr "Valitse kuva"
 
 #: src/sources/manual.vala:71
 msgid "Select Picture"
-msgstr ""
+msgstr "Valitse kuva"
 
 #: src/sources/slideshow.blp:13
 msgid "Choose Folder"
-msgstr ""
+msgstr "Valitse kansio"
 
 #: src/sources/slideshow.blp:28
 msgid "Name"
-msgstr ""
+msgstr "Nimi"
 
 #: src/sources/slideshow.blp:29
 msgid "Creation Date"
-msgstr ""
+msgstr "Luontipäivä"
 
 #: src/sources/slideshow.vala:109
 #, c-format
 msgid "Failed to get folder contents: %s"
-msgstr ""
+msgstr "Kansion sisällön saaminen epäonnistui: %s"
 
 #: src/sources/slideshow.vala:144
 #, c-format
 msgid "Unable to watch folder for changes: %s"
-msgstr ""
+msgstr "Kansion muutoksia ei voi tarkkailla: %s"
 
 #: src/sources/slideshow.vala:172
 msgid "Select Folder"
-msgstr ""
+msgstr "Valitse kansio"
 
 #: src/sources/unsplash.blp:17 src/sources/wallhaven.blp:29
 #: src/sources/wallhaven.blp:37
 msgid "Query"
-msgstr ""
+msgstr "Kysely"
 
 #: src/sources/unsplash.blp:18
 msgid "Limit selection to photos matching a search term"
-msgstr ""
+msgstr "Rajoita kuvien vastaavuutta hakuehtoon"
 
 #: src/sources/unsplash.blp:22 src/sources/wallhaven.blp:69
 msgid "Collections"
-msgstr ""
+msgstr "Kokoelmat"
 
 #: src/sources/unsplash.blp:23
 msgid "Public collection IDs to filter selection (comma-separated)"
 msgstr ""
+"Julkisten kokoelmien ID-tunnisteet valinnan suodattanmiseksi (erota pilkuin)"
 
 #: src/sources/unsplash.blp:27
 msgid "Topics"
-msgstr ""
+msgstr "Aiheet"
 
 #: src/sources/unsplash.blp:28
 msgid "Public topic IDs to filter selection (comma-separated)"
 msgstr ""
+"Julkisten aiheiden ID-tunnisteet valinnan suodattamiseksi (erota pilkuin)"
 
 #: src/sources/unsplash.blp:32
 msgid "Content Filter"
-msgstr ""
+msgstr "SIsältösuodatin"
 
 #: src/sources/unsplash.blp:36
 msgid "Low"
-msgstr ""
+msgstr "Matala"
 
 #: src/sources/unsplash.blp:37
 msgid "High"
-msgstr ""
+msgstr "Korkea"
 
 #: src/sources/wallhaven.blp:12
 msgid "Source"
-msgstr ""
+msgstr "Lähde"
 
 #: src/sources/wallhaven.blp:23
 msgid "deadbeef"
-msgstr ""
+msgstr "deadbeef"
 
 #: src/sources/wallhaven.blp:46
 msgid "space galaxy"
-msgstr ""
+msgstr "space galaxy"
 
 #: src/sources/wallhaven.blp:53
 msgid "Collection"
-msgstr ""
+msgstr "Kokoelma"
 
 #: src/sources/wallhaven.blp:61
 msgid "Username"
-msgstr ""
+msgstr "Käyttäjätunnus"
 
 #: src/sources/wallhaven.blp:63
 msgid "kermit_the_frog"
-msgstr ""
+msgstr "kermit_the_frog"
 
 #: src/sources/wallhaven.blp:75
 msgid "Sorting"
-msgstr ""
+msgstr "Järjestys"
 
 #: src/sources/wallhaven.blp:82
 msgid "Date Added"
-msgstr ""
+msgstr "Lisäyspäivä"
 
 #: src/sources/wallhaven.blp:83
 msgid "Relevance"
-msgstr ""
+msgstr "Asiaankuuluvuus"
 
 #: src/sources/wallhaven.blp:85
 msgid "Views"
-msgstr ""
+msgstr "Näyttökerrat"
 
 #: src/sources/wallhaven.blp:86
 msgid "Favorites"
-msgstr ""
+msgstr "Suosikit"
 
 #: src/sources/wallhaven.blp:87
 msgid "Top List"
-msgstr ""
+msgstr "Suosituimpien lista"
 
 #: src/sources/wallhaven.blp:93
 msgid "Sort Order"
-msgstr ""
+msgstr "Järjestyssuunta"
 
 #: src/sources/wallhaven.blp:97
 msgid "Ascending"
-msgstr ""
+msgstr "Nouseva"
 
 #: src/sources/wallhaven.blp:98
 msgid "Descending"
-msgstr ""
+msgstr "Laskeva"
 
 #: src/sources/wallhaven.blp:104
 msgid "Top List Range"
-msgstr ""
+msgstr "Suosituimpien listan aikaväli"
 
 #: src/sources/wallhaven.blp:108
 msgid "One Day"
-msgstr ""
+msgstr "Yksi päivä"
 
 #: src/sources/wallhaven.blp:109
 msgid "Three Days"
-msgstr ""
+msgstr "Kolme päivää"
 
 #: src/sources/wallhaven.blp:110
 msgid "One Week"
-msgstr ""
+msgstr "Yksi viikko"
 
 #: src/sources/wallhaven.blp:111
 msgid "One Month"
-msgstr ""
+msgstr "Yksi kuukausi"
 
 #: src/sources/wallhaven.blp:112
 msgid "Three Months"
-msgstr ""
+msgstr "Kolme kuukautta"
 
 #: src/sources/wallhaven.blp:113
 msgid "Six Months"
-msgstr ""
+msgstr "Kuusi kuukautta"
 
 #: src/sources/wallhaven.blp:114
 msgid "One Year"
-msgstr ""
+msgstr "Yksi vuosi"
 
 #: src/sources/wallhaven.blp:121
 msgid "Filtering"
-msgstr ""
+msgstr "Suodatus"
 
 #: src/sources/wallhaven.blp:124
 msgid "Color"
-msgstr ""
+msgstr "Väri"
 
 #: src/sources/wallhaven.blp:141
 msgid "Categories"
-msgstr ""
+msgstr "Luokat"
 
 #: src/sources/wallhaven.blp:153
 msgid "Anime"
-msgstr ""
+msgstr "Anime"
 
 #: src/sources/wallhaven.blp:162
 msgid "People"
-msgstr ""
+msgstr "Ihmiset"
 
 #: src/sources/wallhaven.blp:172
 msgid "Purity"
-msgstr ""
+msgstr "Siisteys"
 
 #: src/sources/wallhaven.blp:175
 msgid "Safe for Work"
-msgstr ""
+msgstr "Turvallinen työympäristössä"
 
 #: src/sources/wallhaven.blp:184
 msgid "Sketchy"
-msgstr ""
+msgstr "Epäilyttävä"
 
 #: src/sources/wallhaven.blp:193
 msgid "Not Safe for Work"
-msgstr ""
+msgstr "Ei turvallinen työympäristöön"
 
 #: src/sources/wallhaven.blp:194
 msgid "An API key is required to access not safe for work content"
-msgstr ""
+msgstr "NSFW-sisältö vaatii rajapinta-avaimen"
 
 #: src/sources/wallhaven.vala:433
 msgid "<tt>tagname</tt>"
