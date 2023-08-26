@@ -377,12 +377,12 @@ namespace Damask.Sources.Wallhaven {
             this.settings.bind("sort-order", sort_order, "selected", SettingsBindFlags.DEFAULT);
 
             this.top_list_range.selected = this.settings.get_enum ("top-list-range");
-            this.top_list_range.sensitive = this.settings.get_string ("sort-by") == "top_list";
+            this.top_list_range.sensitive = this.settings.get_string ("sort-by") == "toplist";
             this.top_list_range.notify["selected"].connect ((pspec) => {
                 this.settings.set_enum ("top-list-range", (int) top_list_range.selected);
             });
             this.settings.changed["sort-by"].connect ((key) => {
-                this.top_list_range.sensitive = this.settings.get_string (key) == "top_list";
+                this.top_list_range.sensitive = this.settings.get_string (key) == "toplist";
             });
 
             this.settings.bind("category-general", category_general, "active", SettingsBindFlags.DEFAULT);
