@@ -39,6 +39,16 @@
   <url type="help">https://gitlab.gnome.org/subpop/damask/-/issues</url>
   <url type="translate">https://gitlab.gnome.org/subpop/damask/-/issues</url>
   <releases>
+    <release date="2023-08-25" version="0.2.1">
+      <description>
+        <ul>
+          <li>Select the source row when setting the active source</li>
+          <li>Switches are set to the correct state when bound to preference values</li>
+          <li>Add a placeholder for empty image previews</li>
+          <li>Wallhaven: correctly set top list range sensitivity when selecting "sort by" option</li>
+        </ul>
+      </description>
+    </release>
     <release date="2023-05-18" version="0.2.0">
       <description>
         <ul>
@@ -88,3 +98,4 @@
     </screenshot>
   </screenshots>
 </component>
+
