@@ -166,29 +166,29 @@ namespace Damask.Sources.Wallhaven {
                         }
                         switch (ratio) {
                             case 13:
-                              aspect = "4:3";
+                              aspect = "4x3";
                               break;
                             case 16:
-                              aspect = "16:10";
+                              aspect = "16x10";
                               break;
                             case 17:
-                              aspect = "16:9";
+                              aspect = "16x9";
                               break;
                             case 23:
-                              aspect = "21:9";
+                              aspect = "21x9";
                               break;
                             case 12:
-                              aspect = "5:4";
+                              aspect = "5x4";
                               break;
                               /* This catches 1.5625 as well (1600x1024) when maybe it shouldn't. */
                             case 15:
-                              aspect = "3:2";
+                              aspect = "3x2";
                               break;
                             case 18:
-                              aspect = "9:5";
+                              aspect = "9x5";
                               break;
                             case 10:
-                              aspect = "1:1";
+                              aspect = "1x1";
                               break;
                         }
                         query_parameters.append(@"ratios=$aspect&");
