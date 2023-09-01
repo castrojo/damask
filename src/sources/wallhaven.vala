@@ -106,6 +106,7 @@ namespace Damask.Sources.Wallhaven {
                 this.current_page = 1;
                 this.current_total = 0;
                 this.seed = "";
+                this.request_refresh ();
             });
         }
 
