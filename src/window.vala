@@ -52,7 +52,6 @@ namespace Damask {
             application.set_accels_for_action ("win.show-help-overlay", {"<primary>question"});
             Action active_source_action = application.settings.create_action ("active-source");
             this.add_action (active_source_action);
-            application.settings.changed["active-source"].connect (this.on_active_source_changed);
 
             if (Constants.APP_ID.contains (".Devel")) {
                 this.add_css_class ("devel");
@@ -103,20 +102,13 @@ namespace Damask {
             return row;
         }
 
-        private void on_active_source_changed (string key) {
-            debug (@"[%p] $(this.get_type().name()).on_active_source_changed", this);
-            Application application = GLib.Application.get_default () as Application;
-            string active_source = application.settings.get_string (key);
-            Adw.ActionRow? row = this._get_active_source_row (active_source);
-            this.sources.select_row (row);
-            this.on_source_list_activated (this.sources, row);
-        }
-
         private void on_source_list_activated (Gtk.ListBox box, Gtk.ListBoxRow row) {
             debug (@"[%p] $(this.get_type().name()).on_source_list_activated", this);
+            Application application = GLib.Application.get_default () as Application;
             if (row != null) {
                 var action_row = row as Adw.ActionRow;
                 this.source_content_stack.set_visible_child_name (action_row.name);
+                application.settings.set_string ("active-source", action_row.name);
                 if (this.leaflet.folded) {
                     this.leaflet.navigate (Adw.NavigationDirection.FORWARD);
                 }

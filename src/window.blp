@@ -6,10 +6,6 @@ template DamaskWindow : Adw.ApplicationWindow {
   default-height: 500;
   title: "Damask";
 
-  Gtk.CheckButton active_source {
-    visible: false;
-  }
-
   Adw.ToastOverlay toast_overlay {
     Adw.Leaflet leaflet {
       can-navigate-back: true;
@@ -46,13 +42,6 @@ template DamaskWindow : Adw.ApplicationWindow {
               title: _("Manual");
               subtitle: _("Use a manually selected image as the wallpaper");
               activatable: true;
-
-              [prefix]
-              Gtk.CheckButton {
-                group: active_source;
-                action-name: "win.active-source";
-                action-target: "'manual'";
-              }
             }
 
             Adw.ActionRow slideshow_row {
@@ -60,13 +49,6 @@ template DamaskWindow : Adw.ApplicationWindow {
               title: _("Slideshow");
               subtitle: _("Use the contents of a folder as the wallpaper");
               activatable: true;
-
-              [prefix]
-              Gtk.CheckButton {
-                group: active_source;
-                action-name: "win.active-source";
-                action-target: "'slideshow'";
-              }
             }
 
             Adw.ActionRow bing_row {
@@ -74,13 +56,6 @@ template DamaskWindow : Adw.ApplicationWindow {
               title: _("Bing Wallpaper");
               subtitle: _("Use Microsoft Bing's wallpaper of the day");
               activatable: true;
-
-              [prefix]
-              Gtk.CheckButton {
-                group: active_source;
-                action-name: "win.active-source";
-                action-target: "'bing'";
-              }
             }
 
             Adw.ActionRow wallhaven_row {
@@ -88,13 +63,6 @@ template DamaskWindow : Adw.ApplicationWindow {
               title: _("Wallhaven");
               subtitle: _("Get wallpapers from wallhaven.cc");
               activatable: true;
-
-              [prefix]
-              Gtk.CheckButton {
-                group: active_source;
-                action-name: "win.active-source";
-                action-target: "'wallhaven'";
-              }
             }
 
             Adw.ActionRow apod_row {
@@ -102,13 +70,6 @@ template DamaskWindow : Adw.ApplicationWindow {
               title: _("NASA Astronomy Picture of the Day");
               subtitle: _("Each day a different image or photograph of our fascinating universe");
               activatable: true;
-
-              [prefix]
-              Gtk.CheckButton {
-                group: active_source;
-                action-name: "win.active-source";
-                action-target: "'apod'";
-              }
             }
 
             Adw.ActionRow unsplash_row {
@@ -116,13 +77,6 @@ template DamaskWindow : Adw.ApplicationWindow {
               title: _("Unsplash");
               subtitle: _("Get wallpapers from unsplash.com");
               activatable: true;
-
-              [prefix]
-              Gtk.CheckButton {
-                group: active_source;
-                action-name: "win.active-source";
-                action-target: "'unsplash'";
-              }
             }
 
             Adw.ActionRow earthview_row {
@@ -130,13 +84,6 @@ template DamaskWindow : Adw.ApplicationWindow {
               title: _("Google Earth View");
               subtitle: _("Use images from Google Earth View");
               activatable: true;
-
-              [prefix]
-              Gtk.CheckButton {
-                group: active_source;
-                action-name: "win.active-source";
-                action-target: "'earthview'";
-              }
             }
           }
         }
