@@ -168,10 +168,14 @@ namespace Damask {
             this.attach_timer ();
             this.current_source.request_refresh.connect (this.refresh_current_source);
             this.current_source.toast.connect (this.current_source_toast);
-            this.refresh_current_source ();
+            this.refresh_current_source_async.begin ();
         }
 
         private void refresh_current_source () {
+            MainContext context = MainContext.default ();
+            Source source = context.find_source_by_id (this.source_id);
+            int64 seconds = int64.parse (this.settings.get_string("refresh-interval"));
+            source.set_ready_time (GLib.get_monotonic_time () + (seconds * 1000000));
             this.refresh_current_source_async.begin ();
         }
 
@@ -222,7 +226,7 @@ namespace Damask {
             TimeoutSource timer = new TimeoutSource.seconds (seconds);
             timer.set_callback (() => {
                 debug (@"[%p] $(this.get_type().name()) timer callback", this);
-                this.refresh_current_source ();
+                this.refresh_current_source_async.begin ();
                 return true;
             });
             timer.attach ();
