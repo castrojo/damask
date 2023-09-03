@@ -25,15 +25,14 @@ namespace Damask {
         [GtkChild] private unowned Gtk.Stack refresh_button_stack;
         [GtkChild] private unowned Gtk.ListBox sources;
         [GtkChild] private unowned Adw.ToastOverlay toast_overlay;
-        [GtkChild] private unowned Gtk.Stack source_content_stack;
-        [GtkChild] private unowned Adw.Leaflet leaflet;
-        [GtkChild] private unowned Gtk.Button source_content_back_button;
-        [GtkChild] private unowned Adw.ActionRow manual_row;
-        [GtkChild] private unowned Adw.ActionRow slideshow_row;
-        [GtkChild] private unowned Adw.ActionRow bing_row;
-        [GtkChild] private unowned Adw.ActionRow wallhaven_row;
-        [GtkChild] private unowned Adw.ActionRow apod_row;
-        [GtkChild] private unowned Adw.ActionRow unsplash_row;
+        [GtkChild] private unowned Adw.PreferencesRow manual_row;
+        [GtkChild] private unowned Adw.PreferencesRow slideshow_row;
+        [GtkChild] private unowned Adw.PreferencesRow bing_row;
+        [GtkChild] private unowned Adw.PreferencesRow wallhaven_row;
+        [GtkChild] private unowned Adw.PreferencesRow apod_row;
+        [GtkChild] private unowned Adw.PreferencesRow unsplash_row;
+        [GtkChild] private unowned Adw.NavigationSplitView split_view;
+        [GtkChild] private unowned Adw.NavigationPage source_navigation_page;
 
         public Window (Gtk.Application app) {
             Type? type = typeof (WallpaperPreview);
@@ -57,26 +56,8 @@ namespace Damask {
                 this.add_css_class ("devel");
             }
 
-            this.sources.row_activated.connect (this.on_source_list_activated);
-            Adw.ActionRow? row = this._get_active_source_row (application.settings.get_string ("active-source"));
-            this.sources.select_row (row);
-            this.on_source_list_activated (this.sources, row);
-
-            Gtk.Builder builder = new Gtk.Builder.from_resource (@"$(Constants.RESOURCE_PATH_PREFIX)/shortcuts.ui");
-            Gtk.ShortcutsWindow help_overlay = builder.get_object ("help_overlay") as Gtk.ShortcutsWindow;
-            this.set_help_overlay (help_overlay);
-
-            application.notify["is-refreshing"].connect (this.update_refresh_button);
-            this.update_refresh_button ();
-
-            this.source_content_back_button.clicked.connect ((button) => {
-                this.leaflet.navigate (Adw.NavigationDirection.BACK);
-            });
-        }
-
-        private Adw.ActionRow? _get_active_source_row (string active_source) {
-            Adw.ActionRow? row = null;
-            switch (active_source) {
+            Adw.PreferencesRow? row = null;
+            switch (application.settings.get_string ("active-source")) {
                 case "manual":
                     row = this.manual_row;
                     break;
@@ -99,20 +80,77 @@ namespace Damask {
                     row = this.manual_row;
                     break;
             }
-            return row;
+            this.sources.select_row (row);
+            var toolbar = this.source_navigation_page.child as Adw.ToolbarView;
+            this.source_navigation_page.title = @"$(row.title) Preferences";
+
+            switch (row.name) {
+            case "manual":
+                toolbar.content = new Sources.Manual.PreferencesPage ();
+                break;
+            case "slideshow":
+                toolbar.content = new Sources.Slideshow.PreferencesPage ();
+                break;
+            case "bing":
+                toolbar.content = new Sources.Bing.PreferencesPage ();
+                break;
+            case "wallhaven":
+                toolbar.content = new Sources.Wallhaven.PreferencesPage ();
+                break;
+            case "apod":
+                toolbar.content = new Sources.Apod.PreferencesPage ();
+                break;
+            case "unsplash":
+                toolbar.content = new Sources.Unsplash.PreferencesPage ();
+                break;
+            default:
+                toolbar.content = new Sources.Manual.PreferencesPage ();
+                break;
+            }
+
+            Gtk.Builder builder = new Gtk.Builder.from_resource (@"$(Constants.RESOURCE_PATH_PREFIX)/shortcuts.ui");
+            Gtk.ShortcutsWindow help_overlay = builder.get_object ("help_overlay") as Gtk.ShortcutsWindow;
+            this.set_help_overlay (help_overlay);
+
+            application.notify["is-refreshing"].connect (this.update_refresh_button);
+            this.update_refresh_button ();
         }
 
+        [GtkCallback]
         private void on_source_list_activated (Gtk.ListBox box, Gtk.ListBoxRow row) {
             debug (@"[%p] $(this.get_type().name()).on_source_list_activated", this);
             Application application = GLib.Application.get_default () as Application;
-            if (row != null) {
-                var action_row = row as Adw.ActionRow;
-                this.source_content_stack.set_visible_child_name (action_row.name);
+            if (row != null && row.name != application.settings.get_string ("active-source")) {
+                var action_row = row as Adw.PreferencesRow;
                 application.settings.set_string ("active-source", action_row.name);
-                if (this.leaflet.folded) {
-                    this.leaflet.navigate (Adw.NavigationDirection.FORWARD);
+                var toolbar = this.source_navigation_page.child as Adw.ToolbarView;
+                this.source_navigation_page.title = @"$(action_row.title) Preferences";
+
+                switch (action_row.name) {
+                case "manual":
+                    toolbar.content = new Sources.Manual.PreferencesPage ();
+                    break;
+                case "slideshow":
+                    toolbar.content = new Sources.Slideshow.PreferencesPage ();
+                    break;
+                case "bing":
+                    toolbar.content = new Sources.Bing.PreferencesPage ();
+                    break;
+                case "wallhaven":
+                    toolbar.content = new Sources.Wallhaven.PreferencesPage ();
+                    break;
+                case "apod":
+                    toolbar.content = new Sources.Apod.PreferencesPage ();
+                    break;
+                case "unsplash":
+                    toolbar.content = new Sources.Unsplash.PreferencesPage ();
+                    break;
+                default:
+                    toolbar.content = new Sources.Manual.PreferencesPage ();
+                    break;
                 }
             }
+            this.split_view.show_content = true;
         }
 
         private void update_refresh_button () {
@@ -123,9 +161,8 @@ namespace Damask {
 
         private void on_open_url_action () {
             Application application = GLib.Application.get_default () as Application;
-            WallpaperSource? source = application.sources.get (this.source_content_stack.visible_child_name);
             try {
-                Uri uri = Uri.parse (source.current_wallpaper.web_url, UriFlags.NONE);
+                Uri uri = Uri.parse (application.current_wallpaper.web_url, UriFlags.NONE);
 
                 switch (uri.get_scheme ()) {
                     case "file":

@@ -2,171 +2,196 @@ using Gtk 4.0;
 using Adw 1;
 
 template DamaskWindow : Adw.ApplicationWindow {
-  default-width: 700;
-  default-height: 500;
+  default-height: 440;
+  default-width: 620;
+  height-request: 300;
+  width-request: 360;
   title: "Damask";
 
-  Adw.ToastOverlay toast_overlay {
-    Adw.Leaflet leaflet {
-      can-navigate-back: true;
-      fold-threshold-policy: natural;
-
-      Gtk.Box sources_list_view {
-        orientation: vertical;
-        Adw.HeaderBar {
-          show-end-title-buttons: bind leaflet.folded;
-          title-widget: Adw.WindowTitle {
-            title: _("Damask");
-            visible: bind leaflet.folded;
-          };
-
-          [end]
-          MenuButton {
-            icon-name: "open-menu-symbolic";
-            menu-model: primary_menu;
-            visible: bind leaflet.folded;
-          }
-        }
-
-        Gtk.ScrolledWindow {
-          vexpand: true;
-          width-request: 300;
-
-          Gtk.ListBox sources {
-            selection-mode: browse;
-            activate-on-single-click: true;
-            styles ["navigation-sidebar"]
-
-            Adw.ActionRow manual_row {
-              name: "manual";
-              title: _("Manual");
-              subtitle: _("Use a manually selected image as the wallpaper");
-              activatable: true;
-            }
-
-            Adw.ActionRow slideshow_row {
-              name: "slideshow";
-              title: _("Slideshow");
-              subtitle: _("Use the contents of a folder as the wallpaper");
-              activatable: true;
-            }
-
-            Adw.ActionRow bing_row {
-              name: "bing";
-              title: _("Bing Wallpaper");
-              subtitle: _("Use Microsoft Bing's wallpaper of the day");
-              activatable: true;
-            }
-
-            Adw.ActionRow wallhaven_row {
-              name: "wallhaven";
-              title: _("Wallhaven");
-              subtitle: _("Get wallpapers from wallhaven.cc");
-              activatable: true;
-            }
-
-            Adw.ActionRow apod_row {
-              name: "apod";
-              title: _("NASA Astronomy");
-              subtitle: _("Each day a different image or photograph of our fascinating universe");
-              activatable: true;
-            }
-
-            Adw.ActionRow unsplash_row {
-              name: "unsplash";
-              title: _("Unsplash");
-              subtitle: _("Get wallpapers from unsplash.com");
-              activatable: true;
-            }
-
-            Adw.ActionRow earthview_row {
-              name: "earthview";
-              title: _("Google Earth View");
-              subtitle: _("Use images from Google Earth View");
-              activatable: true;
-            }
-          }
-        }
-      }
-
-      Adw.LeafletPage separator {
-        navigatable: false;
-        child: Separator {};
-      }
-
-      Gtk.Box source_content_view {
-        orientation: vertical;
-        hexpand: true;
-
-        Adw.HeaderBar {
-          show-start-title-buttons: bind leaflet.folded;
-
-          Gtk.Button source_content_back_button {
-            visible: bind leaflet.folded;
-            icon-name: "go-previous-symbolic";
-          }
-
-          [end]
-          MenuButton {
-            icon-name: "open-menu-symbolic";
-            menu-model: primary_menu;
-          }
-
-          [end]
-          Gtk.Stack refresh_button_stack {
-            transition-type: crossfade;
-            Gtk.StackPage {
-              name: "sensitive";
-              child: Gtk.Button refresh_button {
-                action-name: "app.refresh";
-                icon-name: "view-refresh-symbolic";
-              };
-            }
-            Gtk.StackPage {
-              name: "spinner";
-              child: Adw.Clamp {
-                maximum-size: 16;
-                child: Gtk.Spinner {
-                  spinning: true;
-                };
-              };
-            }
-          }
-        }
-
-        Gtk.Stack source_content_stack {
-          Gtk.StackPage {
-            name: "manual";
-            child: $DamaskSourcesManualPreferencesPage {};
-          }
-          Gtk.StackPage {
-            name: "slideshow";
-            child: $DamaskSourcesSlideshowPreferencesPage {};
-          }
-          Gtk.StackPage {
-            name: "bing";
-            child: $DamaskSourcesBingPreferencesPage {};
-          }
-          Gtk.StackPage {
-            name: "wallhaven";
-            child: $DamaskSourcesWallhavenPreferencesPage {};
-          }
-          Gtk.StackPage {
-            name: "apod";
-            child: $DamaskSourcesApodPreferencesPage {};
-          }
-          Gtk.StackPage {
-            name: "unsplash";
-            child: $DamaskSourcesUnsplashPreferencesPage {};
-          }
-          Gtk.StackPage {
-            name: "earthview";
-            child: $DamaskSourcesEarthViewPreferencesPage {};
-          }
-        }
-      }
+  Adw.Breakpoint {
+    condition ("max-width: 540sp")
+    setters {
+      split_view.collapsed: true;
     }
   }
+
+  content: Adw.ToastOverlay toast_overlay {
+    Adw.NavigationSplitView split_view {
+      sidebar: Adw.NavigationPage {
+        title: "Damask";
+        child: Adw.ToolbarView {
+          [top]
+          Adw.HeaderBar {
+            [end]
+            Gtk.MenuButton {
+              primary: true;
+              icon-name: "open-menu-symbolic";
+              menu-model: primary_menu;
+            }
+          }
+          content: Gtk.ScrolledWindow {
+            Gtk.ListBox sources {
+              selection-mode: browse;
+              activate-on-single-click: true;
+              styles ["navigation-sidebar"]
+              row-activated => $on_source_list_activated();
+
+              Adw.PreferencesRow manual_row {
+                name: "manual";
+                title: _("Manual");
+                Gtk.Box {
+                  orientation: horizontal;
+                  margin-top: 12;
+                  margin-bottom: 12;
+                  margin-start: 6;
+                  margin-end: 6;
+                  spacing: 12;
+
+                  Gtk.Label {
+                    label: bind manual_row.title;
+                  }
+                }
+              }
+
+              Adw.PreferencesRow slideshow_row {
+                name: "slideshow";
+                title: _("Slideshow");
+                Gtk.Box {
+                  orientation: horizontal;
+                  margin-top: 12;
+                  margin-bottom: 12;
+                  margin-start: 6;
+                  margin-end: 6;
+                  spacing: 12;
+
+                  Gtk.Label {
+                    label: bind slideshow_row.title;
+                  }
+                }
+              }
+
+              Adw.PreferencesRow bing_row {
+                name: "bing";
+                title: _("Bing Wallpaper");
+                Gtk.Box {
+                  orientation: horizontal;
+                  margin-top: 12;
+                  margin-bottom: 12;
+                  margin-start: 6;
+                  margin-end: 6;
+                  spacing: 12;
+
+                  Gtk.Label {
+                    label: bind bing_row.title;
+                  }
+                }
+              }
+
+              Adw.PreferencesRow wallhaven_row {
+                name: "wallhaven";
+                title: _("Wallhaven");
+                Gtk.Box {
+                  orientation: horizontal;
+                  margin-top: 12;
+                  margin-bottom: 12;
+                  margin-start: 6;
+                  margin-end: 6;
+                  spacing: 12;
+
+                  Gtk.Label {
+                    label: bind wallhaven_row.title;
+                  }
+                }
+              }
+
+              Adw.PreferencesRow apod_row {
+                name: "apod";
+                title: _("NASA Astronomy");
+                Gtk.Box {
+                  orientation: horizontal;
+                  margin-top: 12;
+                  margin-bottom: 12;
+                  margin-start: 6;
+                  margin-end: 6;
+                  spacing: 12;
+
+                  Gtk.Label {
+                    label: bind apod_row.title;
+                  }
+                }
+              }
+
+              Adw.PreferencesRow unsplash_row {
+                name: "unsplash";
+                title: _("Unsplash");
+                Gtk.Box {
+                  orientation: horizontal;
+                  margin-top: 12;
+                  margin-bottom: 12;
+                  margin-start: 6;
+                  margin-end: 6;
+                  spacing: 12;
+
+                  Gtk.Label {
+                    label: bind unsplash_row.title;
+                  }
+                }
+              }
+
+              Adw.PreferencesRow earthview_row {
+                name: "earthview";
+                title: _("Google Earth View");
+                Gtk.Box {
+                  orientation: horizontal;
+                  margin-top: 12;
+                  margin-bottom: 12;
+                  margin-start: 6;
+                  margin-end: 6;
+                  spacing: 12;
+
+                  Gtk.Label {
+                    label: bind earthview_row.title;
+                  }
+                }
+              }
+            }
+          };
+        };
+      };
+
+      content: Adw.NavigationPage source_navigation_page {
+        title: "Preferences";
+        child: Adw.ToolbarView source_content {
+          [top]
+          Adw.HeaderBar {
+            [end]
+            Gtk.Stack refresh_button_stack {
+              transition-type: crossfade;
+              Gtk.StackPage {
+                name: "sensitive";
+                child: Gtk.Button refresh_button {
+                  action-name: "app.refresh";
+                  icon-name: "view-refresh-symbolic";
+                };
+              }
+              Gtk.StackPage {
+                name: "spinner";
+                child: Adw.Clamp {
+                  maximum-size: 16;
+                  child: Gtk.Spinner {
+                    spinning: true;
+                  };
+                };
+              }
+            }
+          }
+          content: Adw.StatusPage {
+            title: _("No Source Selected");
+          };
+        };
+      };
+    }
+  };
 }
 
 menu primary_menu {
