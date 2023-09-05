@@ -25,14 +25,10 @@ namespace Damask {
         [GtkChild] private unowned Gtk.Stack refresh_button_stack;
         [GtkChild] private unowned Gtk.ListBox sources;
         [GtkChild] private unowned Adw.ToastOverlay toast_overlay;
-        [GtkChild] private unowned Adw.PreferencesRow manual_row;
-        [GtkChild] private unowned Adw.PreferencesRow slideshow_row;
-        [GtkChild] private unowned Adw.PreferencesRow bing_row;
-        [GtkChild] private unowned Adw.PreferencesRow wallhaven_row;
-        [GtkChild] private unowned Adw.PreferencesRow apod_row;
-        [GtkChild] private unowned Adw.PreferencesRow unsplash_row;
         [GtkChild] private unowned Adw.NavigationSplitView split_view;
         [GtkChild] private unowned Adw.NavigationPage source_navigation_page;
+
+        private GLib.ListStore source_list_model;
 
         public Window (Gtk.Application app) {
             Type? type = typeof (WallpaperPreview);
@@ -56,57 +52,32 @@ namespace Damask {
                 this.add_css_class ("devel");
             }
 
-            Adw.PreferencesRow? row = null;
-            switch (application.settings.get_string ("active-source")) {
-                case "manual":
-                    row = this.manual_row;
-                    break;
-                case "slideshow":
-                    row = this.slideshow_row;
-                    break;
-                case "bing":
-                    row = this.bing_row;
-                    break;
-                case "wallhaven":
-                    row = this.wallhaven_row;
-                    break;
-                case "apod":
-                    row = this.apod_row;
-                    break;
-                case "unsplash":
-                    row = this.unsplash_row;
-                    break;
-                default:
-                    row = this.manual_row;
-                    break;
+            this.source_list_model = new GLib.ListStore (typeof(WallpaperSource));
+            foreach (WallpaperSource source in application.sources.values) {
+                this.source_list_model.append (source);
             }
-            this.sources.select_row (row);
-            var toolbar = this.source_navigation_page.child as Adw.ToolbarView;
-            this.source_navigation_page.title = @"$(row.title) Preferences";
+            this.source_list_model.sort ((a, b) => {
+                var sa = a as WallpaperSource;
+                var sb = b as WallpaperSource;
+                return GLib.strcmp (sa.title, sb.title);
+            });
+            this.sources.bind_model (this.source_list_model, (item) => {
+                var source = item as WallpaperSource;
+                return new SidebarRow () {
+                    title = source.title,
+                    name = source.id,
+                };
+            });
 
-            switch (row.name) {
-            case "manual":
-                toolbar.content = new Sources.Manual.PreferencesPage ();
-                break;
-            case "slideshow":
-                toolbar.content = new Sources.Slideshow.PreferencesPage ();
-                break;
-            case "bing":
-                toolbar.content = new Sources.Bing.PreferencesPage ();
-                break;
-            case "wallhaven":
-                toolbar.content = new Sources.Wallhaven.PreferencesPage ();
-                break;
-            case "apod":
-                toolbar.content = new Sources.Apod.PreferencesPage ();
-                break;
-            case "unsplash":
-                toolbar.content = new Sources.Unsplash.PreferencesPage ();
-                break;
-            default:
-                toolbar.content = new Sources.Manual.PreferencesPage ();
-                break;
-            }
+            WallpaperSource? active_source = application.sources.get (application.settings.get_string ("active-source"));
+            uint position = 0;
+            this.source_list_model.find (active_source, out position);
+            this.sources.select_row (this.sources.get_row_at_index ((int) position));
+
+            this.source_navigation_page.title = @"$(active_source.title) Preferences";
+            var toolbar = this.source_navigation_page.child as Adw.ToolbarView;
+            toolbar.content = active_source.preferences ();
+            this.split_view.show_content = true;
 
             Gtk.Builder builder = new Gtk.Builder.from_resource (@"$(Constants.RESOURCE_PATH_PREFIX)/shortcuts.ui");
             Gtk.ShortcutsWindow help_overlay = builder.get_object ("help_overlay") as Gtk.ShortcutsWindow;
@@ -120,37 +91,21 @@ namespace Damask {
         private void on_source_list_activated (Gtk.ListBox box, Gtk.ListBoxRow row) {
             debug (@"[%p] $(this.get_type().name()).on_source_list_activated", this);
             Application application = GLib.Application.get_default () as Application;
-            if (row != null && row.name != application.settings.get_string ("active-source")) {
-                var action_row = row as Adw.PreferencesRow;
-                application.settings.set_string ("active-source", action_row.name);
-                var toolbar = this.source_navigation_page.child as Adw.ToolbarView;
-                this.source_navigation_page.title = @"$(action_row.title) Preferences";
+            if (row != null) {
+                if (row.name != application.settings.get_string ("active-source")) {
+                    var sidebar_row = row as SidebarRow;
+                    application.settings.set_string ("active-source", sidebar_row.name);
+                    var active_source = application.sources.get (application.settings.get_string ("active-source"));
 
-                switch (action_row.name) {
-                case "manual":
-                    toolbar.content = new Sources.Manual.PreferencesPage ();
-                    break;
-                case "slideshow":
-                    toolbar.content = new Sources.Slideshow.PreferencesPage ();
-                    break;
-                case "bing":
-                    toolbar.content = new Sources.Bing.PreferencesPage ();
-                    break;
-                case "wallhaven":
-                    toolbar.content = new Sources.Wallhaven.PreferencesPage ();
-                    break;
-                case "apod":
-                    toolbar.content = new Sources.Apod.PreferencesPage ();
-                    break;
-                case "unsplash":
-                    toolbar.content = new Sources.Unsplash.PreferencesPage ();
-                    break;
-                default:
-                    toolbar.content = new Sources.Manual.PreferencesPage ();
-                    break;
+                    this.source_navigation_page.title = @"$(active_source.title) Preferences";
+
+                    uint position = 0;
+                    this.source_list_model.find (active_source, out position);
+                    var toolbar = this.source_navigation_page.child as Adw.ToolbarView;
+                    toolbar.content = active_source.preferences ();
                 }
+                this.split_view.show_content = true;
             }
-            this.split_view.show_content = true;
         }
 
         private void update_refresh_button () {
@@ -189,6 +144,30 @@ namespace Damask {
         }
 
         ~Window () {
+            debug (@"[%p] ~$(this.get_type().name())", this);
+        }
+    }
+
+    private class SidebarRow : Gtk.ListBoxRow {
+        public string title { get; set; }
+
+        construct {
+            var hbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12) {
+                margin_top = 12,
+                margin_bottom = 12,
+                margin_start = 6,
+                margin_end = 6,
+            };
+
+            var label = new Gtk.Label ("") {
+                halign = Gtk.Align.START,
+            };
+            this.bind_property ("title", label, "label", GLib.BindingFlags.DEFAULT | GLib.BindingFlags.SYNC_CREATE);
+            hbox.append (label);
+            this.set_child (hbox);
+        }
+
+        ~SidebarRow() {
             debug (@"[%p] ~$(this.get_type().name())", this);
         }
     }

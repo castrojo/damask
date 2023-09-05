@@ -39,6 +39,10 @@ namespace Damask.Sources.Slideshow {
             get { return "slideshow"; }
         }
 
+        public string title {
+            get { return _("Slideshow"); }
+        }
+
         public Wallpaper? current_wallpaper { get; internal set; }
 
         public async Wallpaper? refresh () {
@@ -77,6 +81,10 @@ namespace Damask.Sources.Slideshow {
                 web_url = path,
             };
             return this.current_wallpaper;
+        }
+
+        public Adw.PreferencesPage? preferences () {
+            return new PreferencesPage () as Adw.PreferencesPage;
         }
 
         private void rebuild_file_list () {

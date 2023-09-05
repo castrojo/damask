@@ -34,6 +34,10 @@ namespace Damask.Sources.Manual {
             get { return "manual"; }
         }
 
+        public string title {
+            get { return _("Manual"); }
+        }
+
         public Wallpaper? current_wallpaper { get; internal set; }
 
         public async Wallpaper? refresh () {
@@ -48,6 +52,10 @@ namespace Damask.Sources.Manual {
                 web_url = path,
             };
             return this.current_wallpaper;
+        }
+
+        public Adw.PreferencesPage? preferences () {
+            return new PreferencesPage () as Adw.PreferencesPage;
         }
     }
 

@@ -52,6 +52,10 @@ namespace Damask.Sources.Bing {
             get { return "bing"; }
         }
 
+        public string title {
+            get { return _("Bing Wallpaper"); }
+        }
+
         public Wallpaper? current_wallpaper { get; internal set; }
 
         public async Wallpaper? refresh () {
@@ -89,6 +93,10 @@ namespace Damask.Sources.Bing {
                 message (e.message);
             }
             return null;
+        }
+
+        public Adw.PreferencesPage? preferences () {
+            return new PreferencesPage () as Adw.PreferencesPage;
         }
     }
 

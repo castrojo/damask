@@ -114,6 +114,10 @@ namespace Damask.Sources.Wallhaven {
             get { return "wallhaven"; }
         }
 
+        public string title {
+            get { return _("Wallhaven"); }
+        }
+
         public Damask.Wallpaper? current_wallpaper { get; internal set; }
 
         public async Damask.Wallpaper? refresh () {
@@ -287,6 +291,10 @@ namespace Damask.Sources.Wallhaven {
                 message (e.message);
             }
             return null;
+        }
+
+        public Adw.PreferencesPage? preferences () {
+            return new PreferencesPage () as Adw.PreferencesPage;
         }
     }
 

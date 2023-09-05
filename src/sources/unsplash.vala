@@ -51,6 +51,10 @@ namespace Damask.Sources.Unsplash {
             get { return "unsplash"; }
         }
 
+        public string title {
+            get { return _("Unsplash"); }
+        }
+
         public Wallpaper? current_wallpaper { get; internal set; }
 
         public async Wallpaper? refresh () {
@@ -100,6 +104,10 @@ namespace Damask.Sources.Unsplash {
                 message (e.message);
             }
             return null;
+        }
+
+        public Adw.PreferencesPage? preferences () {
+            return new PreferencesPage () as Adw.PreferencesPage;
         }
     }
 

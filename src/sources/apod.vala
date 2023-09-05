@@ -43,6 +43,10 @@ namespace Damask.Sources.Apod {
             get { return "apod"; }
         }
 
+        public string title {
+            get { return _("NASA Astronomy"); }
+        }
+
         public Wallpaper? current_wallpaper { get; internal set; }
 
         public async Wallpaper? refresh () {
@@ -90,6 +94,10 @@ namespace Damask.Sources.Apod {
                 message (e.message);
             }
             return null;
+        }
+
+        public Adw.PreferencesPage? preferences () {
+            return new PreferencesPage () as Adw.PreferencesPage;
         }
     }
 

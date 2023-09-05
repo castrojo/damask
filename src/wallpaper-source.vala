@@ -44,11 +44,25 @@ namespace Damask {
         public abstract string id { get; }
 
         /**
+         * title:
+         *
+         * Display name for the source.
+         */
+        public abstract string title { get; }
+
+        /**
          * current_wallpaper:
          *
          * The current wallpaper.
          */
         public abstract Wallpaper? current_wallpaper { get; internal set; }
+
+        /**
+         * preferences:
+         *
+         * Return a preferences page for the source.
+         */
+        public abstract Adw.PreferencesPage? preferences ();
 
         /**
          * request_refresh:
@@ -64,5 +78,11 @@ namespace Damask {
          * Emitted when a source needs to display a message via a Toast.
          */
         public signal void toast (string message);
+
+        public static bool equal (Object a, Object b) {
+            var source_a = a as WallpaperSource;
+            var source_b = b as WallpaperSource;
+            return source_a.id == source_b.id;
+        }
     }
 }
