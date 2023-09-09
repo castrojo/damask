@@ -28,6 +28,10 @@
 		<key name="autostart" type="b">
 			<default>false</default>
 		</key>
+
+	  <key name="enable-automatic-refresh" type="b">
+	    <default>true</default>
+	  </key>
 	</schema>
 
   <enum id="@APP_ID@.sources.wallhaven.sort_by">

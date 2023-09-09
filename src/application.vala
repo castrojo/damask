@@ -41,6 +41,11 @@ namespace Damask {
                 { "quit", this.quit }
             };
             this.add_action_entries (action_entries, this);
+
+            var enable_automatic_refresh_action = this.settings.create_action ("enable-automatic-refresh");
+            enable_automatic_refresh_action.notify["state"].connect (this.on_automatic_refresh_action);
+            this.add_action (enable_automatic_refresh_action);
+
             this.set_accels_for_action ("app.quit", {"<primary>q"});
             this.set_accels_for_action ("app.refresh", {"<primary>r"});
 
@@ -222,6 +227,10 @@ namespace Damask {
 
         private void attach_timer () {
             debug (@"[%p] $(this.get_type().name()).attach_timer", this);
+            if (!this.settings.get_boolean ("enable-automatic-refresh")) {
+                info (@"enable-automatic-refresh disabled - not installing refresh timer");
+                return;
+            }
             int seconds = int.parse (this.settings.get_string("refresh-interval"));
             TimeoutSource timer = new TimeoutSource.seconds (seconds);
             timer.set_callback (() => {
@@ -235,8 +244,10 @@ namespace Damask {
 
         private void detach_timer () {
             debug (@"[%p] $(this.get_type().name()).detach_timer", this);
-            Source.remove (this.source_id);
-            this.source_id = 0;
+            if (this.source_id > 0) {
+                Source.remove (this.source_id);
+                this.source_id = 0;
+            }
         }
 
         private void install_autostart () {
@@ -269,6 +280,17 @@ namespace Damask {
                     this.current_source_toast (_("Unable to deactivate autostart: %s").printf(e.message));
                 }
             });
+        }
+
+        private void on_automatic_refresh_action () {
+            debug ("@[%p] $(this.get_type().name()).on_automatic_refresh_action", this);
+            bool autorefresh = this.settings.get_boolean ("enable-automatic-refresh");
+            debug (@"enable-automatic-refresh: $(autorefresh)");
+            if (autorefresh) {
+                this.attach_timer ();
+            } else {
+                this.detach_timer ();
+            }
         }
 
         private void on_action_about () {

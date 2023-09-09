@@ -27,6 +27,8 @@ namespace Damask {
         [GtkChild] private unowned Adw.ToastOverlay toast_overlay;
         [GtkChild] private unowned Adw.NavigationSplitView split_view;
         [GtkChild] private unowned Adw.NavigationPage source_navigation_page;
+        [GtkChild] private unowned Adw.Banner banner;
+        [GtkChild] private unowned Adw.Bin source_content;
 
         private GLib.ListStore source_list_model;
 
@@ -75,13 +77,14 @@ namespace Damask {
             this.sources.select_row (this.sources.get_row_at_index ((int) position));
 
             this.source_navigation_page.title = @"$(active_source.title) Preferences";
-            var toolbar = this.source_navigation_page.child as Adw.ToolbarView;
-            toolbar.content = active_source.preferences ();
+            this.source_content.child = active_source.preferences ();
             this.split_view.show_content = true;
 
             Gtk.Builder builder = new Gtk.Builder.from_resource (@"$(Constants.RESOURCE_PATH_PREFIX)/shortcuts.ui");
             Gtk.ShortcutsWindow help_overlay = builder.get_object ("help_overlay") as Gtk.ShortcutsWindow;
             this.set_help_overlay (help_overlay);
+
+            application.settings.bind ("enable-automatic-refresh", this.banner, "revealed", GLib.SettingsBindFlags.DEFAULT|GLib.SettingsBindFlags.INVERT_BOOLEAN);
 
             application.notify["is-refreshing"].connect (this.update_refresh_button);
             this.update_refresh_button ();
@@ -101,8 +104,7 @@ namespace Damask {
 
                     uint position = 0;
                     this.source_list_model.find (active_source, out position);
-                    var toolbar = this.source_navigation_page.child as Adw.ToolbarView;
-                    toolbar.content = active_source.preferences ();
+                    this.source_content.child = active_source.preferences ();
                 }
                 this.split_view.show_content = true;
             }

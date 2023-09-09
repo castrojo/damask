@@ -42,7 +42,7 @@ template DamaskWindow : Adw.ApplicationWindow {
 
       content: Adw.NavigationPage source_navigation_page {
         title: "Preferences";
-        child: Adw.ToolbarView source_content {
+        child: Adw.ToolbarView {
           [top]
           Adw.HeaderBar {
             [end]
@@ -66,8 +66,20 @@ template DamaskWindow : Adw.ApplicationWindow {
               }
             }
           }
-          content: Adw.StatusPage {
-            title: _("No Source Selected");
+          content: Gtk.Box {
+            orientation: vertical;
+
+            Adw.Banner banner {
+              title: _("Automatic refresh is disabled");
+              button-label: _("Enable");
+              action-name: "app.enable-automatic-refresh";
+            }
+
+            Adw.Bin source_content {
+              child: Adw.StatusPage {
+                title: _("No Source Selected");
+              };
+            }
           };
         };
       };
@@ -76,6 +88,12 @@ template DamaskWindow : Adw.ApplicationWindow {
 }
 
 menu primary_menu {
+  section {
+    item {
+      label: _("Refresh automatically");
+      action: "app.enable-automatic-refresh";
+    }
+  }
   section {
     item {
       label: _("_Preferences");
