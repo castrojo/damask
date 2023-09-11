@@ -16,7 +16,7 @@ template DamaskWindow : Adw.ApplicationWindow {
   }
 
   content: Adw.ToastOverlay toast_overlay {
-    Adw.NavigationSplitView split_view {
+    Adw.OverlaySplitView split_view {
       sidebar: Adw.NavigationPage {
         title: "Damask";
         child: Adw.ToolbarView {
@@ -45,6 +45,13 @@ template DamaskWindow : Adw.ApplicationWindow {
         child: Adw.ToolbarView {
           [top]
           Adw.HeaderBar {
+            [start]
+            Gtk.Button {
+              action-name: "win.show-sidebar";
+              icon-name: "sidebar-show-symbolic";
+              visible: bind split_view.show-sidebar inverted;
+            }
+
             [end]
             Gtk.Stack refresh_button_stack {
               transition-type: crossfade;

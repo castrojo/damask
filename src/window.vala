@@ -25,7 +25,7 @@ namespace Damask {
         [GtkChild] private unowned Gtk.Stack refresh_button_stack;
         [GtkChild] private unowned Gtk.ListBox sources;
         [GtkChild] private unowned Adw.ToastOverlay toast_overlay;
-        [GtkChild] private unowned Adw.NavigationSplitView split_view;
+        [GtkChild] private unowned Adw.OverlaySplitView split_view;
         [GtkChild] private unowned Adw.NavigationPage source_navigation_page;
         [GtkChild] private unowned Adw.Banner banner;
         [GtkChild] private unowned Adw.Bin source_content;
@@ -44,6 +44,7 @@ namespace Damask {
             ActionEntry[] action_entries = {
                 { "open-url", this.on_open_url_action },
                 { "show-toast", this.on_show_toast_action },
+                { "show-sidebar", this.on_show_sidebar },
             };
             this.add_action_entries (action_entries, this);
             application.set_accels_for_action ("win.show-help-overlay", {"<primary>question"});
@@ -78,7 +79,6 @@ namespace Damask {
 
             this.source_navigation_page.title = @"$(active_source.title)";
             this.source_content.child = active_source.preferences ();
-            this.split_view.show_content = true;
 
             Gtk.Builder builder = new Gtk.Builder.from_resource (@"$(Constants.RESOURCE_PATH_PREFIX)/shortcuts.ui");
             Gtk.ShortcutsWindow help_overlay = builder.get_object ("help_overlay") as Gtk.ShortcutsWindow;
@@ -106,7 +106,7 @@ namespace Damask {
                     this.source_list_model.find (active_source, out position);
                     this.source_content.child = active_source.preferences ();
                 }
-                this.split_view.show_content = true;
+                this.split_view.show_sidebar = false;
             }
         }
 
@@ -143,6 +143,10 @@ namespace Damask {
             var message = parameter.get_string ();
             var toast = new Adw.Toast (message);
             this.toast_overlay.add_toast (toast);
+        }
+
+        private void on_show_sidebar () {
+            this.split_view.show_sidebar = true;
         }
 
         ~Window () {
