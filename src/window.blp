@@ -27,6 +27,7 @@ template DamaskWindow : Adw.ApplicationWindow {
               primary: true;
               icon-name: "open-menu-symbolic";
               menu-model: primary_menu;
+              visible: bind split_view.collapsed inverted;
             }
           }
           content: Gtk.ScrolledWindow {
@@ -50,6 +51,14 @@ template DamaskWindow : Adw.ApplicationWindow {
               action-name: "win.show-sidebar";
               icon-name: "sidebar-show-symbolic";
               visible: bind split_view.show-sidebar inverted;
+            }
+
+            [end]
+            Gtk.MenuButton {
+              primary: true;
+              icon-name: "open-menu-symbolic";
+              menu-model: primary_menu;
+              visible: bind split_view.collapsed;
             }
 
             [end]

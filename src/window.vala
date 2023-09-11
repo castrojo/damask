@@ -106,7 +106,6 @@ namespace Damask {
                     this.source_list_model.find (active_source, out position);
                     this.source_content.child = active_source.preferences ();
                 }
-                this.split_view.show_sidebar = false;
             }
         }
 
