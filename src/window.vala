@@ -76,7 +76,7 @@ namespace Damask {
             this.source_list_model.find (active_source, out position);
             this.sources.select_row (this.sources.get_row_at_index ((int) position));
 
-            this.source_navigation_page.title = @"$(active_source.title) Preferences";
+            this.source_navigation_page.title = @"$(active_source.title)";
             this.source_content.child = active_source.preferences ();
             this.split_view.show_content = true;
 
@@ -100,7 +100,7 @@ namespace Damask {
                     application.settings.set_string ("active-source", sidebar_row.name);
                     var active_source = application.sources.get (application.settings.get_string ("active-source"));
 
-                    this.source_navigation_page.title = @"$(active_source.title) Preferences";
+                    this.source_navigation_page.title = @"$(active_source.title)";
 
                     uint position = 0;
                     this.source_list_model.find (active_source, out position);
