@@ -168,12 +168,14 @@ namespace Damask {
                 this.detach_timer ();
             }
             this.current_source = this.sources.get (this.settings.get_string ("active-source"));
-            this.is_refreshing = false;
-            debug (@"enabling $(this.current_source.id)");
-            this.attach_timer ();
-            this.current_source.request_refresh.connect (this.refresh_current_source);
-            this.current_source.toast.connect (this.current_source_toast);
-            this.refresh_current_source_async.begin ();
+            if (this.current_source != null) {
+                this.is_refreshing = false;
+                debug (@"enabling $(this.current_source.id)");
+                this.attach_timer ();
+                this.current_source.request_refresh.connect (this.refresh_current_source);
+                this.current_source.toast.connect (this.current_source_toast);
+                this.refresh_current_source_async.begin ();
+            }
         }
 
         private void refresh_current_source () {

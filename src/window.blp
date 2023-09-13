@@ -42,7 +42,6 @@ template DamaskWindow : Adw.ApplicationWindow {
       };
 
       content: Adw.NavigationPage source_navigation_page {
-        title: "Preferences";
         child: Adw.ToolbarView {
           [top]
           Adw.HeaderBar {
@@ -93,7 +92,9 @@ template DamaskWindow : Adw.ApplicationWindow {
 
             Adw.Bin source_content {
               child: Adw.StatusPage {
-                title: _("No Source Selected");
+                icon-name: "image-missing-symbolic";
+                title: _("No Background Source");
+                description: _("Choose a source to set a background image.");
               };
             }
           };

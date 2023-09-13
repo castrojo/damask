@@ -73,12 +73,14 @@ namespace Damask {
             });
 
             WallpaperSource? active_source = application.sources.get (application.settings.get_string ("active-source"));
-            uint position = 0;
-            this.source_list_model.find (active_source, out position);
-            this.sources.select_row (this.sources.get_row_at_index ((int) position));
+            if (active_source != null) {
+                uint position = 0;
+                this.source_list_model.find (active_source, out position);
+                this.sources.select_row (this.sources.get_row_at_index ((int) position));
 
-            this.source_navigation_page.title = @"$(active_source.title)";
-            this.source_content.child = active_source.preferences ();
+                this.source_navigation_page.title = @"$(active_source.title)";
+                this.source_content.child = active_source.preferences ();
+            }
 
             Gtk.Builder builder = new Gtk.Builder.from_resource (@"$(Constants.RESOURCE_PATH_PREFIX)/shortcuts.ui");
             Gtk.ShortcutsWindow help_overlay = builder.get_object ("help_overlay") as Gtk.ShortcutsWindow;
