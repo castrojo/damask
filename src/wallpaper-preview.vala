@@ -77,12 +77,12 @@ namespace Damask {
         }
 
         private void set_paintable_swap (Gdk.Texture texture) {
-            if (this.stack.get_visible_child () == this.picture1) {
+            if (this.stack.get_visible_child_name () == "picture1" ) {
                 this.picture2.paintable = texture;
-                this.stack.set_visible_child (this.picture2 as Gtk.Widget);
+                this.stack.set_visible_child_name ("picture2");
             } else {
                 this.picture1.paintable = texture;
-                this.stack.set_visible_child (this.picture1 as Gtk.Widget);
+                this.stack.set_visible_child_name ("picture1");
             }
         }
 
