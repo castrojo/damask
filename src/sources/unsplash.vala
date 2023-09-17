@@ -26,6 +26,7 @@ namespace Damask.Sources.Unsplash {
         internal string description { get; set; }
         internal Links links { get; set; }
         internal Urls urls { get; set; }
+        internal User user { get; set; }
     }
 
     internal class Urls : Object, Json.Serializable {
@@ -38,13 +39,15 @@ namespace Damask.Sources.Unsplash {
         internal string html { get; set; }
     }
 
+    internal class User : Object, Json.Serializable {
+        internal string name { get; set; }
+        internal string portfolio_url { get; set; }
+    }
+
     public class Unsplash : Object, WallpaperSource {
         private Settings settings = new Settings (@"$(Constants.APP_ID).sources.unsplash");
 
         construct {
-            this.settings.changed["api-key"].connect (() => {
-                this.notify_property ("can-activate");
-            });
         }
 
         public string id {
@@ -81,8 +84,7 @@ namespace Damask.Sources.Unsplash {
             string url = @"https://api.unsplash.com/photos/random?$(query_parameters.str)";
             Soup.Session session = new Soup.Session ();
             Soup.Message msg = new Soup.Message ("GET", url);
-            string api_key = this.settings.get_string ("api-key");
-            msg.get_request_headers().append ("Authorization", @"Client-ID $api_key");
+            msg.get_request_headers().append ("Authorization", @"Client-ID $(Damask.Constants.UNSPLASH_ACCESS_KEY)");
             msg.get_request_headers().append ("Accept-Version", "v1");
             debug (msg.uri.to_string());
 
@@ -95,8 +97,9 @@ namespace Damask.Sources.Unsplash {
                 this.current_wallpaper = new Damask.Wallpaper () {
                     url = img.urls.full,
                     thumbnail_url = img.urls.thumb,
-                    description = img.description,
+                    description = img.description.strip (),
                     web_url = img.links.html,
+                    attribution = _("Photo by <a href=\"%s?utm_source=damask&amp;utm_medium=referral\">%s</a> on <a href=\"https://unsplash.com/?utm_source=damask&amp;utm_medium=referral\">Unsplash</a>.").printf(img.user.portfolio_url, img.user.name),
                 };
                 return this.current_wallpaper;
             } catch (Error e) {
@@ -115,7 +118,6 @@ namespace Damask.Sources.Unsplash {
     public class PreferencesPage : Adw.PreferencesPage {
         private Settings settings = new Settings (@"$(Constants.APP_ID).sources.unsplash");
 
-        [GtkChild] private unowned Adw.EntryRow api_key;
         [GtkChild] private unowned Adw.EntryRow query;
         [GtkChild] private unowned Adw.EntryRow collections;
         [GtkChild] private unowned Adw.EntryRow topics;
@@ -123,7 +125,6 @@ namespace Damask.Sources.Unsplash {
 
         construct {
             debug (@"[%p] $(this.get_type().name()).construct", this);
-            this.settings.bind ("api-key", api_key, "text", SettingsBindFlags.DEFAULT);
             this.settings.bind ("query", query, "text", SettingsBindFlags.DEFAULT);
             this.settings.bind ("collections", collections, "text", SettingsBindFlags.DEFAULT);
             this.settings.bind ("topics", topics, "text", SettingsBindFlags.DEFAULT);

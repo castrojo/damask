@@ -27,6 +27,7 @@ namespace Damask {
         [GtkChild] private unowned Gtk.Label title;
         [GtkChild] private unowned Gtk.Label description;
         [GtkChild] private unowned Gtk.Button open_url;
+        [GtkChild] private unowned Gtk.Label attribution;
 
         private WallpaperSource? _source;
         public string source {
@@ -69,6 +70,11 @@ namespace Damask {
                 this.description.visible = this._source.current_wallpaper.description != null;
                 if (this._source.current_wallpaper.description != null) {
                     this.description.set_markup (this._source.current_wallpaper.description);
+                }
+
+                this.attribution.visible = this._source.current_wallpaper.attribution != null;
+                if (this._source.current_wallpaper.attribution != null) {
+                    this.attribution.set_markup (this._source.current_wallpaper.attribution);
                 }
             } else {
                 this.stack.set_visible_child_name ("placeholder");

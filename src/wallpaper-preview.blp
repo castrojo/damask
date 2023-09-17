@@ -60,8 +60,15 @@ template DamaskWallpaperPreview : Gtk.Box {
     wrap: true;
     ellipsize: end;
     lines: 3;
-    margin-top: 12;
-    margin-bottom: 12;
+    margin-top: 6;
+    margin-bottom: 6;
+    visible: false;
+  }
+
+  Gtk.Label attribution {
+    styles ["caption", "dim-label"]
+    margin-top: 3;
+    margin-bottom: 3;
     visible: false;
   }
 

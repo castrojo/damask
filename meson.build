@@ -28,6 +28,7 @@ config_data.set('RESOURCE_PATH_PREFIX', resource_path_prefix)
 config_data.set('RESOURCE_PATH', resource_path)
 config_data.set('GETTEXT_PACKAGE', meson.project_name ())
 config_data.set('LOCALEDIR', get_option('prefix') / get_option('localedir'))
+config_data.set('UNSPLASH_ACCESS_KEY', get_option('unsplash_access_key'))
 
 subdir('data')
 subdir('src')

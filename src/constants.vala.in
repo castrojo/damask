@@ -25,4 +25,5 @@ namespace Damask.Constants {
     const string RESOURCE_PATH = "@RESOURCE_PATH@";
     const string GETTEXT_PACKAGE = "@GETTEXT_PACKAGE@";
     const string LOCALEDIR = "@LOCALEDIR@";
+    const string UNSPLASH_ACCESS_KEY = "@UNSPLASH_ACCESS_KEY@";
 }

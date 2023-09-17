@@ -82,7 +82,7 @@ namespace Damask {
                 this.sources.set (s.id, s);
                 Type? type = typeof (Sources.Apod.PreferencesPage);
             }
-            {
+            if (Damask.Constants.UNSPLASH_ACCESS_KEY != "") {
                 var s = new Sources.Unsplash.Unsplash ();
                 this.sources.set (s.id, s);
                 Type? type = typeof (Sources.Unsplash.PreferencesPage);

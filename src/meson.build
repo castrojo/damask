@@ -11,16 +11,6 @@ damask_blueprints = [
   'window.blp'
 ]
 
-blueprints = custom_target('blueprints',
-  input: damask_blueprints,
-  output: '.',
-  command: [find_program('blueprint-compiler'),
-              'batch-compile',
-              '@OUTDIR@',
-              '@CURRENT_SOURCE_DIR@',
-              '@INPUT@']
-)
-
 damask_sources = [
   'application.vala',
   'main.vala',
@@ -35,6 +25,21 @@ damask_sources = [
   'wallpaper-source.vala',
   'window.vala',
 ]
+
+if get_option('unsplash_access_key') != ''
+  damask_sources += 'sources/unsplash.vala'
+  damask_blueprints += 'sources/unsplash.blp'
+endif
+
+blueprints = custom_target('blueprints',
+  input: damask_blueprints,
+  output: '.',
+  command: [find_program('blueprint-compiler'),
+              'batch-compile',
+              '@OUTDIR@',
+              '@CURRENT_SOURCE_DIR@',
+              '@INPUT@']
+)
 
 # This "target" creates a stamp file that is newer than src/meson.build. This
 # appears to ensure that the blueprint files are compiled into UI XML definition

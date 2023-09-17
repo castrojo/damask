@@ -1,1 +1,2 @@
 option('development', type: 'boolean', value: false, description: 'development/nightly build')
+option('unsplash_access_key', type: 'string', value: '', description: 'Unsplash Developer Access Key')

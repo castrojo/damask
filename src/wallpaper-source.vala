@@ -26,6 +26,7 @@ namespace Damask {
         public string? title { get; set; }
         public string? description { get; set; }
         public string? resolution { get; set; }
+        public string? attribution { get; set; }
     }
 
     public interface WallpaperSource : Object {
