@@ -76,12 +76,18 @@ namespace Damask {
             }
         }
 
-        private void set_paintable_swap (Gdk.Texture texture) {
+        private void set_paintable_swap (Gdk.Paintable texture) {
+            int width = int.min (300, texture.get_intrinsic_width ());
+            int height = int.min (200, texture.get_intrinsic_height ());
             if (this.stack.get_visible_child_name () == "picture1" ) {
                 this.picture2.paintable = texture;
+                this.picture2.width_request = width;
+                this.picture2.height_request = height;
                 this.stack.set_visible_child_name ("picture2");
             } else {
                 this.picture1.paintable = texture;
+                this.picture1.width_request = width;
+                this.picture1.height_request = height;
                 this.stack.set_visible_child_name ("picture1");
             }
         }
@@ -91,22 +97,22 @@ namespace Damask {
             try {
                 if (this._source.current_wallpaper != null) {
                     Uri uri = Uri.parse (this._source.current_wallpaper.thumbnail_url, UriFlags.NONE);
+                    Gdk.Texture? texture = null;
+
                     switch (uri.get_scheme ()) {
                     case "file":
                         string uri_string = uri.to_string ();
                         File file = File.new_for_uri (uri_string);
-                        Gdk.Texture texture = Gdk.Texture.from_file (file);
-                        this.set_paintable_swap (texture);
+                        texture = Gdk.Texture.from_file (file);
                         break;
                     default:
                         Soup.Session session = new Soup.Session ();
                         Soup.Message msg = new Soup.Message ("GET", uri.to_string ());
                         Bytes body = yield session.send_and_read_async (msg, 0, null);
-
-                        Gdk.Texture texture = Gdk.Texture.from_bytes (body);
-                        this.set_paintable_swap (texture);
+                        texture = Gdk.Texture.from_bytes (body);
                         break;
                     }
+                    this.set_paintable_swap (texture);
                 }
             } catch (Error e) {
                 message (e.message);
