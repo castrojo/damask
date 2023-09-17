@@ -29,6 +29,7 @@ config_data.set('RESOURCE_PATH', resource_path)
 config_data.set('GETTEXT_PACKAGE', meson.project_name ())
 config_data.set('LOCALEDIR', get_option('prefix') / get_option('localedir'))
 config_data.set('UNSPLASH_ACCESS_KEY', get_option('unsplash_access_key'))
+config_data.set('NASA_API_KEY', get_option('nasa_api_key'))
 
 subdir('data')
 subdir('src')

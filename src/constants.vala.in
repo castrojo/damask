@@ -26,4 +26,5 @@ namespace Damask.Constants {
     const string GETTEXT_PACKAGE = "@GETTEXT_PACKAGE@";
     const string LOCALEDIR = "@LOCALEDIR@";
     const string UNSPLASH_ACCESS_KEY = "@UNSPLASH_ACCESS_KEY@";
+    const string NASA_API_KEY = "@NASA_API_KEY@";
 }

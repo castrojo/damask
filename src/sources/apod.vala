@@ -52,8 +52,7 @@ namespace Damask.Sources.Apod {
         public async Wallpaper? refresh () {
             StringBuilder query_parameters = new StringBuilder ();
 
-            string api_key = "qVEzcQD64awDPR7YDWD0g36KduLH5tHFXGIV6eQ5";
-            query_parameters.append (@"api_key=$api_key&");
+            query_parameters.append (@"api_key=$(Damask.Constants.NASA_API_KEY)&");
 
             uint min_width = 0;
             Gdk.Display default_display = Gdk.Display.get_default ();
