@@ -1,17 +1,17 @@
 {
-    "app-id": "app.drey.Damask.Devel",
-    "runtime": "org.gnome.Platform",
-    "runtime-version": "master",
-    "sdk": "org.gnome.Sdk",
-    "command": "damask",
-    "finish-args": [
+    "app-id" : "app.drey.Damask.Devel",
+    "runtime" : "org.gnome.Platform",
+    "runtime-version" : "master",
+    "sdk" : "org.gnome.Sdk",
+    "command" : "damask",
+    "finish-args" : [
         "--share=network",
         "--share=ipc",
         "--socket=fallback-x11",
         "--device=dri",
         "--socket=wayland"
     ],
-    "cleanup": [
+    "cleanup" : [
         "/include",
         "/lib/pkgconfig",
         "/man",
@@ -23,47 +23,52 @@
         "*.la",
         "*.a"
     ],
-    "modules": [
+    "modules" : [
         {
-            "name": "blueprint-compiler",
-            "buildsystem": "meson",
-            "cleanup": ["*"],
-            "sources": [
+            "name" : "blueprint-compiler",
+            "buildsystem" : "meson",
+            "cleanup" : [
+                "*"
+            ],
+            "sources" : [
                 {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler",
-                    "branch": "main"
+                    "type" : "git",
+                    "url" : "https://gitlab.gnome.org/jwestman/blueprint-compiler",
+                    "branch" : "main"
                 }
             ]
         },
         {
-            "name": "libportal",
-            "buildsystem": "meson",
-            "config-opts": [
+            "name" : "libportal",
+            "buildsystem" : "meson",
+            "config-opts" : [
                 "-Dbackends=gtk4",
                 "-Ddocs=false"
             ],
-            "sources": [
+            "sources" : [
                 {
-                    "type": "git",
-                    "url": "https://github.com/flatpak/libportal",
-                    "tag": "0.6"
+                    "type" : "git",
+                    "url" : "https://github.com/flatpak/libportal",
+                    "tag" : "0.6"
                 }
             ]
         },
         {
-            "name": "damask",
-            "builddir": true,
-            "buildsystem": "meson",
-            "config-opts": [
-            	"-Ddevelopment=true"
+            "name" : "damask",
+            "builddir" : true,
+            "buildsystem" : "meson",
+            "config-opts" : [
+                "-Ddevelopment=true",
             ],
-            "sources": [
+            "sources" : [
                 {
-                    "type": "dir",
-                    "path": "."
+                    "type" : "dir",
+                    "path" : "."
                 }
             ]
         }
-    ]
+    ],
+    "build-options" : {
+        "env" : {        }
+    }
 }
