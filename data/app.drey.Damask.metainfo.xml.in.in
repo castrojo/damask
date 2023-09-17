@@ -24,7 +24,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
   <developer_name>Link Dupont</developer_name>
-  <summary>Automatically set wallpaper images from Internet sources</summary>
+  <summary>Automatically set a background from the Internet</summary>
   <description>
     <p>Damask is an automatic wallpaper application. It currently supports setting the wallpaper image from the following sources:</p>
     <ul>
@@ -32,6 +32,7 @@
       <li>Microsoft Bing Wallpaper of the day</li>
       <li>NASA Astronomy Picture of the Day</li>
       <li>Unsplash</li>
+      <li>Google Earth View</li>
     </ul>
   </description>
   <url type="homepage">https://gitlab.gnome.org/subpop/damask</url>
