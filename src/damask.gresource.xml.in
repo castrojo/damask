@@ -9,9 +9,9 @@
     <file preprocess="xml-stripblanks">sources/apod.ui</file>
     <file preprocess="xml-stripblanks">sources/bing.ui</file>
     <file preprocess="xml-stripblanks">sources/earthview.ui</file>
-    <file preprocess="xml-stripblanks">sources/manual.ui</file>
     <file preprocess="xml-stripblanks">sources/slideshow.ui</file>
     <file preprocess="xml-stripblanks">sources/unsplash.ui</file>
     <file preprocess="xml-stripblanks">sources/wallhaven.ui</file>
   </gresource>
 </gresources>
+
