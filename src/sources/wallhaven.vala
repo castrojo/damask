@@ -301,22 +301,22 @@ namespace Damask.Sources.Wallhaven {
     [GtkTemplate (ui = "/app/drey/Damask/sources/wallhaven.ui")]
     public class PreferencesPage : Adw.PreferencesPage {
         private Settings settings = new Settings(@"$(Constants.APP_ID).sources.wallhaven");
-        [GtkChild] private unowned Gtk.Entry username;
-        [GtkChild] private unowned Gtk.Entry api_key;
-        [GtkChild] private unowned Gtk.Entry query;
+        [GtkChild] private unowned Adw.EntryRow username;
+        [GtkChild] private unowned Adw.EntryRow api_key;
+        [GtkChild] private unowned Adw.EntryRow query;
         [GtkChild] private unowned Gtk.CheckButton search_mode_query;
         [GtkChild] private unowned Adw.ComboRow collections;
         [GtkChild] private unowned Gtk.CheckButton search_mode_collections;
         [GtkChild] private unowned Adw.ComboRow sort_by;
         [GtkChild] private unowned Adw.ComboRow sort_order;
         [GtkChild] private unowned Adw.ComboRow top_list_range;
-        [GtkChild] private unowned Gtk.Switch category_general;
-        [GtkChild] private unowned Gtk.Switch category_anime;
-        [GtkChild] private unowned Gtk.Switch category_people;
-        [GtkChild] private unowned Gtk.Switch purity_sfw;
-        [GtkChild] private unowned Gtk.Switch purity_sketchy;
-        [GtkChild] private unowned Gtk.Switch purity_nsfw;
-        [GtkChild] private unowned Gtk.Switch color_enabled;
+        [GtkChild] private unowned Adw.SwitchRow category_general;
+        [GtkChild] private unowned Adw.SwitchRow category_anime;
+        [GtkChild] private unowned Adw.SwitchRow category_people;
+        [GtkChild] private unowned Adw.SwitchRow purity_sfw;
+        [GtkChild] private unowned Adw.SwitchRow purity_sketchy;
+        [GtkChild] private unowned Adw.SwitchRow purity_nsfw;
+        [GtkChild] private unowned Adw.SwitchRow color_enabled;
         [GtkChild] private unowned Gtk.Button color_button;
         [GtkChild] private unowned Gtk.Popover color_popover;
         [GtkChild] private unowned Gtk.Button syntax_help;
