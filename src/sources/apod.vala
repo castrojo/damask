@@ -52,7 +52,7 @@ namespace Damask.Sources.Apod {
         public async Wallpaper? refresh () {
             StringBuilder query_parameters = new StringBuilder ();
 
-            string api_key = this.settings.get_string ("api-key");
+            string api_key = "qVEzcQD64awDPR7YDWD0g36KduLH5tHFXGIV6eQ5";
             query_parameters.append (@"api_key=$api_key&");
 
             uint min_width = 0;
@@ -103,12 +103,8 @@ namespace Damask.Sources.Apod {
 
     [GtkTemplate (ui = "/app/drey/Damask/sources/apod.ui")]
     public class PreferencesPage : Adw.PreferencesPage {
-        private Settings settings = new Settings (@"$(Constants.APP_ID).sources.apod");
-        [GtkChild] private unowned Adw.EntryRow api_key;
-
         construct {
             debug (@"[%p] $(this.get_type().name()).construct", this);
-            this.settings.bind ("api-key", api_key, "text", SettingsBindFlags.DEFAULT);
         }
 
         ~PreferencesPage () {
