@@ -166,34 +166,36 @@ namespace Damask.Sources.Wallhaven {
                         string aspect = "";
                         if (min_width > min_height) {
                             ratio = min_width * 10 / min_height;
+                            aspect += "landscape,";
                         } else {
                             ratio = min_height * 10 / min_width;
+                            aspect += "portrait,";
                         }
                         switch (ratio) {
                             case 13:
-                              aspect = "4x3";
+                              aspect += "4x3";
                               break;
                             case 16:
-                              aspect = "16x10";
+                              aspect += "16x10";
                               break;
                             case 17:
-                              aspect = "16x9";
+                              aspect += "16x9";
                               break;
                             case 23:
-                              aspect = "21x9";
+                              aspect += "21x9";
                               break;
                             case 12:
-                              aspect = "5x4";
+                              aspect += "5x4";
                               break;
                               /* This catches 1.5625 as well (1600x1024) when maybe it shouldn't. */
                             case 15:
-                              aspect = "3x2";
+                              aspect += "3x2";
                               break;
                             case 18:
-                              aspect = "9x5";
+                              aspect += "9x5";
                               break;
                             case 10:
-                              aspect = "1x1";
+                              aspect += "1x1";
                               break;
                         }
                         query_parameters.append(@"ratios=$aspect&");
