@@ -85,13 +85,15 @@ namespace Damask {
         private void set_paintable_swap (Gdk.Paintable texture) {
             int width = int.min (300, texture.get_intrinsic_width ());
             int height = int.min (200, texture.get_intrinsic_height ());
+            Gtk.Snapshot snapshot = new Gtk.Snapshot ();
+            texture.snapshot (snapshot, (double) width, (double) height);
             if (this.stack.get_visible_child_name () == "picture1" ) {
-                this.picture2.paintable = texture;
+                this.picture2.paintable = snapshot.free_to_paintable (null);
                 this.picture2.width_request = width;
                 this.picture2.height_request = height;
                 this.stack.set_visible_child_name ("picture2");
             } else {
-                this.picture1.paintable = texture;
+                this.picture1.paintable = snapshot.free_to_paintable (null);
                 this.picture1.width_request = width;
                 this.picture1.height_request = height;
                 this.stack.set_visible_child_name ("picture1");
