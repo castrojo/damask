@@ -26,6 +26,7 @@ template DamaskWindow : Adw.ApplicationWindow {
             Gtk.MenuButton {
               primary: true;
               icon-name: "open-menu-symbolic";
+              tooltip-text: _("Main Menu");
               menu-model: primary_menu;
               visible: bind split_view.collapsed inverted;
             }
@@ -56,6 +57,7 @@ template DamaskWindow : Adw.ApplicationWindow {
             Gtk.MenuButton {
               primary: true;
               icon-name: "open-menu-symbolic";
+              tooltip-text: _("Main Menu");
               menu-model: primary_menu;
               visible: bind split_view.collapsed;
             }
@@ -68,6 +70,7 @@ template DamaskWindow : Adw.ApplicationWindow {
                 child: Gtk.Button refresh_button {
                   action-name: "app.refresh";
                   icon-name: "view-refresh-symbolic";
+                  tooltip-text: _("Refresh");
                 };
               }
               Gtk.StackPage {
