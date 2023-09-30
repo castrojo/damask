@@ -17,8 +17,6 @@ src/sources/bing.blp
 src/sources/bing.vala
 src/sources/earthview.blp
 src/sources/earthview.vala
-src/sources/manual.blp
-src/sources/manual.vala
 src/sources/slideshow.blp
 src/sources/slideshow.vala
 src/sources/unsplash.blp
