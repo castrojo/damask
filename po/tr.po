@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: damask\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-17 15:31-0500\n"
-"PO-Revision-Date: 2023-06-11 09:52+0000\n"
+"POT-Creation-Date: 2023-09-30 22:34+0300\n"
+"PO-Revision-Date: 2023-09-30 22:43+0300\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/damask/damask/tr/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: data/app.drey.Damask.desktop.in.in:3
 #: data/app.drey.Damask.metainfo.xml.in.in:5
@@ -33,8 +33,8 @@ msgid "Link Dupont"
 msgstr "Link Dupont"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:27
-msgid "Automatically set wallpaper images from Internet sources"
-msgstr "İnternet kaynaklarından duvar kağıdı resimlerini kendiliğinden ayarla"
+msgid "Automatically set a background from the Internet"
+msgstr "İnternetten arka plan resmini kendiliğinden ayarla"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:29
 msgid ""
@@ -56,50 +56,40 @@ msgstr "Microsoft Bing günün duvar kağıdı"
 msgid "NASA Astronomy Picture of the Day"
 msgstr "NASA Astronomi Günün resmi"
 
-#: data/app.drey.Damask.metainfo.xml.in.in:34
+#: data/app.drey.Damask.metainfo.xml.in.in:34 src/sources/unsplash.vala:58
 msgid "Unsplash"
 msgstr "Unsplash"
 
-#: data/app.drey.Damask.metainfo.xml.in.in:45
-msgid "Added French and Dutch translations"
-msgstr "Fransızca ve Felemenkçe çeviriler eklendi"
+#: data/app.drey.Damask.metainfo.xml.in.in:35 src/sources/earthview.vala:44
+msgid "Google Earth View"
+msgstr "Google Earth Görünümü"
 
-#: data/app.drey.Damask.metainfo.xml.in.in:46
-msgid "Added \"Slideshow\" source to rotate through images in a local folder"
-msgstr ""
-"Yerel bir klasördeki resimler arasında geçiş yapmak için \"Slayt gösterisi\" "
-"kaynağı eklendi"
+#: src/application.vala:208
+msgid "Unable to set wallpaper"
+msgstr "Duvar kağıdı ayarlanamadı"
 
-#: data/app.drey.Damask.metainfo.xml.in.in:47
-msgid "Fixed an issue using the Wallhaven NSFW filter without an API key"
-msgstr ""
-"API anahtarı olmadan Wallhaven NSFW filtresini kullanma sorunu düzeltildi"
+#: src/application.vala:211
+#, c-format
+msgid "Unable to set wallpaper: %s"
+msgstr "Duvar kağıdı ayarlanamadı: %s"
 
-#: data/app.drey.Damask.metainfo.xml.in.in:48
-msgid "Fixed an issue using the Unsplash ncontent_filter setting"
-msgstr "Unsplash ncontent_filter ayarını kullanan bir hata düzeltildi"
+#: src/application.vala:258
+msgid "Unable to activate autostart"
+msgstr "Kendiliğinden başlatma etkinleştirilemedi"
 
-#: data/app.drey.Damask.metainfo.xml.in.in:49
-msgid "Changed the default refresh interval to 15 minutes"
-msgstr "Öntanımlı yenileme aralığını 15 dakika olarak değiştirdi"
+#: src/application.vala:261
+#, c-format
+msgid "Unable to activate autostart: %s"
+msgstr "Kendiliğinden başlatma etkinleştirilemedi: %s"
 
-#: data/app.drey.Damask.metainfo.xml.in.in:56
-msgid "Add \"wallpaper\" keyword to desktop file"
-msgstr "desktop dosyasına \"duvar kağıdı\" anahtar sözcüğü eklendi"
+#: src/application.vala:274
+msgid "Unable to deactivate autostart"
+msgstr "Kendiliğinden başlatma devre dışı bırakılamadı"
 
-#: data/app.drey.Damask.metainfo.xml.in.in:57
-msgid "Disable \"Anime\" category in the wallhaven source by default"
-msgstr ""
-"Wallhaven kaynağındaki \"Anime\" kategorisini öntanımlı olarak devre dışı "
-"bırakıldı"
-
-#: data/app.drey.Damask.metainfo.xml.in.in:58
-msgid ""
-"Dynamically disable sources that require certain values such as API key to "
-"function"
-msgstr ""
-"Çalışması için API anahtarı gibi belirli değerler gerektiren kaynakları "
-"dinamik olarak devre dışı bırak"
+#: src/application.vala:277
+#, c-format
+msgid "Unable to deactivate autostart: %s"
+msgstr "Kendiliğinden başlatma devre dışı bırakılamadı: %s"
 
 #: src/preferences.blp:10
 msgid "Refresh interval"
@@ -145,99 +135,174 @@ msgstr "24 saat"
 msgid "Run in background"
 msgstr "Arka planda çalıştır"
 
-#: src/preferences.blp:33
+#: src/preferences.blp:34
 msgid "Start automatically upon login"
 msgstr "Girişte kendiliğinden başlat"
 
-#: src/sources/bing.blp:8
+#: src/shortcuts.blp:11 src/sources/wallhaven.blp:130
+msgid "General"
+msgstr "Genel"
+
+#: src/shortcuts.blp:14
+msgid "Show Shortcuts"
+msgstr "Kısayolları Göster"
+
+#: src/shortcuts.blp:19
+msgid "Refresh Wallpaper"
+msgstr "Duvar Kağıdını Yenile"
+
+#: src/shortcuts.blp:24
+msgid "Quit"
+msgstr "Çık"
+
+#: src/wallpaper-preview.blp:47
+msgid "Open in Browser"
+msgstr "Tarayıcıda Aç"
+
+#: src/window.blp:29 src/window.blp:60
+msgid "Main Menu"
+msgstr "Ana Menü"
+
+#: src/window.blp:73
+msgid "Refresh"
+msgstr "Yenile"
+
+#: src/window.blp:91
+msgid "Automatic refresh is disabled"
+msgstr "Kendiliğinden yenileme devre dışı bırakıldı"
+
+#: src/window.blp:92
+msgid "Enable"
+msgstr "Etkinleştir"
+
+#: src/window.blp:99
+msgid "No Wallpaper Selected"
+msgstr "Duvar Kağıdı Seçilmedi"
+
+#: src/window.blp:100
+msgid "Choose a source to get background images."
+msgstr "Arka plan resimlerini almak için bir kaynak seçin."
+
+#: src/window.blp:113
+msgid "Refresh automatically"
+msgstr "Kendiliğinden yenile"
+
+#: src/window.blp:119
+msgid "_Preferences"
+msgstr "Te_rcihler"
+
+#: src/window.blp:124
+msgid "_Keyboard Shortcuts"
+msgstr "_Klavye Kısayolları"
+
+#: src/window.blp:129
+msgid "_About Damask"
+msgstr "Damask _Hakkında"
+
+#: src/window.blp:134
+msgid "_Quit"
+msgstr "_Çık"
+
+#: src/window.vala:140
+#, c-format
+msgid "Unable to open URL: %s"
+msgstr "URL açılamadı: %s"
+
+#: src/sources/apod.vala:47
+msgid "NASA Astronomy"
+msgstr "NASA Astronomi"
+
+#: src/sources/apod.vala:92 src/sources/earthview.vala:90
+#, c-format
+msgid "Failed to get image: %s"
+msgstr "Resim alınamadı: %s"
+
+#: src/sources/bing.blp:13
 msgid "Market"
 msgstr "Market"
 
-#: src/sources/bing.blp:12
+#: src/sources/bing.blp:17
 msgid "English (United States)"
 msgstr "İngilizce (Amerika)"
 
-#: src/sources/bing.blp:13
+#: src/sources/bing.blp:18
 msgid "Chinese (Simplified)"
 msgstr "Çince (Basitleştirilmiş)"
 
-#: src/sources/bing.blp:14
+#: src/sources/bing.blp:19
 msgid "Japanese (Japan)"
 msgstr "Japonca (Japonya)"
 
-#: src/sources/bing.blp:15
+#: src/sources/bing.blp:20
 msgid "English (Australia)"
 msgstr "İngilizce (Avustralya)"
 
-#: src/sources/bing.blp:16
+#: src/sources/bing.blp:21
 msgid "English (United Kingdom)"
 msgstr "İngilizce (Birleşik Krallık)"
 
-#: src/sources/bing.blp:17
+#: src/sources/bing.blp:22
 msgid "German (Germany)"
 msgstr "Almanya (Almanca)"
 
-#: src/sources/bing.blp:18
+#: src/sources/bing.blp:23
 msgid "English (New Zealand)"
 msgstr "İngilizce (Yeni Zellanda)"
 
-#: src/sources/bing.blp:19
+#: src/sources/bing.blp:24
 msgid "English (Canada)"
 msgstr "İngilizce (Kanada)"
 
-#: src/sources/bing.blp:20
+#: src/sources/bing.blp:25
 msgid "English (India)"
 msgstr "İngilizce (Hindistan)"
 
-#: src/sources/bing.blp:21
+#: src/sources/bing.blp:26
 msgid "French (France)"
 msgstr "Fransızca (Fransa)"
 
-#: src/sources/bing.blp:22
+#: src/sources/bing.blp:27
 msgid "French (Canada)"
 msgstr "Fransızca (Kanada)"
 
-#: src/sources/bing.blp:28
+#: src/sources/bing.blp:33
 msgid "Resolution"
 msgstr "Çözünürlük"
 
-#: src/sources/bing.vala:60
-msgid "Use Microsoft Bing's wallpaper of the day"
-msgstr "Microsoft Bing günün duvar kağıdını kullan"
+#: src/sources/bing.vala:56
+#| msgid "wallpaper;"
+msgid "Bing Wallpaper"
+msgstr "Bing Duvar Kağıdı"
 
-#: src/sources/manual.vala:48
-msgid "Use a manually selected image as the wallpaper"
-msgstr "Duvar kağıdı olarak elle seçilen bir görüntüyü kullan"
+#: src/sources/bing.vala:92 src/sources/unsplash.vala:106
+#: src/sources/wallhaven.vala:292
+#, c-format
+msgid "Failed to get wallpaper: %s"
+msgstr "Duvar kağıdı alınamadı: %s"
 
-#: src/sources/manual.vala:102
-msgid "Select Picture"
-msgstr "Resim Seç"
-
-#: src/sources/manual.vala:105 src/sources/slideshow.vala:170
-msgid "_Select"
-msgstr "_Seç"
-
-#: src/sources/manual.vala:106 src/sources/slideshow.vala:171
-msgid "_Cancel"
-msgstr "_İptal"
-
-#: src/sources/slideshow.blp:11
-msgid "Choose Folder"
-msgstr "Klasör Seç"
-
-#: src/sources/slideshow.blp:21 src/sources/wallhaven.blp:72
+#: src/sources/earthview.blp:13 src/sources/slideshow.blp:24
+#: src/sources/wallhaven.blp:68
 msgid "Sort By"
 msgstr "Sıralama Ölçütü"
 
-#: src/sources/slideshow.blp:24 src/sources/wallhaven.blp:78
+#: src/sources/earthview.blp:16 src/sources/slideshow.blp:27
+#: src/sources/wallhaven.blp:74
 msgid "Random"
 msgstr "Rastgele"
 
-#: src/sources/slideshow.blp:25
+#: src/sources/earthview.blp:17
+msgid "Sequential"
+msgstr "Devam eden"
+
+#: src/sources/slideshow.blp:13
+msgid "Choose Folder"
+msgstr "Klasör Seç"
+
+#: src/sources/slideshow.blp:28
 msgid "Name"
 msgstr "Ad"
 
-#: src/sources/slideshow.blp:26
+#: src/sources/slideshow.blp:29
 msgid "Creation Date"
 msgstr "Oluşturma Tarihi"
 
@@ -245,33 +310,86 @@ msgstr "Oluşturma Tarihi"
 msgid "Slideshow"
 msgstr "Slayt Gösterisi"
 
-#: src/sources/slideshow.vala:47
-msgid "Use the contents of a folder as the wallpaper"
-msgstr "Bir klasörün içeriğini duvar kağıdı olarak kullan"
+#: src/sources/slideshow.vala:117
+#, c-format
+msgid "Failed to get folder contents: %s"
+msgstr "Klasör içerikleri alınamadı: %s"
 
-#: src/sources/slideshow.vala:167
+#: src/sources/slideshow.vala:152
+#, c-format
+msgid "Unable to watch folder for changes: %s"
+msgstr "Klasör değişiklikler için izlenemedi: %s"
+
+#: src/sources/slideshow.vala:180
 msgid "Select Folder"
 msgstr "Klasör Seç"
 
-#: src/sources/wallhaven.blp:7
-msgid "Source"
-msgstr "Kaynak"
-
-#: src/sources/wallhaven.blp:14
-msgid "API Key"
-msgstr "API Anahtarı"
-
-#: src/sources/wallhaven.blp:17
-msgid "deadbeef"
-msgstr "deadbeef"
-
-#: src/sources/wallhaven.blp:23 src/sources/wallhaven.blp:31
+#: src/sources/unsplash.blp:13 src/sources/wallhaven.blp:27
+#: src/sources/wallhaven.blp:35
 msgid "Query"
 msgstr "Sorgu"
 
-#: src/sources/wallhaven.blp:40
-msgid "space galaxy"
-msgstr "uzay galaksi"
+#: src/sources/unsplash.blp:14
+msgid "Limit selection to photos matching a search term"
+msgstr "Arama terimiyle eşleyen fotoğraf eşleşmelerini sınırla"
+
+#: src/sources/unsplash.blp:18 src/sources/wallhaven.blp:59
+msgid "Collections"
+msgstr "Koleksiyonlar"
+
+#: src/sources/unsplash.blp:19
+msgid "Public collection IDs to filter selection (comma-separated)"
+msgstr "Seçimi süzmek için genel koleksiyon kimlikleri (virgülle ayrılmış)"
+
+#: src/sources/unsplash.blp:23
+msgid "Topics"
+msgstr "Başlıklar"
+
+#: src/sources/unsplash.blp:24
+msgid "Public topic IDs to filter selection (comma-separated)"
+msgstr "Seçimi süzecek genel konu kimlikleri (virgülle ayrılmış)"
+
+#: src/sources/unsplash.blp:28
+msgid "Content Filter"
+msgstr "İçerik Süzgeci"
+
+#: src/sources/unsplash.blp:32
+msgid "Low"
+msgstr "Düşük"
+
+#: src/sources/unsplash.blp:33
+msgid "High"
+msgstr "Yüksek"
+
+#: src/sources/unsplash.vala:102
+#, c-format
+msgid ""
+"Photo by <a href=\"%s?utm_source=damask&amp;utm_medium=referral\">%s</a> on "
+"<a href=\"https://unsplash.com/?utm_source=damask&amp;"
+"utm_medium=referral\">Unsplash</a>."
+msgstr ""
+"Fotoğrafçı: <a href=\"%s?utm_source=damask&amp;utm_medium=referral\">%s</a>, "
+"Kaynak: <a href=\"https://unsplash.com/?utm_source=damask&amp;"
+"utm_medium=referral\">Unsplash</a>."
+
+#: src/sources/wallhaven.blp:12
+msgid ""
+"A personal API key is required to access private collections and other "
+"sensitive content. An API key can be generated by visiting <a href=\"https://"
+"wallhaven.cc/settings/account\">wallhaven.cc</a>."
+msgstr ""
+"Özel koleksiyonlara ve diğer hassas içeriklere erişmek için kişisel API "
+"anahtarı gereklidir. <a href=\"https://wallhaven.cc/settings/"
+"account\">wallhaven.cc</a> adresini ziyaret ederek API anahtarı "
+"oluşturulabilir."
+
+#: src/sources/wallhaven.blp:19
+msgid "API Key"
+msgstr "API Anahtarı"
+
+#: src/sources/wallhaven.blp:24
+msgid "Search"
+msgstr "Ara"
 
 #: src/sources/wallhaven.blp:47
 msgid "Collection"
@@ -281,206 +399,245 @@ msgstr "Koleksiyon"
 msgid "Username"
 msgstr "Kullanıcı Adı"
 
-#: src/sources/wallhaven.blp:57
-msgid "kermit_the_frog"
-msgstr "kullanıcı_adınız"
-
-#: src/sources/wallhaven.blp:63
-msgid "Collections"
-msgstr "Koleksiyonlar"
-
-#: src/sources/wallhaven.blp:69
+#: src/sources/wallhaven.blp:65
 msgid "Sorting"
 msgstr "Sıralama"
 
-#: src/sources/wallhaven.blp:76
+#: src/sources/wallhaven.blp:72
 msgid "Date Added"
 msgstr "Eklenme Tarihi"
 
-#: src/sources/wallhaven.blp:77
+#: src/sources/wallhaven.blp:73
 msgid "Relevance"
 msgstr "İlişki"
 
-#: src/sources/wallhaven.blp:79
+#: src/sources/wallhaven.blp:75
 msgid "Views"
 msgstr "Gösterim"
 
-#: src/sources/wallhaven.blp:80
+#: src/sources/wallhaven.blp:76
 msgid "Favorites"
 msgstr "Gözdeler"
 
-#: src/sources/wallhaven.blp:81
+#: src/sources/wallhaven.blp:77
 msgid "Top List"
 msgstr "En Meşhur"
 
-#: src/sources/wallhaven.blp:87
+#: src/sources/wallhaven.blp:83
 msgid "Sort Order"
 msgstr "Sıralama Düzeni"
 
-#: src/sources/wallhaven.blp:91
+#: src/sources/wallhaven.blp:87
 msgid "Ascending"
 msgstr "Artan"
 
-#: src/sources/wallhaven.blp:92
+#: src/sources/wallhaven.blp:88
 msgid "Descending"
 msgstr "Azalan"
 
-#: src/sources/wallhaven.blp:98
+#: src/sources/wallhaven.blp:94
 msgid "Top List Range"
 msgstr "En Meşhur Aralığı"
 
-#: src/sources/wallhaven.blp:102
+#: src/sources/wallhaven.blp:98
 msgid "One Day"
 msgstr "1 Gün"
 
-#: src/sources/wallhaven.blp:103
+#: src/sources/wallhaven.blp:99
 msgid "Three Days"
 msgstr "3 Gün"
 
-#: src/sources/wallhaven.blp:104
+#: src/sources/wallhaven.blp:100
 msgid "One Week"
 msgstr "1 Hafta"
 
-#: src/sources/wallhaven.blp:105
+#: src/sources/wallhaven.blp:101
 msgid "One Month"
 msgstr "1 Ay"
 
-#: src/sources/wallhaven.blp:106
+#: src/sources/wallhaven.blp:102
 msgid "Three Months"
 msgstr "3 Ay"
 
-#: src/sources/wallhaven.blp:107
+#: src/sources/wallhaven.blp:103
 msgid "Six Months"
 msgstr "6 Ay"
 
-#: src/sources/wallhaven.blp:108
+#: src/sources/wallhaven.blp:104
 msgid "One Year"
 msgstr "1 Yıl"
 
-#: src/sources/wallhaven.blp:115
+#: src/sources/wallhaven.blp:111
 msgid "Filtering"
 msgstr "Filtreleme"
 
-#: src/sources/wallhaven.blp:118
+#: src/sources/wallhaven.blp:114
 msgid "Color"
 msgstr "Renk"
 
-#: src/sources/wallhaven.blp:135
+#: src/sources/wallhaven.blp:127
 msgid "Categories"
 msgstr "Kategoriler"
 
-#: src/sources/wallhaven.blp:138
-msgid "General"
-msgstr "Genel"
-
-#: src/sources/wallhaven.blp:146
+#: src/sources/wallhaven.blp:134
 msgid "Anime"
 msgstr "Anime"
 
-#: src/sources/wallhaven.blp:154
+#: src/sources/wallhaven.blp:138
 msgid "People"
 msgstr "Kişiler"
 
-#: src/sources/wallhaven.blp:163
+#: src/sources/wallhaven.blp:143
 msgid "Purity"
 msgstr "Temizlik"
 
-#: src/sources/wallhaven.blp:166
+#: src/sources/wallhaven.blp:146
 msgid "Safe for Work"
 msgstr "İş İçin Uygun"
 
-#: src/sources/wallhaven.blp:174
+#: src/sources/wallhaven.blp:150
 msgid "Sketchy"
 msgstr "Müstehçen"
 
-#: src/sources/wallhaven.blp:182
+#: src/sources/wallhaven.blp:154
 msgid "Not Safe for Work"
 msgstr "İş İçin Güvensiz"
 
-#: src/sources/wallhaven.blp:183
+#: src/sources/wallhaven.blp:155
 msgid "An API key is required to access not safe for work content"
 msgstr "İş için güvensiz içeriğe erişmek için API anahtarı gerekir"
 
-#: src/sources/wallhaven.vala:121
-msgid "Get wallpapers from wallhaven.cc"
-msgstr "Duvar kağıtlarını wallhaven.cc sitesinden getir"
+#: src/sources/wallhaven.vala:118
+msgid "Wallhaven"
+msgstr "wallhaven"
 
-#: src/sources/wallhaven.vala:466
+#: src/sources/wallhaven.vala:444
 msgid "<tt>tagname</tt>"
 msgstr "<tt>tagname</tt>"
 
-#: src/sources/wallhaven.vala:466
+#: src/sources/wallhaven.vala:444
 msgid "search fuzzily for a tag/keyword"
 msgstr "bir etiket/anahtar kelime için bulanık arama"
 
-#: src/sources/wallhaven.vala:467
+#: src/sources/wallhaven.vala:445
 msgid "<tt>-tagname</tt>"
 msgstr "<tt>-tagname</tt>"
 
-#: src/sources/wallhaven.vala:467
+#: src/sources/wallhaven.vala:445
 msgid "exclude a tag/keyword"
 msgstr "etiketi/anahtar kelimeyi dışla"
 
-#: src/sources/wallhaven.vala:468
+#: src/sources/wallhaven.vala:446
 msgid "<tt>+tag1 +tag2</tt>"
 msgstr "<tt>+tag1 +tag2</tt>"
 
-#: src/sources/wallhaven.vala:468
+#: src/sources/wallhaven.vala:446
 msgid "must have tag1 and tag2"
 msgstr "tag1 ve tag2 içermeli"
 
-#: src/sources/wallhaven.vala:469
+#: src/sources/wallhaven.vala:447
 msgid "<tt>+tag1 -tag2</tt>"
 msgstr "<tt>+tag1 -tag2</tt>"
 
-#: src/sources/wallhaven.vala:469
+#: src/sources/wallhaven.vala:447
 msgid "must have tag1 and NOT tag2"
 msgstr "tag1 içermeli fakat tag2 içermemeli"
 
-#: src/sources/wallhaven.vala:470
+#: src/sources/wallhaven.vala:448
 msgid "<tt>@username</tt>"
 msgstr "<tt>@username</tt>"
 
-#: src/sources/wallhaven.vala:470
+#: src/sources/wallhaven.vala:448
 msgid "user uploads"
 msgstr "kullanıcı yüklemeleri"
 
-#: src/sources/wallhaven.vala:471
+#: src/sources/wallhaven.vala:449
 msgid "<tt>id:123</tt>"
 msgstr "<tt>id:123</tt>"
 
-#: src/sources/wallhaven.vala:471
+#: src/sources/wallhaven.vala:449
 msgid "Exact tag search (can not be combined)"
 msgstr "Tam etiket araması (birleştirilemez)"
 
-#: src/sources/wallhaven.vala:472
+#: src/sources/wallhaven.vala:450
 msgid "<tt>type:{png/jpg}</tt>"
 msgstr "<tt>type:{png/jpg}</tt>"
 
-#: src/sources/wallhaven.vala:472
+#: src/sources/wallhaven.vala:450
 msgid "Search for file type (jpg = jpeg)"
 msgstr "Dosya türünü ara (jpg = jpeg)"
 
-#: src/sources/wallhaven.vala:473
+#: src/sources/wallhaven.vala:451
 msgid "<tt>like:wallpaper ID</tt>"
 msgstr "<tt>like:wallpaper ID</tt>"
 
-#: src/sources/wallhaven.vala:473
+#: src/sources/wallhaven.vala:451
 msgid "Find wallpapers with similar tags"
 msgstr "Benzer etiketlere sahip duvar kağıtlarını bul"
 
-#: src/window.blp:124
-msgid "_Preferences"
-msgstr "Te_rcihler"
+#~ msgid "Added French and Dutch translations"
+#~ msgstr "Fransızca ve Felemenkçe çeviriler eklendi"
 
-#: src/window.blp:129
-msgid "_Keyboard Shortcuts"
-msgstr "_Klavye Kısayolları"
+#~ msgid ""
+#~ "Added \"Slideshow\" source to rotate through images in a local folder"
+#~ msgstr ""
+#~ "Yerel bir klasördeki resimler arasında geçiş yapmak için \"Slayt "
+#~ "gösterisi\" kaynağı eklendi"
 
-#: src/window.blp:134
-msgid "_About Damask"
-msgstr "Damask _Hakkında"
+#~ msgid "Fixed an issue using the Wallhaven NSFW filter without an API key"
+#~ msgstr ""
+#~ "API anahtarı olmadan Wallhaven NSFW filtresini kullanma sorunu düzeltildi"
 
-#: src/window.blp:139
-msgid "_Quit"
-msgstr "_Çık"
+#~ msgid "Fixed an issue using the Unsplash ncontent_filter setting"
+#~ msgstr "Unsplash ncontent_filter ayarını kullanan bir hata düzeltildi"
+
+#~ msgid "Changed the default refresh interval to 15 minutes"
+#~ msgstr "Öntanımlı yenileme aralığını 15 dakika olarak değiştirdi"
+
+#~ msgid "Add \"wallpaper\" keyword to desktop file"
+#~ msgstr "desktop dosyasına \"duvar kağıdı\" anahtar sözcüğü eklendi"
+
+#~ msgid "Disable \"Anime\" category in the wallhaven source by default"
+#~ msgstr ""
+#~ "Wallhaven kaynağındaki \"Anime\" kategorisini öntanımlı olarak devre dışı "
+#~ "bırakıldı"
+
+#~ msgid ""
+#~ "Dynamically disable sources that require certain values such as API key "
+#~ "to function"
+#~ msgstr ""
+#~ "Çalışması için API anahtarı gibi belirli değerler gerektiren kaynakları "
+#~ "dinamik olarak devre dışı bırak"
+
+#~ msgid "Use Microsoft Bing's wallpaper of the day"
+#~ msgstr "Microsoft Bing günün duvar kağıdını kullan"
+
+#~ msgid "Use a manually selected image as the wallpaper"
+#~ msgstr "Duvar kağıdı olarak elle seçilen bir görüntüyü kullan"
+
+#~ msgid "Select Picture"
+#~ msgstr "Resim Seç"
+
+#~ msgid "_Select"
+#~ msgstr "_Seç"
+
+#~ msgid "_Cancel"
+#~ msgstr "_İptal"
+
+#~ msgid "Use the contents of a folder as the wallpaper"
+#~ msgstr "Bir klasörün içeriğini duvar kağıdı olarak kullan"
+
+#~ msgid "Source"
+#~ msgstr "Kaynak"
+
+#~ msgid "deadbeef"
+#~ msgstr "deadbeef"
+
+#~ msgid "space galaxy"
+#~ msgstr "uzay galaksi"
+
+#~ msgid "kermit_the_frog"
+#~ msgstr "kullanıcı_adınız"
+
+#~ msgid "Get wallpapers from wallhaven.cc"
+#~ msgstr "Duvar kağıtlarını wallhaven.cc sitesinden getir"
