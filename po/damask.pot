@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: damask\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-15 22:57-0400\n"
+"POT-Creation-Date: 2023-09-30 22:34+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: data/app.drey.Damask.desktop.in.in:3
-#: data/app.drey.Damask.metainfo.xml.in.in:5 src/window.blp:23
+#: data/app.drey.Damask.metainfo.xml.in.in:5
 msgid "Damask"
 msgstr ""
 
@@ -31,7 +31,7 @@ msgid "Link Dupont"
 msgstr ""
 
 #: data/app.drey.Damask.metainfo.xml.in.in:27
-msgid "Automatically set wallpaper images from Internet sources"
+msgid "Automatically set a background from the Internet"
 msgstr ""
 
 #: data/app.drey.Damask.metainfo.xml.in.in:29
@@ -48,99 +48,41 @@ msgstr ""
 msgid "Microsoft Bing Wallpaper of the day"
 msgstr ""
 
-#: data/app.drey.Damask.metainfo.xml.in.in:33 src/window.blp:102
+#: data/app.drey.Damask.metainfo.xml.in.in:33
 msgid "NASA Astronomy Picture of the Day"
 msgstr ""
 
-#: data/app.drey.Damask.metainfo.xml.in.in:34 src/window.blp:116
+#: data/app.drey.Damask.metainfo.xml.in.in:34 src/sources/unsplash.vala:58
 msgid "Unsplash"
 msgstr ""
 
-#: data/app.drey.Damask.metainfo.xml.in.in:45
-msgid "Updated UI, using a list of sources and preference pages"
+#: data/app.drey.Damask.metainfo.xml.in.in:35 src/sources/earthview.vala:44
+msgid "Google Earth View"
 msgstr ""
 
-#: data/app.drey.Damask.metainfo.xml.in.in:46
-msgid "Added Google EarthView as a new source"
-msgstr ""
-
-#: data/app.drey.Damask.metainfo.xml.in.in:47
-msgid "Updated minimal GTK version to 4.10 and fixed deprecation notices"
-msgstr ""
-
-#: data/app.drey.Damask.metainfo.xml.in.in:54
-msgid "Fixed an issue initializing translations"
-msgstr ""
-
-#: data/app.drey.Damask.metainfo.xml.in.in:55
-msgid "Report errors as a window toast"
-msgstr ""
-
-#: data/app.drey.Damask.metainfo.xml.in.in:56
-msgid "Fixed a crash in the Unsplash source using the wrong settings key name"
-msgstr ""
-
-#: data/app.drey.Damask.metainfo.xml.in.in:63
-msgid "Added French and Dutch translations"
-msgstr ""
-
-#: data/app.drey.Damask.metainfo.xml.in.in:64
-msgid "Added \"Slideshow\" source to rotate through images in a local folder"
-msgstr ""
-
-#: data/app.drey.Damask.metainfo.xml.in.in:65
-msgid "Fixed an issue using the Wallhaven NSFW filter without an API key"
-msgstr ""
-
-#: data/app.drey.Damask.metainfo.xml.in.in:66
-msgid "Fixed an issue using the Unsplash ncontent_filter setting"
-msgstr ""
-
-#: data/app.drey.Damask.metainfo.xml.in.in:67
-msgid "Changed the default refresh interval to 15 minutes"
-msgstr ""
-
-#: data/app.drey.Damask.metainfo.xml.in.in:68
-msgid "Fix a crash when disabling autostart"
-msgstr ""
-
-#: data/app.drey.Damask.metainfo.xml.in.in:75
-msgid "Add \"wallpaper\" keyword to desktop file"
-msgstr ""
-
-#: data/app.drey.Damask.metainfo.xml.in.in:76
-msgid "Disable \"Anime\" category in the wallhaven source by default"
-msgstr ""
-
-#: data/app.drey.Damask.metainfo.xml.in.in:77
-msgid ""
-"Dynamically disable sources that require certain values such as API key to "
-"function"
-msgstr ""
-
-#: src/application.vala:202
+#: src/application.vala:208
 msgid "Unable to set wallpaper"
 msgstr ""
 
-#: src/application.vala:205
+#: src/application.vala:211
 #, c-format
 msgid "Unable to set wallpaper: %s"
 msgstr ""
 
-#: src/application.vala:246
+#: src/application.vala:258
 msgid "Unable to activate autostart"
 msgstr ""
 
-#: src/application.vala:249
+#: src/application.vala:261
 #, c-format
 msgid "Unable to activate autostart: %s"
 msgstr ""
 
-#: src/application.vala:262
+#: src/application.vala:274
 msgid "Unable to deactivate autostart"
 msgstr ""
 
-#: src/application.vala:265
+#: src/application.vala:277
 #, c-format
 msgid "Unable to deactivate autostart: %s"
 msgstr ""
@@ -193,7 +135,7 @@ msgstr ""
 msgid "Start automatically upon login"
 msgstr ""
 
-#: src/shortcuts.blp:11 src/sources/wallhaven.blp:144
+#: src/shortcuts.blp:11 src/sources/wallhaven.blp:130
 msgid "General"
 msgstr ""
 
@@ -209,85 +151,64 @@ msgstr ""
 msgid "Quit"
 msgstr ""
 
-#: src/window.blp:46
-msgid "Manual"
+#: src/wallpaper-preview.blp:47
+msgid "Open in Browser"
 msgstr ""
 
-#: src/window.blp:47
-msgid "Use a manually selected image as the wallpaper"
+#: src/window.blp:29 src/window.blp:60
+msgid "Main Menu"
 msgstr ""
 
-#: src/window.blp:60
-msgid "Slideshow"
+#: src/window.blp:73
+msgid "Refresh"
 msgstr ""
 
-#: src/window.blp:61
-msgid "Use the contents of a folder as the wallpaper"
+#: src/window.blp:91
+msgid "Automatic refresh is disabled"
 msgstr ""
 
-#: src/window.blp:74
-msgid "Bing Wallpaper"
+#: src/window.blp:92
+msgid "Enable"
 msgstr ""
 
-#: src/window.blp:75
-msgid "Use Microsoft Bing's wallpaper of the day"
+#: src/window.blp:99
+msgid "No Wallpaper Selected"
 msgstr ""
 
-#: src/window.blp:88
-msgid "Wallhaven"
+#: src/window.blp:100
+msgid "Choose a source to get background images."
 msgstr ""
 
-#: src/window.blp:89
-msgid "Get wallpapers from wallhaven.cc"
+#: src/window.blp:113
+msgid "Refresh automatically"
 msgstr ""
 
-#: src/window.blp:103
-msgid "Each day a different image or photograph of our fascinating universe"
-msgstr ""
-
-#: src/window.blp:117
-msgid "Get wallpapers from unsplash.com"
-msgstr ""
-
-#: src/window.blp:130
-msgid "Google Earth View"
-msgstr ""
-
-#: src/window.blp:131
-msgid "Use images from Google Earth View"
-msgstr ""
-
-#: src/window.blp:228
+#: src/window.blp:119
 msgid "_Preferences"
 msgstr ""
 
-#: src/window.blp:233
+#: src/window.blp:124
 msgid "_Keyboard Shortcuts"
 msgstr ""
 
-#: src/window.blp:238
+#: src/window.blp:129
 msgid "_About Damask"
 msgstr ""
 
-#: src/window.blp:243
+#: src/window.blp:134
 msgid "_Quit"
 msgstr ""
 
-#: src/window.vala:150
+#: src/window.vala:140
 #, c-format
 msgid "Unable to open URL: %s"
 msgstr ""
 
-#: src/sources/apod.blp:12
-msgid "Search"
+#: src/sources/apod.vala:47
+msgid "NASA Astronomy"
 msgstr ""
 
-#: src/sources/apod.blp:15 src/sources/unsplash.blp:13
-#: src/sources/wallhaven.blp:19
-msgid "API Key"
-msgstr ""
-
-#: src/sources/apod.vala:89 src/sources/earthview.vala:86
+#: src/sources/apod.vala:92 src/sources/earthview.vala:90
 #, c-format
 msgid "Failed to get image: %s"
 msgstr ""
@@ -344,32 +265,28 @@ msgstr ""
 msgid "Resolution"
 msgstr ""
 
-#: src/sources/bing.vala:88 src/sources/unsplash.vala:99
-#: src/sources/wallhaven.vala:285
+#: src/sources/bing.vala:56
+msgid "Bing Wallpaper"
+msgstr ""
+
+#: src/sources/bing.vala:92 src/sources/unsplash.vala:106
+#: src/sources/wallhaven.vala:292
 #, c-format
 msgid "Failed to get wallpaper: %s"
 msgstr ""
 
 #: src/sources/earthview.blp:13 src/sources/slideshow.blp:24
-#: src/sources/wallhaven.blp:78
+#: src/sources/wallhaven.blp:68
 msgid "Sort By"
 msgstr ""
 
 #: src/sources/earthview.blp:16 src/sources/slideshow.blp:27
-#: src/sources/wallhaven.blp:84
+#: src/sources/wallhaven.blp:74
 msgid "Random"
 msgstr ""
 
 #: src/sources/earthview.blp:17
 msgid "Sequential"
-msgstr ""
-
-#: src/sources/manual.blp:13
-msgid "Choose Picture"
-msgstr ""
-
-#: src/sources/manual.vala:71
-msgid "Select Picture"
 msgstr ""
 
 #: src/sources/slideshow.blp:13
@@ -384,249 +301,264 @@ msgstr ""
 msgid "Creation Date"
 msgstr ""
 
-#: src/sources/slideshow.vala:109
+#: src/sources/slideshow.vala:43
+msgid "Slideshow"
+msgstr ""
+
+#: src/sources/slideshow.vala:117
 #, c-format
 msgid "Failed to get folder contents: %s"
 msgstr ""
 
-#: src/sources/slideshow.vala:144
+#: src/sources/slideshow.vala:152
 #, c-format
 msgid "Unable to watch folder for changes: %s"
 msgstr ""
 
-#: src/sources/slideshow.vala:172
+#: src/sources/slideshow.vala:180
 msgid "Select Folder"
 msgstr ""
 
-#: src/sources/unsplash.blp:17 src/sources/wallhaven.blp:29
-#: src/sources/wallhaven.blp:37
+#: src/sources/unsplash.blp:13 src/sources/wallhaven.blp:27
+#: src/sources/wallhaven.blp:35
 msgid "Query"
 msgstr ""
 
-#: src/sources/unsplash.blp:18
+#: src/sources/unsplash.blp:14
 msgid "Limit selection to photos matching a search term"
 msgstr ""
 
-#: src/sources/unsplash.blp:22 src/sources/wallhaven.blp:69
+#: src/sources/unsplash.blp:18 src/sources/wallhaven.blp:59
 msgid "Collections"
 msgstr ""
 
-#: src/sources/unsplash.blp:23
+#: src/sources/unsplash.blp:19
 msgid "Public collection IDs to filter selection (comma-separated)"
 msgstr ""
 
-#: src/sources/unsplash.blp:27
+#: src/sources/unsplash.blp:23
 msgid "Topics"
 msgstr ""
 
-#: src/sources/unsplash.blp:28
+#: src/sources/unsplash.blp:24
 msgid "Public topic IDs to filter selection (comma-separated)"
 msgstr ""
 
-#: src/sources/unsplash.blp:32
+#: src/sources/unsplash.blp:28
 msgid "Content Filter"
 msgstr ""
 
-#: src/sources/unsplash.blp:36
+#: src/sources/unsplash.blp:32
 msgid "Low"
 msgstr ""
 
-#: src/sources/unsplash.blp:37
+#: src/sources/unsplash.blp:33
 msgid "High"
 msgstr ""
 
+#: src/sources/unsplash.vala:102
+#, c-format
+msgid ""
+"Photo by <a href=\"%s?utm_source=damask&amp;utm_medium=referral\">%s</a> on "
+"<a href=\"https://unsplash.com/?utm_source=damask&amp;"
+"utm_medium=referral\">Unsplash</a>."
+msgstr ""
+
 #: src/sources/wallhaven.blp:12
-msgid "Source"
+msgid ""
+"A personal API key is required to access private collections and other "
+"sensitive content. An API key can be generated by visiting <a href=\"https://"
+"wallhaven.cc/settings/account\">wallhaven.cc</a>."
 msgstr ""
 
-#: src/sources/wallhaven.blp:23
-msgid "deadbeef"
+#: src/sources/wallhaven.blp:19
+msgid "API Key"
 msgstr ""
 
-#: src/sources/wallhaven.blp:46
-msgid "space galaxy"
+#: src/sources/wallhaven.blp:24
+msgid "Search"
 msgstr ""
 
-#: src/sources/wallhaven.blp:53
+#: src/sources/wallhaven.blp:47
 msgid "Collection"
 msgstr ""
 
-#: src/sources/wallhaven.blp:61
+#: src/sources/wallhaven.blp:55
 msgid "Username"
 msgstr ""
 
-#: src/sources/wallhaven.blp:63
-msgid "kermit_the_frog"
-msgstr ""
-
-#: src/sources/wallhaven.blp:75
+#: src/sources/wallhaven.blp:65
 msgid "Sorting"
 msgstr ""
 
-#: src/sources/wallhaven.blp:82
+#: src/sources/wallhaven.blp:72
 msgid "Date Added"
 msgstr ""
 
-#: src/sources/wallhaven.blp:83
+#: src/sources/wallhaven.blp:73
 msgid "Relevance"
 msgstr ""
 
-#: src/sources/wallhaven.blp:85
+#: src/sources/wallhaven.blp:75
 msgid "Views"
 msgstr ""
 
-#: src/sources/wallhaven.blp:86
+#: src/sources/wallhaven.blp:76
 msgid "Favorites"
 msgstr ""
 
-#: src/sources/wallhaven.blp:87
+#: src/sources/wallhaven.blp:77
 msgid "Top List"
 msgstr ""
 
-#: src/sources/wallhaven.blp:93
+#: src/sources/wallhaven.blp:83
 msgid "Sort Order"
 msgstr ""
 
-#: src/sources/wallhaven.blp:97
+#: src/sources/wallhaven.blp:87
 msgid "Ascending"
 msgstr ""
 
-#: src/sources/wallhaven.blp:98
+#: src/sources/wallhaven.blp:88
 msgid "Descending"
 msgstr ""
 
-#: src/sources/wallhaven.blp:104
+#: src/sources/wallhaven.blp:94
 msgid "Top List Range"
 msgstr ""
 
-#: src/sources/wallhaven.blp:108
+#: src/sources/wallhaven.blp:98
 msgid "One Day"
 msgstr ""
 
-#: src/sources/wallhaven.blp:109
+#: src/sources/wallhaven.blp:99
 msgid "Three Days"
 msgstr ""
 
-#: src/sources/wallhaven.blp:110
+#: src/sources/wallhaven.blp:100
 msgid "One Week"
 msgstr ""
 
-#: src/sources/wallhaven.blp:111
+#: src/sources/wallhaven.blp:101
 msgid "One Month"
 msgstr ""
 
-#: src/sources/wallhaven.blp:112
+#: src/sources/wallhaven.blp:102
 msgid "Three Months"
 msgstr ""
 
-#: src/sources/wallhaven.blp:113
+#: src/sources/wallhaven.blp:103
 msgid "Six Months"
 msgstr ""
 
-#: src/sources/wallhaven.blp:114
+#: src/sources/wallhaven.blp:104
 msgid "One Year"
 msgstr ""
 
-#: src/sources/wallhaven.blp:121
+#: src/sources/wallhaven.blp:111
 msgid "Filtering"
 msgstr ""
 
-#: src/sources/wallhaven.blp:124
+#: src/sources/wallhaven.blp:114
 msgid "Color"
 msgstr ""
 
-#: src/sources/wallhaven.blp:141
+#: src/sources/wallhaven.blp:127
 msgid "Categories"
 msgstr ""
 
-#: src/sources/wallhaven.blp:153
+#: src/sources/wallhaven.blp:134
 msgid "Anime"
 msgstr ""
 
-#: src/sources/wallhaven.blp:162
+#: src/sources/wallhaven.blp:138
 msgid "People"
 msgstr ""
 
-#: src/sources/wallhaven.blp:172
+#: src/sources/wallhaven.blp:143
 msgid "Purity"
 msgstr ""
 
-#: src/sources/wallhaven.blp:175
+#: src/sources/wallhaven.blp:146
 msgid "Safe for Work"
 msgstr ""
 
-#: src/sources/wallhaven.blp:184
+#: src/sources/wallhaven.blp:150
 msgid "Sketchy"
 msgstr ""
 
-#: src/sources/wallhaven.blp:193
+#: src/sources/wallhaven.blp:154
 msgid "Not Safe for Work"
 msgstr ""
 
-#: src/sources/wallhaven.blp:194
+#: src/sources/wallhaven.blp:155
 msgid "An API key is required to access not safe for work content"
 msgstr ""
 
-#: src/sources/wallhaven.vala:433
+#: src/sources/wallhaven.vala:118
+msgid "Wallhaven"
+msgstr ""
+
+#: src/sources/wallhaven.vala:444
 msgid "<tt>tagname</tt>"
 msgstr ""
 
-#: src/sources/wallhaven.vala:433
+#: src/sources/wallhaven.vala:444
 msgid "search fuzzily for a tag/keyword"
 msgstr ""
 
-#: src/sources/wallhaven.vala:434
+#: src/sources/wallhaven.vala:445
 msgid "<tt>-tagname</tt>"
 msgstr ""
 
-#: src/sources/wallhaven.vala:434
+#: src/sources/wallhaven.vala:445
 msgid "exclude a tag/keyword"
 msgstr ""
 
-#: src/sources/wallhaven.vala:435
+#: src/sources/wallhaven.vala:446
 msgid "<tt>+tag1 +tag2</tt>"
 msgstr ""
 
-#: src/sources/wallhaven.vala:435
+#: src/sources/wallhaven.vala:446
 msgid "must have tag1 and tag2"
 msgstr ""
 
-#: src/sources/wallhaven.vala:436
+#: src/sources/wallhaven.vala:447
 msgid "<tt>+tag1 -tag2</tt>"
 msgstr ""
 
-#: src/sources/wallhaven.vala:436
+#: src/sources/wallhaven.vala:447
 msgid "must have tag1 and NOT tag2"
 msgstr ""
 
-#: src/sources/wallhaven.vala:437
+#: src/sources/wallhaven.vala:448
 msgid "<tt>@username</tt>"
 msgstr ""
 
-#: src/sources/wallhaven.vala:437
+#: src/sources/wallhaven.vala:448
 msgid "user uploads"
 msgstr ""
 
-#: src/sources/wallhaven.vala:438
+#: src/sources/wallhaven.vala:449
 msgid "<tt>id:123</tt>"
 msgstr ""
 
-#: src/sources/wallhaven.vala:438
+#: src/sources/wallhaven.vala:449
 msgid "Exact tag search (can not be combined)"
 msgstr ""
 
-#: src/sources/wallhaven.vala:439
+#: src/sources/wallhaven.vala:450
 msgid "<tt>type:{png/jpg}</tt>"
 msgstr ""
 
-#: src/sources/wallhaven.vala:439
+#: src/sources/wallhaven.vala:450
 msgid "Search for file type (jpg = jpeg)"
 msgstr ""
 
-#: src/sources/wallhaven.vala:440
+#: src/sources/wallhaven.vala:451
 msgid "<tt>like:wallpaper ID</tt>"
 msgstr ""
 
-#: src/sources/wallhaven.vala:440
+#: src/sources/wallhaven.vala:451
 msgid "Find wallpapers with similar tags"
 msgstr ""
