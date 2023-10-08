@@ -41,3 +41,18 @@ cd damask
 meson configure builddir
 meson compile -C builddir
 ```
+
+### Flatpak Permissions
+
+_Damask_ makes use of XDG portals. When running in a Flatpak, access to the
+portals needs to be granted by the user. Normally, the permissions are granted
+when the user installs the Flatpak. However, when running the Flatpak from a
+development environment like GNOME Builder, the permissions aren't automatically
+added. To make sure permissions will work when developing _Damask_, you must
+grant the permissions explicitly, otherwise _Damask_ will not be able to set the
+background.
+
+```bash
+flatpak permission-set wallpaper wallpaper app.drey.Damask.Devel yes
+flatpak permission-set background background app.drey.Damask.Devel yes
+```
