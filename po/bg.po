@@ -8,352 +8,359 @@ msgstr ""
 "Project-Id-Version: damask\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-30 22:34+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-04-07 20:01+0000\n"
+"Last-Translator: twlvnn <kraft_werk@tutanota.com>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/damask/damask/"
+"bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/app.drey.Damask.desktop.in.in:3
 #: data/app.drey.Damask.metainfo.xml.in.in:5
 msgid "Damask"
-msgstr ""
+msgstr "Damask"
 
 #: data/app.drey.Damask.desktop.in.in:10
 msgid "wallpaper;"
-msgstr ""
+msgstr "wallpaper;тапет;"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:26
 msgid "Link Dupont"
-msgstr ""
+msgstr "Link Dupont"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:27
 msgid "Automatically set a background from the Internet"
-msgstr ""
+msgstr "Автоматично задаване на тапета на работния плот от Интернет"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:29
 msgid ""
 "Damask is an automatic wallpaper application. It currently supports setting "
 "the wallpaper image from the following sources:"
 msgstr ""
+"„Damask“ е приложение за автоматично задаване на тапет на работния плот. В "
+"момента се поддържа задаване на тапет от следните източници:"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:31
 msgid "wallhaven.cc"
-msgstr ""
+msgstr "wallhaven.cc"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:32
 msgid "Microsoft Bing Wallpaper of the day"
-msgstr ""
+msgstr "Microsoft Bing Тапет на деня"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:33
 msgid "NASA Astronomy Picture of the Day"
-msgstr ""
+msgstr "NASA Astronomy Картинка на деня"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:34 src/sources/unsplash.vala:58
 msgid "Unsplash"
-msgstr ""
+msgstr "Unsplash"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:35 src/sources/earthview.vala:44
 msgid "Google Earth View"
-msgstr ""
+msgstr "Google Earth Гледка"
 
 #: src/application.vala:208
 msgid "Unable to set wallpaper"
-msgstr ""
+msgstr "Неуспешно задаване на тапета"
 
 #: src/application.vala:211
 #, c-format
 msgid "Unable to set wallpaper: %s"
-msgstr ""
+msgstr "Неуспешно задаване на тапета: %s"
 
 #: src/application.vala:258
 msgid "Unable to activate autostart"
-msgstr ""
+msgstr "Неуспешно активиране на автоматичното стартиране"
 
 #: src/application.vala:261
 #, c-format
 msgid "Unable to activate autostart: %s"
-msgstr ""
+msgstr "Неуспешно активиране на автоматичното стартиране: %s"
 
 #: src/application.vala:274
 msgid "Unable to deactivate autostart"
-msgstr ""
+msgstr "Неуспешно деактивиране на автоматичното стартиране"
 
 #: src/application.vala:277
 #, c-format
 msgid "Unable to deactivate autostart: %s"
-msgstr ""
+msgstr "Неуспешно деактивиране на автоматичното стартиране: %s"
 
 #: src/preferences.blp:10
 msgid "Refresh interval"
-msgstr ""
+msgstr "Интервал за презареждане"
 
 #: src/preferences.blp:14
 msgid "30 seconds"
-msgstr ""
+msgstr "30 секунди"
 
 #: src/preferences.blp:15
 msgid "1 minute"
-msgstr ""
+msgstr "1 минута"
 
 #: src/preferences.blp:16
 msgid "5 minutes"
-msgstr ""
+msgstr "5 минути"
 
 #: src/preferences.blp:17
 msgid "15 minutes"
-msgstr ""
+msgstr "15 минути"
 
 #: src/preferences.blp:18
 msgid "30 minutes"
-msgstr ""
+msgstr "30 минути"
 
 #: src/preferences.blp:19
 msgid "1 hour"
-msgstr ""
+msgstr "1 час"
 
 #: src/preferences.blp:20
 msgid "6 hours"
-msgstr ""
+msgstr "6 часа"
 
 #: src/preferences.blp:21
 msgid "12 hours"
-msgstr ""
+msgstr "12 часа"
 
 #: src/preferences.blp:22
 msgid "24 hours"
-msgstr ""
+msgstr "24 часа"
 
 #: src/preferences.blp:27
 msgid "Run in background"
-msgstr ""
+msgstr "Работа във фонов режим"
 
 #: src/preferences.blp:34
 msgid "Start automatically upon login"
-msgstr ""
+msgstr "Автоматично стартиране при вписване"
 
 #: src/shortcuts.blp:11 src/sources/wallhaven.blp:130
 msgid "General"
-msgstr ""
+msgstr "Общи"
 
 #: src/shortcuts.blp:14
 msgid "Show Shortcuts"
-msgstr ""
+msgstr "Показване на клавишните комбинации"
 
 #: src/shortcuts.blp:19
 msgid "Refresh Wallpaper"
-msgstr ""
+msgstr "Презареждане на тапета"
 
 #: src/shortcuts.blp:24
 msgid "Quit"
-msgstr ""
+msgstr "Спиране на програмата"
 
 #: src/wallpaper-preview.blp:47
 msgid "Open in Browser"
-msgstr ""
+msgstr "Отваряне в Интернет браузър"
 
 #: src/window.blp:29 src/window.blp:60
 msgid "Main Menu"
-msgstr ""
+msgstr "Основно меню"
 
 #: src/window.blp:73
 msgid "Refresh"
-msgstr ""
+msgstr "Презареждане"
 
 #: src/window.blp:91
 msgid "Automatic refresh is disabled"
-msgstr ""
+msgstr "Автоматичното презареждане е изключено"
 
 #: src/window.blp:92
 msgid "Enable"
-msgstr ""
+msgstr "Активиране"
 
 #: src/window.blp:99
 msgid "No Wallpaper Selected"
-msgstr ""
+msgstr "Няма избран тапет"
 
 #: src/window.blp:100
 msgid "Choose a source to get background images."
-msgstr ""
+msgstr "Изберете източник за изтегляне на тапети."
 
 #: src/window.blp:113
 msgid "Refresh automatically"
-msgstr ""
+msgstr "Автоматично презареждане"
 
 #: src/window.blp:119
 msgid "_Preferences"
-msgstr ""
+msgstr "_Настройки"
 
 #: src/window.blp:124
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "_Клавишни комбинации"
 
 #: src/window.blp:129
 msgid "_About Damask"
-msgstr ""
+msgstr "_Относно „Damask“"
 
 #: src/window.blp:134
 msgid "_Quit"
-msgstr ""
+msgstr "_Спиране на програмата"
 
 #: src/window.vala:140
 #, c-format
 msgid "Unable to open URL: %s"
-msgstr ""
+msgstr "Неуспешно отваряне на адреса: %s"
 
 #: src/sources/apod.vala:47
 msgid "NASA Astronomy"
-msgstr ""
+msgstr "NASA Astronomy"
 
 #: src/sources/apod.vala:92 src/sources/earthview.vala:90
 #, c-format
 msgid "Failed to get image: %s"
-msgstr ""
+msgstr "Неуспешно зареждане на изображението: %s"
 
 #: src/sources/bing.blp:13
 msgid "Market"
-msgstr ""
+msgstr "Район"
 
 #: src/sources/bing.blp:17
 msgid "English (United States)"
-msgstr ""
+msgstr "Английски (САЩ)"
 
 #: src/sources/bing.blp:18
 msgid "Chinese (Simplified)"
-msgstr ""
+msgstr "Китайски (Опростен)"
 
 #: src/sources/bing.blp:19
 msgid "Japanese (Japan)"
-msgstr ""
+msgstr "Японски (Япония)"
 
 #: src/sources/bing.blp:20
 msgid "English (Australia)"
-msgstr ""
+msgstr "Английски (Австралия)"
 
 #: src/sources/bing.blp:21
 msgid "English (United Kingdom)"
-msgstr ""
+msgstr "Английски (Великобритания)"
 
 #: src/sources/bing.blp:22
 msgid "German (Germany)"
-msgstr ""
+msgstr "Немски (Германия)"
 
 #: src/sources/bing.blp:23
 msgid "English (New Zealand)"
-msgstr ""
+msgstr "Английски (Нова Зеландия)"
 
 #: src/sources/bing.blp:24
 msgid "English (Canada)"
-msgstr ""
+msgstr "Английски (Канада)"
 
 #: src/sources/bing.blp:25
 msgid "English (India)"
-msgstr ""
+msgstr "Английски (Индия)"
 
 #: src/sources/bing.blp:26
 msgid "French (France)"
-msgstr ""
+msgstr "Френски"
 
 #: src/sources/bing.blp:27
 msgid "French (Canada)"
-msgstr ""
+msgstr "Френски (Канада)"
 
 #: src/sources/bing.blp:33
 msgid "Resolution"
-msgstr ""
+msgstr "Разделителна способност"
 
 #: src/sources/bing.vala:56
 msgid "Bing Wallpaper"
-msgstr ""
+msgstr "Bing Wallpaper"
 
 #: src/sources/bing.vala:92 src/sources/unsplash.vala:106
 #: src/sources/wallhaven.vala:292
 #, c-format
 msgid "Failed to get wallpaper: %s"
-msgstr ""
+msgstr "Неуспешно зареждане на тапета: %s"
 
 #: src/sources/earthview.blp:13 src/sources/slideshow.blp:24
 #: src/sources/wallhaven.blp:68
 msgid "Sort By"
-msgstr ""
+msgstr "Подреждане по"
 
 #: src/sources/earthview.blp:16 src/sources/slideshow.blp:27
 #: src/sources/wallhaven.blp:74
 msgid "Random"
-msgstr ""
+msgstr "Произволно"
 
 #: src/sources/earthview.blp:17
 msgid "Sequential"
-msgstr ""
+msgstr "Последователно"
 
 #: src/sources/slideshow.blp:13
 msgid "Choose Folder"
-msgstr ""
+msgstr "Избиране на папка"
 
 #: src/sources/slideshow.blp:28
 msgid "Name"
-msgstr ""
+msgstr "Име"
 
 #: src/sources/slideshow.blp:29
 msgid "Creation Date"
-msgstr ""
+msgstr "Дата на създаване"
 
 #: src/sources/slideshow.vala:43
 msgid "Slideshow"
-msgstr ""
+msgstr "Прожекция"
 
 #: src/sources/slideshow.vala:117
 #, c-format
 msgid "Failed to get folder contents: %s"
-msgstr ""
+msgstr "Неуспешно зареждане на съдържанието на папката: %s"
 
 #: src/sources/slideshow.vala:152
 #, c-format
 msgid "Unable to watch folder for changes: %s"
-msgstr ""
+msgstr "Неуспешно следене за промени в папката: %s"
 
 #: src/sources/slideshow.vala:180
 msgid "Select Folder"
-msgstr ""
+msgstr "Избиране на папка"
 
 #: src/sources/unsplash.blp:13 src/sources/wallhaven.blp:27
 #: src/sources/wallhaven.blp:35
 msgid "Query"
-msgstr ""
+msgstr "Заявка"
 
 #: src/sources/unsplash.blp:14
 msgid "Limit selection to photos matching a search term"
-msgstr ""
+msgstr "Ограничаване до снимки, отговарящи на даден термин за търсене"
 
 #: src/sources/unsplash.blp:18 src/sources/wallhaven.blp:59
 msgid "Collections"
-msgstr ""
+msgstr "Колекции"
 
 #: src/sources/unsplash.blp:19
 msgid "Public collection IDs to filter selection (comma-separated)"
 msgstr ""
+"Идентификатори на публични колекции за филтриране на избора (списък, "
+"разделен със запетая)"
 
 #: src/sources/unsplash.blp:23
 msgid "Topics"
-msgstr ""
+msgstr "Теми"
 
 #: src/sources/unsplash.blp:24
 msgid "Public topic IDs to filter selection (comma-separated)"
-msgstr ""
+msgstr "(списък, разделен със запетая)"
 
 #: src/sources/unsplash.blp:28
 msgid "Content Filter"
-msgstr ""
+msgstr "Филтриране на съдържанието"
 
 #: src/sources/unsplash.blp:32
 msgid "Low"
-msgstr ""
+msgstr "Ниско"
 
 #: src/sources/unsplash.blp:33
 msgid "High"
-msgstr ""
+msgstr "Високо"
 
 #: src/sources/unsplash.vala:102
 #, c-format
@@ -362,6 +369,9 @@ msgid ""
 "<a href=\"https://unsplash.com/?utm_source=damask&amp;"
 "utm_medium=referral\">Unsplash</a>."
 msgstr ""
+"Снимка от <a href=\"%s?utm_source=damask&amp;utm_medium=referral\">%s</a> в "
+"<a href=\"https://unsplash.com/?utm_source=damask&amp;utm_medium=referral\""
+">Unsplash</a>."
 
 #: src/sources/wallhaven.blp:12
 msgid ""
@@ -369,195 +379,198 @@ msgid ""
 "sensitive content. An API key can be generated by visiting <a href=\"https://"
 "wallhaven.cc/settings/account\">wallhaven.cc</a>."
 msgstr ""
+"За достъп до частни колекции и друго чувствително съдържание е необходим "
+"личен API ключ. Той може да бъде генериран, като посетите <a href=\"https"
+"://wallhaven.cc/settings/account\">wallhaven.cc</a>."
 
 #: src/sources/wallhaven.blp:19
 msgid "API Key"
-msgstr ""
+msgstr "API ключ"
 
 #: src/sources/wallhaven.blp:24
 msgid "Search"
-msgstr ""
+msgstr "Търсене"
 
 #: src/sources/wallhaven.blp:47
 msgid "Collection"
-msgstr ""
+msgstr "Колекция"
 
 #: src/sources/wallhaven.blp:55
 msgid "Username"
-msgstr ""
+msgstr "Потребителско име"
 
 #: src/sources/wallhaven.blp:65
 msgid "Sorting"
-msgstr ""
+msgstr "Подредба"
 
 #: src/sources/wallhaven.blp:72
 msgid "Date Added"
-msgstr ""
+msgstr "Дата на добавяне"
 
 #: src/sources/wallhaven.blp:73
 msgid "Relevance"
-msgstr ""
+msgstr "Съответствие"
 
 #: src/sources/wallhaven.blp:75
 msgid "Views"
-msgstr ""
+msgstr "Гледания"
 
 #: src/sources/wallhaven.blp:76
 msgid "Favorites"
-msgstr ""
+msgstr "Любими"
 
 #: src/sources/wallhaven.blp:77
 msgid "Top List"
-msgstr ""
+msgstr "Списък с най-добрите"
 
 #: src/sources/wallhaven.blp:83
 msgid "Sort Order"
-msgstr ""
+msgstr "Ред на подредба"
 
 #: src/sources/wallhaven.blp:87
 msgid "Ascending"
-msgstr ""
+msgstr "Възходящо"
 
 #: src/sources/wallhaven.blp:88
 msgid "Descending"
-msgstr ""
+msgstr "Низходящо"
 
 #: src/sources/wallhaven.blp:94
 msgid "Top List Range"
-msgstr ""
+msgstr "Диапазон на списъка с най-добрите"
 
 #: src/sources/wallhaven.blp:98
 msgid "One Day"
-msgstr ""
+msgstr "Един ден"
 
 #: src/sources/wallhaven.blp:99
 msgid "Three Days"
-msgstr ""
+msgstr "Три дни"
 
 #: src/sources/wallhaven.blp:100
 msgid "One Week"
-msgstr ""
+msgstr "Една седмица"
 
 #: src/sources/wallhaven.blp:101
 msgid "One Month"
-msgstr ""
+msgstr "Един месец"
 
 #: src/sources/wallhaven.blp:102
 msgid "Three Months"
-msgstr ""
+msgstr "Три месеца"
 
 #: src/sources/wallhaven.blp:103
 msgid "Six Months"
-msgstr ""
+msgstr "Шест месеца"
 
 #: src/sources/wallhaven.blp:104
 msgid "One Year"
-msgstr ""
+msgstr "Една година"
 
 #: src/sources/wallhaven.blp:111
 msgid "Filtering"
-msgstr ""
+msgstr "Филтриране"
 
 #: src/sources/wallhaven.blp:114
 msgid "Color"
-msgstr ""
+msgstr "Цвят"
 
 #: src/sources/wallhaven.blp:127
 msgid "Categories"
-msgstr ""
+msgstr "Категории"
 
 #: src/sources/wallhaven.blp:134
 msgid "Anime"
-msgstr ""
+msgstr "Аниме"
 
 #: src/sources/wallhaven.blp:138
 msgid "People"
-msgstr ""
+msgstr "Хора"
 
 #: src/sources/wallhaven.blp:143
 msgid "Purity"
-msgstr ""
+msgstr "Чувствителност"
 
 #: src/sources/wallhaven.blp:146
 msgid "Safe for Work"
-msgstr ""
+msgstr "Цензурно съдържание"
 
 #: src/sources/wallhaven.blp:150
 msgid "Sketchy"
-msgstr ""
+msgstr "Съмнителни"
 
 #: src/sources/wallhaven.blp:154
 msgid "Not Safe for Work"
-msgstr ""
+msgstr "Нецензурно съдържание"
 
 #: src/sources/wallhaven.blp:155
 msgid "An API key is required to access not safe for work content"
-msgstr ""
+msgstr "Необходим е API ключ, за достъп до нецензурно съдържание"
 
 #: src/sources/wallhaven.vala:118
 msgid "Wallhaven"
-msgstr ""
+msgstr "Wallhaven"
 
 #: src/sources/wallhaven.vala:444
 msgid "<tt>tagname</tt>"
-msgstr ""
+msgstr "<tt>именаетикет</tt>"
 
 #: src/sources/wallhaven.vala:444
 msgid "search fuzzily for a tag/keyword"
-msgstr ""
+msgstr "търсене на етикет/ключова дума"
 
 #: src/sources/wallhaven.vala:445
 msgid "<tt>-tagname</tt>"
-msgstr ""
+msgstr "<tt>-именаетикет</tt>"
 
 #: src/sources/wallhaven.vala:445
 msgid "exclude a tag/keyword"
-msgstr ""
+msgstr "изличване на етикет/ключова дума"
 
 #: src/sources/wallhaven.vala:446
 msgid "<tt>+tag1 +tag2</tt>"
-msgstr ""
+msgstr "<tt>+етикет1 +етикет2</tt>"
 
 #: src/sources/wallhaven.vala:446
 msgid "must have tag1 and tag2"
-msgstr ""
+msgstr "трябва да има етикет1 и етикет2"
 
 #: src/sources/wallhaven.vala:447
 msgid "<tt>+tag1 -tag2</tt>"
-msgstr ""
+msgstr "<tt>+етикет1 -етикет2</tt>"
 
 #: src/sources/wallhaven.vala:447
 msgid "must have tag1 and NOT tag2"
-msgstr ""
+msgstr "трябва да има само етикет1"
 
 #: src/sources/wallhaven.vala:448
 msgid "<tt>@username</tt>"
-msgstr ""
+msgstr "<tt>@потребителскоиме</tt>"
 
 #: src/sources/wallhaven.vala:448
 msgid "user uploads"
-msgstr ""
+msgstr "потребителско съдържание"
 
 #: src/sources/wallhaven.vala:449
 msgid "<tt>id:123</tt>"
-msgstr ""
+msgstr "<tt>id:123</tt>"
 
 #: src/sources/wallhaven.vala:449
 msgid "Exact tag search (can not be combined)"
-msgstr ""
+msgstr "Точно търсене на етикет (не може да се комбинира)"
 
 #: src/sources/wallhaven.vala:450
 msgid "<tt>type:{png/jpg}</tt>"
-msgstr ""
+msgstr "<tt>вид:{png/jpg}</tt>"
 
 #: src/sources/wallhaven.vala:450
 msgid "Search for file type (jpg = jpeg)"
-msgstr ""
+msgstr "Търсене на вид файл (jpg = jpeg)"
 
 #: src/sources/wallhaven.vala:451
 msgid "<tt>like:wallpaper ID</tt>"
-msgstr ""
+msgstr "<tt>like:ID на тапета</tt>"
 
 #: src/sources/wallhaven.vala:451
 msgid "Find wallpapers with similar tags"
-msgstr ""
+msgstr "Намерете тапети с подобни етикети"
