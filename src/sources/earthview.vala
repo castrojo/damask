@@ -19,19 +19,6 @@
  */
 
 namespace Damask.Sources.EarthView {
-    internal class Slug : Object, Json.Serializable {
-        internal string id { get; set; }
-        internal string name { get; set; }
-        internal string slug { get; set; }
-        internal string title { get; set; }
-        internal string attribution { get; set; }
-        internal string photoUrl { get; set; }
-        internal string thumbUrl { get; set; }
-        internal string shareUrl { get; set; }
-        internal string nextSlug { get; set; }
-        internal string prevSlug { get; set; }
-    }
-
     public class EarthView : Object, WallpaperSource {
         private Settings settings = new Settings (@"$(Constants.APP_ID).sources.earthview");
         private int current_index = 0;
@@ -48,7 +35,7 @@ namespace Damask.Sources.EarthView {
 
         public async Wallpaper? refresh () {
             Soup.Session session = new Soup.Session ();
-            Soup.Message msg = new Soup.Message ("GET", "https://earthview.withgoogle.com/_api/photos.json");
+            Soup.Message msg = new Soup.Message ("GET", "https://github.com/alexpersian/earthview/raw/master/earthview.json");
 
             try {
                 Bytes response_body = yield session.send_and_read_async (msg, 0, null);
@@ -71,19 +58,12 @@ namespace Damask.Sources.EarthView {
                 }
 
                 Json.Object lede = slugs.get_object_element (index);
-                string slug_lede = lede.get_string_member ("slug");
-
-                Soup.Message slug_msg = new Soup.Message ("GET", @"https://earthview.withgoogle.com/_api/$(slug_lede).json");
-                Bytes slug_response_body = yield session.send_and_read_async (slug_msg, 0, null);
-                Slug slug = Json.gobject_from_data (typeof(Slug), (string) slug_response_body.get_data ()) as Slug;
-                assert (slug != null);
 
                 this.current_wallpaper = new Damask.Wallpaper () {
-                    url = slug.photoUrl,
-                    thumbnail_url = slug.thumbUrl,
-                    web_url = slug.shareUrl,
-                    title = slug.title,
-                    description = slug.attribution,
+                    url = lede.get_string_member("image"),
+                    thumbnail_url = lede.get_string_member("image"),
+                    web_url = lede.get_string_member("map"),
+                    description = lede.get_string_member("attribution"),
                 };
                 return this.current_wallpaper;
             } catch (Error e) {
