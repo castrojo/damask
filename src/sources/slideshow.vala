@@ -107,7 +107,7 @@ namespace Damask.Sources.Slideshow {
                 while ((info = enumerator.next_file(null)) != null) {
                     if (info.get_file_type() == FileType.REGULAR) {
                         string content_type = info.get_content_type ();
-                        if (content_type == "image/jpeg" || content_type == "image/png") {
+                        if (content_type.contains("image/")) {
                             debug (@"found file $(info.get_name())");
                             this.files.add (info);
                         }
