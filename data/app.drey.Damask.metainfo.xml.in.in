@@ -98,5 +98,9 @@
       <image>https://gitlab.gnome.org/subpop/damask/-/raw/main/data/damask.png</image>
     </screenshot>
   </screenshots>
+  <branding>
+    <color type="primary" scheme_preference="light">#8b58b1</color>
+    <color type="primary" scheme_preference="dark">#633685</color>
+  </branding>
 </component>
 
