@@ -23,10 +23,8 @@ namespace Damask {
     public class Window : Adw.ApplicationWindow {
         [GtkChild] private unowned Gtk.Button refresh_button;
         [GtkChild] private unowned Gtk.Stack refresh_button_stack;
-        [GtkChild] private unowned Gtk.ListBox sources;
+        [GtkChild] private unowned Gtk.DropDown sources;
         [GtkChild] private unowned Adw.ToastOverlay toast_overlay;
-        [GtkChild] private unowned Adw.OverlaySplitView split_view;
-        [GtkChild] private unowned Adw.NavigationPage source_navigation_page;
         [GtkChild] private unowned Adw.Banner banner;
         [GtkChild] private unowned Adw.Bin source_content;
 
@@ -44,7 +42,6 @@ namespace Damask {
             ActionEntry[] action_entries = {
                 { "open-url", this.on_open_url_action },
                 { "show-toast", this.on_show_toast_action },
-                { "show-sidebar", this.on_show_sidebar },
             };
             this.add_action_entries (action_entries, this);
             application.set_accels_for_action ("win.show-help-overlay", {"<primary>question"});
@@ -57,28 +54,27 @@ namespace Damask {
 
             this.source_list_model = new GLib.ListStore (typeof(WallpaperSource));
             foreach (WallpaperSource source in application.sources.values) {
-                this.source_list_model.append (source);
+                if (source.id != "none") {                   
+                    this.source_list_model.insert_sorted (source, (a, b) => {
+                        var sa = a as WallpaperSource;
+                        var sb = b as WallpaperSource;
+    
+                        return GLib.strcmp (sa.title, sb.title);
+                    });
+                }
             }
-            this.source_list_model.sort ((a, b) => {
-                var sa = a as WallpaperSource;
-                var sb = b as WallpaperSource;
-                return GLib.strcmp (sa.title, sb.title);
-            });
-            this.sources.bind_model (this.source_list_model, (item) => {
-                var source = item as WallpaperSource;
-                return new SidebarRow () {
-                    title = source.title,
-                    name = source.id,
-                };
-            });
+            this.source_list_model.insert (0, application.sources.get("none"));
+
+            this.sources.expression = new Gtk.PropertyExpression (typeof(WallpaperSource), null, "title");
+            this.sources.model = this.source_list_model;
+            this.sources.notify["selected-item"].connect (this.on_sources_selected_item_changed);
 
             WallpaperSource? active_source = application.sources.get (application.settings.get_string ("active-source"));
             if (active_source != null) {
                 uint position = 0;
                 this.source_list_model.find (active_source, out position);
-                this.sources.select_row (this.sources.get_row_at_index ((int) position));
+                this.sources.selected = position;
 
-                this.source_navigation_page.title = @"$(active_source.title)";
                 this.source_content.child = active_source.preferences ();
             }
 
@@ -92,24 +88,18 @@ namespace Damask {
             this.update_refresh_button ();
         }
 
-        [GtkCallback]
-        private void on_source_list_activated (Gtk.ListBox box, Gtk.ListBoxRow row) {
-            debug (@"[%p] $(this.get_type().name()).on_source_list_activated", this);
+        private void on_sources_selected_item_changed () {
+            debug (@"[%p] $(this.get_type().name()).on_sources_selected_item_changed", this);
             Application application = GLib.Application.get_default () as Application;
-            if (row != null) {
-                if (row.name != application.settings.get_string ("active-source")) {
-                    var sidebar_row = row as SidebarRow;
-                    application.settings.set_string ("active-source", sidebar_row.name);
+            var selected_source = this.sources.get_selected_item () as WallpaperSource;
+            if (selected_source != null) {
+                if (selected_source.id != application.settings.get_string ("active-source")) {
+                    application.settings.set_string ("active-source", selected_source.id);
                     var active_source = application.sources.get (application.settings.get_string ("active-source"));
-
-                    this.source_navigation_page.title = @"$(active_source.title)";
 
                     uint position = 0;
                     this.source_list_model.find (active_source, out position);
                     this.source_content.child = active_source.preferences ();
-                    if (this.split_view.collapsed) {
-                        this.split_view.show_sidebar = false;
-                    }
                 }
             }
         }
@@ -146,10 +136,6 @@ namespace Damask {
             var message = parameter.get_string ();
             var toast = new Adw.Toast (message);
             this.toast_overlay.add_toast (toast);
-        }
-
-        private void on_show_sidebar () {
-            this.split_view.show_sidebar = true;
         }
 
         ~Window () {

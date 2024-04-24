@@ -63,6 +63,11 @@ namespace Damask {
             this.add_main_option_entries (option_entries);
 
             {
+                var s = new Sources.None.None ();
+                this.sources.set (s.id, s);
+                Type? type = typeof (Sources.None.PreferencesPage);
+            }
+            {
                 var s = new Sources.Slideshow.Slideshow ();
                 this.sources.set (s.id, s);
                 Type? type = typeof (Sources.Slideshow.PreferencesPage);

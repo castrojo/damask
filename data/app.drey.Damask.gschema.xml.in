@@ -18,7 +18,7 @@
 		</key>
 
 		<key name="active-source" type="s">
-			<default>""</default>
+			<default>"none"</default>
 		</key>
 
 		<key name="run-in-background" type="b">
@@ -218,4 +218,3 @@
     </key>
   </schema>
 </schemalist>
-

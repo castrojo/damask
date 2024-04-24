@@ -2,107 +2,71 @@ using Gtk 4.0;
 using Adw 1;
 
 template DamaskWindow : Adw.ApplicationWindow {
-  default-height: 440;
+  default-height: 640;
   default-width: 620;
   height-request: 300;
   width-request: 360;
   title: "Damask";
 
-  Adw.Breakpoint {
-    condition ("max-width: 540sp")
-    setters {
-      split_view.collapsed: true;
-    }
-  }
-
   content: Adw.ToastOverlay toast_overlay {
-    Adw.OverlaySplitView split_view {
-      sidebar: Adw.NavigationPage {
-        title: "Damask";
-        child: Adw.ToolbarView {
-          [top]
-          Adw.HeaderBar {
-            [end]
-            Gtk.MenuButton {
-              primary: true;
-              icon-name: "open-menu-symbolic";
-              tooltip-text: _("Main Menu");
-              menu-model: primary_menu;
-              visible: bind split_view.collapsed inverted;
-            }
-          }
-          content: Gtk.ScrolledWindow {
-            Gtk.ListBox sources {
-              selection-mode: browse;
-              activate-on-single-click: true;
-              styles ["navigation-sidebar"]
-              row-activated => $on_source_list_activated();
-            }
+    Gtk.Box {
+      orientation: vertical;
+
+      Adw.ToolbarView {
+        extend-content-to-bottom-edge: true;
+
+        [top]
+        Adw.HeaderBar {
+          title-widget: Gtk.DropDown sources {
+            styles ["flat"]
           };
-        };
-      };
 
-      content: Adw.NavigationPage source_navigation_page {
-        child: Adw.ToolbarView {
-          [top]
-          Adw.HeaderBar {
-            [start]
-            Gtk.Button {
-              action-name: "win.show-sidebar";
-              icon-name: "sidebar-show-symbolic";
-              visible: bind split_view.show-sidebar inverted;
-            }
-
-            [end]
-            Gtk.MenuButton {
-              primary: true;
-              icon-name: "open-menu-symbolic";
-              tooltip-text: _("Main Menu");
-              menu-model: primary_menu;
-              visible: bind split_view.collapsed;
-            }
-
-            [end]
-            Gtk.Stack refresh_button_stack {
-              transition-type: crossfade;
-              Gtk.StackPage {
-                name: "sensitive";
-                child: Gtk.Button refresh_button {
-                  action-name: "app.refresh";
-                  icon-name: "view-refresh-symbolic";
-                  tooltip-text: _("Refresh");
-                };
-              }
-              Gtk.StackPage {
-                name: "spinner";
-                child: Adw.Clamp {
-                  maximum-size: 16;
-                  child: Gtk.Spinner {
-                    spinning: true;
-                  };
-                };
-              }
-            }
+          [end]
+          Gtk.MenuButton {
+            primary: true;
+            icon-name: "open-menu-symbolic";
+            tooltip-text: _("Main Menu");
+            menu-model: primary_menu;
           }
-          content: Gtk.Box {
-            orientation: vertical;
 
-            Adw.Banner banner {
-              title: _("Automatic refresh is disabled");
-              button-label: _("Enable");
-              action-name: "app.enable-automatic-refresh";
-            }
-
-            Adw.Bin source_content {
-              child: Adw.StatusPage {
-                icon-name: "image-missing-symbolic";
-                title: _("No Wallpaper Selected");
-                description: _("Choose a source to get background images.");
+          [end]
+          Gtk.Stack refresh_button_stack {
+            transition-type: crossfade;
+            Gtk.StackPage {
+              name: "sensitive";
+              child: Gtk.Button refresh_button {
+                action-name: "app.refresh";
+                icon-name: "view-refresh-symbolic";
+                tooltip-text: _("Refresh");
               };
             }
-          };
+            Gtk.StackPage {
+              name: "spinner";
+              child: Adw.Clamp {
+                maximum-size: 16;
+                child: Gtk.Spinner {
+                  spinning: true;
+                };
+              };
+            }
+          }
+        }
+
+        content: Gtk.Box {
+          orientation: vertical;
+
+          Adw.Banner banner {
+            title: _("Automatic refresh is disabled");
+            button-label: _("Enable");
+            action-name: "app.enable-automatic-refresh";
+          }
+
+          Adw.Bin source_content {
+            vexpand: true;
+            valign: center;
+          }
         };
-      };
+      }
     }
   };
 }
