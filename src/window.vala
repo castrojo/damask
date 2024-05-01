@@ -116,7 +116,6 @@ namespace Damask {
 
         private void update_refresh_button () {
             Application application = GLib.Application.get_default () as Application;
-            this.refresh_button_stack.visible_child_name = application.is_refreshing ? "spinner" : "sensitive";
             this.refresh_button.sensitive = !application.is_refreshing;
         }
 

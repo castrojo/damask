@@ -33,6 +33,15 @@ template DamaskWallpaperPreview : Gtk.Box {
             can-shrink: true;
           };
         }
+        Gtk.StackPage loading {
+          name: "spinner";
+          child: Adw.Clamp {
+            maximum-size: 128;
+            child: Gtk.Spinner {
+              spinning: true;
+            };
+          };
+        }
       };
 
       [overlay]
