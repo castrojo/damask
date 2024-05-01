@@ -40,6 +40,39 @@
   <url type="help">https://gitlab.gnome.org/subpop/damask/-/issues</url>
   <url type="translate">https://gitlab.gnome.org/subpop/damask/-/issues</url>
   <releases>
+    <release date="2024-05-01" version="0.2.2">
+      <description translatable="no">
+        <ul>
+          <li>Wallhaven: correctly set aspect ratio in search query</li>
+          <li>Reset the refresh timer after a manual refresh</li>
+          <li>Wallhaven: refresh wallpaper when preferences change</li>
+          <li>Refresh wallpaper preview only when a preview is available</li>
+          <li>Set active source by selecting the row in the source list</li>
+          <li>NASA: rename row title to "NASA Astronomy"</li>
+          <li>Sort source list alphabetically</li>
+          <li>Add a setting to disable automatic refresh</li>
+          <li>Improve support for a default "no source" application state</li>
+          <li>Fix preview image dimensions</li>
+          <li>Remove the "manual" source (disable automatic refresh instead)</li>
+          <li>NASA: replace user-defined API key with a value supplied at compilation</li>
+          <li>Unsplash: replace user-defined API key with a value supplied at compilation</li>
+          <li>Wallhaven: add explanatory text for the API key field</li>
+          <li>EarthView: update photo source</li>
+          <li>Slideshow: allow any image type when filtering files</li>
+        </ul>
+        <p>Translation Updates:</p>
+        <ul>
+          <li>Updated Arabic</li>
+          <li>Updated Dutch</li>
+          <li>Added Spanish</li>
+          <li>Added Finnish</li>
+          <li>Updated French</li>
+          <li>Updated Russian</li>
+          <li>Updated Turkish</li>
+          <li>Added Bulgarian</li>
+        </ul>
+      </description>
+    </release>
     <release date="2023-08-25" version="0.2.1">
       <description translatable="no">
         <ul>
