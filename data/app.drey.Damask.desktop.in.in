@@ -4,6 +4,6 @@ Exec=damask
 Icon=@APP_ID@
 Terminal=false
 Type=Application
-Categories=GTK;
+Categories=Utility;
 StartupNotify=true
 Keywords=wallpaper;
