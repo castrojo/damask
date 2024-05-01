@@ -1,7 +1,7 @@
 {
     "app-id": "app.drey.Damask.Devel",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "master",
+    "runtime-version": "46",
     "sdk": "org.gnome.Sdk",
     "command": "damask",
     "finish-args": [
@@ -42,14 +42,15 @@
             "name": "libportal",
             "buildsystem": "meson",
             "config-opts": [
-                "-Dbackends=gtk4",
+                "-Dbackend-gtk4=enabled",
+                "-Dbackend-gtk3=disabled",
                 "-Ddocs=false"
             ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://github.com/flatpak/libportal",
-                    "tag": "0.6"
+                    "tag": "0.7.1"
                 }
             ]
         },
