@@ -23,8 +23,10 @@
   <launchable type="desktop-id">@APP_ID@.desktop</launchable>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
-  <developer_name>Link Dupont</developer_name>
-  <summary>Automatically set a background from the Internet</summary>
+  <developer id="@subpop@floss.social">
+    <name>Link Dupont</name>
+  </developer>
+  <summary>Automatic wallpapers from the Internet</summary>
   <description>
     <p>Damask is an automatic wallpaper application. It currently supports setting the wallpaper image from the following sources:</p>
     <ul>
