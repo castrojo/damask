@@ -39,8 +39,12 @@
   </description>
   <url type="homepage">https://gitlab.gnome.org/subpop/damask</url>
   <url type="bugtracker">https://gitlab.gnome.org/subpop/damask/-/issues</url>
-  <url type="help">https://gitlab.gnome.org/subpop/damask/-/issues</url>
-  <url type="translate">https://gitlab.gnome.org/subpop/damask/-/issues</url>
+  <!--
+    Should provide a web link to an online user's reference, a software manual or help page.
+    <url type="help">https://gitlab.gnome.org/subpop/damask/-/issues</url>
+  -->
+  <url type="translate">https://hosted.weblate.org/engage/damask/</url>
+  <url type="vcs-browser">https://gitlab.gnome.org/subpop/damask/</url>
   <releases>
     <release date="2024-05-01" version="0.2.2">
       <description translate="no">
