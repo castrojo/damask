@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: damask\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-30 22:34+0300\n"
-"PO-Revision-Date: 2023-09-30 22:43+0300\n"
-"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
+"PO-Revision-Date: 2024-05-05 00:07+0000\n"
+"Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/damask/damask/tr/"
 ">\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Weblate 5.5.3\n"
 
 #: data/app.drey.Damask.desktop.in.in:3
 #: data/app.drey.Damask.metainfo.xml.in.in:5
@@ -185,7 +185,7 @@ msgstr "Arka plan resimlerini almak için bir kaynak seçin."
 
 #: src/window.blp:113
 msgid "Refresh automatically"
-msgstr "Kendiliğinden yenile"
+msgstr "Kendiliğinden Yenile"
 
 #: src/window.blp:119
 msgid "_Preferences"
