@@ -43,7 +43,7 @@
   <url type="translate">https://gitlab.gnome.org/subpop/damask/-/issues</url>
   <releases>
     <release date="2024-05-01" version="0.2.2">
-      <description translatable="no">
+      <description translate="no">
         <ul>
           <li>Wallhaven: correctly set aspect ratio in search query</li>
           <li>Reset the refresh timer after a manual refresh</li>
@@ -76,7 +76,7 @@
       </description>
     </release>
     <release date="2023-08-25" version="0.2.1">
-      <description translatable="no">
+      <description translate="no">
         <ul>
           <li>Select the source row when setting the active source</li>
           <li>Switches are set to the correct state when bound to preference values</li>
@@ -86,7 +86,7 @@
       </description>
     </release>
     <release date="2023-05-18" version="0.2.0">
-      <description translatable="no">
+      <description translate="no">
         <ul>
           <li>Updated UI, using a list of sources and preference pages</li>
           <li>Added Google EarthView as a new source</li>
@@ -95,7 +95,7 @@
       </description>
     </release>
     <release date="2023-04-27" version="0.1.5">
-      <description translatable="no">
+      <description translate="no">
         <ul>
           <li>Fixed an issue initializing translations</li>
           <li>Report errors as a window toast</li>
@@ -104,7 +104,7 @@
       </description>
     </release>
     <release date="2023-04-06" version="0.1.4">
-      <description translatable="no">
+      <description translate="no">
         <ul>
           <li>Added French and Dutch translations</li>
           <li>Added "Slideshow" source to rotate through images in a local folder</li>
@@ -116,7 +116,7 @@
       </description>
     </release>
     <release date="2023-01-27" version="0.1.3">
-      <description translatable="no">
+      <description translate="no">
         <ul>
           <li>Add "wallpaper" keyword to desktop file</li>
           <li>Disable "Anime" category in the wallhaven source by default</li>
