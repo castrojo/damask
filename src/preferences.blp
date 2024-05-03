@@ -7,7 +7,7 @@ template DamaskPreferencesWindow : Adw.PreferencesWindow {
   Adw.PreferencesPage {
     Adw.PreferencesGroup {
       Adw.ComboRow refresh_interval {
-        title: _("Refresh interval");
+        title: _("Refresh Interval");
 
         model: StringList {
           strings [
@@ -24,14 +24,14 @@ template DamaskPreferencesWindow : Adw.PreferencesWindow {
         };
       }
       Adw.ActionRow {
-        title: _("Run in background");
+        title: _("Run in Background");
         activatable-widget: run_in_background;
         Switch run_in_background {
           valign: center;
         }
       }
       Adw.ActionRow {
-        title: _("Start automatically upon login");
+        title: _("Start Automatically Upon Login");
         activatable-widget: autostart;
         Switch autostart {
           valign: center;
