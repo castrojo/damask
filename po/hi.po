@@ -8,352 +8,358 @@ msgstr ""
 "Project-Id-Version: damask\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-30 22:34+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-05-13 00:02+0000\n"
+"Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
+"Language-Team: Hindi <https://hosted.weblate.org/projects/damask/damask/hi/>"
+"\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.5.4\n"
 
 #: data/app.drey.Damask.desktop.in.in:3
 #: data/app.drey.Damask.metainfo.xml.in.in:5
 msgid "Damask"
-msgstr ""
+msgstr "Damask"
 
 #: data/app.drey.Damask.desktop.in.in:10
 msgid "wallpaper;"
-msgstr ""
+msgstr "वॉलपेपर;"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:26
 msgid "Link Dupont"
-msgstr ""
+msgstr "Link Dupont"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:27
 msgid "Automatically set a background from the Internet"
-msgstr ""
+msgstr "इंटरनेट से स्वचालित रूप से पृष्ठभूमि निर्धारित करें"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:29
 msgid ""
 "Damask is an automatic wallpaper application. It currently supports setting "
 "the wallpaper image from the following sources:"
 msgstr ""
+"डैमस्क एक स्वचालित वॉलपेपर अनुप्रयोग है। यह वर्तमान में निम्नलिखित स्रोतों से"
+" वॉलपेपर छवि निर्धारित करने का समर्थन करता है:"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:31
 msgid "wallhaven.cc"
-msgstr ""
+msgstr "wallhaven.cc"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:32
 msgid "Microsoft Bing Wallpaper of the day"
-msgstr ""
+msgstr "आज का Microsoft Bing वॉलपेपर"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:33
 msgid "NASA Astronomy Picture of the Day"
-msgstr ""
+msgstr "NASA खगोल विज्ञान दिवस की तस्वीर"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:34 src/sources/unsplash.vala:58
 msgid "Unsplash"
-msgstr ""
+msgstr "Unsplash"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:35 src/sources/earthview.vala:44
 msgid "Google Earth View"
-msgstr ""
+msgstr "Google Earth दृश्य"
 
 #: src/application.vala:208
 msgid "Unable to set wallpaper"
-msgstr ""
+msgstr "वॉलपेपर निर्धारित करने में असमर्थ"
 
 #: src/application.vala:211
 #, c-format
 msgid "Unable to set wallpaper: %s"
-msgstr ""
+msgstr "वॉलपेपर निर्धारित करने में असमर्थ: %s"
 
 #: src/application.vala:258
 msgid "Unable to activate autostart"
-msgstr ""
+msgstr "स्वतः प्रारंभ सक्रिय करने में असमर्थ"
 
 #: src/application.vala:261
 #, c-format
 msgid "Unable to activate autostart: %s"
-msgstr ""
+msgstr "स्वतः प्रारंभ सक्रिय करने में असमर्थ: %s"
 
 #: src/application.vala:274
 msgid "Unable to deactivate autostart"
-msgstr ""
+msgstr "स्वतः प्रारंभ को निष्क्रिय करने में असमर्थ"
 
 #: src/application.vala:277
 #, c-format
 msgid "Unable to deactivate autostart: %s"
-msgstr ""
+msgstr "स्वतः प्रारंभ को निष्क्रिय करने में असमर्थ: %s"
 
 #: src/preferences.blp:10
 msgid "Refresh interval"
-msgstr ""
+msgstr "ताजा करने का अंतराल"
 
 #: src/preferences.blp:14
 msgid "30 seconds"
-msgstr ""
+msgstr "30 सेकंड"
 
 #: src/preferences.blp:15
 msgid "1 minute"
-msgstr ""
+msgstr "1 मिनट"
 
 #: src/preferences.blp:16
 msgid "5 minutes"
-msgstr ""
+msgstr "5 मिनट"
 
 #: src/preferences.blp:17
 msgid "15 minutes"
-msgstr ""
+msgstr "15 मिनट"
 
 #: src/preferences.blp:18
 msgid "30 minutes"
-msgstr ""
+msgstr "30 मिनट"
 
 #: src/preferences.blp:19
 msgid "1 hour"
-msgstr ""
+msgstr "1 घंटा"
 
 #: src/preferences.blp:20
 msgid "6 hours"
-msgstr ""
+msgstr "6 घंटे"
 
 #: src/preferences.blp:21
 msgid "12 hours"
-msgstr ""
+msgstr "12 घंटे"
 
 #: src/preferences.blp:22
 msgid "24 hours"
-msgstr ""
+msgstr "24 घंटे"
 
 #: src/preferences.blp:27
 msgid "Run in background"
-msgstr ""
+msgstr "पृष्ठभूमि में चलाएं"
 
 #: src/preferences.blp:34
 msgid "Start automatically upon login"
-msgstr ""
+msgstr "लॉगिन पर स्वचालित रूप से प्रारंभ करें"
 
 #: src/shortcuts.blp:11 src/sources/wallhaven.blp:130
 msgid "General"
-msgstr ""
+msgstr "सामान्य"
 
 #: src/shortcuts.blp:14
 msgid "Show Shortcuts"
-msgstr ""
+msgstr "शॉर्टकट दिखाएं"
 
 #: src/shortcuts.blp:19
 msgid "Refresh Wallpaper"
-msgstr ""
+msgstr "वॉलपेपर ताजा करें"
 
 #: src/shortcuts.blp:24
 msgid "Quit"
-msgstr ""
+msgstr "छोड़ें"
 
 #: src/wallpaper-preview.blp:47
 msgid "Open in Browser"
-msgstr ""
+msgstr "ब्राउज़र में खोलें"
 
 #: src/window.blp:29 src/window.blp:60
 msgid "Main Menu"
-msgstr ""
+msgstr "मुख्य मेनू"
 
 #: src/window.blp:73
 msgid "Refresh"
-msgstr ""
+msgstr "ताजा करें"
 
 #: src/window.blp:91
 msgid "Automatic refresh is disabled"
-msgstr ""
+msgstr "स्वचालित ताजा करना अक्षम है"
 
 #: src/window.blp:92
 msgid "Enable"
-msgstr ""
+msgstr "सक्षम करें"
 
 #: src/window.blp:99
 msgid "No Wallpaper Selected"
-msgstr ""
+msgstr "कोई वॉलपेपर चयनित नहीं"
 
 #: src/window.blp:100
 msgid "Choose a source to get background images."
 msgstr ""
+"कोई वॉलपेपर चयनित नहीं, पृष्ठभूमि छवियां प्राप्त करने के लिए एक स्रोत चुनें।"
 
 #: src/window.blp:113
 msgid "Refresh automatically"
-msgstr ""
+msgstr "स्वतः ताजा करें"
 
 #: src/window.blp:119
 msgid "_Preferences"
-msgstr ""
+msgstr "प्राथमिकताएं (_P)"
 
 #: src/window.blp:124
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "कीबोर्ड शॉर्टकट (_K)"
 
 #: src/window.blp:129
 msgid "_About Damask"
-msgstr ""
+msgstr "Damask के बारे में (_A)"
 
 #: src/window.blp:134
 msgid "_Quit"
-msgstr ""
+msgstr "छोड़ें (_Q)"
 
 #: src/window.vala:140
 #, c-format
 msgid "Unable to open URL: %s"
-msgstr ""
+msgstr "URL खोलने में असमर्थ: %s"
 
 #: src/sources/apod.vala:47
 msgid "NASA Astronomy"
-msgstr ""
+msgstr "NASA खगोलशास्त्र"
 
 #: src/sources/apod.vala:92 src/sources/earthview.vala:90
 #, c-format
 msgid "Failed to get image: %s"
-msgstr ""
+msgstr "छवि प्राप्त करने में विफल: %s"
 
 #: src/sources/bing.blp:13
 msgid "Market"
-msgstr ""
+msgstr "बाजार"
 
 #: src/sources/bing.blp:17
 msgid "English (United States)"
-msgstr ""
+msgstr "अंग्रेजी (संयुक्त राज्य)"
 
 #: src/sources/bing.blp:18
 msgid "Chinese (Simplified)"
-msgstr ""
+msgstr "चीनी (सरलीकृत)"
 
 #: src/sources/bing.blp:19
 msgid "Japanese (Japan)"
-msgstr ""
+msgstr "जापानी (जापान)"
 
 #: src/sources/bing.blp:20
 msgid "English (Australia)"
-msgstr ""
+msgstr "अंग्रेजी (ऑस्ट्रेलिया)"
 
 #: src/sources/bing.blp:21
 msgid "English (United Kingdom)"
-msgstr ""
+msgstr "अंग्रेजी (यूनाइटेड किंगडम)"
 
 #: src/sources/bing.blp:22
 msgid "German (Germany)"
-msgstr ""
+msgstr "जर्मन (जर्मनी)"
 
 #: src/sources/bing.blp:23
 msgid "English (New Zealand)"
-msgstr ""
+msgstr "अंग्रेजी (न्यूज़ीलैंड)"
 
 #: src/sources/bing.blp:24
 msgid "English (Canada)"
-msgstr ""
+msgstr "अंग्रेजी (कनाडा)"
 
 #: src/sources/bing.blp:25
 msgid "English (India)"
-msgstr ""
+msgstr "अंग्रेजी (भारत)"
 
 #: src/sources/bing.blp:26
 msgid "French (France)"
-msgstr ""
+msgstr "फ़्रेंच (फ़्रांस)"
 
 #: src/sources/bing.blp:27
 msgid "French (Canada)"
-msgstr ""
+msgstr "फ़्रेंच (कनाडा)"
 
 #: src/sources/bing.blp:33
 msgid "Resolution"
-msgstr ""
+msgstr "रिजोल्यूशन"
 
 #: src/sources/bing.vala:56
 msgid "Bing Wallpaper"
-msgstr ""
+msgstr "Bing वॉलपेपर"
 
 #: src/sources/bing.vala:92 src/sources/unsplash.vala:106
 #: src/sources/wallhaven.vala:292
 #, c-format
 msgid "Failed to get wallpaper: %s"
-msgstr ""
+msgstr "वॉलपेपर प्राप्त करने में विफल: %s"
 
 #: src/sources/earthview.blp:13 src/sources/slideshow.blp:24
 #: src/sources/wallhaven.blp:68
 msgid "Sort By"
-msgstr ""
+msgstr "ऐसे छांटें"
 
 #: src/sources/earthview.blp:16 src/sources/slideshow.blp:27
 #: src/sources/wallhaven.blp:74
 msgid "Random"
-msgstr ""
+msgstr "यादृच्छिक"
 
 #: src/sources/earthview.blp:17
 msgid "Sequential"
-msgstr ""
+msgstr "क्रमबद्ध"
 
 #: src/sources/slideshow.blp:13
 msgid "Choose Folder"
-msgstr ""
+msgstr "फोल्डर चुनें"
 
 #: src/sources/slideshow.blp:28
 msgid "Name"
-msgstr ""
+msgstr "नाम"
 
 #: src/sources/slideshow.blp:29
 msgid "Creation Date"
-msgstr ""
+msgstr "निर्माण तिथि"
 
 #: src/sources/slideshow.vala:43
 msgid "Slideshow"
-msgstr ""
+msgstr "स्लाइडशो"
 
 #: src/sources/slideshow.vala:117
 #, c-format
 msgid "Failed to get folder contents: %s"
-msgstr ""
+msgstr "फोल्डर सामग्री प्राप्त करने में विफल: %s"
 
 #: src/sources/slideshow.vala:152
 #, c-format
 msgid "Unable to watch folder for changes: %s"
-msgstr ""
+msgstr "परिवर्तनों के लिए फोल्डर देखने में असमर्थ: %s"
 
 #: src/sources/slideshow.vala:180
 msgid "Select Folder"
-msgstr ""
+msgstr "फोल्डर चुनें"
 
 #: src/sources/unsplash.blp:13 src/sources/wallhaven.blp:27
 #: src/sources/wallhaven.blp:35
 msgid "Query"
-msgstr ""
+msgstr "सवाल"
 
 #: src/sources/unsplash.blp:14
 msgid "Limit selection to photos matching a search term"
-msgstr ""
+msgstr "चयन को खोज शब्द से मेल खाने वाले फोटो तक सीमित करें"
 
 #: src/sources/unsplash.blp:18 src/sources/wallhaven.blp:59
 msgid "Collections"
-msgstr ""
+msgstr "संग्रह"
 
 #: src/sources/unsplash.blp:19
 msgid "Public collection IDs to filter selection (comma-separated)"
-msgstr ""
+msgstr "चयन को फिल्टर करने के लिए सार्वजनिक संग्रह ID (अल्पविराम से अलग)"
 
 #: src/sources/unsplash.blp:23
 msgid "Topics"
-msgstr ""
+msgstr "विषय"
 
 #: src/sources/unsplash.blp:24
 msgid "Public topic IDs to filter selection (comma-separated)"
-msgstr ""
+msgstr "चयन को फिल्टर करने के लिए सार्वजनिक विषय ID (अल्पविराम से अलग)"
 
 #: src/sources/unsplash.blp:28
 msgid "Content Filter"
-msgstr ""
+msgstr "सामग्री फिल्टर"
 
 #: src/sources/unsplash.blp:32
 msgid "Low"
-msgstr ""
+msgstr "कम"
 
 #: src/sources/unsplash.blp:33
 msgid "High"
-msgstr ""
+msgstr "उच्च"
 
 #: src/sources/unsplash.vala:102
 #, c-format
@@ -362,6 +368,9 @@ msgid ""
 "<a href=\"https://unsplash.com/?utm_source=damask&amp;"
 "utm_medium=referral\">Unsplash</a>."
 msgstr ""
+"फोटो <a href=\"%s?utm_source=damask&amp;utm_medium=referral\">%s</a> द्वारा "
+"<a href=\"https://unsplash.com/?utm_source=damask&amp;utm_medium=referral\""
+">Unsplash पर</a>।"
 
 #: src/sources/wallhaven.blp:12
 msgid ""
@@ -369,195 +378,200 @@ msgid ""
 "sensitive content. An API key can be generated by visiting <a href=\"https://"
 "wallhaven.cc/settings/account\">wallhaven.cc</a>."
 msgstr ""
+"निजी संग्रह और अन्य संवेदनशील सामग्री तक पहुंचने के लिए एक व्यक्तिगत API "
+"कुंजी की आवश्यकता होती है। <a href=\"https://wallhaven.cc/settings/account\""
+">wallhaven.cc</a> पर जाकर एक API कुंजी तैयार की जा सकती है।"
 
 #: src/sources/wallhaven.blp:19
 msgid "API Key"
-msgstr ""
+msgstr "API कुंजी"
 
 #: src/sources/wallhaven.blp:24
 msgid "Search"
-msgstr ""
+msgstr "खोजें"
 
 #: src/sources/wallhaven.blp:47
 msgid "Collection"
-msgstr ""
+msgstr "संग्रह"
 
 #: src/sources/wallhaven.blp:55
 msgid "Username"
-msgstr ""
+msgstr "उपयोक्तानाम"
 
 #: src/sources/wallhaven.blp:65
 msgid "Sorting"
-msgstr ""
+msgstr "छंटाई"
 
 #: src/sources/wallhaven.blp:72
 msgid "Date Added"
-msgstr ""
+msgstr "तिथि जोड़ी"
 
 #: src/sources/wallhaven.blp:73
 msgid "Relevance"
-msgstr ""
+msgstr "प्रासंगिकता"
 
 #: src/sources/wallhaven.blp:75
 msgid "Views"
-msgstr ""
+msgstr "दृश्य"
 
 #: src/sources/wallhaven.blp:76
 msgid "Favorites"
-msgstr ""
+msgstr "पसंदीदा"
 
 #: src/sources/wallhaven.blp:77
 msgid "Top List"
-msgstr ""
+msgstr "शीर्ष सूची"
 
 #: src/sources/wallhaven.blp:83
 msgid "Sort Order"
-msgstr ""
+msgstr "छंटाई क्रम"
 
 #: src/sources/wallhaven.blp:87
 msgid "Ascending"
-msgstr ""
+msgstr "आरोही"
 
 #: src/sources/wallhaven.blp:88
 msgid "Descending"
-msgstr ""
+msgstr "अवरोही"
 
 #: src/sources/wallhaven.blp:94
 msgid "Top List Range"
-msgstr ""
+msgstr "शीर्ष सूची दायरा"
 
 #: src/sources/wallhaven.blp:98
 msgid "One Day"
-msgstr ""
+msgstr "एक दिन"
 
 #: src/sources/wallhaven.blp:99
 msgid "Three Days"
-msgstr ""
+msgstr "तीन दिन"
 
 #: src/sources/wallhaven.blp:100
 msgid "One Week"
-msgstr ""
+msgstr "एक हफ्ता"
 
 #: src/sources/wallhaven.blp:101
 msgid "One Month"
-msgstr ""
+msgstr "एक महीना"
 
 #: src/sources/wallhaven.blp:102
 msgid "Three Months"
-msgstr ""
+msgstr "तीन महीने"
 
 #: src/sources/wallhaven.blp:103
 msgid "Six Months"
-msgstr ""
+msgstr "छह महीने"
 
 #: src/sources/wallhaven.blp:104
 msgid "One Year"
-msgstr ""
+msgstr "एक वर्ष"
 
 #: src/sources/wallhaven.blp:111
 msgid "Filtering"
-msgstr ""
+msgstr "फिल्टरिंग"
 
 #: src/sources/wallhaven.blp:114
 msgid "Color"
-msgstr ""
+msgstr "रंग"
 
 #: src/sources/wallhaven.blp:127
 msgid "Categories"
-msgstr ""
+msgstr "श्रेणियां"
 
 #: src/sources/wallhaven.blp:134
 msgid "Anime"
-msgstr ""
+msgstr "एनिमे"
 
 #: src/sources/wallhaven.blp:138
 msgid "People"
-msgstr ""
+msgstr "लोग"
 
 #: src/sources/wallhaven.blp:143
 msgid "Purity"
-msgstr ""
+msgstr "पवित्रता"
 
 #: src/sources/wallhaven.blp:146
 msgid "Safe for Work"
-msgstr ""
+msgstr "कार्य के लिए सुरक्षित"
 
 #: src/sources/wallhaven.blp:150
 msgid "Sketchy"
-msgstr ""
+msgstr "स्केची"
 
 #: src/sources/wallhaven.blp:154
 msgid "Not Safe for Work"
-msgstr ""
+msgstr "कार्य के लिए सुरक्षित नही"
 
 #: src/sources/wallhaven.blp:155
 msgid "An API key is required to access not safe for work content"
 msgstr ""
+"काम के लिए सुरक्षित नहीं सामग्री तक पहुंचने के लिए API कुंजी की आवश्यकता होती"
+" है"
 
 #: src/sources/wallhaven.vala:118
 msgid "Wallhaven"
-msgstr ""
+msgstr "Wallhaven"
 
 #: src/sources/wallhaven.vala:444
 msgid "<tt>tagname</tt>"
-msgstr ""
+msgstr "<tt>टैगनाम</tt>"
 
 #: src/sources/wallhaven.vala:444
 msgid "search fuzzily for a tag/keyword"
-msgstr ""
+msgstr "किसी टैग/कीवर्ड को अस्पष्ट रूप से खोजें"
 
 #: src/sources/wallhaven.vala:445
 msgid "<tt>-tagname</tt>"
-msgstr ""
+msgstr "<tt>-टैगनाम</tt>"
 
 #: src/sources/wallhaven.vala:445
 msgid "exclude a tag/keyword"
-msgstr ""
+msgstr "किसी टैग/कीवर्ड को बाहर निकालें"
 
 #: src/sources/wallhaven.vala:446
 msgid "<tt>+tag1 +tag2</tt>"
-msgstr ""
+msgstr "<tt>+टैग1 +टैग2</tt>"
 
 #: src/sources/wallhaven.vala:446
 msgid "must have tag1 and tag2"
-msgstr ""
+msgstr "टैग1 और टैग2 होना चाहिए"
 
 #: src/sources/wallhaven.vala:447
 msgid "<tt>+tag1 -tag2</tt>"
-msgstr ""
+msgstr "<tt>+टैग1 -टैग2</tt>"
 
 #: src/sources/wallhaven.vala:447
 msgid "must have tag1 and NOT tag2"
-msgstr ""
+msgstr "टैग1 होना चाहिए न कि टैग2"
 
 #: src/sources/wallhaven.vala:448
 msgid "<tt>@username</tt>"
-msgstr ""
+msgstr "<tt>@username</tt>"
 
 #: src/sources/wallhaven.vala:448
 msgid "user uploads"
-msgstr ""
+msgstr "उपयोक्ता के अपलोड"
 
 #: src/sources/wallhaven.vala:449
 msgid "<tt>id:123</tt>"
-msgstr ""
+msgstr "<tt>id:123</tt>"
 
 #: src/sources/wallhaven.vala:449
 msgid "Exact tag search (can not be combined)"
-msgstr ""
+msgstr "सटीक टैग खोज (संयुक्त नहीं किया जा सकता)"
 
 #: src/sources/wallhaven.vala:450
 msgid "<tt>type:{png/jpg}</tt>"
-msgstr ""
+msgstr "<tt>प्रकार:{png/jpg}</tt>"
 
 #: src/sources/wallhaven.vala:450
 msgid "Search for file type (jpg = jpeg)"
-msgstr ""
+msgstr "फाइल प्रकार खोजें (jpg = jpeg)"
 
 #: src/sources/wallhaven.vala:451
 msgid "<tt>like:wallpaper ID</tt>"
-msgstr ""
+msgstr "<tt>जैसे:वॉलपेपर ID</tt>"
 
 #: src/sources/wallhaven.vala:451
 msgid "Find wallpapers with similar tags"
-msgstr ""
+msgstr "समान टैग वाले वॉलपेपर खोजें"
