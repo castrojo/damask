@@ -57,7 +57,6 @@ namespace Damask {
 
         private async void refresh_source_async () {
             debug (@"[%p] $(this.get_type().name()).refresh_source_async", this);
-            this.stack.set_visible_child_name ("spinner");
             yield this.refresh_picture ();
 
             if (this._source.current_wallpaper != null) {
