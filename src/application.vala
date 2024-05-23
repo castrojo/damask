@@ -297,6 +297,7 @@ namespace Damask {
 
         private void on_action_about () {
             string[] developers = { "Link Dupont" };
+            string[] artists = { "Brage Fuglseth" };
             var about = new Adw.AboutWindow () {
                 transient_for = this.active_window,
                 application_name = "Damask",
@@ -304,7 +305,9 @@ namespace Damask {
                 developer_name = "Link Dupont",
                 version = Constants.VERSION,
                 developers = developers,
+                artists = artists,
                 copyright = "© 2022 Link Dupont",
+                license_type = Gtk.License.GPL_3_0,
             };
 
             about.present ();
