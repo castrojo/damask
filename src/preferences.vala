@@ -23,12 +23,11 @@ namespace Damask {
     public class PreferencesWindow : Adw.PreferencesWindow {
         [GtkChild] private unowned Adw.ComboRow refresh_interval;
         [GtkChild] private unowned Gtk.Switch run_in_background;
-        [GtkChild] private unowned Gtk.Switch autostart;
 
         construct {
             Application application = GLib.Application.get_default () as Application;
             application.settings.bind("run-in-background", run_in_background, "active", SettingsBindFlags.DEFAULT);
-            application.settings.bind("autostart", autostart, "active", SettingsBindFlags.DEFAULT);
+            application.settings.bind("autostart", run_in_background, "active", SettingsBindFlags.DEFAULT);
 
             refresh_interval.selected = application.settings.get_enum ("refresh-interval");
             refresh_interval.notify["selected"].connect ((pspec) => {
