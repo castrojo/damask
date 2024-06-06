@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-15 23:01-0400\n"
-"PO-Revision-Date: 2023-08-27 09:01+0000\n"
-"Last-Translator: Qaz Cetelic <qaz.cetelic@protonmail.com>\n"
+"PO-Revision-Date: 2024-06-07 01:09+0000\n"
+"Last-Translator: Jules Girard <julesgirard@laposte.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/damask/damask/fr/>"
 "\n"
 "Language: fr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: data/app.drey.Damask.desktop.in.in:3
 #: data/app.drey.Damask.metainfo.xml.in.in:5 src/window.blp:23
@@ -45,7 +45,7 @@ msgstr "wallhaven.cc"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:32
 msgid "Microsoft Bing Wallpaper of the day"
-msgstr "Arrière-plan du jour Microsoft Bing"
+msgstr "Fond d'écran Microsoft Bing du jour"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:33 src/window.blp:102
 msgid "NASA Astronomy Picture of the Day"
@@ -127,30 +127,30 @@ msgstr ""
 
 #: src/application.vala:202
 msgid "Unable to set wallpaper"
-msgstr ""
+msgstr "Impossible de définir le fond d'écran"
 
 #: src/application.vala:205
 #, c-format
 msgid "Unable to set wallpaper: %s"
-msgstr ""
+msgstr "Impossible de définir le fond d'écran : %s"
 
 #: src/application.vala:246
 msgid "Unable to activate autostart"
-msgstr ""
+msgstr "Impossible d'activer le démarrage automatique"
 
 #: src/application.vala:249
 #, c-format
 msgid "Unable to activate autostart: %s"
-msgstr ""
+msgstr "Impossible d'activer le démarrage automatique : %s"
 
 #: src/application.vala:262
 msgid "Unable to deactivate autostart"
-msgstr ""
+msgstr "Impossible de désactiver le démarrage automatique"
 
 #: src/application.vala:265
 #, c-format
 msgid "Unable to deactivate autostart: %s"
-msgstr ""
+msgstr "Impossible de désactiver le démarrage automatique : %s"
 
 #: src/preferences.blp:10
 msgid "Refresh interval"
@@ -229,7 +229,7 @@ msgstr "Utiliser comme arrière-plan une image sélectionnée manuellement"
 
 #: src/window.blp:60
 msgid "Slideshow"
-msgstr ""
+msgstr "Diaporama"
 
 #: src/window.blp:61
 #, fuzzy
@@ -239,16 +239,15 @@ msgstr "Utiliser comme arrière-plan une image sélectionnée manuellement"
 #: src/window.blp:74
 #, fuzzy
 msgid "Bing Wallpaper"
-msgstr "arrière-plan;fond d'écran;papier peint;"
+msgstr "Fond d'écran Bing"
 
 #: src/window.blp:75
 msgid "Use Microsoft Bing's wallpaper of the day"
 msgstr "Utiliser le fond d’écran du jour Microsoft Bing"
 
 #: src/window.blp:88
-#, fuzzy
 msgid "Wallhaven"
-msgstr "wallhaven.cc"
+msgstr "Wallhaven"
 
 #: src/window.blp:89
 msgid "Get wallpapers from wallhaven.cc"
@@ -265,7 +264,7 @@ msgstr "Obtenir des fonds d’écrans depuis wallhaven.cc"
 
 #: src/window.blp:130
 msgid "Google Earth View"
-msgstr ""
+msgstr "Vue Google Earth"
 
 #: src/window.blp:131
 msgid "Use images from Google Earth View"
@@ -290,11 +289,12 @@ msgstr "_Quitter"
 #: src/window.vala:150
 #, c-format
 msgid "Unable to open URL: %s"
-msgstr ""
+msgstr "Impossible d'ouvrir l'URL : %s"
 
 #: src/sources/apod.blp:12
+#, fuzzy
 msgid "Search"
-msgstr ""
+msgstr "Recherche"
 
 #: src/sources/apod.blp:15 src/sources/unsplash.blp:13
 #: src/sources/wallhaven.blp:19
@@ -304,7 +304,7 @@ msgstr "Clé API"
 #: src/sources/apod.vala:89 src/sources/earthview.vala:86
 #, c-format
 msgid "Failed to get image: %s"
-msgstr ""
+msgstr "Échec de l'obtention de l'image : %s"
 
 #: src/sources/bing.blp:13
 msgid "Market"
@@ -312,47 +312,47 @@ msgstr "Marché"
 
 #: src/sources/bing.blp:17
 msgid "English (United States)"
-msgstr ""
+msgstr "Anglais (États Unis)"
 
 #: src/sources/bing.blp:18
 msgid "Chinese (Simplified)"
-msgstr ""
+msgstr "Chinois (simplifié)"
 
 #: src/sources/bing.blp:19
 msgid "Japanese (Japan)"
-msgstr ""
+msgstr "Japonais (Japon)"
 
 #: src/sources/bing.blp:20
 msgid "English (Australia)"
-msgstr ""
+msgstr "Anglais (Australie)"
 
 #: src/sources/bing.blp:21
 msgid "English (United Kingdom)"
-msgstr ""
+msgstr "Anglais (Royaume Uni)"
 
 #: src/sources/bing.blp:22
 msgid "German (Germany)"
-msgstr ""
+msgstr "Allemand (Allemagne)"
 
 #: src/sources/bing.blp:23
 msgid "English (New Zealand)"
-msgstr ""
+msgstr "Anglais (Nouvelle-Zélande)"
 
 #: src/sources/bing.blp:24
 msgid "English (Canada)"
-msgstr ""
+msgstr "Anglais (Canada)"
 
 #: src/sources/bing.blp:25
 msgid "English (India)"
-msgstr ""
+msgstr "Anglais (Inde)"
 
 #: src/sources/bing.blp:26
 msgid "French (France)"
-msgstr ""
+msgstr "Français (France)"
 
 #: src/sources/bing.blp:27
 msgid "French (Canada)"
-msgstr ""
+msgstr "Français (Canada)"
 
 #: src/sources/bing.blp:33
 msgid "Resolution"
@@ -362,7 +362,7 @@ msgstr "Résolution"
 #: src/sources/wallhaven.vala:285
 #, c-format
 msgid "Failed to get wallpaper: %s"
-msgstr ""
+msgstr "Échec de l'obtention du fond d'écran : %s"
 
 #: src/sources/earthview.blp:13 src/sources/slideshow.blp:24
 #: src/sources/wallhaven.blp:78
@@ -375,8 +375,9 @@ msgid "Random"
 msgstr "Aléatoire"
 
 #: src/sources/earthview.blp:17
+#, fuzzy
 msgid "Sequential"
-msgstr ""
+msgstr "Séquence"
 
 #: src/sources/manual.blp:13
 #, fuzzy
@@ -389,30 +390,29 @@ msgstr "Sélectionnez une image"
 
 #: src/sources/slideshow.blp:13
 msgid "Choose Folder"
-msgstr ""
+msgstr "Choisir un dossier"
 
 #: src/sources/slideshow.blp:28
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: src/sources/slideshow.blp:29
 msgid "Creation Date"
-msgstr ""
+msgstr "Date de création"
 
 #: src/sources/slideshow.vala:109
 #, c-format
 msgid "Failed to get folder contents: %s"
-msgstr ""
+msgstr "Échec de l'obtention du contenu du dossier : %s"
 
 #: src/sources/slideshow.vala:144
 #, c-format
 msgid "Unable to watch folder for changes: %s"
-msgstr ""
+msgstr "Impossible de surveiller les modifications dans le dossier : %s"
 
 #: src/sources/slideshow.vala:172
-#, fuzzy
 msgid "Select Folder"
-msgstr "_Sélectionner"
+msgstr "Sélectionner le dossier"
 
 #: src/sources/unsplash.blp:17 src/sources/wallhaven.blp:29
 #: src/sources/wallhaven.blp:37
@@ -421,7 +421,7 @@ msgstr "Requête"
 
 #: src/sources/unsplash.blp:18
 msgid "Limit selection to photos matching a search term"
-msgstr ""
+msgstr "Limiter la sélection aux photos correspondant à un terme de recherche"
 
 #: src/sources/unsplash.blp:22 src/sources/wallhaven.blp:69
 msgid "Collections"
@@ -430,26 +430,29 @@ msgstr "Collections"
 #: src/sources/unsplash.blp:23
 msgid "Public collection IDs to filter selection (comma-separated)"
 msgstr ""
+"ID de collection publique pour filtrer la sélection (séparés par des "
+"virgules)"
 
 #: src/sources/unsplash.blp:27
 msgid "Topics"
-msgstr ""
+msgstr "Sujets"
 
 #: src/sources/unsplash.blp:28
 msgid "Public topic IDs to filter selection (comma-separated)"
 msgstr ""
+"ID de sujets publics pour filtrer la sélection (séparés par des virgules)"
 
 #: src/sources/unsplash.blp:32
 msgid "Content Filter"
-msgstr ""
+msgstr "Filtre de contenu"
 
 #: src/sources/unsplash.blp:36
 msgid "Low"
-msgstr ""
+msgstr "Faible"
 
 #: src/sources/unsplash.blp:37
 msgid "High"
-msgstr ""
+msgstr "Fort"
 
 #: src/sources/wallhaven.blp:12
 msgid "Source"
@@ -580,8 +583,9 @@ msgid "Not Safe for Work"
 msgstr "Potentiellement choquant"
 
 #: src/sources/wallhaven.blp:194
+#, fuzzy
 msgid "An API key is required to access not safe for work content"
-msgstr ""
+msgstr "Une clé API est requise pour accéder au contenu non OK pour le travail"
 
 #: src/sources/wallhaven.vala:433
 msgid "<tt>tagname</tt>"
