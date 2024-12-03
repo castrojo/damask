@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: damask\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-15 22:57-0400\n"
-"PO-Revision-Date: 2023-08-27 09:01+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"PO-Revision-Date: 2024-12-04 14:00+0000\n"
+"Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/damask/damask/fi/"
 ">\n"
 "Language: fi\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: data/app.drey.Damask.desktop.in.in:3
 #: data/app.drey.Damask.metainfo.xml.in.in:5 src/window.blp:23
@@ -579,7 +579,7 @@ msgstr ""
 
 #: src/sources/wallhaven.vala:433
 msgid "search fuzzily for a tag/keyword"
-msgstr ""
+msgstr "etsi sumeasti tunnistetta/avainsanaa"
 
 #: src/sources/wallhaven.vala:434
 msgid "<tt>-tagname</tt>"
@@ -587,7 +587,7 @@ msgstr ""
 
 #: src/sources/wallhaven.vala:434
 msgid "exclude a tag/keyword"
-msgstr ""
+msgstr "sulje pois tunniste/avainsana"
 
 #: src/sources/wallhaven.vala:435
 msgid "<tt>+tag1 +tag2</tt>"
@@ -595,7 +595,7 @@ msgstr ""
 
 #: src/sources/wallhaven.vala:435
 msgid "must have tag1 and tag2"
-msgstr ""
+msgstr "on oltava tag1 ja tag2"
 
 #: src/sources/wallhaven.vala:436
 msgid "<tt>+tag1 -tag2</tt>"
@@ -603,7 +603,7 @@ msgstr ""
 
 #: src/sources/wallhaven.vala:436
 msgid "must have tag1 and NOT tag2"
-msgstr ""
+msgstr "on oltava tag1 ja ei tag2"
 
 #: src/sources/wallhaven.vala:437
 msgid "<tt>@username</tt>"
@@ -611,7 +611,7 @@ msgstr ""
 
 #: src/sources/wallhaven.vala:437
 msgid "user uploads"
-msgstr ""
+msgstr "käyttäjien uloslataukset"
 
 #: src/sources/wallhaven.vala:438
 msgid "<tt>id:123</tt>"
@@ -619,7 +619,7 @@ msgstr ""
 
 #: src/sources/wallhaven.vala:438
 msgid "Exact tag search (can not be combined)"
-msgstr ""
+msgstr "Tarkka tunnistehaku (ei voida yhdistää)"
 
 #: src/sources/wallhaven.vala:439
 msgid "<tt>type:{png/jpg}</tt>"
@@ -627,7 +627,7 @@ msgstr ""
 
 #: src/sources/wallhaven.vala:439
 msgid "Search for file type (jpg = jpeg)"
-msgstr ""
+msgstr "Hae tiedostotyyppiä (jpg = jpeg)"
 
 #: src/sources/wallhaven.vala:440
 msgid "<tt>like:wallpaper ID</tt>"
@@ -635,4 +635,4 @@ msgstr ""
 
 #: src/sources/wallhaven.vala:440
 msgid "Find wallpapers with similar tags"
-msgstr ""
+msgstr "Etsi taustakuvia, joissa on samanlaiset tunnisteet"
