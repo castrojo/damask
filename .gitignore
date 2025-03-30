@@ -1,1 +1,4 @@
 .flatpak
+.build
+_build
+.vscode
