@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: damask\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-30 22:34+0300\n"
-"PO-Revision-Date: 2025-08-14 12:01+0000\n"
+"PO-Revision-Date: 2025-08-24 23:02+0000\n"
 "Last-Translator: Priit Jõerüüt <jrthwlate@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/damask/damask/"
 "et/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.13\n"
 
 #: data/app.drey.Damask.desktop.in.in:3
 #: data/app.drey.Damask.metainfo.xml.in.in:5
@@ -41,53 +41,57 @@ msgid ""
 "Damask is an automatic wallpaper application. It currently supports setting "
 "the wallpaper image from the following sources:"
 msgstr ""
+"Damask on rakendus taustapiltide automaatseks laadimiseks. Hetkel on "
+"toetatud taustapiltide laadimine järgmistest allikatest:"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:31
 msgid "wallhaven.cc"
-msgstr ""
+msgstr "wallhaven.cc"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:32
 msgid "Microsoft Bing Wallpaper of the day"
 msgstr ""
+"Microsoft Bingi igapäevane taustapilt (Microsoft Bing Wallpaper of the day)"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:33
 msgid "NASA Astronomy Picture of the Day"
 msgstr ""
+"NASA igapäevane astronoomiateemaline pilt (NASA Astronomy Picture of the Day)"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:34 src/sources/unsplash.vala:58
 msgid "Unsplash"
-msgstr ""
+msgstr "Unsplash"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:35 src/sources/earthview.vala:44
 msgid "Google Earth View"
-msgstr ""
+msgstr "Google sateliidifotod (Google Earth View)"
 
 #: src/application.vala:208
 msgid "Unable to set wallpaper"
-msgstr ""
+msgstr "Taustapildi lisamine ei õnnestu"
 
 #: src/application.vala:211
 #, c-format
 msgid "Unable to set wallpaper: %s"
-msgstr ""
+msgstr "Taustapildi lisamine ei õnnestu: %s"
 
 #: src/application.vala:258
 msgid "Unable to activate autostart"
-msgstr ""
+msgstr "Automaatse käivitamise töölepanek ei õnnestu"
 
 #: src/application.vala:261
 #, c-format
 msgid "Unable to activate autostart: %s"
-msgstr ""
+msgstr "Automaatse käivitamise töölepanek ei õnnestu: %s"
 
 #: src/application.vala:274
 msgid "Unable to deactivate autostart"
-msgstr ""
+msgstr "Automaatse käivitamise keelamine ei õnnestu"
 
 #: src/application.vala:277
 #, c-format
 msgid "Unable to deactivate autostart: %s"
-msgstr ""
+msgstr "Automaatse käivitamise keelamine ei õnnestu: %s"
 
 #: src/preferences.blp:10
 msgid "Refresh interval"
@@ -221,110 +225,110 @@ msgstr "Sihtturg"
 
 #: src/sources/bing.blp:17
 msgid "English (United States)"
-msgstr ""
+msgstr "Ingliskeelne (Ameerika Ühendriigid)"
 
 #: src/sources/bing.blp:18
 msgid "Chinese (Simplified)"
-msgstr ""
+msgstr "Hiinakeelne (lihtsustatud)"
 
 #: src/sources/bing.blp:19
 msgid "Japanese (Japan)"
-msgstr ""
+msgstr "Jaapani (Jaapan)"
 
 #: src/sources/bing.blp:20
 msgid "English (Australia)"
-msgstr ""
+msgstr "Ingliskeelne (Austraalia)"
 
 #: src/sources/bing.blp:21
 msgid "English (United Kingdom)"
-msgstr ""
+msgstr "Ingliskeelne (Suurbritannia)"
 
 #: src/sources/bing.blp:22
 msgid "German (Germany)"
-msgstr ""
+msgstr "Saksakeelne (Saksamaa)"
 
 #: src/sources/bing.blp:23
 msgid "English (New Zealand)"
-msgstr ""
+msgstr "Ingliskeelne (Uus-Meremaa)"
 
 #: src/sources/bing.blp:24
 msgid "English (Canada)"
-msgstr ""
+msgstr "Ingliskeelne (Kanada)"
 
 #: src/sources/bing.blp:25
 msgid "English (India)"
-msgstr ""
+msgstr "Ingliskeelne (India)"
 
 #: src/sources/bing.blp:26
 msgid "French (France)"
-msgstr ""
+msgstr "Prantsuskeelne (Prantsusmaa)"
 
 #: src/sources/bing.blp:27
 msgid "French (Canada)"
-msgstr ""
+msgstr "Prantsuskeelne (Kanada)"
 
 #: src/sources/bing.blp:33
 msgid "Resolution"
-msgstr ""
+msgstr "Eraldusvõime"
 
 #: src/sources/bing.vala:56
 msgid "Bing Wallpaper"
-msgstr ""
+msgstr "Taustapilt Bingist"
 
 #: src/sources/bing.vala:92 src/sources/unsplash.vala:106
 #: src/sources/wallhaven.vala:292
 #, c-format
 msgid "Failed to get wallpaper: %s"
-msgstr ""
+msgstr "Taustapildi laadimine ei õnnestunud: %s"
 
 #: src/sources/earthview.blp:13 src/sources/slideshow.blp:24
 #: src/sources/wallhaven.blp:68
 msgid "Sort By"
-msgstr ""
+msgstr "Järjestuse viis"
 
 #: src/sources/earthview.blp:16 src/sources/slideshow.blp:27
 #: src/sources/wallhaven.blp:74
 msgid "Random"
-msgstr ""
+msgstr "Juhuslik"
 
 #: src/sources/earthview.blp:17
 msgid "Sequential"
-msgstr ""
+msgstr "Järjestikune"
 
 #: src/sources/slideshow.blp:13
 msgid "Choose Folder"
-msgstr ""
+msgstr "Vali kaust"
 
 #: src/sources/slideshow.blp:28
 msgid "Name"
-msgstr ""
+msgstr "Nimi"
 
 #: src/sources/slideshow.blp:29
 msgid "Creation Date"
-msgstr ""
+msgstr "Loomise kuupäev"
 
 #: src/sources/slideshow.vala:43
 msgid "Slideshow"
-msgstr ""
+msgstr "Slaidiesitlus"
 
 #: src/sources/slideshow.vala:117
 #, c-format
 msgid "Failed to get folder contents: %s"
-msgstr ""
+msgstr "Kausta sisu laadimine ei õnnestunud: %s"
 
 #: src/sources/slideshow.vala:152
 #, c-format
 msgid "Unable to watch folder for changes: %s"
-msgstr ""
+msgstr "Kausta muudatuste jälgimine ei õnnestu: %s"
 
 #: src/sources/slideshow.vala:180
 msgid "Select Folder"
-msgstr ""
+msgstr "Vali kaust"
 
 #: src/sources/unsplash.blp:13 src/sources/wallhaven.blp:27
 #: src/sources/wallhaven.blp:35
 msgid "Query"
-msgstr ""
+msgstr "Päring"
 
 #: src/sources/unsplash.blp:14
 msgid "Limit selection to photos matching a search term"
