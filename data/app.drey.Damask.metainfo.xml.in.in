@@ -53,6 +53,34 @@
   <url type="translate">https://hosted.weblate.org/engage/damask/</url>
   <url type="vcs-browser">https://gitlab.gnome.org/subpop/damask/</url>
   <releases>
+    <release date="2025-09-26" version="0.3.0">
+      <description translate="no">
+        <ul>
+          <li>Add artist and license information to about window</li>
+          <li>Improve source selection with GtkDropDown-based interface</li>
+          <li>Fix missing keyboard shortcuts</li>
+          <li>Wallhaven: Use apply entry rows for better user experience</li>
+          <li>Fix refresh button visibility and request refresh after settings change</li>
+          <li>Use app icon in placeholder view</li>
+          <li>Resolve compilation warnings</li>
+          <li>Logically combine background and autostart settings</li>
+          <li>Set application category to "Utility"</li>
+          <li>Make UI strings GNOME HIG compatible</li>
+          <li>Update documentation and screenshots</li>
+        </ul>
+        <p>Translation Updates:</p>
+        <ul>
+          <li>Added Ukrainian</li>
+          <li>Added Portuguese (Brazil)</li>
+          <li>Added Estonian</li>
+          <li>Added Hindi</li>
+          <li>Updated Finnish</li>
+          <li>Updated Russian</li>
+          <li>Updated French</li>
+          <li>Updated Turkish</li>
+        </ul>
+      </description>
+    </release>
     <release date="2024-05-01" version="0.2.2">
       <description translate="no">
         <ul>
