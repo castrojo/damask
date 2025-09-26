@@ -330,8 +330,16 @@ namespace Damask.Sources.Wallhaven {
         construct {
             debug (@"[%p] $(this.get_type().name()).construct", this);
             this.settings.bind ("username", username, "text", SettingsBindFlags.DEFAULT);
-            this.settings.bind("api-key", api_key, "text", SettingsBindFlags.DEFAULT);
-            this.settings.bind("query", query, "text", SettingsBindFlags.DEFAULT);
+            this.settings.bind("api-key", api_key, "text", SettingsBindFlags.GET|SettingsBindFlags.GET_NO_CHANGES);
+            this.settings.bind("query", query, "text", SettingsBindFlags.GET|SettingsBindFlags.GET_NO_CHANGES);
+
+            this.api_key.apply.connect ((entry_row) => {
+                this.settings.set_string("api-key", entry_row.text);
+            });
+
+            this.query.apply.connect ((query) => {
+                this.settings.set_string("query", query.text);
+            });
 
             this.search_mode_query.active = this.settings.get_string("search-mode") == "query";
             this.search_mode_query.toggled.connect ((button) => {

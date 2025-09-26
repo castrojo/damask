@@ -17,6 +17,7 @@ template DamaskSourcesWallhavenPreferencesPage : Adw.PreferencesPage {
 
     Adw.EntryRow api_key {
       title: _("API Key");
+      show-apply-button: true;
     }
   }
 
@@ -33,6 +34,7 @@ template DamaskSourcesWallhavenPreferencesPage : Adw.PreferencesPage {
 
       Adw.EntryRow query {
         title: _("Query");
+        show-apply-button: true;
 
         [suffix]
         Gtk.Button syntax_help {
