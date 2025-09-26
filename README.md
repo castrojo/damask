@@ -9,7 +9,6 @@ It currently supports setting the wallpaper image from the following sources:
 * wallhaven.cc
 * Microsoft Bing Wallpaper of the day
 * NASA Astronomy Picture of the Day
-* Unsplash
 
 ![application screenshot](./data/damask.png)
 
@@ -56,3 +55,17 @@ background.
 flatpak permission-set wallpaper wallpaper app.drey.Damask.Devel yes
 flatpak permission-set background background app.drey.Damask.Devel yes
 ```
+
+### Code of Conduct
+
+When interacting with the project, the [GNOME Code of Conduct](https://conduct.gnome.org/) applies.
+
+### Use of Generative AI
+
+We welcome the use of generative AI tools to assist with development. However,
+**you are fully responsible for all code you submit** - review, understand,
+and test everything thoroughly regardless of how it was generated.
+
+Large patches that appear primarily AI-generated may be rejected in favor of
+smaller, more thoughtful human contributions. Quality and genuine engagement
+with the codebase matter more than quantity.
