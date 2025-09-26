@@ -48,6 +48,12 @@ namespace Damask.Sources.Bing {
     public class Bing : Object, WallpaperSource {
         private Settings settings = new Settings(@"$(Constants.APP_ID).sources.bing");
 
+        construct {
+            this.settings.changed.connect ((key) => {
+                this.request_refresh ();
+            });
+        }
+
         public string id {
             get { return "bing"; }
         }

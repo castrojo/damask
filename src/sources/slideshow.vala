@@ -28,11 +28,14 @@ namespace Damask.Sources.Slideshow {
         construct {
             this.settings.changed["folder-uri"].connect (() => {
                 this.rebuild_file_list ();
+                this.request_refresh ();
             });
             this.settings.changed["sort-by"].connect (() => {
                 this.rebuild_file_list ();
+                this.request_refresh ();
             });
             this.rebuild_file_list ();
+            this.request_refresh ();
         }
 
         public string id {

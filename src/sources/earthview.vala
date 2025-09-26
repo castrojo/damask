@@ -23,6 +23,12 @@ namespace Damask.Sources.EarthView {
         private Settings settings = new Settings (@"$(Constants.APP_ID).sources.earthview");
         private int current_index = 0;
 
+        construct {
+            this.settings.changed.connect ((key) => {
+                this.request_refresh ();
+            });
+        }
+
         public string id {
             get { return "earthview"; }
         }

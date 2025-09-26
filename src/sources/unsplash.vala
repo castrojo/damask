@@ -48,6 +48,9 @@ namespace Damask.Sources.Unsplash {
         private Settings settings = new Settings (@"$(Constants.APP_ID).sources.unsplash");
 
         construct {
+            this.settings.changed.connect ((key) => {
+                this.request_refresh ();
+            });
         }
 
         public string id {
