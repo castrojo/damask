@@ -20,7 +20,7 @@
 
 namespace Damask {
     [GtkTemplate (ui = "/app/drey/Damask/preferences.ui")]
-    public class PreferencesWindow : Adw.PreferencesWindow {
+    public class PreferencesWindow : Adw.PreferencesDialog {
         [GtkChild] private unowned Adw.ComboRow refresh_interval;
         [GtkChild] private unowned Gtk.Switch run_in_background;
 

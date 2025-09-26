@@ -300,8 +300,7 @@ namespace Damask {
         private void on_action_about () {
             string[] developers = { "Link Dupont" };
             string[] artists = { "Brage Fuglseth" };
-            var about = new Adw.AboutWindow () {
-                transient_for = this.active_window,
+            var about = new Adw.AboutDialog () {
                 application_name = "Damask",
                 application_icon = Constants.APP_ID,
                 developer_name = "Link Dupont",
@@ -312,13 +311,12 @@ namespace Damask {
                 license_type = Gtk.License.GPL_3_0,
             };
 
-            about.present ();
+            about.present (this.active_window);
         }
 
         private void on_action_preferences () {
             var prefs = new Damask.PreferencesWindow ();
-            prefs.set_transient_for (this.active_window);
-            prefs.present ();
+            prefs.present (this.active_window);
         }
     }
 }
