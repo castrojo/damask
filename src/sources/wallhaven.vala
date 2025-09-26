@@ -120,6 +120,10 @@ namespace Damask.Sources.Wallhaven {
 
         public Damask.Wallpaper? current_wallpaper { get; internal set; }
 
+        public bool can_refresh {
+            get { return true; }
+        }
+
         public async Damask.Wallpaper? refresh () {
             string url = "";
 

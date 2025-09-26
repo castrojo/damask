@@ -59,6 +59,13 @@ namespace Damask {
         public abstract Wallpaper? current_wallpaper { get; internal set; }
 
         /**
+         * can_refresh:
+         *
+         * Whether the source support refreshing the chosen wallpaper.
+         */
+        public abstract bool can_refresh { get; }
+
+        /**
          * preferences:
          *
          * Return a preferences page for the source.

@@ -60,6 +60,10 @@ namespace Damask.Sources.Unsplash {
 
         public Wallpaper? current_wallpaper { get; internal set; }
 
+        public bool can_refresh {
+            get { return true; }
+        }
+
         public async Wallpaper? refresh () {
             StringBuilder query_parameters = new StringBuilder ();
 

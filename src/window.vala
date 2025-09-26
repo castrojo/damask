@@ -76,6 +76,8 @@ namespace Damask {
                 this.sources.selected = position;
 
                 this.source_content.child = active_source.preferences ();
+
+                this.refresh_button_stack.visible = active_source.can_refresh;
             }
 
             Gtk.Builder builder = new Gtk.Builder.from_resource (@"$(Constants.RESOURCE_PATH_PREFIX)/shortcuts.ui");
@@ -100,6 +102,8 @@ namespace Damask {
                     uint position = 0;
                     this.source_list_model.find (active_source, out position);
                     this.source_content.child = active_source.preferences ();
+
+                    this.refresh_button_stack.visible = active_source.can_refresh;
                 }
             }
         }

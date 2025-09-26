@@ -33,6 +33,10 @@ namespace Damask.Sources.EarthView {
 
         public Wallpaper? current_wallpaper { get; internal set; }
 
+        public bool can_refresh {
+            get { return false; }
+        }
+
         public async Wallpaper? refresh () {
             Soup.Session session = new Soup.Session ();
             Soup.Message msg = new Soup.Message ("GET", "https://github.com/alexpersian/earthview/raw/master/earthview.json");

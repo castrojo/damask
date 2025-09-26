@@ -34,6 +34,10 @@
             return null;
         }
 
+        public bool can_refresh {
+            get { return false; }
+        }
+
         public Adw.PreferencesPage? preferences () {
             return new PreferencesPage () as Adw.PreferencesPage;
         }

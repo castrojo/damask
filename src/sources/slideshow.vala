@@ -45,6 +45,10 @@ namespace Damask.Sources.Slideshow {
 
         public Wallpaper? current_wallpaper { get; internal set; }
 
+        public bool can_refresh {
+            get { return true; }
+        }
+
         public async Wallpaper? refresh () {
             string folder_uri = this.settings.get_string ("folder-uri");
             string? path = null;
