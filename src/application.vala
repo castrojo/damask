@@ -46,8 +46,10 @@ namespace Damask {
             enable_automatic_refresh_action.notify["state"].connect (this.on_automatic_refresh_action);
             this.add_action (enable_automatic_refresh_action);
 
+            this.set_accels_for_action ("app.preferences", {"<primary>comma"});
             this.set_accels_for_action ("app.quit", {"<primary>q"});
             this.set_accels_for_action ("app.refresh", {"<primary>r"});
+            this.set_accels_for_action ("window.close", {"<primary>w"});
 
             OptionEntry[] option_entries = {
                 {
