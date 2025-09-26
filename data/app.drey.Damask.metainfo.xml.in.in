@@ -33,10 +33,17 @@
       <li>wallhaven.cc</li>
       <li>Microsoft Bing Wallpaper of the day</li>
       <li>NASA Astronomy Picture of the Day</li>
-      <li>Unsplash</li>
       <li>Google Earth View</li>
     </ul>
   </description>
+  <supports>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </supports>
+  <recommends>
+    <display_length compare="ge">768</display_length>
+  </recommends>
   <url type="homepage">https://gitlab.gnome.org/subpop/damask</url>
   <url type="bugtracker">https://gitlab.gnome.org/subpop/damask/-/issues</url>
   <!--
