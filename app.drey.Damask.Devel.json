@@ -25,20 +25,6 @@
     ],
     "modules": [
         {
-            "name": "blueprint-compiler",
-            "buildsystem": "meson",
-            "cleanup": [
-                "*"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler",
-                    "tag": "v0.16.0"
-                }
-            ]
-        },
-        {
             "name": "libportal",
             "buildsystem": "meson",
             "config-opts": [
@@ -50,7 +36,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/flatpak/libportal",
-                    "tag": "0.7.1"
+                    "tag": "0.9.1"
                 }
             ]
         },
