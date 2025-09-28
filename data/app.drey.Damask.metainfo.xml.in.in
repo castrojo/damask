@@ -53,6 +53,13 @@
   <url type="translate">https://hosted.weblate.org/engage/damask/</url>
   <url type="vcs-browser">https://gitlab.gnome.org/subpop/damask/</url>
   <releases>
+    <release date="2025-09-27" version="0.3.1">
+      <description translate="no">
+        <ul>
+          <li>Fix an issue preventing preferences from being displayed correctly</li>
+        </ul>
+      </description>
+    </release>
     <release date="2025-09-26" version="0.3.0">
       <description translate="no">
         <ul>
