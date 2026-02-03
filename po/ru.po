@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: damask\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-15 23:01-0400\n"
-"PO-Revision-Date: 2024-07-08 11:09+0000\n"
-"Last-Translator: Narvanux <narvanux@proton.me>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/damask/damask/ru/"
-">\n"
+"PO-Revision-Date: 2026-02-04 02:01+0000\n"
+"Last-Translator: David Lapshin <ddaudix@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/damask/damask/"
+"ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 #: data/app.drey.Damask.desktop.in.in:3
 #: data/app.drey.Damask.metainfo.xml.in.in:5 src/window.blp:23
@@ -210,9 +210,8 @@ msgid "General"
 msgstr "Общее"
 
 #: src/shortcuts.blp:14
-#, fuzzy
 msgid "Show Shortcuts"
-msgstr "_Комбинации клавиш"
+msgstr "Показать комбинации клавиш"
 
 #: src/shortcuts.blp:19
 msgid "Refresh Wallpaper"
@@ -304,7 +303,7 @@ msgstr "Ключ API"
 #: src/sources/apod.vala:89 src/sources/earthview.vala:86
 #, c-format
 msgid "Failed to get image: %s"
-msgstr ""
+msgstr "Не удалось получить изображение: %s"
 
 #: src/sources/bing.blp:13
 msgid "Market"
@@ -362,7 +361,7 @@ msgstr "Разрешение"
 #: src/sources/wallhaven.vala:285
 #, c-format
 msgid "Failed to get wallpaper: %s"
-msgstr ""
+msgstr "Не удалось получить обои: %s"
 
 #: src/sources/earthview.blp:13 src/sources/slideshow.blp:24
 #: src/sources/wallhaven.blp:78
@@ -376,7 +375,7 @@ msgstr "Случайное"
 
 #: src/sources/earthview.blp:17
 msgid "Sequential"
-msgstr ""
+msgstr "Последовательно"
 
 #: src/sources/manual.blp:13
 #, fuzzy
@@ -402,12 +401,12 @@ msgstr "Дата создания"
 #: src/sources/slideshow.vala:109
 #, c-format
 msgid "Failed to get folder contents: %s"
-msgstr ""
+msgstr "Не удалось получить содержимое папки: %s"
 
 #: src/sources/slideshow.vala:144
 #, c-format
 msgid "Unable to watch folder for changes: %s"
-msgstr ""
+msgstr "Не удалось наблюдать за изменениями в папке: %s"
 
 #: src/sources/slideshow.vala:172
 msgid "Select Folder"
@@ -420,7 +419,7 @@ msgstr "Запрос"
 
 #: src/sources/unsplash.blp:18
 msgid "Limit selection to photos matching a search term"
-msgstr ""
+msgstr "Ограничить выборку фотографиями, соответствующими поисковому запросу"
 
 #: src/sources/unsplash.blp:22 src/sources/wallhaven.blp:69
 msgid "Collections"
@@ -428,27 +427,27 @@ msgstr "Коллекции"
 
 #: src/sources/unsplash.blp:23
 msgid "Public collection IDs to filter selection (comma-separated)"
-msgstr ""
+msgstr "Публичные ID коллекций для фильтрации выборки (разделённые запятыми)"
 
 #: src/sources/unsplash.blp:27
 msgid "Topics"
-msgstr ""
+msgstr "Темы"
 
 #: src/sources/unsplash.blp:28
 msgid "Public topic IDs to filter selection (comma-separated)"
-msgstr ""
+msgstr "Публичные ID тем для фильтрации выборки (разделённые запятыми)"
 
 #: src/sources/unsplash.blp:32
 msgid "Content Filter"
-msgstr ""
+msgstr "Фильтр содержимого"
 
 #: src/sources/unsplash.blp:36
 msgid "Low"
-msgstr ""
+msgstr "Низкий"
 
 #: src/sources/unsplash.blp:37
 msgid "High"
-msgstr ""
+msgstr "Высокий"
 
 #: src/sources/wallhaven.blp:12
 msgid "Source"
