@@ -99,6 +99,11 @@ namespace Damask {
                 this.sources.set (s.id, s);
                 Type? type = typeof (Sources.EarthView.PreferencesPage);
             }
+            {
+                var s = new Sources.Spotlight.Spotlight ();
+                this.sources.set (s.id, s);
+                Type? type = typeof (Sources.Spotlight.PreferencesPage);
+            }
         }
 
         public override void startup () {

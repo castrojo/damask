@@ -19,6 +19,8 @@ src/sources/earthview.blp
 src/sources/earthview.vala
 src/sources/slideshow.blp
 src/sources/slideshow.vala
+src/sources/spotlight.blp
+src/sources/spotlight.vala
 src/sources/unsplash.blp
 src/sources/unsplash.vala
 src/sources/wallhaven.blp

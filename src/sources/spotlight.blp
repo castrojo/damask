@@ -1,0 +1,32 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $DamaskSourcesSpotlightPreferencesPage : Adw.PreferencesPage {
+  Adw.PreferencesGroup {
+    $DamaskWallpaperPreview preview {
+      source: "spotlight";
+    }
+  }
+
+  Adw.PreferencesGroup {
+    Adw.ComboRow locale {
+      title: _("Language");
+
+      model: StringList {
+        strings [
+          _("English (United States)"),
+          _("Chinese (Simplified)"),
+          _("Japanese (Japan)"),
+          _("English (Australia)"),
+          _("English (United Kingdom)"),
+          _("German (Germany)"),
+          _("English (New Zealand)"),
+          _("English (Canada)"),
+          _("English (India)"),
+          _("French (France)"),
+          _("French (Canada)"),
+        ]
+      };
+    }
+  }
+}

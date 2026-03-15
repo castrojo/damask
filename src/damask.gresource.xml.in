@@ -11,6 +11,7 @@
     <file preprocess="xml-stripblanks">sources/earthview.ui</file>
     <file preprocess="xml-stripblanks">sources/none.ui</file>
     <file preprocess="xml-stripblanks">sources/slideshow.ui</file>
+    <file preprocess="xml-stripblanks">sources/spotlight.ui</file>
     <file preprocess="xml-stripblanks">sources/unsplash.ui</file>
     <file preprocess="xml-stripblanks">sources/wallhaven.ui</file>
   </gresource>
