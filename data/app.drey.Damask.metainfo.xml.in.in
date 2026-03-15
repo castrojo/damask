@@ -34,6 +34,7 @@
       <li>Microsoft Bing Wallpaper of the day</li>
       <li>NASA Astronomy Picture of the Day</li>
       <li>Google Earth View</li>
+      <li>Microsoft Spotlight</li>
     </ul>
   </description>
   <supports>
@@ -53,6 +54,18 @@
   <url type="translate">https://hosted.weblate.org/engage/damask/</url>
   <url type="vcs-browser">https://gitlab.gnome.org/subpop/damask/</url>
   <releases>
+    <release date="2026-03-14" version="0.3.2">
+      <description translate="no">
+        <ul>
+          <li>Add Microsoft Spotlight as a new wallpaper source</li>
+        </ul>
+        <p>Translation Updates:</p>
+        <ul>
+          <li>Updated Estonian</li>
+          <li>Updated Russian</li>
+        </ul>
+      </description>
+    </release>
     <release date="2025-09-27" version="0.3.1">
       <description translate="no">
         <ul>

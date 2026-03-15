@@ -9,6 +9,7 @@ It currently supports setting the wallpaper image from the following sources:
 * wallhaven.cc
 * Microsoft Bing Wallpaper of the day
 * NASA Astronomy Picture of the Day
+* Microsoft Spotlight
 
 ![application screenshot](./data/damask.png)
 
