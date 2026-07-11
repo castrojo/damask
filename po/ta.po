@@ -8,353 +8,357 @@ msgstr ""
 "Project-Id-Version: damask\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-30 22:34+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-07-12 13:01+0000\n"
+"Last-Translator: தமிழ்நேரம் <tamilneram247@gmail.com>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/damask/damask/ta/>"
+"\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2026.7.1.dev0\n"
 
 #: data/app.drey.Damask.desktop.in.in:3
 #: data/app.drey.Damask.metainfo.xml.in.in:5
 msgid "Damask"
-msgstr ""
+msgstr "டமாச்க்"
 
 #: data/app.drey.Damask.desktop.in.in:10
 msgid "wallpaper;"
-msgstr ""
+msgstr "வால்பேப்பர்;"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:26
 msgid "Link Dupont"
-msgstr ""
+msgstr "இணைப்பு Dupont"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:27
 msgid "Automatically set a background from the Internet"
-msgstr ""
+msgstr "இணையத்திலிருந்து பின்னணியைத் தானாக அமைக்கவும்"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:29
 msgid ""
 "Damask is an automatic wallpaper application. It currently supports setting "
 "the wallpaper image from the following sources:"
 msgstr ""
+"டமாச்க் ஒரு தானியங்கி வால்பேப்பர் பயன்பாடு ஆகும். இது தற்போது பின்வரும் ஆதாரங்களில் இருந்து "
+"வால்பேப்பர் படத்தை அமைப்பதை ஆதரிக்கிறது:"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:31
 msgid "wallhaven.cc"
-msgstr ""
+msgstr "wallhaven.cc"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:32
 msgid "Microsoft Bing Wallpaper of the day"
-msgstr ""
+msgstr "அன்றைய நுண்மென் பிங் வால்பேப்பர்"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:33
 msgid "NASA Astronomy Picture of the Day"
-msgstr ""
+msgstr "நாசாவின் அன்றைய வானியல் படம்"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:34 src/sources/unsplash.vala:58
 msgid "Unsplash"
-msgstr ""
+msgstr "அன்ச்ப்ளாச்"
 
 #: data/app.drey.Damask.metainfo.xml.in.in:35 src/sources/earthview.vala:44
 msgid "Google Earth View"
-msgstr ""
+msgstr "கூகுள் எர்த் வியூ"
 
 #: src/application.vala:208
 msgid "Unable to set wallpaper"
-msgstr ""
+msgstr "வால்பேப்பரை அமைக்க முடியவில்லை"
 
 #: src/application.vala:211
 #, c-format
 msgid "Unable to set wallpaper: %s"
-msgstr ""
+msgstr "வால்பேப்பரை அமைக்க முடியவில்லை: %s"
 
 #: src/application.vala:258
 msgid "Unable to activate autostart"
-msgstr ""
+msgstr "ஆட்டோச்டார்ட்டை இயக்க முடியவில்லை"
 
 #: src/application.vala:261
 #, c-format
 msgid "Unable to activate autostart: %s"
-msgstr ""
+msgstr "ஆட்டோச்டார்ட்டைச் செயல்படுத்த முடியவில்லை: %s"
 
 #: src/application.vala:274
 msgid "Unable to deactivate autostart"
-msgstr ""
+msgstr "ஆட்டோச்டார்ட்டை முடக்க முடியவில்லை"
 
 #: src/application.vala:277
 #, c-format
 msgid "Unable to deactivate autostart: %s"
-msgstr ""
+msgstr "ஆட்டோச்டார்ட்டை செயலிழக்க செய்ய முடியவில்லை: %s"
 
 #: src/preferences.blp:10
 msgid "Refresh interval"
-msgstr ""
+msgstr "இடைவெளியைப் புதுப்பிக்கவும்"
 
 #: src/preferences.blp:14
 msgid "30 seconds"
-msgstr ""
+msgstr "30 வினாடிகள்"
 
 #: src/preferences.blp:15
 msgid "1 minute"
-msgstr ""
+msgstr "1 மணித்துளி"
 
 #: src/preferences.blp:16
 msgid "5 minutes"
-msgstr ""
+msgstr "5 நிமிடங்கள்"
 
 #: src/preferences.blp:17
 msgid "15 minutes"
-msgstr ""
+msgstr "15 நிமிடங்கள்"
 
 #: src/preferences.blp:18
 msgid "30 minutes"
-msgstr ""
+msgstr "30 நிமிடங்கள்"
 
 #: src/preferences.blp:19
 msgid "1 hour"
-msgstr ""
+msgstr "1 மணிநேரம்"
 
 #: src/preferences.blp:20
 msgid "6 hours"
-msgstr ""
+msgstr "6 மணி நேரம்"
 
 #: src/preferences.blp:21
 msgid "12 hours"
-msgstr ""
+msgstr "12 மணி நேரம்"
 
 #: src/preferences.blp:22
 msgid "24 hours"
-msgstr ""
+msgstr "24 மணிநேரம்"
 
 #: src/preferences.blp:27
 msgid "Run in background"
-msgstr ""
+msgstr "பின்னணியில் இயக்கவும்"
 
 #: src/preferences.blp:34
 msgid "Start automatically upon login"
-msgstr ""
+msgstr "உள்நுழைந்தவுடன் தானாகவே தொடங்கவும்"
 
 #: src/shortcuts.blp:11 src/sources/wallhaven.blp:130
 msgid "General"
-msgstr ""
+msgstr "பொது"
 
 #: src/shortcuts.blp:14
 msgid "Show Shortcuts"
-msgstr ""
+msgstr "குறுக்குவழிகளைக் காட்டு"
 
 #: src/shortcuts.blp:19
 msgid "Refresh Wallpaper"
-msgstr ""
+msgstr "வால்பேப்பரைப் புதுப்பிக்கவும்"
 
 #: src/shortcuts.blp:24
 msgid "Quit"
-msgstr ""
+msgstr "வெளியேறு"
 
 #: src/wallpaper-preview.blp:47
 msgid "Open in Browser"
-msgstr ""
+msgstr "உலாவியில் திற"
 
 #: src/window.blp:29 src/window.blp:60
 msgid "Main Menu"
-msgstr ""
+msgstr "ப்ளே பட்டியல்"
 
 #: src/window.blp:73
 msgid "Refresh"
-msgstr ""
+msgstr "புதுப்பிப்பு"
 
 #: src/window.blp:91
 msgid "Automatic refresh is disabled"
-msgstr ""
+msgstr "தானியங்கி புதுப்பித்தல் முடக்கப்பட்டுள்ளது"
 
 #: src/window.blp:92
 msgid "Enable"
-msgstr ""
+msgstr "இயக்கு"
 
 #: src/window.blp:99
 msgid "No Wallpaper Selected"
-msgstr ""
+msgstr "வால்பேப்பர் எதுவும் தேர்ந்தெடுக்கப்படவில்லை"
 
 #: src/window.blp:100
 msgid "Choose a source to get background images."
-msgstr ""
+msgstr "பின்னணி படங்களைப் பெற ஒரு மூலத்தைத் தேர்ந்தெடுக்கவும்."
 
 #: src/window.blp:113
 msgid "Refresh automatically"
-msgstr ""
+msgstr "தானாகவே புதுப்பிக்கவும்"
 
 #: src/window.blp:119
 msgid "_Preferences"
-msgstr ""
+msgstr "விருப்பங்கள்"
 
 #: src/window.blp:124
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "விசைப்பலகை குறுக்குவழிகள்"
 
 #: src/window.blp:129
 msgid "_About Damask"
-msgstr ""
+msgstr "_டமாச்க் பற்றி"
 
 #: src/window.blp:134
 msgid "_Quit"
-msgstr ""
+msgstr "_விடு"
 
 #: src/window.vala:140
 #, c-format
 msgid "Unable to open URL: %s"
-msgstr ""
+msgstr "முகவரி ஐ திறக்க முடியவில்லை: %s"
 
 #: src/sources/apod.vala:47
 msgid "NASA Astronomy"
-msgstr ""
+msgstr "நாசா வானியல்"
 
 #: src/sources/apod.vala:92 src/sources/earthview.vala:90
 #, c-format
 msgid "Failed to get image: %s"
-msgstr ""
+msgstr "படங்களைப் பெற முடியவில்லை"
 
 #: src/sources/bing.blp:13
 msgid "Market"
-msgstr ""
+msgstr "சந்தை"
 
 #: src/sources/bing.blp:17
 msgid "English (United States)"
-msgstr ""
+msgstr "ஆங்கிலம் (ஐக்கிய அமெரிக்க)"
 
 #: src/sources/bing.blp:18
 msgid "Chinese (Simplified)"
-msgstr ""
+msgstr "சீன (எளிமைப்படுத்தப்பட்ட)"
 
 #: src/sources/bing.blp:19
 msgid "Japanese (Japan)"
-msgstr ""
+msgstr "சப்பானிய (சப்பான்)"
 
 #: src/sources/bing.blp:20
 msgid "English (Australia)"
-msgstr ""
+msgstr "ஆங்கிலம் (ஆச்திரேலியா)"
 
 #: src/sources/bing.blp:21
 msgid "English (United Kingdom)"
-msgstr ""
+msgstr "ஆங்கிலம் (ஐக்கிய முடியரசு)"
 
 #: src/sources/bing.blp:22
 msgid "German (Germany)"
-msgstr ""
+msgstr "செர்மன் (செர்மனி)"
 
 #: src/sources/bing.blp:23
 msgid "English (New Zealand)"
-msgstr ""
+msgstr "ஆங்கிலம் (நியூசிலாந்து)"
 
 #: src/sources/bing.blp:24
 msgid "English (Canada)"
-msgstr ""
+msgstr "ஆங்கிலம் (கனடா)"
 
 #: src/sources/bing.blp:25
 msgid "English (India)"
-msgstr ""
+msgstr "ஆங்கிலம் (இந்தியா)"
 
 #: src/sources/bing.blp:26
 msgid "French (France)"
-msgstr ""
+msgstr "பிரஞ்சு (பிரான்ச்)"
 
 #: src/sources/bing.blp:27
 msgid "French (Canada)"
-msgstr ""
+msgstr "பிரஞ்சு (கனடா)"
 
 #: src/sources/bing.blp:33
 msgid "Resolution"
-msgstr ""
+msgstr "பகுத்தல்"
 
 #: src/sources/bing.vala:56
 msgid "Bing Wallpaper"
-msgstr ""
+msgstr "பிங் வால்பேப்பர்"
 
 #: src/sources/bing.vala:92 src/sources/unsplash.vala:106
 #: src/sources/wallhaven.vala:292
 #, c-format
 msgid "Failed to get wallpaper: %s"
-msgstr ""
+msgstr "வால்பேப்பரைப் பெறுவதில் தோல்வி: %s"
 
 #: src/sources/earthview.blp:13 src/sources/slideshow.blp:24
 #: src/sources/wallhaven.blp:68
 msgid "Sort By"
-msgstr ""
+msgstr "வரிசைப்படுத்து"
 
 #: src/sources/earthview.blp:16 src/sources/slideshow.blp:27
 #: src/sources/wallhaven.blp:74
 msgid "Random"
-msgstr ""
+msgstr "சீரற்ற"
 
 #: src/sources/earthview.blp:17
 msgid "Sequential"
-msgstr ""
+msgstr "வரிசைமுறை"
 
 #: src/sources/slideshow.blp:13
 msgid "Choose Folder"
-msgstr ""
+msgstr "கோப்புறையைத் தேர்ந்தெடுக்கவும்"
 
 #: src/sources/slideshow.blp:28
 msgid "Name"
-msgstr ""
+msgstr "பெயர்"
 
 #: src/sources/slideshow.blp:29
 msgid "Creation Date"
-msgstr ""
+msgstr "உருவாக்கிய தேதி"
 
 #: src/sources/slideshow.vala:43
 msgid "Slideshow"
-msgstr ""
+msgstr "ச்லைடுசோ"
 
 #: src/sources/slideshow.vala:117
 #, c-format
 msgid "Failed to get folder contents: %s"
-msgstr ""
+msgstr "கோப்புறை உள்ளடக்கங்களைப் பெறுவதில் தோல்வி: %s"
 
 #: src/sources/slideshow.vala:152
 #, c-format
 msgid "Unable to watch folder for changes: %s"
-msgstr ""
+msgstr "மாற்றங்களுக்கான கோப்புறையைப் பார்க்க முடியவில்லை: %s"
 
 #: src/sources/slideshow.vala:180
 msgid "Select Folder"
-msgstr ""
+msgstr "கோப்புறையைத் தேர்ந்தெடு"
 
 #: src/sources/unsplash.blp:13 src/sources/wallhaven.blp:27
 #: src/sources/wallhaven.blp:35
 msgid "Query"
-msgstr ""
+msgstr "வினவு"
 
 #: src/sources/unsplash.blp:14
 msgid "Limit selection to photos matching a search term"
-msgstr ""
+msgstr "ஒரு தேடல் சொல்லுடன் பொருந்தக்கூடிய படங்களுக்குத் தேர்வை வரம்பிடவும்"
 
 #: src/sources/unsplash.blp:18 src/sources/wallhaven.blp:59
 msgid "Collections"
-msgstr ""
+msgstr "தொகுப்புகள்"
 
 #: src/sources/unsplash.blp:19
 msgid "Public collection IDs to filter selection (comma-separated)"
-msgstr ""
+msgstr "தேர்வை வடிகட்ட பொது சேகரிப்பு ஐடிகள் (காற்புள்ளியால் பிரிக்கப்பட்டது)"
 
 #: src/sources/unsplash.blp:23
 msgid "Topics"
-msgstr ""
+msgstr "தலைப்புகள்"
 
 #: src/sources/unsplash.blp:24
 msgid "Public topic IDs to filter selection (comma-separated)"
-msgstr ""
+msgstr "தேர்வை வடிகட்ட பொது தலைப்பு ஐடிகள் (கமாவால் பிரிக்கப்பட்டது)"
 
 #: src/sources/unsplash.blp:28
 msgid "Content Filter"
-msgstr ""
+msgstr "உள்ளடக்க வடிகட்டி"
 
 #: src/sources/unsplash.blp:32
 msgid "Low"
-msgstr ""
+msgstr "குறைந்த"
 
 #: src/sources/unsplash.blp:33
 msgid "High"
-msgstr ""
+msgstr "உயர்"
 
 #: src/sources/unsplash.vala:102
 #, c-format
@@ -363,6 +367,9 @@ msgid ""
 "<a href=\"https://unsplash.com/?utm_source=damask&amp;"
 "utm_medium=referral\">Unsplash</a>."
 msgstr ""
+"<a href=\"https://unsplash.com/?utm_source=damask&amp;utm_medium=referral\">"
+"Unsplash</a> இல் <a href=\"%s?utm_source=damask&amp;utm_medium=referral\">%s</"
+"a> எடுத்த படம்."
 
 #: src/sources/wallhaven.blp:12
 msgid ""
@@ -370,195 +377,198 @@ msgid ""
 "sensitive content. An API key can be generated by visiting <a href=\"https://"
 "wallhaven.cc/settings/account\">wallhaven.cc</a>."
 msgstr ""
+"தனிப்பட்ட சேகரிப்புகள் மற்றும் பிற முக்கிய உள்ளடக்கத்தை அணுக தனிப்பட்ட பநிஇ விசை தேவை. "
+"<a href=\"https://wallhaven.cc/settings/account\">wallhaven.cc</a> ஐப் "
+"பார்வையிடுவதன் மூலம் பநிஇ விசையை உருவாக்கலாம்."
 
 #: src/sources/wallhaven.blp:19
 msgid "API Key"
-msgstr ""
+msgstr "பநிஇ விசை"
 
 #: src/sources/wallhaven.blp:24
 msgid "Search"
-msgstr ""
+msgstr "தேடல்"
 
 #: src/sources/wallhaven.blp:47
 msgid "Collection"
-msgstr ""
+msgstr "சேகரிப்பு"
 
 #: src/sources/wallhaven.blp:55
 msgid "Username"
-msgstr ""
+msgstr "பயனர் பெயர்"
 
 #: src/sources/wallhaven.blp:65
 msgid "Sorting"
-msgstr ""
+msgstr "வரிசைப்படுத்துதல்"
 
 #: src/sources/wallhaven.blp:72
 msgid "Date Added"
-msgstr ""
+msgstr "தேதி சேர்க்கப்பட்டது"
 
 #: src/sources/wallhaven.blp:73
 msgid "Relevance"
-msgstr ""
+msgstr "தொடர்பு"
 
 #: src/sources/wallhaven.blp:75
 msgid "Views"
-msgstr ""
+msgstr "காட்சிகள்"
 
 #: src/sources/wallhaven.blp:76
 msgid "Favorites"
-msgstr ""
+msgstr "பிடித்தவை"
 
 #: src/sources/wallhaven.blp:77
 msgid "Top List"
-msgstr ""
+msgstr "சிறந்த பட்டியல்"
 
 #: src/sources/wallhaven.blp:83
 msgid "Sort Order"
-msgstr ""
+msgstr "வரிசைப்படுத்தும் முறை"
 
 #: src/sources/wallhaven.blp:87
 msgid "Ascending"
-msgstr ""
+msgstr "ஏறுதல்"
 
 #: src/sources/wallhaven.blp:88
 msgid "Descending"
-msgstr ""
+msgstr "இறங்கு"
 
 #: src/sources/wallhaven.blp:94
 msgid "Top List Range"
-msgstr ""
+msgstr "சிறந்த பட்டியல் வரம்பு"
 
 #: src/sources/wallhaven.blp:98
 msgid "One Day"
-msgstr ""
+msgstr "ஒரு நாள்"
 
 #: src/sources/wallhaven.blp:99
 msgid "Three Days"
-msgstr ""
+msgstr "மூன்று நாட்கள்"
 
 #: src/sources/wallhaven.blp:100
 msgid "One Week"
-msgstr ""
+msgstr "ஒரு வாரம்"
 
 #: src/sources/wallhaven.blp:101
 msgid "One Month"
-msgstr ""
+msgstr "ஒரு மாதம்"
 
 #: src/sources/wallhaven.blp:102
 msgid "Three Months"
-msgstr ""
+msgstr "மூன்று மாதங்கள்"
 
 #: src/sources/wallhaven.blp:103
 msgid "Six Months"
-msgstr ""
+msgstr "ஆறு மாதங்கள்"
 
 #: src/sources/wallhaven.blp:104
 msgid "One Year"
-msgstr ""
+msgstr "ஒரு வருடம்"
 
 #: src/sources/wallhaven.blp:111
 msgid "Filtering"
-msgstr ""
+msgstr "வடிகட்டுதல்"
 
 #: src/sources/wallhaven.blp:114
 msgid "Color"
-msgstr ""
+msgstr "நிறம்"
 
 #: src/sources/wallhaven.blp:127
 msgid "Categories"
-msgstr ""
+msgstr "வகைகள்"
 
 #: src/sources/wallhaven.blp:134
 msgid "Anime"
-msgstr ""
+msgstr "அசையும்"
 
 #: src/sources/wallhaven.blp:138
 msgid "People"
-msgstr ""
+msgstr "மக்கள்"
 
 #: src/sources/wallhaven.blp:143
 msgid "Purity"
-msgstr ""
+msgstr "தூய்மை"
 
 #: src/sources/wallhaven.blp:146
 msgid "Safe for Work"
-msgstr ""
+msgstr "வேலைக்கு பாதுகாப்பானது"
 
 #: src/sources/wallhaven.blp:150
 msgid "Sketchy"
-msgstr ""
+msgstr "திட்டவட்டமான"
 
 #: src/sources/wallhaven.blp:154
 msgid "Not Safe for Work"
-msgstr ""
+msgstr "வேலைக்கு பாதுகாப்பானது அல்ல"
 
 #: src/sources/wallhaven.blp:155
 msgid "An API key is required to access not safe for work content"
-msgstr ""
+msgstr "பாதுகாப்பற்ற பணி உள்ளடக்கத்தை அணுக பநிஇ விசை தேவை"
 
 #: src/sources/wallhaven.vala:118
 msgid "Wallhaven"
-msgstr ""
+msgstr "வால்ஏவன்"
 
 #: src/sources/wallhaven.vala:444
 msgid "<tt>tagname</tt>"
-msgstr ""
+msgstr "<tt>டேக்நேம்</tt>"
 
 #: src/sources/wallhaven.vala:444
 msgid "search fuzzily for a tag/keyword"
-msgstr ""
+msgstr "ஒரு குறிச்சொல்/திறவுச்சொல்லை தெளிவற்ற முறையில் தேடுங்கள்"
 
 #: src/sources/wallhaven.vala:445
 msgid "<tt>-tagname</tt>"
-msgstr ""
+msgstr "<tt>-டேக்நேம்</tt>"
 
 #: src/sources/wallhaven.vala:445
 msgid "exclude a tag/keyword"
-msgstr ""
+msgstr "குறிச்சொல்/திறவுச்சொல்லை விலக்கு"
 
 #: src/sources/wallhaven.vala:446
 msgid "<tt>+tag1 +tag2</tt>"
-msgstr ""
+msgstr "<tt>+tag1 +tag2</tt>"
 
 #: src/sources/wallhaven.vala:446
 msgid "must have tag1 and tag2"
-msgstr ""
+msgstr "tag1 மற்றும் tag2 இருக்க வேண்டும்"
 
 #: src/sources/wallhaven.vala:447
 msgid "<tt>+tag1 -tag2</tt>"
-msgstr ""
+msgstr "<tt>+tag1 -tag2</tt>"
 
 #: src/sources/wallhaven.vala:447
 msgid "must have tag1 and NOT tag2"
-msgstr ""
+msgstr "tag1 இருக்க வேண்டும் மற்றும் tag2 இல்லை"
 
 #: src/sources/wallhaven.vala:448
 msgid "<tt>@username</tt>"
-msgstr ""
+msgstr "<tt>@பயனர்பெயர்</tt>"
 
 #: src/sources/wallhaven.vala:448
 msgid "user uploads"
-msgstr ""
+msgstr "பயனர் பதிவேற்றங்கள்"
 
 #: src/sources/wallhaven.vala:449
 msgid "<tt>id:123</tt>"
-msgstr ""
+msgstr "<tt>id:123</tt>"
 
 #: src/sources/wallhaven.vala:449
 msgid "Exact tag search (can not be combined)"
-msgstr ""
+msgstr "சரியான குறிச்சொல் தேடல் (இணைக்க முடியாது)"
 
 #: src/sources/wallhaven.vala:450
 msgid "<tt>type:{png/jpg}</tt>"
-msgstr ""
+msgstr "<tt>வகை:{png/jpg}</tt>"
 
 #: src/sources/wallhaven.vala:450
 msgid "Search for file type (jpg = jpeg)"
-msgstr ""
+msgstr "கோப்பு வகையைத் தேடுங்கள் (jpg = jpeg)"
 
 #: src/sources/wallhaven.vala:451
 msgid "<tt>like:wallpaper ID</tt>"
-msgstr ""
+msgstr "<tt>போன்ற:வால்பேப்பர் ஐடி</tt>"
 
 #: src/sources/wallhaven.vala:451
 msgid "Find wallpapers with similar tags"
-msgstr ""
+msgstr "ஒத்த குறிச்சொற்களைக் கொண்ட வால்பேப்பர்களைக் கண்டறியவும்"
